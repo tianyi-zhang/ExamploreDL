@@ -13,24 +13,17 @@ class My_network():
 		output = tf.nn.relu(output)
 		return output
 
-	def cnn_net(self, input, c):
-		if c == 0:
-			output = tf.nn.conv2d(input, 1, 2, 'SAME')
-			output = self.cnn_cell(output)
-		elif c == 1:
-			output = tf.nn.conv2d(input, 12, 2, 'SAME')
-			output = self.cnn_cell(output)
-			output = tf.nn.conv2d(output, 22, 2, 'SAME')
+	def cnn_net(self, input):
+		output = tf.nn.conv2d(input, 1, 2, 'SAME')
+		output = self.cnn_cell(output)
+		output = tf.nn.conv2d(input, 12, 2, 'SAME')
+		output = self.cnn_cell(output)
+		output = tf.nn.conv2d(output, 22, 2, 'SAME')
 		return output
+
 if __name__ == "__main__":
 	net = My_network()
-	i = 0
-	if i == 0:
-		cnn = net.cnn_net(np.array([[0,1,1],
-		                             [1,1,1],
-		                             [1,2,1]]), 1)
-	else:
-		cnn = net.cnn_cell(np.array([[0, 1, 1],
-		                            [1, 1, 1],
-		                            [1, 2, 1]]))
+	cnn = net.cnn_net(np.array([[0,1,1],
+	                             [1,1,1],
+	                             [1,2,1]]))
 

@@ -2,7 +2,6 @@ from ast import parse
 from ast2json import ast2json
 from traverse import traverse_py
 import json
-import math
 
 class traverse_dic():
 
@@ -23,25 +22,35 @@ class traverse_dic():
         ]
         """
         self.def_func_rely = {} # {'def_1': ['def_2'], 'def_2': []}
-        self.net_type = {'tf.nn.conv2d': {'layer': 'conv2d', 'args': ['input', 'filters', 'strides', 'padding']},
+        self.net_type = {'type': {'cnn':{'tf.nn.conv2d': {'layer': 'conv2d', 'args': ['input', 'filters', 'strides', 'padding']},
                          'tf.keras.layers.MaxPool2D': {'layer': 'maxpool', 'args': ['pool_size', 'strides', 'padding']},
-                         'tf.nn.max_pool': {'layer': 'maxpool', 'args': ['input', 'ksize', 'strides', 'padding']},
-                         # cv
-                         # nlp
-                         'tf.nn.relu': {'layer': 'relu', 'args': ['features']},
+                         'tf.nn.max_pool': {'layer': 'maxpool', 'args': ['input', 'ksize', 'strides', 'padding']}}
+                         # cnn
+                         # rnn
+                                  },
+                         'act_func': {'relu': {'tf.nn.relu': {'layer': 'relu', 'args': ['features']},
                          'tf.keras.activations.relu': {'layer': 'relu', 'args': ['x']},
-                         'tf.keras.layers.ReLU': {'layer': 'relu', 'args': []},
+                         'tf.keras.layers.ReLU': {'layer': 'relu', 'args': []}
+                                               }
+                                      } ,
                          # activation function
-                         'tf.keras.layers.Attention': {'layer': 'attention', 'args': []},
+                         'tricks': {'attention': {'tf.keras.layers.Attention': {'layer': 'attention', 'args': []}},
                          # attention
-                         'tf.nn.dropout': {'layer': 'dropout', 'args': ['x', 'rate']},
+                         'dropout': {'tf.nn.dropout': {'layer': 'dropout', 'args': ['x', 'rate']},
                          'tf.keras.layers.Dropout': {'layer': 'dropout', 'args': ['rate']},
-                         'tf.compat.v1.nn.dropout': {'layer': 'dropout', 'args': ['x']}
+                         'tf.compat.v1.nn.dropout': {'layer': 'dropout', 'args': ['x']}}
                          # dropout
+                              }
                          }
+        self.net_li = []
+        for cat in self.net_type.keys():
+            for type in self.net_type[cat]:
+                self.net_li += list(self.net_type[cat][type].keys())
         # TODO add more
         self.models = {}
         self.layers = {}
+        self.tricks = []
+        self.type = []
         """
         "layer_1": {
           "type": "CNN",
@@ -55,7 +64,6 @@ class traverse_dic():
           "end": "~/Desktop/R/cnn/cnn.py, line: 28"
         }
         """
-        self.traverse_files()
 
     def gener_json(self, dir):
         ast = ast2json(parse(open(dir).read()))
@@ -151,7 +159,7 @@ class traverse_dic():
         create self.def_func_rely: ['def_func1':[], 'def_func2':['def_func1']]
         :return:
         """
-        net_li = list(self.net_type.keys())
+        net_li = self.net_li
         def_li = list(self.func_def.keys())
         for def_func in self.func_def.keys():
             self.def_func_rely[def_func] = []
@@ -161,6 +169,9 @@ class traverse_dic():
             self.func_def[def_func]['body'] = self.traverse_if_body(def_func, body, net_li, def_li)
 
     def traverse_files(self):
+        self.models = {"num_models": 1, "1": {}}
+        model_li = []
+        first_model = {}
         dir_list = traverse_py(self.path)
         dic_li = []
         for j in dir_list:
@@ -176,11 +187,18 @@ class traverse_dic():
                     self.traverse_class_def(body, i) # inside the class, there are many def_funcs
         self.create_def_func_rely()
         self.traverse_safe_func()
-
         for dic in dic_li:
             self.traverse_module(dic)
-        for layer in self.layers.keys():
-            print(layer, ':\n ', self.layers[layer])
+
+        first_model["type"] = self.type
+        first_model["num_layers"] = len(self.layers)
+        first_model['tricks'] = self.tricks
+        first_model['layers'] = self.layers
+        model_li.append(first_model)
+        self.models['num_models'] = len(model_li)
+        for i in range(1,len(model_li)+1):
+            self.models[str(i)] = model_li[i-1]
+        return self.models
 
     def get_num_layer(self, body: list):
         layer_num = 0
@@ -346,18 +364,20 @@ class traverse_dic():
         :return: {'func': func_name, 'args': {}, 'layer': '', 'body': [], 'lineno': lineno}
         """
         func_detail_dic = {'func': func_name, 'args': {}, 'layer': '', 'body': [], 'lineno': lineno}
-        for func_kw in self.net_type.keys():
-            if func_kw.find(func_name) != -1:  # TODO modify in case of (from tf.nn import conv2d).
-                func_detail_dic['body'] = []
-                func_detail_dic['layer'] = self.net_type[func_kw]['layer']
-                # fill args:
-                arg_kw_dic = {}
-                for i in range(min(len(arg_kw_list[:-1]), len(self.net_type[func_kw]['args']))):
-                    arg_kw_dic[self.net_type[func_kw]['args'][i]] = arg_kw_list[i]
-                arg_kw_dic.update(arg_kw_list[-1])
-                func_detail_dic['args'] = arg_kw_dic
-                return func_detail_dic
-        return func_detail_dic
+        for cat in self.net_type.keys():
+            for type in self.net_type[cat].keys():
+                for func_kw in self.net_type[cat][type]:
+                    if func_kw.find(func_name) != -1:
+                        func_detail_dic['body'] = []
+                        func_detail_dic['layer'] = self.net_type[cat][type][func_kw]['layer']
+                        # fill args:
+                        arg_kw_dic = {}
+                        for i in range(min(len(arg_kw_list[:-1]), len(self.net_type[cat][type][func_kw]['args']))):
+                            arg_kw_dic[self.net_type[cat][type][func_kw]['args'][i]] = arg_kw_list[i]
+                        arg_kw_dic.update(arg_kw_list[-1])
+                        func_detail_dic['args'] = arg_kw_dic
+                        return func_detail_dic, cat, type
+        return func_detail_dic, '', ''
 
     def traverse_list(self, arg):
         if isinstance(arg, dict):
@@ -435,14 +455,14 @@ class traverse_dic():
         arg_kw_list.append(kw_dic)
 
         if traverse_flag[0] == 1:
-            result = self.traverse_net(func_name, lineno, arg_kw_list)
+            result, cat, type = self.traverse_net(func_name, lineno, arg_kw_list)
             return result
 
         else:
             # traverse_flag[0] == 0
             if return_flag:
                 # find in the target functions.
-                result = self.traverse_net(func_name, lineno, arg_kw_list)
+                result, cat, type = self.traverse_net(func_name, lineno, arg_kw_list)
                 # {'func': func_name, 'args': {}, 'layer': '', 'body': [], 'lineno': lineno}
                 if result['layer']:
                     return result
@@ -456,7 +476,7 @@ class traverse_dic():
                 # add layers
                 count = len(list(self.layers.keys()))
                 layer_name = 'layer' + str(count)
-                result = self.traverse_net(func_name, lineno, arg_kw_list)
+                result, cat, type = self.traverse_net(func_name, lineno, arg_kw_list)
                 # {'func': func_name, 'args': {}, 'layer': '', 'body': [], 'lineno': lineno}
                 if result['layer']:
                     layer_dic['type'] = result['layer']
@@ -464,6 +484,11 @@ class traverse_dic():
                     layer_dic['args'] = result['args']
                     layer_dic['begin'] = result['lineno']
                     self.layers[layer_name] = layer_dic
+                    if type:
+                        if type not in self.type and cat not in ['tricks', 'act_func']:
+                            self.type.append(type)
+                        elif cat == 'tricks' and type not in self.tricks:
+                            self.tricks.append(type)
                     return
                 else:
                     for func_def in self.func_def.keys():
@@ -477,7 +502,7 @@ class traverse_dic():
                                 layer_name = 'layer' + str(count)
                                 # each function in the body should be a target function:
                                 # body: {'func': 'func_name', 'args': [], 'layer': '', 'body': [], 'lineno': 23}
-                                if body['func'] in self.net_type.keys():
+                                if body['func'] in self.net_li:
                                     layer_dic['type'] = body['layer']
                                     layer_dic['func'] = body['func']
                                     layer_dic['args'] = body['args']
@@ -518,7 +543,6 @@ class traverse_dic():
     def traverse_branch(self, branch: dict, traverse_flag, var_dic, return_flag):
         ju_li = []
         num_branch = 0
-        print(branch)
         ju_li.append(self.traverse_cell(branch['body'], traverse_flag, var_dic, return_flag))
         if 'orelse' in branch.keys() and branch['orelse']:
             next_branch = branch['orelse'][0]
@@ -629,8 +653,3 @@ class traverse_dic():
                 self.traverse_assign(body, traverse_flag, var_dic, return_flag)
             elif body['_type'] == 'Expr':
                 self.traverse_expr(body['value'], traverse_flag, var_dic, return_flag)
-
-if __name__ == "__main__":
-
-    dic = '/Users/mac/Desktop/R/backen/seq_test/test_folder'
-    t = traverse_dic(dic)
