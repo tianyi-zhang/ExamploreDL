@@ -7,6 +7,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1YzwvfzZNacIRkHYEK99U3zcua7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -19,7 +26,29 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.test_json">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="seq_test" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="seq_test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -66,6 +95,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.test_json" />
         <item itemvalue="Python.test" />
       </list>
@@ -86,6 +116,7 @@
       <workItem from="1584107068035" duration="13312000" />
       <workItem from="1584135061030" duration="28880000" />
       <workItem from="1584171421194" duration="1034000" />
+      <workItem from="1584236326823" duration="4529000" />
     </task>
     <servers />
   </component>
@@ -93,22 +124,22 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1238" height="176" key="GridCell.Tab.0.bottom" timestamp="1584172457680">
+    <state width="1238" height="250" key="GridCell.Tab.0.bottom" timestamp="1584240927799">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="176" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1584172457680" />
-    <state width="1238" height="176" key="GridCell.Tab.0.center" timestamp="1584172457679">
+    <state width="1238" height="250" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1584240927799" />
+    <state width="1238" height="250" key="GridCell.Tab.0.center" timestamp="1584240927798">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="176" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1584172457679" />
-    <state width="1238" height="176" key="GridCell.Tab.0.left" timestamp="1584172457678">
+    <state width="1238" height="250" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1584240927798" />
+    <state width="1238" height="250" key="GridCell.Tab.0.left" timestamp="1584240927798">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="176" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1584172457678" />
-    <state width="1238" height="176" key="GridCell.Tab.0.right" timestamp="1584172457679">
+    <state width="1238" height="250" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1584240927798" />
+    <state width="1238" height="250" key="GridCell.Tab.0.right" timestamp="1584240927799">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="176" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1584172457679" />
+    <state width="1238" height="250" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1584240927799" />
     <state width="1238" height="254" key="GridCell.Tab.1.bottom" timestamp="1584171310057">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -143,7 +174,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_json.py</url>
-          <line>623</line>
+          <line>647</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
@@ -158,6 +189,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/seq_test$test_json.coverage" NAME="test_json Coverage Results" MODIFIED="1584172393527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/code_analysis$main.coverage" NAME="main Coverage Results" MODIFIED="1584240880022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/code_analysis$test_json.coverage" NAME="test_json Coverage Results" MODIFIED="1584238235290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/seq_test$test.coverage" NAME="test Coverage Results" MODIFIED="1583981585400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_folder" />
   </component>
 </project>
