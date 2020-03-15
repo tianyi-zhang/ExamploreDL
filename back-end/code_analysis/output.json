@@ -1,0 +1,1292 @@
+{
+    "_type": "Module",
+    "body": [
+        {
+            "_type": "Import",
+            "col_offset": 0,
+            "lineno": 1,
+            "names": [
+                {
+                    "_type": "alias",
+                    "asname": "np",
+                    "name": "numpy"
+                }
+            ]
+        },
+        {
+            "_type": "Import",
+            "col_offset": 0,
+            "lineno": 2,
+            "names": [
+                {
+                    "_type": "alias",
+                    "asname": "tf",
+                    "name": "tensorflow"
+                }
+            ]
+        },
+        {
+            "_type": "ClassDef",
+            "bases": [],
+            "body": [
+                {
+                    "_type": "FunctionDef",
+                    "args": {
+                        "_type": "arguments",
+                        "args": [
+                            {
+                                "_type": "arg",
+                                "annotation": null,
+                                "arg": "self",
+                                "col_offset": 14,
+                                "lineno": 6
+                            }
+                        ],
+                        "defaults": [],
+                        "kw_defaults": [],
+                        "kwarg": null,
+                        "kwonlyargs": [],
+                        "vararg": null
+                    },
+                    "body": [
+                        {
+                            "_type": "Assign",
+                            "col_offset": 2,
+                            "lineno": 7,
+                            "targets": [
+                                {
+                                    "_type": "Name",
+                                    "col_offset": 2,
+                                    "ctx": {
+                                        "_type": "Store"
+                                    },
+                                    "id": "lr",
+                                    "lineno": 7
+                                }
+                            ],
+                            "value": {
+                                "_type": "Num",
+                                "col_offset": 7,
+                                "lineno": 7,
+                                "n": 0.01
+                            }
+                        },
+                        {
+                            "_type": "Assign",
+                            "col_offset": 2,
+                            "lineno": 8,
+                            "targets": [
+                                {
+                                    "_type": "Name",
+                                    "col_offset": 2,
+                                    "ctx": {
+                                        "_type": "Store"
+                                    },
+                                    "id": "batch",
+                                    "lineno": 8
+                                }
+                            ],
+                            "value": {
+                                "_type": "Num",
+                                "col_offset": 10,
+                                "lineno": 8,
+                                "n": 128
+                            }
+                        }
+                    ],
+                    "col_offset": 1,
+                    "decorator_list": [],
+                    "lineno": 6,
+                    "name": "__init__",
+                    "returns": null
+                },
+                {
+                    "_type": "FunctionDef",
+                    "args": {
+                        "_type": "arguments",
+                        "args": [
+                            {
+                                "_type": "arg",
+                                "annotation": null,
+                                "arg": "self",
+                                "col_offset": 14,
+                                "lineno": 10
+                            },
+                            {
+                                "_type": "arg",
+                                "annotation": null,
+                                "arg": "input",
+                                "col_offset": 20,
+                                "lineno": 10
+                            }
+                        ],
+                        "defaults": [],
+                        "kw_defaults": [],
+                        "kwarg": null,
+                        "kwonlyargs": [],
+                        "vararg": null
+                    },
+                    "body": [
+                        {
+                            "_type": "Assign",
+                            "col_offset": 2,
+                            "lineno": 11,
+                            "targets": [
+                                {
+                                    "_type": "Name",
+                                    "col_offset": 2,
+                                    "ctx": {
+                                        "_type": "Store"
+                                    },
+                                    "id": "output",
+                                    "lineno": 11
+                                }
+                            ],
+                            "value": {
+                                "_type": "Call",
+                                "args": [
+                                    {
+                                        "_type": "Name",
+                                        "col_offset": 24,
+                                        "ctx": {
+                                            "_type": "Load"
+                                        },
+                                        "id": "input",
+                                        "lineno": 11
+                                    },
+                                    {
+                                        "_type": "Num",
+                                        "col_offset": 31,
+                                        "lineno": 11,
+                                        "n": 3
+                                    },
+                                    {
+                                        "_type": "Num",
+                                        "col_offset": 34,
+                                        "lineno": 11,
+                                        "n": 2
+                                    },
+                                    {
+                                        "_type": "Str",
+                                        "col_offset": 37,
+                                        "lineno": 11,
+                                        "s": "SAME"
+                                    }
+                                ],
+                                "col_offset": 11,
+                                "func": {
+                                    "_type": "Attribute",
+                                    "attr": "conv2d",
+                                    "col_offset": 11,
+                                    "ctx": {
+                                        "_type": "Load"
+                                    },
+                                    "lineno": 11,
+                                    "value": {
+                                        "_type": "Attribute",
+                                        "attr": "nn",
+                                        "col_offset": 11,
+                                        "ctx": {
+                                            "_type": "Load"
+                                        },
+                                        "lineno": 11,
+                                        "value": {
+                                            "_type": "Name",
+                                            "col_offset": 11,
+                                            "ctx": {
+                                                "_type": "Load"
+                                            },
+                                            "id": "tf",
+                                            "lineno": 11
+                                        }
+                                    }
+                                },
+                                "keywords": [],
+                                "lineno": 11
+                            }
+                        },
+                        {
+                            "_type": "Assign",
+                            "col_offset": 2,
+                            "lineno": 12,
+                            "targets": [
+                                {
+                                    "_type": "Name",
+                                    "col_offset": 2,
+                                    "ctx": {
+                                        "_type": "Store"
+                                    },
+                                    "id": "output",
+                                    "lineno": 12
+                                }
+                            ],
+                            "value": {
+                                "_type": "Call",
+                                "args": [
+                                    {
+                                        "_type": "Name",
+                                        "col_offset": 26,
+                                        "ctx": {
+                                            "_type": "Load"
+                                        },
+                                        "id": "output",
+                                        "lineno": 12
+                                    },
+                                    {
+                                        "_type": "Num",
+                                        "col_offset": 34,
+                                        "lineno": 12,
+                                        "n": 3
+                                    },
+                                    {
+                                        "_type": "Num",
+                                        "col_offset": 37,
+                                        "lineno": 12,
+                                        "n": 2
+                                    },
+                                    {
+                                        "_type": "Str",
+                                        "col_offset": 40,
+                                        "lineno": 12,
+                                        "s": "SAME"
+                                    }
+                                ],
+                                "col_offset": 11,
+                                "func": {
+                                    "_type": "Attribute",
+                                    "attr": "max_pool",
+                                    "col_offset": 11,
+                                    "ctx": {
+                                        "_type": "Load"
+                                    },
+                                    "lineno": 12,
+                                    "value": {
+                                        "_type": "Attribute",
+                                        "attr": "nn",
+                                        "col_offset": 11,
+                                        "ctx": {
+                                            "_type": "Load"
+                                        },
+                                        "lineno": 12,
+                                        "value": {
+                                            "_type": "Name",
+                                            "col_offset": 11,
+                                            "ctx": {
+                                                "_type": "Load"
+                                            },
+                                            "id": "tf",
+                                            "lineno": 12
+                                        }
+                                    }
+                                },
+                                "keywords": [],
+                                "lineno": 12
+                            }
+                        },
+                        {
+                            "_type": "Assign",
+                            "col_offset": 2,
+                            "lineno": 13,
+                            "targets": [
+                                {
+                                    "_type": "Name",
+                                    "col_offset": 2,
+                                    "ctx": {
+                                        "_type": "Store"
+                                    },
+                                    "id": "output",
+                                    "lineno": 13
+                                }
+                            ],
+                            "value": {
+                                "_type": "Call",
+                                "args": [
+                                    {
+                                        "_type": "Name",
+                                        "col_offset": 22,
+                                        "ctx": {
+                                            "_type": "Load"
+                                        },
+                                        "id": "output",
+                                        "lineno": 13
+                                    }
+                                ],
+                                "col_offset": 11,
+                                "func": {
+                                    "_type": "Attribute",
+                                    "attr": "relu",
+                                    "col_offset": 11,
+                                    "ctx": {
+                                        "_type": "Load"
+                                    },
+                                    "lineno": 13,
+                                    "value": {
+                                        "_type": "Attribute",
+                                        "attr": "nn",
+                                        "col_offset": 11,
+                                        "ctx": {
+                                            "_type": "Load"
+                                        },
+                                        "lineno": 13,
+                                        "value": {
+                                            "_type": "Name",
+                                            "col_offset": 11,
+                                            "ctx": {
+                                                "_type": "Load"
+                                            },
+                                            "id": "tf",
+                                            "lineno": 13
+                                        }
+                                    }
+                                },
+                                "keywords": [],
+                                "lineno": 13
+                            }
+                        },
+                        {
+                            "_type": "Return",
+                            "col_offset": 2,
+                            "lineno": 14,
+                            "value": {
+                                "_type": "Name",
+                                "col_offset": 9,
+                                "ctx": {
+                                    "_type": "Load"
+                                },
+                                "id": "output",
+                                "lineno": 14
+                            }
+                        }
+                    ],
+                    "col_offset": 1,
+                    "decorator_list": [],
+                    "lineno": 10,
+                    "name": "cnn_cell",
+                    "returns": null
+                },
+                {
+                    "_type": "FunctionDef",
+                    "args": {
+                        "_type": "arguments",
+                        "args": [
+                            {
+                                "_type": "arg",
+                                "annotation": null,
+                                "arg": "self",
+                                "col_offset": 13,
+                                "lineno": 16
+                            },
+                            {
+                                "_type": "arg",
+                                "annotation": null,
+                                "arg": "input",
+                                "col_offset": 19,
+                                "lineno": 16
+                            },
+                            {
+                                "_type": "arg",
+                                "annotation": null,
+                                "arg": "c",
+                                "col_offset": 26,
+                                "lineno": 16
+                            }
+                        ],
+                        "defaults": [],
+                        "kw_defaults": [],
+                        "kwarg": null,
+                        "kwonlyargs": [],
+                        "vararg": null
+                    },
+                    "body": [
+                        {
+                            "_type": "If",
+                            "body": [
+                                {
+                                    "_type": "Assign",
+                                    "col_offset": 3,
+                                    "lineno": 18,
+                                    "targets": [
+                                        {
+                                            "_type": "Name",
+                                            "col_offset": 3,
+                                            "ctx": {
+                                                "_type": "Store"
+                                            },
+                                            "id": "output",
+                                            "lineno": 18
+                                        }
+                                    ],
+                                    "value": {
+                                        "_type": "Call",
+                                        "args": [
+                                            {
+                                                "_type": "Name",
+                                                "col_offset": 25,
+                                                "ctx": {
+                                                    "_type": "Load"
+                                                },
+                                                "id": "input",
+                                                "lineno": 18
+                                            },
+                                            {
+                                                "_type": "Num",
+                                                "col_offset": 32,
+                                                "lineno": 18,
+                                                "n": 1
+                                            },
+                                            {
+                                                "_type": "Num",
+                                                "col_offset": 35,
+                                                "lineno": 18,
+                                                "n": 2
+                                            },
+                                            {
+                                                "_type": "Str",
+                                                "col_offset": 38,
+                                                "lineno": 18,
+                                                "s": "SAME"
+                                            }
+                                        ],
+                                        "col_offset": 12,
+                                        "func": {
+                                            "_type": "Attribute",
+                                            "attr": "conv2d",
+                                            "col_offset": 12,
+                                            "ctx": {
+                                                "_type": "Load"
+                                            },
+                                            "lineno": 18,
+                                            "value": {
+                                                "_type": "Attribute",
+                                                "attr": "nn",
+                                                "col_offset": 12,
+                                                "ctx": {
+                                                    "_type": "Load"
+                                                },
+                                                "lineno": 18,
+                                                "value": {
+                                                    "_type": "Name",
+                                                    "col_offset": 12,
+                                                    "ctx": {
+                                                        "_type": "Load"
+                                                    },
+                                                    "id": "tf",
+                                                    "lineno": 18
+                                                }
+                                            }
+                                        },
+                                        "keywords": [],
+                                        "lineno": 18
+                                    }
+                                },
+                                {
+                                    "_type": "Assign",
+                                    "col_offset": 3,
+                                    "lineno": 19,
+                                    "targets": [
+                                        {
+                                            "_type": "Name",
+                                            "col_offset": 3,
+                                            "ctx": {
+                                                "_type": "Store"
+                                            },
+                                            "id": "output",
+                                            "lineno": 19
+                                        }
+                                    ],
+                                    "value": {
+                                        "_type": "Call",
+                                        "args": [
+                                            {
+                                                "_type": "Name",
+                                                "col_offset": 26,
+                                                "ctx": {
+                                                    "_type": "Load"
+                                                },
+                                                "id": "output",
+                                                "lineno": 19
+                                            }
+                                        ],
+                                        "col_offset": 12,
+                                        "func": {
+                                            "_type": "Attribute",
+                                            "attr": "cnn_cell",
+                                            "col_offset": 12,
+                                            "ctx": {
+                                                "_type": "Load"
+                                            },
+                                            "lineno": 19,
+                                            "value": {
+                                                "_type": "Name",
+                                                "col_offset": 12,
+                                                "ctx": {
+                                                    "_type": "Load"
+                                                },
+                                                "id": "self",
+                                                "lineno": 19
+                                            }
+                                        },
+                                        "keywords": [],
+                                        "lineno": 19
+                                    }
+                                }
+                            ],
+                            "col_offset": 2,
+                            "lineno": 17,
+                            "orelse": [
+                                {
+                                    "_type": "If",
+                                    "body": [
+                                        {
+                                            "_type": "Assign",
+                                            "col_offset": 3,
+                                            "lineno": 21,
+                                            "targets": [
+                                                {
+                                                    "_type": "Name",
+                                                    "col_offset": 3,
+                                                    "ctx": {
+                                                        "_type": "Store"
+                                                    },
+                                                    "id": "output",
+                                                    "lineno": 21
+                                                }
+                                            ],
+                                            "value": {
+                                                "_type": "Call",
+                                                "args": [
+                                                    {
+                                                        "_type": "Name",
+                                                        "col_offset": 25,
+                                                        "ctx": {
+                                                            "_type": "Load"
+                                                        },
+                                                        "id": "input",
+                                                        "lineno": 21
+                                                    },
+                                                    {
+                                                        "_type": "Num",
+                                                        "col_offset": 32,
+                                                        "lineno": 21,
+                                                        "n": 12
+                                                    },
+                                                    {
+                                                        "_type": "Num",
+                                                        "col_offset": 36,
+                                                        "lineno": 21,
+                                                        "n": 2
+                                                    },
+                                                    {
+                                                        "_type": "Str",
+                                                        "col_offset": 39,
+                                                        "lineno": 21,
+                                                        "s": "SAME"
+                                                    }
+                                                ],
+                                                "col_offset": 12,
+                                                "func": {
+                                                    "_type": "Attribute",
+                                                    "attr": "conv2d",
+                                                    "col_offset": 12,
+                                                    "ctx": {
+                                                        "_type": "Load"
+                                                    },
+                                                    "lineno": 21,
+                                                    "value": {
+                                                        "_type": "Attribute",
+                                                        "attr": "nn",
+                                                        "col_offset": 12,
+                                                        "ctx": {
+                                                            "_type": "Load"
+                                                        },
+                                                        "lineno": 21,
+                                                        "value": {
+                                                            "_type": "Name",
+                                                            "col_offset": 12,
+                                                            "ctx": {
+                                                                "_type": "Load"
+                                                            },
+                                                            "id": "tf",
+                                                            "lineno": 21
+                                                        }
+                                                    }
+                                                },
+                                                "keywords": [],
+                                                "lineno": 21
+                                            }
+                                        },
+                                        {
+                                            "_type": "Assign",
+                                            "col_offset": 3,
+                                            "lineno": 22,
+                                            "targets": [
+                                                {
+                                                    "_type": "Name",
+                                                    "col_offset": 3,
+                                                    "ctx": {
+                                                        "_type": "Store"
+                                                    },
+                                                    "id": "output",
+                                                    "lineno": 22
+                                                }
+                                            ],
+                                            "value": {
+                                                "_type": "Call",
+                                                "args": [
+                                                    {
+                                                        "_type": "Name",
+                                                        "col_offset": 26,
+                                                        "ctx": {
+                                                            "_type": "Load"
+                                                        },
+                                                        "id": "output",
+                                                        "lineno": 22
+                                                    }
+                                                ],
+                                                "col_offset": 12,
+                                                "func": {
+                                                    "_type": "Attribute",
+                                                    "attr": "cnn_cell",
+                                                    "col_offset": 12,
+                                                    "ctx": {
+                                                        "_type": "Load"
+                                                    },
+                                                    "lineno": 22,
+                                                    "value": {
+                                                        "_type": "Name",
+                                                        "col_offset": 12,
+                                                        "ctx": {
+                                                            "_type": "Load"
+                                                        },
+                                                        "id": "self",
+                                                        "lineno": 22
+                                                    }
+                                                },
+                                                "keywords": [],
+                                                "lineno": 22
+                                            }
+                                        },
+                                        {
+                                            "_type": "Assign",
+                                            "col_offset": 3,
+                                            "lineno": 23,
+                                            "targets": [
+                                                {
+                                                    "_type": "Name",
+                                                    "col_offset": 3,
+                                                    "ctx": {
+                                                        "_type": "Store"
+                                                    },
+                                                    "id": "output",
+                                                    "lineno": 23
+                                                }
+                                            ],
+                                            "value": {
+                                                "_type": "Call",
+                                                "args": [
+                                                    {
+                                                        "_type": "Name",
+                                                        "col_offset": 25,
+                                                        "ctx": {
+                                                            "_type": "Load"
+                                                        },
+                                                        "id": "output",
+                                                        "lineno": 23
+                                                    },
+                                                    {
+                                                        "_type": "Num",
+                                                        "col_offset": 33,
+                                                        "lineno": 23,
+                                                        "n": 22
+                                                    },
+                                                    {
+                                                        "_type": "Num",
+                                                        "col_offset": 37,
+                                                        "lineno": 23,
+                                                        "n": 2
+                                                    },
+                                                    {
+                                                        "_type": "Str",
+                                                        "col_offset": 40,
+                                                        "lineno": 23,
+                                                        "s": "SAME"
+                                                    }
+                                                ],
+                                                "col_offset": 12,
+                                                "func": {
+                                                    "_type": "Attribute",
+                                                    "attr": "conv2d",
+                                                    "col_offset": 12,
+                                                    "ctx": {
+                                                        "_type": "Load"
+                                                    },
+                                                    "lineno": 23,
+                                                    "value": {
+                                                        "_type": "Attribute",
+                                                        "attr": "nn",
+                                                        "col_offset": 12,
+                                                        "ctx": {
+                                                            "_type": "Load"
+                                                        },
+                                                        "lineno": 23,
+                                                        "value": {
+                                                            "_type": "Name",
+                                                            "col_offset": 12,
+                                                            "ctx": {
+                                                                "_type": "Load"
+                                                            },
+                                                            "id": "tf",
+                                                            "lineno": 23
+                                                        }
+                                                    }
+                                                },
+                                                "keywords": [],
+                                                "lineno": 23
+                                            }
+                                        }
+                                    ],
+                                    "col_offset": 7,
+                                    "lineno": 20,
+                                    "orelse": [],
+                                    "test": {
+                                        "_type": "Compare",
+                                        "col_offset": 7,
+                                        "comparators": [
+                                            {
+                                                "_type": "Num",
+                                                "col_offset": 12,
+                                                "lineno": 20,
+                                                "n": 1
+                                            }
+                                        ],
+                                        "left": {
+                                            "_type": "Name",
+                                            "col_offset": 7,
+                                            "ctx": {
+                                                "_type": "Load"
+                                            },
+                                            "id": "c",
+                                            "lineno": 20
+                                        },
+                                        "lineno": 20,
+                                        "ops": [
+                                            {
+                                                "_type": "Eq"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ],
+                            "test": {
+                                "_type": "Compare",
+                                "col_offset": 5,
+                                "comparators": [
+                                    {
+                                        "_type": "Num",
+                                        "col_offset": 10,
+                                        "lineno": 17,
+                                        "n": 0
+                                    }
+                                ],
+                                "left": {
+                                    "_type": "Name",
+                                    "col_offset": 5,
+                                    "ctx": {
+                                        "_type": "Load"
+                                    },
+                                    "id": "c",
+                                    "lineno": 17
+                                },
+                                "lineno": 17,
+                                "ops": [
+                                    {
+                                        "_type": "Eq"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "_type": "Return",
+                            "col_offset": 2,
+                            "lineno": 24,
+                            "value": {
+                                "_type": "Name",
+                                "col_offset": 9,
+                                "ctx": {
+                                    "_type": "Load"
+                                },
+                                "id": "output",
+                                "lineno": 24
+                            }
+                        }
+                    ],
+                    "col_offset": 1,
+                    "decorator_list": [],
+                    "lineno": 16,
+                    "name": "cnn_net",
+                    "returns": null
+                }
+            ],
+            "col_offset": 0,
+            "decorator_list": [],
+            "keywords": [],
+            "lineno": 4,
+            "name": "My_network"
+        },
+        {
+            "_type": "If",
+            "body": [
+                {
+                    "_type": "Assign",
+                    "col_offset": 1,
+                    "lineno": 26,
+                    "targets": [
+                        {
+                            "_type": "Name",
+                            "col_offset": 1,
+                            "ctx": {
+                                "_type": "Store"
+                            },
+                            "id": "net",
+                            "lineno": 26
+                        }
+                    ],
+                    "value": {
+                        "_type": "Call",
+                        "args": [],
+                        "col_offset": 7,
+                        "func": {
+                            "_type": "Name",
+                            "col_offset": 7,
+                            "ctx": {
+                                "_type": "Load"
+                            },
+                            "id": "My_network",
+                            "lineno": 26
+                        },
+                        "keywords": [],
+                        "lineno": 26
+                    }
+                },
+                {
+                    "_type": "Assign",
+                    "col_offset": 1,
+                    "lineno": 27,
+                    "targets": [
+                        {
+                            "_type": "Name",
+                            "col_offset": 1,
+                            "ctx": {
+                                "_type": "Store"
+                            },
+                            "id": "i",
+                            "lineno": 27
+                        }
+                    ],
+                    "value": {
+                        "_type": "Num",
+                        "col_offset": 5,
+                        "lineno": 27,
+                        "n": 0
+                    }
+                },
+                {
+                    "_type": "If",
+                    "body": [
+                        {
+                            "_type": "Assign",
+                            "col_offset": 2,
+                            "lineno": 29,
+                            "targets": [
+                                {
+                                    "_type": "Name",
+                                    "col_offset": 2,
+                                    "ctx": {
+                                        "_type": "Store"
+                                    },
+                                    "id": "cnn",
+                                    "lineno": 29
+                                }
+                            ],
+                            "value": {
+                                "_type": "Call",
+                                "args": [
+                                    {
+                                        "_type": "Call",
+                                        "args": [
+                                            {
+                                                "_type": "List",
+                                                "col_offset": 29,
+                                                "ctx": {
+                                                    "_type": "Load"
+                                                },
+                                                "elts": [
+                                                    {
+                                                        "_type": "List",
+                                                        "col_offset": 30,
+                                                        "ctx": {
+                                                            "_type": "Load"
+                                                        },
+                                                        "elts": [
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 31,
+                                                                "lineno": 29,
+                                                                "n": 0
+                                                            },
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 33,
+                                                                "lineno": 29,
+                                                                "n": 1
+                                                            },
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 35,
+                                                                "lineno": 29,
+                                                                "n": 1
+                                                            }
+                                                        ],
+                                                        "lineno": 29
+                                                    },
+                                                    {
+                                                        "_type": "List",
+                                                        "col_offset": 31,
+                                                        "ctx": {
+                                                            "_type": "Load"
+                                                        },
+                                                        "elts": [
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 32,
+                                                                "lineno": 30,
+                                                                "n": 1
+                                                            },
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 34,
+                                                                "lineno": 30,
+                                                                "n": 1
+                                                            },
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 36,
+                                                                "lineno": 30,
+                                                                "n": 1
+                                                            }
+                                                        ],
+                                                        "lineno": 30
+                                                    },
+                                                    {
+                                                        "_type": "List",
+                                                        "col_offset": 31,
+                                                        "ctx": {
+                                                            "_type": "Load"
+                                                        },
+                                                        "elts": [
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 32,
+                                                                "lineno": 31,
+                                                                "n": 1
+                                                            },
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 34,
+                                                                "lineno": 31,
+                                                                "n": 2
+                                                            },
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 36,
+                                                                "lineno": 31,
+                                                                "n": 1
+                                                            }
+                                                        ],
+                                                        "lineno": 31
+                                                    }
+                                                ],
+                                                "lineno": 29
+                                            }
+                                        ],
+                                        "col_offset": 20,
+                                        "func": {
+                                            "_type": "Attribute",
+                                            "attr": "array",
+                                            "col_offset": 20,
+                                            "ctx": {
+                                                "_type": "Load"
+                                            },
+                                            "lineno": 29,
+                                            "value": {
+                                                "_type": "Name",
+                                                "col_offset": 20,
+                                                "ctx": {
+                                                    "_type": "Load"
+                                                },
+                                                "id": "np",
+                                                "lineno": 29
+                                            }
+                                        },
+                                        "keywords": [],
+                                        "lineno": 29
+                                    },
+                                    {
+                                        "_type": "Num",
+                                        "col_offset": 42,
+                                        "lineno": 31,
+                                        "n": 1
+                                    }
+                                ],
+                                "col_offset": 8,
+                                "func": {
+                                    "_type": "Attribute",
+                                    "attr": "cnn_net",
+                                    "col_offset": 8,
+                                    "ctx": {
+                                        "_type": "Load"
+                                    },
+                                    "lineno": 29,
+                                    "value": {
+                                        "_type": "Name",
+                                        "col_offset": 8,
+                                        "ctx": {
+                                            "_type": "Load"
+                                        },
+                                        "id": "net",
+                                        "lineno": 29
+                                    }
+                                },
+                                "keywords": [],
+                                "lineno": 29
+                            }
+                        }
+                    ],
+                    "col_offset": 1,
+                    "lineno": 28,
+                    "orelse": [
+                        {
+                            "_type": "Assign",
+                            "col_offset": 2,
+                            "lineno": 33,
+                            "targets": [
+                                {
+                                    "_type": "Name",
+                                    "col_offset": 2,
+                                    "ctx": {
+                                        "_type": "Store"
+                                    },
+                                    "id": "cnn",
+                                    "lineno": 33
+                                }
+                            ],
+                            "value": {
+                                "_type": "Call",
+                                "args": [
+                                    {
+                                        "_type": "Call",
+                                        "args": [
+                                            {
+                                                "_type": "List",
+                                                "col_offset": 30,
+                                                "ctx": {
+                                                    "_type": "Load"
+                                                },
+                                                "elts": [
+                                                    {
+                                                        "_type": "List",
+                                                        "col_offset": 31,
+                                                        "ctx": {
+                                                            "_type": "Load"
+                                                        },
+                                                        "elts": [
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 32,
+                                                                "lineno": 33,
+                                                                "n": 0
+                                                            },
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 35,
+                                                                "lineno": 33,
+                                                                "n": 1
+                                                            },
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 38,
+                                                                "lineno": 33,
+                                                                "n": 1
+                                                            }
+                                                        ],
+                                                        "lineno": 33
+                                                    },
+                                                    {
+                                                        "_type": "List",
+                                                        "col_offset": 30,
+                                                        "ctx": {
+                                                            "_type": "Load"
+                                                        },
+                                                        "elts": [
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 31,
+                                                                "lineno": 34,
+                                                                "n": 1
+                                                            },
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 34,
+                                                                "lineno": 34,
+                                                                "n": 1
+                                                            },
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 37,
+                                                                "lineno": 34,
+                                                                "n": 1
+                                                            }
+                                                        ],
+                                                        "lineno": 34
+                                                    },
+                                                    {
+                                                        "_type": "List",
+                                                        "col_offset": 30,
+                                                        "ctx": {
+                                                            "_type": "Load"
+                                                        },
+                                                        "elts": [
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 31,
+                                                                "lineno": 35,
+                                                                "n": 1
+                                                            },
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 34,
+                                                                "lineno": 35,
+                                                                "n": 2
+                                                            },
+                                                            {
+                                                                "_type": "Num",
+                                                                "col_offset": 37,
+                                                                "lineno": 35,
+                                                                "n": 1
+                                                            }
+                                                        ],
+                                                        "lineno": 35
+                                                    }
+                                                ],
+                                                "lineno": 33
+                                            }
+                                        ],
+                                        "col_offset": 21,
+                                        "func": {
+                                            "_type": "Attribute",
+                                            "attr": "array",
+                                            "col_offset": 21,
+                                            "ctx": {
+                                                "_type": "Load"
+                                            },
+                                            "lineno": 33,
+                                            "value": {
+                                                "_type": "Name",
+                                                "col_offset": 21,
+                                                "ctx": {
+                                                    "_type": "Load"
+                                                },
+                                                "id": "np",
+                                                "lineno": 33
+                                            }
+                                        },
+                                        "keywords": [],
+                                        "lineno": 33
+                                    }
+                                ],
+                                "col_offset": 8,
+                                "func": {
+                                    "_type": "Attribute",
+                                    "attr": "cnn_cell",
+                                    "col_offset": 8,
+                                    "ctx": {
+                                        "_type": "Load"
+                                    },
+                                    "lineno": 33,
+                                    "value": {
+                                        "_type": "Name",
+                                        "col_offset": 8,
+                                        "ctx": {
+                                            "_type": "Load"
+                                        },
+                                        "id": "net",
+                                        "lineno": 33
+                                    }
+                                },
+                                "keywords": [],
+                                "lineno": 33
+                            }
+                        }
+                    ],
+                    "test": {
+                        "_type": "Compare",
+                        "col_offset": 4,
+                        "comparators": [
+                            {
+                                "_type": "Num",
+                                "col_offset": 9,
+                                "lineno": 28,
+                                "n": 0
+                            }
+                        ],
+                        "left": {
+                            "_type": "Name",
+                            "col_offset": 4,
+                            "ctx": {
+                                "_type": "Load"
+                            },
+                            "id": "i",
+                            "lineno": 28
+                        },
+                        "lineno": 28,
+                        "ops": [
+                            {
+                                "_type": "Eq"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "col_offset": 0,
+            "lineno": 25,
+            "orelse": [],
+            "test": {
+                "_type": "Compare",
+                "col_offset": 3,
+                "comparators": [
+                    {
+                        "_type": "Str",
+                        "col_offset": 15,
+                        "lineno": 25,
+                        "s": "__main__"
+                    }
+                ],
+                "left": {
+                    "_type": "Name",
+                    "col_offset": 3,
+                    "ctx": {
+                        "_type": "Load"
+                    },
+                    "id": "__name__",
+                    "lineno": 25
+                },
+                "lineno": 25,
+                "ops": [
+                    {
+                        "_type": "Eq"
+                    }
+                ]
+            }
+        }
+    ]
+}
