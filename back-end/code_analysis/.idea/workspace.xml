@@ -26,7 +26,78 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager" selected="Python.main">
+    <configuration name="P11" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="seq_test" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hw" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hw/P11.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="P12" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="seq_test" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hw" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hw/P12.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="analyzer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="seq_test" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analyzer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="seq_test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -49,7 +120,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="seq_test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -62,29 +133,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_folder/test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test_json" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="seq_test" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_json.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_folder/test1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -96,8 +145,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.test_json" />
-        <item itemvalue="Python.test" />
+        <item itemvalue="Python.P12" />
+        <item itemvalue="Python.P11" />
+        <item itemvalue="Python.analyzer" />
+        <item itemvalue="Python.test1" />
       </list>
     </recent_temporary>
   </component>
@@ -117,6 +168,8 @@
       <workItem from="1584135061030" duration="28880000" />
       <workItem from="1584171421194" duration="1034000" />
       <workItem from="1584236326823" duration="4529000" />
+      <workItem from="1584307344636" duration="4813000" />
+      <workItem from="1584544068437" duration="5314000" />
     </task>
     <servers />
   </component>
@@ -124,38 +177,38 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1238" height="250" key="GridCell.Tab.0.bottom" timestamp="1584240927799">
+    <state width="1238" height="254" key="GridCell.Tab.0.bottom" timestamp="1584561723092">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="250" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1584240927799" />
-    <state width="1238" height="250" key="GridCell.Tab.0.center" timestamp="1584240927798">
+    <state width="1238" height="254" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1584561723092" />
+    <state width="1238" height="254" key="GridCell.Tab.0.center" timestamp="1584561723090">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="250" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1584240927798" />
-    <state width="1238" height="250" key="GridCell.Tab.0.left" timestamp="1584240927798">
+    <state width="1238" height="254" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1584561723090" />
+    <state width="1238" height="254" key="GridCell.Tab.0.left" timestamp="1584561723090">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="250" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1584240927798" />
-    <state width="1238" height="250" key="GridCell.Tab.0.right" timestamp="1584240927799">
+    <state width="1238" height="254" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1584561723090" />
+    <state width="1238" height="254" key="GridCell.Tab.0.right" timestamp="1584561723091">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="250" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1584240927799" />
-    <state width="1238" height="254" key="GridCell.Tab.1.bottom" timestamp="1584171310057">
+    <state width="1238" height="254" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1584561723091" />
+    <state width="1238" height="254" key="GridCell.Tab.1.bottom" timestamp="1584561723094">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="254" key="GridCell.Tab.1.bottom/0.0.1280.800@0.0.1280.800" timestamp="1584171310057" />
-    <state width="1238" height="254" key="GridCell.Tab.1.center" timestamp="1584171310056">
+    <state width="1238" height="254" key="GridCell.Tab.1.bottom/0.0.1280.800@0.0.1280.800" timestamp="1584561723094" />
+    <state width="1238" height="254" key="GridCell.Tab.1.center" timestamp="1584561723093">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="254" key="GridCell.Tab.1.center/0.0.1280.800@0.0.1280.800" timestamp="1584171310056" />
-    <state width="1238" height="254" key="GridCell.Tab.1.left" timestamp="1584171310056">
+    <state width="1238" height="254" key="GridCell.Tab.1.center/0.0.1280.800@0.0.1280.800" timestamp="1584561723093" />
+    <state width="1238" height="254" key="GridCell.Tab.1.left" timestamp="1584561723092">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="254" key="GridCell.Tab.1.left/0.0.1280.800@0.0.1280.800" timestamp="1584171310056" />
-    <state width="1238" height="254" key="GridCell.Tab.1.right" timestamp="1584171310057">
+    <state width="1238" height="254" key="GridCell.Tab.1.left/0.0.1280.800@0.0.1280.800" timestamp="1584561723092" />
+    <state width="1238" height="254" key="GridCell.Tab.1.right" timestamp="1584561723093">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="254" key="GridCell.Tab.1.right/0.0.1280.800@0.0.1280.800" timestamp="1584171310057" />
+    <state width="1238" height="254" key="GridCell.Tab.1.right/0.0.1280.800@0.0.1280.800" timestamp="1584561723093" />
     <state x="141" y="39" key="SettingsEditor" timestamp="1584156738813">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -173,9 +226,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test_json.py</url>
-          <line>647</line>
-          <option name="timeStamp" value="25" />
+          <url>file://$PROJECT_DIR$/analyzer.py</url>
+          <line>540</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -189,8 +242,10 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/seq_test$test_json.coverage" NAME="test_json Coverage Results" MODIFIED="1584172393527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/code_analysis$main.coverage" NAME="main Coverage Results" MODIFIED="1584240880022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/code_analysis$main.coverage" NAME="main Coverage Results" MODIFIED="1584561632150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/code_analysis$P11.coverage" NAME="P11 Coverage Results" MODIFIED="1584307632386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw" />
     <SUITE FILE_PATH="coverage/code_analysis$test_json.coverage" NAME="test_json Coverage Results" MODIFIED="1584238235290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/seq_test$test.coverage" NAME="test Coverage Results" MODIFIED="1583981585400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_folder" />
+    <SUITE FILE_PATH="coverage/code_analysis$P12.coverage" NAME="P12 Coverage Results" MODIFIED="1584316458596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw" />
   </component>
 </project>

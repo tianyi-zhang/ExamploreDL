@@ -1,4 +1,4 @@
-from test_json import traverse_dic
+from analyzer import traverse_dic
 import json
 if __name__ == "__main__":
 

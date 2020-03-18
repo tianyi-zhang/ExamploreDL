@@ -80,6 +80,13 @@ class traverse_dic():
         return ast_dic
 
     def fill(self, body, safe_func, target_li):
+        """
+        using the target functions to fill in the defined functions
+        :param body:
+        :param safe_func:
+        :param target_li:
+        :return:
+        """
         new_body = []
         for i in body:
             if isinstance(i, list):
@@ -187,6 +194,7 @@ class traverse_dic():
                     self.traverse_class_def(body, i) # inside the class, there are many def_funcs
         self.create_def_func_rely()
         self.traverse_safe_func()
+
         for dic in dic_li:
             self.traverse_module(dic)
 
@@ -266,7 +274,7 @@ class traverse_dic():
             return id+'.'+attr
         return self.traverse_attribute(func['value'])+'.'+attr
 
-    def traverse_line(self, dic: dict, function_body: list, traverse_flag, return_flag=False):
+    def traverse_line(self, dic: dict, function_body: list, traverse_flag, return_flag=False, var_dic=None):
         """
 
         :param return_flag:
@@ -276,7 +284,8 @@ class traverse_dic():
         :param count:
         :return: function_body: [{'func': 'func_name', 'args': [], 'layer': '', 'body': [], 'lineno': 23}]
         """
-        var_dic = {}  # "{"var1": "value1", "var2": "value2"} and it will change frequently"
+        if var_dic is None:
+            var_dic = {}  # "{"var1": "value1", "var2": "value2"} and it will change frequently"
         if dic['body'] is None:
             function_body.append({})
         else:
@@ -300,6 +309,9 @@ class traverse_dic():
                 elif body['_type'] == 'If':
                     function_body.append(self.traverse_if(body, traverse_flag, var_dic, return_flag))
                 # TODO: add traverse_while
+                elif body['_type'] == 'With':
+                    with_body = []
+                    function_body += self.traverse_with(body, with_body, traverse_flag, var_dic, return_flag)
                 else:
                     pass
             return function_body
@@ -340,7 +352,6 @@ class traverse_dic():
                     arg_dic[arg_name[i+x]] = default_value[i]
             function_detail["args"] = arg_dic
 
-            # TODO: traverse lines
             function_detail['body'] = self.traverse_line(dic, function_body, [traverse_flag, func_name], return_flag)
             self.func_def[func_name] = function_detail
 
@@ -423,6 +434,10 @@ class traverse_dic():
             func_name = func['id']
         elif func['_type'] == 'Attribute':
             func_name = self.traverse_attribute(func)
+            for pre_out in var_dic.keys():
+                if func_name.find(pre_out+'.') != -1:
+                    func_name = func_name.lstrip(pre_out+'.')
+
             if traverse_flag[0] == 0:
                 func_name = func_name.split(".")[-1] # when doing match, we will not consider the attr
             elif func_name.find('self.') != -1:
@@ -631,6 +646,17 @@ class traverse_dic():
             var_dic = {}
         if value['_type'] == 'Call':
             self.traverse_function_call(value, traverse_flag, var_dic, return_flag)
+        elif value['_type'] == 'Expr':
+            self.traverse_expr(value['value'], traverse_flag, var_dic, return_flag)
+
+    def traverse_with(self, body: dict, with_body: list, traverse_flag=None, var_dic=None, return_flag=True):
+        if traverse_flag is None:
+            traverse_flag = [0, '']
+        if var_dic is None:
+            var_dic = {}
+            # dic: dict, function_body: list, traverse_flag, return_flag=False, var_dic=None
+        with_body = self.traverse_line(body, with_body, traverse_flag, return_flag, var_dic)
+        return with_body
 
     def traverse_module(self, dic: dict, traverse_flag=None, var_dic=None, return_flag=False):
         # TODO used after traverse_functionDef and traverse_classDef. Find the entrance.
