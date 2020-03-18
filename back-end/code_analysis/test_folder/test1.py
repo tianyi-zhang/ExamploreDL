@@ -21,9 +21,3 @@ class My_network():
 		output = tf.nn.conv2d(output, 22, 2, 'SAME')
 		return output
 
-if __name__ == "__main__":
-	net = My_network()
-	cnn = net.cnn_net(np.array([[0,1,1],
-	                             [1,1,1],
-	                             [1,2,1]]))
-
