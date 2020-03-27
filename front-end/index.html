@@ -8,7 +8,7 @@
 
     <link rel = "stylesheet" href = "header.css">
     <link rel = "stylesheet" href = "sidebar.css">
-    <script type="text/javascript" src="index.js" ></script>
+    <!-- <script type="text/javascript" src="index.js" ></script> -->
 	<!-- <script type="text/javascript" src="reclick.js"></script> -->
 
 </head>
@@ -28,16 +28,16 @@
 				<a class = 'sidebar-category'>Dataset</a>
 				<!-- Filter -->
 				<div class = 'filters'>
-					<input class = 'checkbox1' type = 'checkbox' id='Image Dataset' value ='Image Dataset'>
-					<label class = 'label1' for='Image Dataset'>Image Dataset</label>
+					<input onclick = "update('1')" class = 'checkbox1' type = 'checkbox' id='Image Dataset' value ='Image Dataset'>
+					<label  class = 'label1' for='Image Dataset'>Image Dataset</label>
 
-					<input class = 'checkbox2' type = 'checkbox' id='Video Dataset' value ='Video Dataset'>
+					<input onclick = "update('2')" class = 'checkbox2' type = 'checkbox' id='Video Dataset' value ='Video Dataset'>
 					<label class = 'label2' for='Video Dataset'>Video Dataset</label>
 
-					<input class = 'checkbox3' type = 'checkbox' id='Text Dataset' value ='Text Dataset'>
+					<input onclick = "update('3')" class = 'checkbox3' type = 'checkbox' id='Text Dataset' value ='Text Dataset'>
 					<label class = 'label3' for='Text Dataset'>Text Dataset</label>
 
-					<input class = 'checkbox4' type = 'checkbox' id='Other Dataset' value ='Other Dataset'>
+					<input onclick = "update('4')" class = 'checkbox4' type = 'checkbox' id='Other Dataset' value ='Other Dataset'>
 					<label class = 'label4' for='Other Dataset'>Other Dataset</label>
 				</div>					
 			</form>
@@ -95,20 +95,23 @@
 					<a class = 'sidebar-category'>Input Dimentions</a>
 					<br><br>
 					<div id="my_dataviz"></div>
-					<input class = 'drag' type="range" name="mySlider" id=mySlider min="10" max ="100" value="0">			
+					<input class = 'drag' type="range" name="mySlider1" id=mySlider1 min="1" max ="4" value="1">
+					<!-- <h6 class = 'drag' type = "mark">0 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;100</h6> -->
+					<pre class = 'drag'>0 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;100</pre>			
 				</div>
 
 				<div class = 'drapbar-block'>
 					<a class = 'sidebar-category'>Accuracy</a>
 					<br><br>
-					<div id="my_dataviz"></div>
-					<input class = "drag" type="range" name="mySlider" id=mySlider min="10" max ="100" value="0">			
+					<div id="my_dataviz2"></div>
+					<input class = "drag" type="range" name="mySlider2" id=mySlider2 min="1" max ="4" value="1">
+					<pre class = 'drag'>0 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;100</pre>			
 				</div>
 
 				<div class = 'drapbar-block'>
 					<a class = 'sidebar-category'>Number of Parameters</a>
 					<br><br>
-					<div id="my_dataviz"></div>
+					<div id="my_dataviz3"></div>
 					<input class = "drag" type="range" name="mySlider" id=mySlider min="10" max ="100" value="0">			
 				</div>
 			</div>	
@@ -118,104 +121,16 @@
 	<!-- Right part -->
 	<div>
 	</div>
+	<!-- <script type="text/javascript" src="index.js" ></script> -->
+	<script type="text/javascript" src="searchbox.js" ></script>
+	<!-- <script type="text/javascript" src="slider.js" ></script> -->
+	<!-- <script>
+	d3.csv("searchboxData.csv", function(data) {
+    	for (var i = 0; i < data.length; i++) {
+        	console.log(data[i].Name);
+        	console.log(data[i].Age);
+    	}
+	});
+	</script> -->
 </body>
-<script>
-
-// set the dimensions and margins of the graph
-var margin = {top: 30, right: 30, bottom: 30, left: 50},
-    width = 360 - margin.left - margin.right,
-    height = 200 - margin.top - margin.bottom;
-
-// append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
-  .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height +margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
-
-// get the data
-d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv", function(data) {
-
-  // add the x Axis
-  var x = d3.scaleLinear()
-            .domain([0, 1000])
-            .range([0, width]);
-  svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
-
-  // add the y Axis
-  var y = d3.scaleLinear()
-            .range([height, 0])
-            .domain([0, 0.01]);
-  svg.append("g")
-      .call(d3.axisLeft(y));
-
-  // Compute kernel density estimation
-  var kde = kernelDensityEstimator(kernelEpanechnikov(7), x.ticks(40))
-  var density =  kde( data.map(function(d){  return d.price; }) )
-
-  // Plot the area
-  var curve = svg
-    .append('g')
-    .append("path")
-      .attr("class", "mypath")
-      .datum(density)
-      .attr("fill", "#2290A6")
-      .attr("opacity", ".8")
-      .attr("stroke", "#505050")
-      .attr("stroke-width", 1)
-      .attr("stroke-linejoin", "round")
-      .attr("d",  d3.line()
-        .curve(d3.curveBasis)
-          .x(function(d) { return x(d[0]); })
-          .y(function(d) { return y(d[1]); })
-      );
-
-  // A function that update the chart when slider is moved?
-  function updateChart(binNumber) {
-    // recompute density estimation
-    kde = kernelDensityEstimator(kernelEpanechnikov(7), x.ticks(binNumber))
-    density =  kde( data.map(function(d){  return d.price; }) )
-    console.log(binNumber)
-    console.log(density)
-
-    // update the chart
-    curve
-      .datum(density)
-      .transition()
-      .duration(1000)
-      .attr("d",  d3.line()
-        .curve(d3.curveBasis)
-          .x(function(d) { return x(d[0]); })
-          .y(function(d) { return y(d[1]); })
-      );
-  }
-
-  // Listen to the slider?
-  d3.select("#mySlider").on("change", function(d){
-    selectedValue = this.value
-    updateChart(selectedValue)
-  })
-
-});
-
-
-// Function to compute density
-function kernelDensityEstimator(kernel, X) {
-  return function(V) {
-    return X.map(function(x) {
-      return [x, d3.mean(V, function(v) { return kernel(x - v); })];
-    });
-  };
-}
-function kernelEpanechnikov(k) {
-  return function(v) {
-    return Math.abs(v /= k) <= 1 ? 0.75 * (1 - v * v) / k : 0;
-  };
-}
-
-</script>
 </html>
