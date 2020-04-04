@@ -1,0 +1,149 @@
+{
+    "type": [],
+    "hpyerparameters": {},
+    "num_layers": 6,
+    "tricks": [],
+    "layers": {
+        "layer0": {
+            "type": "conv2d",
+            "func": "tf.layers.conv2d",
+            "args": {
+                "input": "self.embedded_chars_expanded",
+                "filters": "num_filters",
+                "kernel_size": [
+                    "filter_size"
+                ],
+                "kernel_initializer": {
+                    "func": "initializer",
+                    "args": {},
+                    "layer": "",
+                    "body": [],
+                    "lineno": 42
+                },
+                "activation": "tf.nn.relu",
+                "name": "conv"
+            },
+            "begin": 41
+        },
+        "layer1": {
+            "type": "MaxPool",
+            "func": "tf.nn.max_pool",
+            "args": {
+                "input": {
+                    "func": "tf.layers.conv2d",
+                    "args": {
+                        "input": "self.embedded_chars_expanded",
+                        "filters": "num_filters",
+                        "kernel_size": [
+                            "filter_size"
+                        ],
+                        "kernel_initializer": {
+                            "func": "initializer",
+                            "args": {},
+                            "layer": "",
+                            "body": [],
+                            "lineno": 42
+                        },
+                        "activation": "tf.nn.relu",
+                        "name": "conv"
+                    },
+                    "layer": "conv2d",
+                    "body": [],
+                    "lineno": 41
+                },
+                "ksize": [
+                    1
+                ],
+                "strides": [
+                    1
+                ],
+                "padding": "VALID",
+                "name": "pool"
+            },
+            "begin": 44
+        },
+        "layer2": {
+            "type": "conv2d",
+            "func": "tf.layers.conv2d",
+            "args": {
+                "input": "self.embedded_chars_expanded",
+                "filters": "num_filters",
+                "kernel_size": [
+                    "filter_size"
+                ],
+                "kernel_initializer": {
+                    "func": "initializer",
+                    "args": {},
+                    "layer": "",
+                    "body": [],
+                    "lineno": 42
+                },
+                "activation": "tf.nn.relu",
+                "name": "conv"
+            },
+            "begin": 41
+        },
+        "layer3": {
+            "type": "MaxPool",
+            "func": "tf.nn.max_pool",
+            "args": {
+                "input": {
+                    "func": "tf.layers.conv2d",
+                    "args": {
+                        "input": "self.embedded_chars_expanded",
+                        "filters": "num_filters",
+                        "kernel_size": [
+                            "filter_size"
+                        ],
+                        "kernel_initializer": {
+                            "func": "initializer",
+                            "args": {},
+                            "layer": "",
+                            "body": [],
+                            "lineno": 42
+                        },
+                        "activation": "tf.nn.relu",
+                        "name": "conv"
+                    },
+                    "layer": "conv2d",
+                    "body": [],
+                    "lineno": 41
+                },
+                "ksize": [
+                    1
+                ],
+                "strides": [
+                    1
+                ],
+                "padding": "VALID",
+                "name": "pool"
+            },
+            "begin": 44
+        },
+        "layer4": {
+            "type": "dropout",
+            "func": "tf.nn.dropout",
+            "args": {
+                "x": "self.h_pool_flat",
+                "rate": "self.dropout_keep_prob"
+            },
+            "begin": 55
+        },
+        "layer5": {
+            "type": "dense",
+            "func": "tf.layers.dense",
+            "args": {
+                "input": "self.h_drop",
+                "units": "num_classes",
+                "kernel_initializer": {
+                    "func": "initializer",
+                    "args": {},
+                    "layer": "",
+                    "body": [],
+                    "lineno": 59
+                }
+            },
+            "begin": 59
+        }
+    }
+}

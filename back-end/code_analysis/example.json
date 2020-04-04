@@ -11,6 +11,11 @@
     "1": {
       "type": "CNN",
       "num_layers": 3,
+      "hyperparameters": {
+        "learning rate": 0.01,
+        "batch size": 64,
+        "epochs": 10
+      },
       "tricks": [
         "Attention",
         "Dropout"

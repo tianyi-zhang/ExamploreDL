@@ -9,6 +9,6 @@ if __name__ == "__main__":
 	print(model_dic)
 	json_object = json.dumps(model_dic, indent=4)
 
-	with open("model.json", "w") as outfile:
+	with open("/Users/mac/Desktop/R/backen/code_analysis/test_folder/model.json", "w") as outfile:
 		outfile.write(json_object)
 		outfile.close()
