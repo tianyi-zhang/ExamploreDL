@@ -1,3 +1,24 @@
+// Read csv file first
+
+function preload(){
+  // Load csv data
+  origin_data = loadTable('projects.csv','csv','header');
+  console.log(origin_data);
+  console.log('0');
+}
+// Change number according to different checkbox input
+  // Read input
+  // Take data from csv file
+  // count for different numbers
+  // Update the text
+// 
+// The search box number change
+var svgDataImage = d3.select("dataset_image")
+  .append("svg")
+    .attr("width",10)
+    .attr("height",33)
+    .attr("viewBox",`0 -20 ${width} 33`)
+  .append("g")
 // set the dimensions and margins of the graph
 var margin = {top: 10, right: 0, bottom: 0, left: 60},
     width = 330 - margin.left - margin.right,

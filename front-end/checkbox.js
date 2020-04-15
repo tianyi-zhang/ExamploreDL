@@ -145,11 +145,13 @@ var validate = function(){
       }
       filters.push(filter)
     }
+    console.log(filters);
     console.log(filters[0].value)
 
     // Update the data shown on screen
-    d3.select("label1")
-        .text('Image Dataset' + filter[0]);
+    d3.select(".text1")
+        .data(filters[0])
+        .text(function(d){return ""+filters[0].value});
   })  
 }
 

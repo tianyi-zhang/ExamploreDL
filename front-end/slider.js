@@ -66,4 +66,4 @@ function update(selectedV) {
 
 
 // // Initialize plot
-// update('var1')
+update('var1')
