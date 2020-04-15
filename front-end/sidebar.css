@@ -21,7 +21,7 @@ body {margin:0;}
 .filters{
 	position:relative;
 	margin-top:10px;
-	margin-left:3%;
+	margin-left:5%;
 	margin-bottom:25px;
 }
 
@@ -49,10 +49,20 @@ body {margin:0;}
 
 .drag{
 	positive:relative;
+	padding-top:0.5em;
+	margin-top: 5px;
 	margin-left:200px;
 	margin-bottom:30px;
 	width:300px;
 }
+
+/*.tab{
+	positive:relative;
+	margin-top: 5px;
+	margin-left:200px;
+	margin-bottom:30px;
+	width:300px;
+}*/
 
 input{
 /*	margin-left:3%;*/
@@ -91,13 +101,22 @@ input{
 .label4{
 	left:490px;
 }
+#text1{
+	left-margin:500px;
+}
+
+#text2{
+	left-margin:7px;
+}
 
 #my_dataviz{
 	position:relative;
 	margin-left:160px;
 }
+
 label{
 	position:fixed;
+	display:inline-block;
 /*	margin-left:5%;*/
 	font-size:0.8em;
 	font-weight:100;
@@ -105,3 +124,9 @@ label{
 	/* To alight the text with checkbox*/
 	margin-top:2px;
 }
+
+pre{
+	padding-top:30px;
+	margin-top:30px;
+}
+
