@@ -18,10 +18,6 @@ var num_RNN_model = 0;
 var alldata = 0;
 
 var checkbox_names = ['Image','Video','Text','Other','speech','cv','nlp','CNN','LSTM','GRU','RNN']
-// Alse set seperate boxes because we will need to filter those seperately later on
-var checkbox_datasets = ['Image','Video','Text','Other']
-var checkbox_tasks = ['speech','cv','nlp']
-var checkbox_models = ['CNN','LSTM','GRU','RNN']
 
 // // an object: which is not iterable
 // var num_datas ={
@@ -95,19 +91,19 @@ function preload(){
     })
 
     // TEST
-    // console.log(num_img_data);
-    // console.log(num_vid_data);
-    // console.log(num_txt_data);
-    // console.log(num_other_data);
+    console.log(num_img_data);
+    console.log(num_vid_data);
+    console.log(num_txt_data);
+    console.log(num_other_data);
 
-    // console.log(num_spe_task);
-    // console.log(num_cv_task);
-    // console.log(num_nlp_task);
+    console.log(num_spe_task);
+    console.log(num_cv_task);
+    console.log(num_nlp_task);
 
-    // console.log(num_CNN_model);
-    // console.log(num_LSTM_model);
-    // console.log(num_GRU_model);
-    // console.log(num_RNN_model);
+    console.log(num_CNN_model);
+    console.log(num_LSTM_model);
+    console.log(num_GRU_model);
+    console.log(num_RNN_model);
   })
 }
 
@@ -124,7 +120,8 @@ var validate = function(){
     // checked is a boolean
     var checked = document.getElementById(checkbox_names[i]).checked;
     // Take only the name so we could use in filter later
-     var name = checkbox_names[i].split('_')[0];
+    var name = checkbox_names[i].split('_')[0];
+    console.log(name);
     if (checked){
       checked_boxes.push(name);
     }
@@ -135,28 +132,6 @@ var validate = function(){
   // Test to see whether we have the right checkboxes (WORK WELL)
   console.log(checked_boxes);
 
-  checked_boxes_tasks = []
-  checked_boxes_models = []
-  checked_boxes_datasets = []
-
-  // Update the checkboxes
-  for (var i = 0; i < checked_boxes.length; i++){
-    // console.log(checked_boxes[i]);
-    if (checkbox_tasks.includes(checked_boxes[i])){
-      checked_boxes_tasks.push(checked_boxes[i])
-    }
-    if (checkbox_models.includes(checked_boxes[i])){
-      checked_boxes_models.push(checked_boxes[i]) 
-    }
-    if (checkbox_datasets.includes(checked_boxes[i])){
-      checked_boxes_datasets.push(checked_boxes[i])
-    }
-  }
-
-  // console.log(checked_boxes_tasks);
-  // console.log(checked_boxes_models);
-  // console.log(checked_boxes_datasets);
-
   // Read the data
   d3.csv("datas/projects.csv", function(data){
     // Preset the number of data that fits all filter requirements
@@ -164,37 +139,23 @@ var validate = function(){
     // Preset the data array that fits all filter requirements
     filtered_data = [];
 
-    
-
     data.forEach(function(d){
       // Dataset for each row
       dataset = d.Datasets;
       // Task for each row
       task = d.Tasks;
       //  Model for each row
-      model = d.Models;
+      models = d.Models;
 
       // See how many rows of data fit all filter requirements
       // Preset the fit to be true for each row at start
       fit = true;
 
-      // Filter for each box seperately
-      for (var i = 0; i < checked_boxes_tasks.length; i++){
-        if (!task.includes(checked_boxes_tasks[i])){
-          fit = false;
-          break;
-        }
-      }
-
-      for (var i = 0; i < checked_boxes_models.length; i++){
-        if (!model.includes(checked_boxes_models[i])){
-          fit = false;
-          break;
-        }
-      }
-
-      for (var i = 0; i < checked_boxes_datasets.length; i++){
-        if (!dataset.includes(checked_boxes_datasets[i])){
+      for (var i = 0; i < checked_boxes.length; i++){
+        // Take the keyword
+        word = checked_boxes[i];
+        // If none of the keyword is in the row of different columns
+        if (!dataset.includes(word) && !task.includes(word) && !models.includes(word)){
           fit = false;
           break;
         }
@@ -207,11 +168,11 @@ var validate = function(){
         // Store the fits-all data
         filtered_data.push(d);
       }
-  }) 
+    }) 
 
     // Test to see whether we have the right filtered data (WORK WELL)
     console.log(num_fit_all);
-    // What LITAO needs
+    // What LITAO wanted
     console.log(filtered_data);
 
     // An array to store the objects of all checkboxes
