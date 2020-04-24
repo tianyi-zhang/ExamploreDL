@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<style>
+	table, th, td {
+		border: 1px dashed #848484;
+  		border-collapse: collapse;
+  		padding: 15px;
+	}
+	p {
+		font-family: FontAwesome; 
+		font-size: 20px; 
+		color: #00144D;
+	}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+<script type="text/javascript" src="./gData.js"></script>
+<script type="text/javascript" src="./multi.js"></script>
+<script type="text/javascript" src="./clickFunc.js"></script>
+<script type="text/javascript" src="./newData.js"></script>
+</head>
+<body>
+	<div id='container'>
+	<table>
+		<tr>
+		    <th><p>Type</p></th>
+		    <th><p>Layers</p></th> 
+		    <th><p>Parameters</p></th>
+		</tr>
+		<tr>
+			<td rowspan="6">CNN</td>
+			<td colspan="2">
+				<div id='chart_table', style="width: 750px; height: 50 px"></div>
+			</td>			
+		</tr>
+		<tr>
+		    <td rowspan="5">			    	
+				<svg id='chart'></svg>
+			</td>
+		    <td id="record">
+		    	<h1 style="font-size:20px; text-align:center"> Record filters </h1>
+				
+		    </td> 
+		</tr>
+		<tr><td><svg id='para-1' class='chart2'></svg></td></tr>
+		<tr><td><svg id='para-2' class='chart2'></svg></td></tr>
+		<tr><td><svg id='para-3' class='chart2'></svg></td></tr>
+		<tr><td><svg id='para-4' class='chart2'></svg></td></tr>
+	</table>
+
+
+<script src="sankey.js"></script>
+</div>
+
+</body>
