@@ -1,0 +1,2670 @@
+{
+    "0":{
+        "type": [],
+        "hpyerparameters": {},
+        "num_layers": 6,
+        "tricks": [],
+        "layers": {
+            "layer0": {
+                "type": "conv2d",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "input": "self.embedded_chars_expanded",
+                    "filters": "num_filters",
+                    "kernel_size": [
+                        "filter_size"
+                    ],
+                    "kernel_initializer": {
+                        "func": "initializer",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 42
+                    },
+                    "activation": "tf.nn.relu",
+                    "name": "conv"
+                },
+                "begin": 41
+            },
+            "layer1": {
+                "type": "MaxPool",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": {
+                        "func": "tf.layers.conv2d",
+                        "args": {
+                            "input": "self.embedded_chars_expanded",
+                            "filters": "num_filters",
+                            "kernel_size": [
+                                "filter_size"
+                            ],
+                            "kernel_initializer": {
+                                "func": "initializer",
+                                "args": {},
+                                "layer": "",
+                                "body": [],
+                                "lineno": 42
+                            },
+                            "activation": "tf.nn.relu",
+                            "name": "conv"
+                        },
+                        "layer": "conv2d",
+                        "body": [],
+                        "lineno": 41
+                    },
+                    "ksize": [
+                        1
+                    ],
+                    "strides": [
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "pool"
+                },
+                "begin": 44
+            },
+            "layer2": {
+                "type": "conv2d",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "input": "self.embedded_chars_expanded",
+                    "filters": "num_filters",
+                    "kernel_size": [
+                        "filter_size"
+                    ],
+                    "kernel_initializer": {
+                        "func": "initializer",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 42
+                    },
+                    "activation": "tf.nn.relu",
+                    "name": "conv"
+                },
+                "begin": 41
+            },
+            "layer3": {
+                "type": "MaxPool",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": {
+                        "func": "tf.layers.conv2d",
+                        "args": {
+                            "input": "self.embedded_chars_expanded",
+                            "filters": "num_filters",
+                            "kernel_size": [
+                                "filter_size"
+                            ],
+                            "kernel_initializer": {
+                                "func": "initializer",
+                                "args": {},
+                                "layer": "",
+                                "body": [],
+                                "lineno": 42
+                            },
+                            "activation": "tf.nn.relu",
+                            "name": "conv"
+                        },
+                        "layer": "conv2d",
+                        "body": [],
+                        "lineno": 41
+                    },
+                    "ksize": [
+                        1
+                    ],
+                    "strides": [
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "pool"
+                },
+                "begin": 44
+            },
+            "layer4": {
+                "type": "dropout",
+                "func": "tf.nn.dropout",
+                "args": {
+                    "x": "self.h_pool_flat",
+                    "rate": "self.dropout_keep_prob"
+                },
+                "begin": 55
+            },
+            "layer5": {
+                "type": "dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "input": "self.h_drop",
+                    "units": "num_classes",
+                    "kernel_initializer": {
+                        "func": "initializer",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 59
+                    }
+                },
+                "begin": 59
+            }
+        }
+    },
+    "1":{
+        "type": [
+            "cross entropy"
+        ],
+        "hpyerparameters": {
+            "batch size": 16
+        },
+        "num_layers": 11,
+        "tricks": [
+            "optimizer"
+        ],
+        "layers": {
+            "layer0": {
+                "type": "conv2d",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "input": "input",
+                    "filter": {
+                        "func": "create_weights",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 45
+                    },
+                    "strides": [
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 47
+            },
+            "layer1": {
+                "type": "MaxPool",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "value": {
+                        "func": "tf.nn.conv2d",
+                        "args": {
+                            "input": "input",
+                            "filter": {
+                                "func": "create_weights",
+                                "args": {},
+                                "layer": "",
+                                "body": [],
+                                "lineno": 45
+                            },
+                            "strides": [
+                                1
+                            ],
+                            "padding": "SAME"
+                        },
+                        "layer": "conv2d",
+                        "body": [],
+                        "lineno": 47
+                    },
+                    "ksize": [
+                        1
+                    ],
+                    "strides": [
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 49
+            },
+            "layer2": {
+                "type": "relu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": {
+                        "func": "tf.nn.max_pool",
+                        "args": {
+                            "value": {
+                                "func": "tf.nn.conv2d",
+                                "args": {
+                                    "input": "input",
+                                    "filter": {
+                                        "func": "create_weights",
+                                        "args": {},
+                                        "layer": "",
+                                        "body": [],
+                                        "lineno": 45
+                                    },
+                                    "strides": [
+                                        1
+                                    ],
+                                    "padding": "SAME"
+                                },
+                                "layer": "conv2d",
+                                "body": [],
+                                "lineno": 47
+                            },
+                            "ksize": [
+                                1
+                            ],
+                            "strides": [
+                                1
+                            ],
+                            "padding": "SAME"
+                        },
+                        "layer": "MaxPool",
+                        "body": [],
+                        "lineno": 49
+                    }
+                },
+                "begin": 50
+            },
+            "layer3": {
+                "type": "conv2d",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "input": "input",
+                    "filter": {
+                        "func": "create_weights",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 45
+                    },
+                    "strides": [
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 47
+            },
+            "layer4": {
+                "type": "MaxPool",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "value": {
+                        "func": "tf.nn.conv2d",
+                        "args": {
+                            "input": "input",
+                            "filter": {
+                                "func": "create_weights",
+                                "args": {},
+                                "layer": "",
+                                "body": [],
+                                "lineno": 45
+                            },
+                            "strides": [
+                                1
+                            ],
+                            "padding": "SAME"
+                        },
+                        "layer": "conv2d",
+                        "body": [],
+                        "lineno": 47
+                    },
+                    "ksize": [
+                        1
+                    ],
+                    "strides": [
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 49
+            },
+            "layer5": {
+                "type": "relu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": {
+                        "func": "tf.nn.max_pool",
+                        "args": {
+                            "value": {
+                                "func": "tf.nn.conv2d",
+                                "args": {
+                                    "input": "input",
+                                    "filter": {
+                                        "func": "create_weights",
+                                        "args": {},
+                                        "layer": "",
+                                        "body": [],
+                                        "lineno": 45
+                                    },
+                                    "strides": [
+                                        1
+                                    ],
+                                    "padding": "SAME"
+                                },
+                                "layer": "conv2d",
+                                "body": [],
+                                "lineno": 47
+                            },
+                            "ksize": [
+                                1
+                            ],
+                            "strides": [
+                                1
+                            ],
+                            "padding": "SAME"
+                        },
+                        "layer": "MaxPool",
+                        "body": [],
+                        "lineno": 49
+                    }
+                },
+                "begin": 50
+            },
+            "layer6": {
+                "type": "relu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": 75
+                },
+                "begin": 76
+            },
+            "layer7": {
+                "type": "relu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": 75
+                },
+                "begin": 76
+            },
+            "layer8": {
+                "type": "softmax",
+                "func": "softmax",
+                "args": {
+                    "logits": "layer_fc2",
+                    "name": "y_pred"
+                },
+                "begin": 116
+            },
+            "layer9": {
+                "type": "loss",
+                "func": "softmax_cross_entropy_with_logits",
+                "args": {
+                    "logits": "layer_fc2",
+                    "labels": "y_true"
+                },
+                "begin": 120
+            },
+            "layer10": {
+                "type": "optimizer",
+                "func": "AdamOptimizer",
+                "args": {
+                    "learning_rate": 0.0001
+                },
+                "begin": 122
+            }
+        }
+    },
+    "2":{
+
+        "type": [],
+        "hpyerparameters": {},
+        "num_layers": 12,
+        "tricks": [],
+        "layers": {
+            "layer0": {
+                "type": "conv2d",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "inputs",
+                    "num_outputs": 32,
+                    "kernel_size": [
+                        3
+                    ],
+                    "stride": 1,
+                    "scope": "conv1"
+                },
+                "begin": 298
+            },
+            "layer1": {
+                "type": "MaxPool",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.conv2d",
+                        "args": {
+                            "inputs": "inputs",
+                            "num_outputs": 32,
+                            "kernel_size": [
+                                3
+                            ],
+                            "stride": 1,
+                            "scope": "conv1"
+                        },
+                        "layer": "Conv2d",
+                        "body": [],
+                        "lineno": 298
+                    },
+                    "kernel_size": [
+                        3
+                    ],
+                    "stride": 2,
+                    "scope": "pool1",
+                    "padding": "SAME"
+                },
+                "begin": 300
+            },
+            "layer2": {
+                "type": "conv2d",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.max_pool2d",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.contrib.slim.conv2d",
+                                "args": {
+                                    "inputs": "inputs",
+                                    "num_outputs": 32,
+                                    "kernel_size": [
+                                        3
+                                    ],
+                                    "stride": 1,
+                                    "scope": "conv1"
+                                },
+                                "layer": "Conv2d",
+                                "body": [],
+                                "lineno": 298
+                            },
+                            "kernel_size": [
+                                3
+                            ],
+                            "stride": 2,
+                            "scope": "pool1",
+                            "padding": "SAME"
+                        },
+                        "layer": "MaxPool",
+                        "body": [],
+                        "lineno": 300
+                    },
+                    "num_outputs": 64,
+                    "kernel_size": [
+                        3
+                    ],
+                    "stride": 1,
+                    "scope": "conv2"
+                },
+                "begin": 302
+            },
+            "layer3": {
+                "type": "MaxPool",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.conv2d",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.contrib.slim.max_pool2d",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.conv2d",
+                                        "args": {
+                                            "inputs": "inputs",
+                                            "num_outputs": 32,
+                                            "kernel_size": [
+                                                3
+                                            ],
+                                            "stride": 1,
+                                            "scope": "conv1"
+                                        },
+                                        "layer": "Conv2d",
+                                        "body": [],
+                                        "lineno": 298
+                                    },
+                                    "kernel_size": [
+                                        3
+                                    ],
+                                    "stride": 2,
+                                    "scope": "pool1",
+                                    "padding": "SAME"
+                                },
+                                "layer": "MaxPool",
+                                "body": [],
+                                "lineno": 300
+                            },
+                            "num_outputs": 64,
+                            "kernel_size": [
+                                3
+                            ],
+                            "stride": 1,
+                            "scope": "conv2"
+                        },
+                        "layer": "Conv2d",
+                        "body": [],
+                        "lineno": 302
+                    },
+                    "kernel_size": [
+                        3
+                    ],
+                    "stride": 2,
+                    "scope": "pool2"
+                },
+                "begin": 304
+            },
+            "layer4": {
+                "type": "conv2d",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.max_pool2d",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.contrib.slim.conv2d",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.max_pool2d",
+                                        "args": {
+                                            "inputs": {
+                                                "func": "tf.contrib.slim.conv2d",
+                                                "args": {
+                                                    "inputs": "inputs",
+                                                    "num_outputs": 32,
+                                                    "kernel_size": [
+                                                        3
+                                                    ],
+                                                    "stride": 1,
+                                                    "scope": "conv1"
+                                                },
+                                                "layer": "Conv2d",
+                                                "body": [],
+                                                "lineno": 298
+                                            },
+                                            "kernel_size": [
+                                                3
+                                            ],
+                                            "stride": 2,
+                                            "scope": "pool1",
+                                            "padding": "SAME"
+                                        },
+                                        "layer": "MaxPool",
+                                        "body": [],
+                                        "lineno": 300
+                                    },
+                                    "num_outputs": 64,
+                                    "kernel_size": [
+                                        3
+                                    ],
+                                    "stride": 1,
+                                    "scope": "conv2"
+                                },
+                                "layer": "Conv2d",
+                                "body": [],
+                                "lineno": 302
+                            },
+                            "kernel_size": [
+                                3
+                            ],
+                            "stride": 2,
+                            "scope": "pool2"
+                        },
+                        "layer": "MaxPool",
+                        "body": [],
+                        "lineno": 304
+                    },
+                    "num_outputs": 64,
+                    "kernel_size": [
+                        3
+                    ],
+                    "stride": 1,
+                    "scope": "conv3"
+                },
+                "begin": 306
+            },
+            "layer5": {
+                "type": "MaxPool",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.conv2d",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.contrib.slim.max_pool2d",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.conv2d",
+                                        "args": {
+                                            "inputs": {
+                                                "func": "tf.contrib.slim.max_pool2d",
+                                                "args": {
+                                                    "inputs": {
+                                                        "func": "tf.contrib.slim.conv2d",
+                                                        "args": {
+                                                            "inputs": "inputs",
+                                                            "num_outputs": 32,
+                                                            "kernel_size": [
+                                                                3
+                                                            ],
+                                                            "stride": 1,
+                                                            "scope": "conv1"
+                                                        },
+                                                        "layer": "Conv2d",
+                                                        "body": [],
+                                                        "lineno": 298
+                                                    },
+                                                    "kernel_size": [
+                                                        3
+                                                    ],
+                                                    "stride": 2,
+                                                    "scope": "pool1",
+                                                    "padding": "SAME"
+                                                },
+                                                "layer": "MaxPool",
+                                                "body": [],
+                                                "lineno": 300
+                                            },
+                                            "num_outputs": 64,
+                                            "kernel_size": [
+                                                3
+                                            ],
+                                            "stride": 1,
+                                            "scope": "conv2"
+                                        },
+                                        "layer": "Conv2d",
+                                        "body": [],
+                                        "lineno": 302
+                                    },
+                                    "kernel_size": [
+                                        3
+                                    ],
+                                    "stride": 2,
+                                    "scope": "pool2"
+                                },
+                                "layer": "MaxPool",
+                                "body": [],
+                                "lineno": 304
+                            },
+                            "num_outputs": 64,
+                            "kernel_size": [
+                                3
+                            ],
+                            "stride": 1,
+                            "scope": "conv3"
+                        },
+                        "layer": "Conv2d",
+                        "body": [],
+                        "lineno": 306
+                    },
+                    "kernel_size": [
+                        2
+                    ],
+                    "stride": 2,
+                    "scope": "pool3",
+                    "padding": "SAME"
+                },
+                "begin": 308
+            },
+            "layer6": {
+                "type": "conv2d",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.max_pool2d",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.contrib.slim.conv2d",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.max_pool2d",
+                                        "args": {
+                                            "inputs": {
+                                                "func": "tf.contrib.slim.conv2d",
+                                                "args": {
+                                                    "inputs": {
+                                                        "func": "tf.contrib.slim.max_pool2d",
+                                                        "args": {
+                                                            "inputs": {
+                                                                "func": "tf.contrib.slim.conv2d",
+                                                                "args": {
+                                                                    "inputs": "inputs",
+                                                                    "num_outputs": 32,
+                                                                    "kernel_size": [
+                                                                        3
+                                                                    ],
+                                                                    "stride": 1,
+                                                                    "scope": "conv1"
+                                                                },
+                                                                "layer": "Conv2d",
+                                                                "body": [],
+                                                                "lineno": 298
+                                                            },
+                                                            "kernel_size": [
+                                                                3
+                                                            ],
+                                                            "stride": 2,
+                                                            "scope": "pool1",
+                                                            "padding": "SAME"
+                                                        },
+                                                        "layer": "MaxPool",
+                                                        "body": [],
+                                                        "lineno": 300
+                                                    },
+                                                    "num_outputs": 64,
+                                                    "kernel_size": [
+                                                        3
+                                                    ],
+                                                    "stride": 1,
+                                                    "scope": "conv2"
+                                                },
+                                                "layer": "Conv2d",
+                                                "body": [],
+                                                "lineno": 302
+                                            },
+                                            "kernel_size": [
+                                                3
+                                            ],
+                                            "stride": 2,
+                                            "scope": "pool2"
+                                        },
+                                        "layer": "MaxPool",
+                                        "body": [],
+                                        "lineno": 304
+                                    },
+                                    "num_outputs": 64,
+                                    "kernel_size": [
+                                        3
+                                    ],
+                                    "stride": 1,
+                                    "scope": "conv3"
+                                },
+                                "layer": "Conv2d",
+                                "body": [],
+                                "lineno": 306
+                            },
+                            "kernel_size": [
+                                2
+                            ],
+                            "stride": 2,
+                            "scope": "pool3",
+                            "padding": "SAME"
+                        },
+                        "layer": "MaxPool",
+                        "body": [],
+                        "lineno": 308
+                    },
+                    "num_outputs": 128,
+                    "kernel_size": [
+                        2
+                    ],
+                    "stride": 1,
+                    "scope": "conv4"
+                },
+                "begin": 310
+            },
+            "layer7": {
+                "type": "Flatten",
+                "func": "tf.contrib.slim.flatten",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.conv2d",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.contrib.slim.max_pool2d",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.conv2d",
+                                        "args": {
+                                            "inputs": {
+                                                "func": "tf.contrib.slim.max_pool2d",
+                                                "args": {
+                                                    "inputs": {
+                                                        "func": "tf.contrib.slim.conv2d",
+                                                        "args": {
+                                                            "inputs": {
+                                                                "func": "tf.contrib.slim.max_pool2d",
+                                                                "args": {
+                                                                    "inputs": {
+                                                                        "func": "tf.contrib.slim.conv2d",
+                                                                        "args": {
+                                                                            "inputs": "inputs",
+                                                                            "num_outputs": 32,
+                                                                            "kernel_size": [
+                                                                                3
+                                                                            ],
+                                                                            "stride": 1,
+                                                                            "scope": "conv1"
+                                                                        },
+                                                                        "layer": "Conv2d",
+                                                                        "body": [],
+                                                                        "lineno": 298
+                                                                    },
+                                                                    "kernel_size": [
+                                                                        3
+                                                                    ],
+                                                                    "stride": 2,
+                                                                    "scope": "pool1",
+                                                                    "padding": "SAME"
+                                                                },
+                                                                "layer": "MaxPool",
+                                                                "body": [],
+                                                                "lineno": 300
+                                                            },
+                                                            "num_outputs": 64,
+                                                            "kernel_size": [
+                                                                3
+                                                            ],
+                                                            "stride": 1,
+                                                            "scope": "conv2"
+                                                        },
+                                                        "layer": "Conv2d",
+                                                        "body": [],
+                                                        "lineno": 302
+                                                    },
+                                                    "kernel_size": [
+                                                        3
+                                                    ],
+                                                    "stride": 2,
+                                                    "scope": "pool2"
+                                                },
+                                                "layer": "MaxPool",
+                                                "body": [],
+                                                "lineno": 304
+                                            },
+                                            "num_outputs": 64,
+                                            "kernel_size": [
+                                                3
+                                            ],
+                                            "stride": 1,
+                                            "scope": "conv3"
+                                        },
+                                        "layer": "Conv2d",
+                                        "body": [],
+                                        "lineno": 306
+                                    },
+                                    "kernel_size": [
+                                        2
+                                    ],
+                                    "stride": 2,
+                                    "scope": "pool3",
+                                    "padding": "SAME"
+                                },
+                                "layer": "MaxPool",
+                                "body": [],
+                                "lineno": 308
+                            },
+                            "num_outputs": 128,
+                            "kernel_size": [
+                                2
+                            ],
+                            "stride": 1,
+                            "scope": "conv4"
+                        },
+                        "layer": "Conv2d",
+                        "body": [],
+                        "lineno": 310
+                    }
+                },
+                "begin": 312
+            },
+            "layer8": {
+                "type": "dense",
+                "func": "tf.contrib.slim.fully_connected",
+                "args": {
+                    "input": {
+                        "func": "tf.contrib.slim.flatten",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.contrib.slim.conv2d",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.max_pool2d",
+                                        "args": {
+                                            "inputs": {
+                                                "func": "tf.contrib.slim.conv2d",
+                                                "args": {
+                                                    "inputs": {
+                                                        "func": "tf.contrib.slim.max_pool2d",
+                                                        "args": {
+                                                            "inputs": {
+                                                                "func": "tf.contrib.slim.conv2d",
+                                                                "args": {
+                                                                    "inputs": {
+                                                                        "func": "tf.contrib.slim.max_pool2d",
+                                                                        "args": {
+                                                                            "inputs": {
+                                                                                "func": "tf.contrib.slim.conv2d",
+                                                                                "args": {
+                                                                                    "inputs": "inputs",
+                                                                                    "num_outputs": 32,
+                                                                                    "kernel_size": [
+                                                                                        3
+                                                                                    ],
+                                                                                    "stride": 1,
+                                                                                    "scope": "conv1"
+                                                                                },
+                                                                                "layer": "Conv2d",
+                                                                                "body": [],
+                                                                                "lineno": 298
+                                                                            },
+                                                                            "kernel_size": [
+                                                                                3
+                                                                            ],
+                                                                            "stride": 2,
+                                                                            "scope": "pool1",
+                                                                            "padding": "SAME"
+                                                                        },
+                                                                        "layer": "MaxPool",
+                                                                        "body": [],
+                                                                        "lineno": 300
+                                                                    },
+                                                                    "num_outputs": 64,
+                                                                    "kernel_size": [
+                                                                        3
+                                                                    ],
+                                                                    "stride": 1,
+                                                                    "scope": "conv2"
+                                                                },
+                                                                "layer": "Conv2d",
+                                                                "body": [],
+                                                                "lineno": 302
+                                                            },
+                                                            "kernel_size": [
+                                                                3
+                                                            ],
+                                                            "stride": 2,
+                                                            "scope": "pool2"
+                                                        },
+                                                        "layer": "MaxPool",
+                                                        "body": [],
+                                                        "lineno": 304
+                                                    },
+                                                    "num_outputs": 64,
+                                                    "kernel_size": [
+                                                        3
+                                                    ],
+                                                    "stride": 1,
+                                                    "scope": "conv3"
+                                                },
+                                                "layer": "Conv2d",
+                                                "body": [],
+                                                "lineno": 306
+                                            },
+                                            "kernel_size": [
+                                                2
+                                            ],
+                                            "stride": 2,
+                                            "scope": "pool3",
+                                            "padding": "SAME"
+                                        },
+                                        "layer": "MaxPool",
+                                        "body": [],
+                                        "lineno": 308
+                                    },
+                                    "num_outputs": 128,
+                                    "kernel_size": [
+                                        2
+                                    ],
+                                    "stride": 1,
+                                    "scope": "conv4"
+                                },
+                                "layer": "Conv2d",
+                                "body": [],
+                                "lineno": 310
+                            }
+                        },
+                        "layer": "Flatten",
+                        "body": [],
+                        "lineno": 312
+                    },
+                    "num_outputs": 256,
+                    "scope": "fc1"
+                },
+                "begin": 314
+            },
+            "layer9": {
+                "type": "dense",
+                "func": "tf.contrib.slim.fully_connected",
+                "args": {
+                    "input": {
+                        "func": "tf.contrib.slim.fully_connected",
+                        "args": {
+                            "input": {
+                                "func": "tf.contrib.slim.flatten",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.conv2d",
+                                        "args": {
+                                            "inputs": {
+                                                "func": "tf.contrib.slim.max_pool2d",
+                                                "args": {
+                                                    "inputs": {
+                                                        "func": "tf.contrib.slim.conv2d",
+                                                        "args": {
+                                                            "inputs": {
+                                                                "func": "tf.contrib.slim.max_pool2d",
+                                                                "args": {
+                                                                    "inputs": {
+                                                                        "func": "tf.contrib.slim.conv2d",
+                                                                        "args": {
+                                                                            "inputs": {
+                                                                                "func": "tf.contrib.slim.max_pool2d",
+                                                                                "args": {
+                                                                                    "inputs": {
+                                                                                        "func": "tf.contrib.slim.conv2d",
+                                                                                        "args": {
+                                                                                            "inputs": "inputs",
+                                                                                            "num_outputs": 32,
+                                                                                            "kernel_size": [
+                                                                                                3
+                                                                                            ],
+                                                                                            "stride": 1,
+                                                                                            "scope": "conv1"
+                                                                                        },
+                                                                                        "layer": "Conv2d",
+                                                                                        "body": [],
+                                                                                        "lineno": 298
+                                                                                    },
+                                                                                    "kernel_size": [
+                                                                                        3
+                                                                                    ],
+                                                                                    "stride": 2,
+                                                                                    "scope": "pool1",
+                                                                                    "padding": "SAME"
+                                                                                },
+                                                                                "layer": "MaxPool",
+                                                                                "body": [],
+                                                                                "lineno": 300
+                                                                            },
+                                                                            "num_outputs": 64,
+                                                                            "kernel_size": [
+                                                                                3
+                                                                            ],
+                                                                            "stride": 1,
+                                                                            "scope": "conv2"
+                                                                        },
+                                                                        "layer": "Conv2d",
+                                                                        "body": [],
+                                                                        "lineno": 302
+                                                                    },
+                                                                    "kernel_size": [
+                                                                        3
+                                                                    ],
+                                                                    "stride": 2,
+                                                                    "scope": "pool2"
+                                                                },
+                                                                "layer": "MaxPool",
+                                                                "body": [],
+                                                                "lineno": 304
+                                                            },
+                                                            "num_outputs": 64,
+                                                            "kernel_size": [
+                                                                3
+                                                            ],
+                                                            "stride": 1,
+                                                            "scope": "conv3"
+                                                        },
+                                                        "layer": "Conv2d",
+                                                        "body": [],
+                                                        "lineno": 306
+                                                    },
+                                                    "kernel_size": [
+                                                        2
+                                                    ],
+                                                    "stride": 2,
+                                                    "scope": "pool3",
+                                                    "padding": "SAME"
+                                                },
+                                                "layer": "MaxPool",
+                                                "body": [],
+                                                "lineno": 308
+                                            },
+                                            "num_outputs": 128,
+                                            "kernel_size": [
+                                                2
+                                            ],
+                                            "stride": 1,
+                                            "scope": "conv4"
+                                        },
+                                        "layer": "Conv2d",
+                                        "body": [],
+                                        "lineno": 310
+                                    }
+                                },
+                                "layer": "Flatten",
+                                "body": [],
+                                "lineno": 312
+                            },
+                            "num_outputs": 256,
+                            "scope": "fc1"
+                        },
+                        "layer": "dense",
+                        "body": [],
+                        "lineno": 314
+                    },
+                    "num_outputs": 2,
+                    "scope": "cls_fc",
+                    "activation_fn": "tf.nn.softmax"
+                },
+                "begin": 317
+            },
+            "layer10": {
+                "type": "dense",
+                "func": "tf.contrib.slim.fully_connected",
+                "args": {
+                    "input": {
+                        "func": "tf.contrib.slim.fully_connected",
+                        "args": {
+                            "input": {
+                                "func": "tf.contrib.slim.flatten",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.conv2d",
+                                        "args": {
+                                            "inputs": {
+                                                "func": "tf.contrib.slim.max_pool2d",
+                                                "args": {
+                                                    "inputs": {
+                                                        "func": "tf.contrib.slim.conv2d",
+                                                        "args": {
+                                                            "inputs": {
+                                                                "func": "tf.contrib.slim.max_pool2d",
+                                                                "args": {
+                                                                    "inputs": {
+                                                                        "func": "tf.contrib.slim.conv2d",
+                                                                        "args": {
+                                                                            "inputs": {
+                                                                                "func": "tf.contrib.slim.max_pool2d",
+                                                                                "args": {
+                                                                                    "inputs": {
+                                                                                        "func": "tf.contrib.slim.conv2d",
+                                                                                        "args": {
+                                                                                            "inputs": "inputs",
+                                                                                            "num_outputs": 32,
+                                                                                            "kernel_size": [
+                                                                                                3
+                                                                                            ],
+                                                                                            "stride": 1,
+                                                                                            "scope": "conv1"
+                                                                                        },
+                                                                                        "layer": "Conv2d",
+                                                                                        "body": [],
+                                                                                        "lineno": 298
+                                                                                    },
+                                                                                    "kernel_size": [
+                                                                                        3
+                                                                                    ],
+                                                                                    "stride": 2,
+                                                                                    "scope": "pool1",
+                                                                                    "padding": "SAME"
+                                                                                },
+                                                                                "layer": "MaxPool",
+                                                                                "body": [],
+                                                                                "lineno": 300
+                                                                            },
+                                                                            "num_outputs": 64,
+                                                                            "kernel_size": [
+                                                                                3
+                                                                            ],
+                                                                            "stride": 1,
+                                                                            "scope": "conv2"
+                                                                        },
+                                                                        "layer": "Conv2d",
+                                                                        "body": [],
+                                                                        "lineno": 302
+                                                                    },
+                                                                    "kernel_size": [
+                                                                        3
+                                                                    ],
+                                                                    "stride": 2,
+                                                                    "scope": "pool2"
+                                                                },
+                                                                "layer": "MaxPool",
+                                                                "body": [],
+                                                                "lineno": 304
+                                                            },
+                                                            "num_outputs": 64,
+                                                            "kernel_size": [
+                                                                3
+                                                            ],
+                                                            "stride": 1,
+                                                            "scope": "conv3"
+                                                        },
+                                                        "layer": "Conv2d",
+                                                        "body": [],
+                                                        "lineno": 306
+                                                    },
+                                                    "kernel_size": [
+                                                        2
+                                                    ],
+                                                    "stride": 2,
+                                                    "scope": "pool3",
+                                                    "padding": "SAME"
+                                                },
+                                                "layer": "MaxPool",
+                                                "body": [],
+                                                "lineno": 308
+                                            },
+                                            "num_outputs": 128,
+                                            "kernel_size": [
+                                                2
+                                            ],
+                                            "stride": 1,
+                                            "scope": "conv4"
+                                        },
+                                        "layer": "Conv2d",
+                                        "body": [],
+                                        "lineno": 310
+                                    }
+                                },
+                                "layer": "Flatten",
+                                "body": [],
+                                "lineno": 312
+                            },
+                            "num_outputs": 256,
+                            "scope": "fc1"
+                        },
+                        "layer": "dense",
+                        "body": [],
+                        "lineno": 314
+                    },
+                    "num_outputs": 4,
+                    "scope": "bbox_fc",
+                    "activation_fn": null
+                },
+                "begin": 320
+            },
+            "layer11": {
+                "type": "dense",
+                "func": "tf.contrib.slim.fully_connected",
+                "args": {
+                    "input": {
+                        "func": "tf.contrib.slim.fully_connected",
+                        "args": {
+                            "input": {
+                                "func": "tf.contrib.slim.flatten",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.conv2d",
+                                        "args": {
+                                            "inputs": {
+                                                "func": "tf.contrib.slim.max_pool2d",
+                                                "args": {
+                                                    "inputs": {
+                                                        "func": "tf.contrib.slim.conv2d",
+                                                        "args": {
+                                                            "inputs": {
+                                                                "func": "tf.contrib.slim.max_pool2d",
+                                                                "args": {
+                                                                    "inputs": {
+                                                                        "func": "tf.contrib.slim.conv2d",
+                                                                        "args": {
+                                                                            "inputs": {
+                                                                                "func": "tf.contrib.slim.max_pool2d",
+                                                                                "args": {
+                                                                                    "inputs": {
+                                                                                        "func": "tf.contrib.slim.conv2d",
+                                                                                        "args": {
+                                                                                            "inputs": "inputs",
+                                                                                            "num_outputs": 32,
+                                                                                            "kernel_size": [
+                                                                                                3
+                                                                                            ],
+                                                                                            "stride": 1,
+                                                                                            "scope": "conv1"
+                                                                                        },
+                                                                                        "layer": "Conv2d",
+                                                                                        "body": [],
+                                                                                        "lineno": 298
+                                                                                    },
+                                                                                    "kernel_size": [
+                                                                                        3
+                                                                                    ],
+                                                                                    "stride": 2,
+                                                                                    "scope": "pool1",
+                                                                                    "padding": "SAME"
+                                                                                },
+                                                                                "layer": "MaxPool",
+                                                                                "body": [],
+                                                                                "lineno": 300
+                                                                            },
+                                                                            "num_outputs": 64,
+                                                                            "kernel_size": [
+                                                                                3
+                                                                            ],
+                                                                            "stride": 1,
+                                                                            "scope": "conv2"
+                                                                        },
+                                                                        "layer": "Conv2d",
+                                                                        "body": [],
+                                                                        "lineno": 302
+                                                                    },
+                                                                    "kernel_size": [
+                                                                        3
+                                                                    ],
+                                                                    "stride": 2,
+                                                                    "scope": "pool2"
+                                                                },
+                                                                "layer": "MaxPool",
+                                                                "body": [],
+                                                                "lineno": 304
+                                                            },
+                                                            "num_outputs": 64,
+                                                            "kernel_size": [
+                                                                3
+                                                            ],
+                                                            "stride": 1,
+                                                            "scope": "conv3"
+                                                        },
+                                                        "layer": "Conv2d",
+                                                        "body": [],
+                                                        "lineno": 306
+                                                    },
+                                                    "kernel_size": [
+                                                        2
+                                                    ],
+                                                    "stride": 2,
+                                                    "scope": "pool3",
+                                                    "padding": "SAME"
+                                                },
+                                                "layer": "MaxPool",
+                                                "body": [],
+                                                "lineno": 308
+                                            },
+                                            "num_outputs": 128,
+                                            "kernel_size": [
+                                                2
+                                            ],
+                                            "stride": 1,
+                                            "scope": "conv4"
+                                        },
+                                        "layer": "Conv2d",
+                                        "body": [],
+                                        "lineno": 310
+                                    }
+                                },
+                                "layer": "Flatten",
+                                "body": [],
+                                "lineno": 312
+                            },
+                            "num_outputs": 256,
+                            "scope": "fc1"
+                        },
+                        "layer": "dense",
+                        "body": [],
+                        "lineno": 314
+                    },
+                    "num_outputs": 10,
+                    "scope": "landmark_fc",
+                    "activation_fn": null
+                },
+                "begin": 323
+            }
+        }
+    },
+    "3":{
+        "type": [],
+        "hpyerparameters": {},
+        "num_layers": 7,
+        "tricks": [],
+        "layers": {
+            "layer0": {
+                "type": "conv2d",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "inputs",
+                    "num_outputs": 10,
+                    "kernel_size": 3,
+                    "stride": 1,
+                    "scope": "conv1"
+                },
+                "begin": 187
+            },
+            "layer1": {
+                "type": "MaxPool",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.conv2d",
+                        "args": {
+                            "inputs": "inputs",
+                            "num_outputs": 10,
+                            "kernel_size": 3,
+                            "stride": 1,
+                            "scope": "conv1"
+                        },
+                        "layer": "Conv2d",
+                        "body": [],
+                        "lineno": 187
+                    },
+                    "kernel_size": [
+                        2
+                    ],
+                    "stride": 2,
+                    "scope": "pool1",
+                    "padding": "SAME"
+                },
+                "begin": 190
+            },
+            "layer2": {
+                "type": "conv2d",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.max_pool2d",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.contrib.slim.conv2d",
+                                "args": {
+                                    "inputs": "inputs",
+                                    "num_outputs": 10,
+                                    "kernel_size": 3,
+                                    "stride": 1,
+                                    "scope": "conv1"
+                                },
+                                "layer": "Conv2d",
+                                "body": [],
+                                "lineno": 187
+                            },
+                            "kernel_size": [
+                                2
+                            ],
+                            "stride": 2,
+                            "scope": "pool1",
+                            "padding": "SAME"
+                        },
+                        "layer": "MaxPool",
+                        "body": [],
+                        "lineno": 190
+                    },
+                    "num_outputs": 16,
+                    "kernel_size": [
+                        3
+                    ],
+                    "stride": 1,
+                    "scope": "conv2"
+                },
+                "begin": 193
+            },
+            "layer3": {
+                "type": "conv2d",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.conv2d",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.contrib.slim.max_pool2d",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.conv2d",
+                                        "args": {
+                                            "inputs": "inputs",
+                                            "num_outputs": 10,
+                                            "kernel_size": 3,
+                                            "stride": 1,
+                                            "scope": "conv1"
+                                        },
+                                        "layer": "Conv2d",
+                                        "body": [],
+                                        "lineno": 187
+                                    },
+                                    "kernel_size": [
+                                        2
+                                    ],
+                                    "stride": 2,
+                                    "scope": "pool1",
+                                    "padding": "SAME"
+                                },
+                                "layer": "MaxPool",
+                                "body": [],
+                                "lineno": 190
+                            },
+                            "num_outputs": 16,
+                            "kernel_size": [
+                                3
+                            ],
+                            "stride": 1,
+                            "scope": "conv2"
+                        },
+                        "layer": "Conv2d",
+                        "body": [],
+                        "lineno": 193
+                    },
+                    "num_outputs": 32,
+                    "kernel_size": [
+                        3
+                    ],
+                    "stride": 1,
+                    "scope": "conv3"
+                },
+                "begin": 197
+            },
+            "layer4": {
+                "type": "conv2d",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.conv2d",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.contrib.slim.conv2d",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.max_pool2d",
+                                        "args": {
+                                            "inputs": {
+                                                "func": "tf.contrib.slim.conv2d",
+                                                "args": {
+                                                    "inputs": "inputs",
+                                                    "num_outputs": 10,
+                                                    "kernel_size": 3,
+                                                    "stride": 1,
+                                                    "scope": "conv1"
+                                                },
+                                                "layer": "Conv2d",
+                                                "body": [],
+                                                "lineno": 187
+                                            },
+                                            "kernel_size": [
+                                                2
+                                            ],
+                                            "stride": 2,
+                                            "scope": "pool1",
+                                            "padding": "SAME"
+                                        },
+                                        "layer": "MaxPool",
+                                        "body": [],
+                                        "lineno": 190
+                                    },
+                                    "num_outputs": 16,
+                                    "kernel_size": [
+                                        3
+                                    ],
+                                    "stride": 1,
+                                    "scope": "conv2"
+                                },
+                                "layer": "Conv2d",
+                                "body": [],
+                                "lineno": 193
+                            },
+                            "num_outputs": 32,
+                            "kernel_size": [
+                                3
+                            ],
+                            "stride": 1,
+                            "scope": "conv3"
+                        },
+                        "layer": "Conv2d",
+                        "body": [],
+                        "lineno": 197
+                    },
+                    "num_outputs": 2,
+                    "kernel_size": [
+                        1
+                    ],
+                    "stride": 1,
+                    "scope": "conv4_1",
+                    "activation_fn": "tf.nn.softmax"
+                },
+                "begin": 201
+            },
+            "layer5": {
+                "type": "conv2d",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.conv2d",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.contrib.slim.conv2d",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.max_pool2d",
+                                        "args": {
+                                            "inputs": {
+                                                "func": "tf.contrib.slim.conv2d",
+                                                "args": {
+                                                    "inputs": "inputs",
+                                                    "num_outputs": 10,
+                                                    "kernel_size": 3,
+                                                    "stride": 1,
+                                                    "scope": "conv1"
+                                                },
+                                                "layer": "Conv2d",
+                                                "body": [],
+                                                "lineno": 187
+                                            },
+                                            "kernel_size": [
+                                                2
+                                            ],
+                                            "stride": 2,
+                                            "scope": "pool1",
+                                            "padding": "SAME"
+                                        },
+                                        "layer": "MaxPool",
+                                        "body": [],
+                                        "lineno": 190
+                                    },
+                                    "num_outputs": 16,
+                                    "kernel_size": [
+                                        3
+                                    ],
+                                    "stride": 1,
+                                    "scope": "conv2"
+                                },
+                                "layer": "Conv2d",
+                                "body": [],
+                                "lineno": 193
+                            },
+                            "num_outputs": 32,
+                            "kernel_size": [
+                                3
+                            ],
+                            "stride": 1,
+                            "scope": "conv3"
+                        },
+                        "layer": "Conv2d",
+                        "body": [],
+                        "lineno": 197
+                    },
+                    "num_outputs": 4,
+                    "kernel_size": [
+                        1
+                    ],
+                    "stride": 1,
+                    "scope": "conv4_2",
+                    "activation_fn": null
+                },
+                "begin": 207
+            },
+            "layer6": {
+                "type": "conv2d",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.conv2d",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.contrib.slim.conv2d",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.max_pool2d",
+                                        "args": {
+                                            "inputs": {
+                                                "func": "tf.contrib.slim.conv2d",
+                                                "args": {
+                                                    "inputs": "inputs",
+                                                    "num_outputs": 10,
+                                                    "kernel_size": 3,
+                                                    "stride": 1,
+                                                    "scope": "conv1"
+                                                },
+                                                "layer": "Conv2d",
+                                                "body": [],
+                                                "lineno": 187
+                                            },
+                                            "kernel_size": [
+                                                2
+                                            ],
+                                            "stride": 2,
+                                            "scope": "pool1",
+                                            "padding": "SAME"
+                                        },
+                                        "layer": "MaxPool",
+                                        "body": [],
+                                        "lineno": 190
+                                    },
+                                    "num_outputs": 16,
+                                    "kernel_size": [
+                                        3
+                                    ],
+                                    "stride": 1,
+                                    "scope": "conv2"
+                                },
+                                "layer": "Conv2d",
+                                "body": [],
+                                "lineno": 193
+                            },
+                            "num_outputs": 32,
+                            "kernel_size": [
+                                3
+                            ],
+                            "stride": 1,
+                            "scope": "conv3"
+                        },
+                        "layer": "Conv2d",
+                        "body": [],
+                        "lineno": 197
+                    },
+                    "num_outputs": 10,
+                    "kernel_size": [
+                        1
+                    ],
+                    "stride": 1,
+                    "scope": "conv4_3",
+                    "activation_fn": null
+                },
+                "begin": 211
+            }
+        }
+    },
+    "4":{
+        "type": [],
+        "hpyerparameters": {},
+        "num_layers": 10,
+        "tricks": [],
+        "layers": {
+            "layer0": {
+                "type": "conv2d",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "inputs",
+                    "num_outputs": 28,
+                    "kernel_size": [
+                        3
+                    ],
+                    "stride": 1,
+                    "scope": "conv1"
+                },
+                "begin": 256
+            },
+            "layer1": {
+                "type": "MaxPool",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.conv2d",
+                        "args": {
+                            "inputs": "inputs",
+                            "num_outputs": 28,
+                            "kernel_size": [
+                                3
+                            ],
+                            "stride": 1,
+                            "scope": "conv1"
+                        },
+                        "layer": "Conv2d",
+                        "body": [],
+                        "lineno": 256
+                    },
+                    "kernel_size": [
+                        3
+                    ],
+                    "stride": 2,
+                    "scope": "pool1",
+                    "padding": "SAME"
+                },
+                "begin": 258
+            },
+            "layer2": {
+                "type": "conv2d",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.max_pool2d",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.contrib.slim.conv2d",
+                                "args": {
+                                    "inputs": "inputs",
+                                    "num_outputs": 28,
+                                    "kernel_size": [
+                                        3
+                                    ],
+                                    "stride": 1,
+                                    "scope": "conv1"
+                                },
+                                "layer": "Conv2d",
+                                "body": [],
+                                "lineno": 256
+                            },
+                            "kernel_size": [
+                                3
+                            ],
+                            "stride": 2,
+                            "scope": "pool1",
+                            "padding": "SAME"
+                        },
+                        "layer": "MaxPool",
+                        "body": [],
+                        "lineno": 258
+                    },
+                    "num_outputs": 48,
+                    "kernel_size": [
+                        3
+                    ],
+                    "stride": 1,
+                    "scope": "conv2"
+                },
+                "begin": 260
+            },
+            "layer3": {
+                "type": "MaxPool",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.conv2d",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.contrib.slim.max_pool2d",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.conv2d",
+                                        "args": {
+                                            "inputs": "inputs",
+                                            "num_outputs": 28,
+                                            "kernel_size": [
+                                                3
+                                            ],
+                                            "stride": 1,
+                                            "scope": "conv1"
+                                        },
+                                        "layer": "Conv2d",
+                                        "body": [],
+                                        "lineno": 256
+                                    },
+                                    "kernel_size": [
+                                        3
+                                    ],
+                                    "stride": 2,
+                                    "scope": "pool1",
+                                    "padding": "SAME"
+                                },
+                                "layer": "MaxPool",
+                                "body": [],
+                                "lineno": 258
+                            },
+                            "num_outputs": 48,
+                            "kernel_size": [
+                                3
+                            ],
+                            "stride": 1,
+                            "scope": "conv2"
+                        },
+                        "layer": "Conv2d",
+                        "body": [],
+                        "lineno": 260
+                    },
+                    "kernel_size": [
+                        3
+                    ],
+                    "stride": 2,
+                    "scope": "pool2"
+                },
+                "begin": 262
+            },
+            "layer4": {
+                "type": "conv2d",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.max_pool2d",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.contrib.slim.conv2d",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.max_pool2d",
+                                        "args": {
+                                            "inputs": {
+                                                "func": "tf.contrib.slim.conv2d",
+                                                "args": {
+                                                    "inputs": "inputs",
+                                                    "num_outputs": 28,
+                                                    "kernel_size": [
+                                                        3
+                                                    ],
+                                                    "stride": 1,
+                                                    "scope": "conv1"
+                                                },
+                                                "layer": "Conv2d",
+                                                "body": [],
+                                                "lineno": 256
+                                            },
+                                            "kernel_size": [
+                                                3
+                                            ],
+                                            "stride": 2,
+                                            "scope": "pool1",
+                                            "padding": "SAME"
+                                        },
+                                        "layer": "MaxPool",
+                                        "body": [],
+                                        "lineno": 258
+                                    },
+                                    "num_outputs": 48,
+                                    "kernel_size": [
+                                        3
+                                    ],
+                                    "stride": 1,
+                                    "scope": "conv2"
+                                },
+                                "layer": "Conv2d",
+                                "body": [],
+                                "lineno": 260
+                            },
+                            "kernel_size": [
+                                3
+                            ],
+                            "stride": 2,
+                            "scope": "pool2"
+                        },
+                        "layer": "MaxPool",
+                        "body": [],
+                        "lineno": 262
+                    },
+                    "num_outputs": 64,
+                    "kernel_size": [
+                        2
+                    ],
+                    "stride": 1,
+                    "scope": "conv3"
+                },
+                "begin": 264
+            },
+            "layer5": {
+                "type": "Flatten",
+                "func": "tf.contrib.slim.flatten",
+                "args": {
+                    "inputs": {
+                        "func": "tf.contrib.slim.conv2d",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.contrib.slim.max_pool2d",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.conv2d",
+                                        "args": {
+                                            "inputs": {
+                                                "func": "tf.contrib.slim.max_pool2d",
+                                                "args": {
+                                                    "inputs": {
+                                                        "func": "tf.contrib.slim.conv2d",
+                                                        "args": {
+                                                            "inputs": "inputs",
+                                                            "num_outputs": 28,
+                                                            "kernel_size": [
+                                                                3
+                                                            ],
+                                                            "stride": 1,
+                                                            "scope": "conv1"
+                                                        },
+                                                        "layer": "Conv2d",
+                                                        "body": [],
+                                                        "lineno": 256
+                                                    },
+                                                    "kernel_size": [
+                                                        3
+                                                    ],
+                                                    "stride": 2,
+                                                    "scope": "pool1",
+                                                    "padding": "SAME"
+                                                },
+                                                "layer": "MaxPool",
+                                                "body": [],
+                                                "lineno": 258
+                                            },
+                                            "num_outputs": 48,
+                                            "kernel_size": [
+                                                3
+                                            ],
+                                            "stride": 1,
+                                            "scope": "conv2"
+                                        },
+                                        "layer": "Conv2d",
+                                        "body": [],
+                                        "lineno": 260
+                                    },
+                                    "kernel_size": [
+                                        3
+                                    ],
+                                    "stride": 2,
+                                    "scope": "pool2"
+                                },
+                                "layer": "MaxPool",
+                                "body": [],
+                                "lineno": 262
+                            },
+                            "num_outputs": 64,
+                            "kernel_size": [
+                                2
+                            ],
+                            "stride": 1,
+                            "scope": "conv3"
+                        },
+                        "layer": "Conv2d",
+                        "body": [],
+                        "lineno": 264
+                    }
+                },
+                "begin": 266
+            },
+            "layer6": {
+                "type": "dense",
+                "func": "tf.contrib.slim.fully_connected",
+                "args": {
+                    "input": {
+                        "func": "tf.contrib.slim.flatten",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.contrib.slim.conv2d",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.max_pool2d",
+                                        "args": {
+                                            "inputs": {
+                                                "func": "tf.contrib.slim.conv2d",
+                                                "args": {
+                                                    "inputs": {
+                                                        "func": "tf.contrib.slim.max_pool2d",
+                                                        "args": {
+                                                            "inputs": {
+                                                                "func": "tf.contrib.slim.conv2d",
+                                                                "args": {
+                                                                    "inputs": "inputs",
+                                                                    "num_outputs": 28,
+                                                                    "kernel_size": [
+                                                                        3
+                                                                    ],
+                                                                    "stride": 1,
+                                                                    "scope": "conv1"
+                                                                },
+                                                                "layer": "Conv2d",
+                                                                "body": [],
+                                                                "lineno": 256
+                                                            },
+                                                            "kernel_size": [
+                                                                3
+                                                            ],
+                                                            "stride": 2,
+                                                            "scope": "pool1",
+                                                            "padding": "SAME"
+                                                        },
+                                                        "layer": "MaxPool",
+                                                        "body": [],
+                                                        "lineno": 258
+                                                    },
+                                                    "num_outputs": 48,
+                                                    "kernel_size": [
+                                                        3
+                                                    ],
+                                                    "stride": 1,
+                                                    "scope": "conv2"
+                                                },
+                                                "layer": "Conv2d",
+                                                "body": [],
+                                                "lineno": 260
+                                            },
+                                            "kernel_size": [
+                                                3
+                                            ],
+                                            "stride": 2,
+                                            "scope": "pool2"
+                                        },
+                                        "layer": "MaxPool",
+                                        "body": [],
+                                        "lineno": 262
+                                    },
+                                    "num_outputs": 64,
+                                    "kernel_size": [
+                                        2
+                                    ],
+                                    "stride": 1,
+                                    "scope": "conv3"
+                                },
+                                "layer": "Conv2d",
+                                "body": [],
+                                "lineno": 264
+                            }
+                        },
+                        "layer": "Flatten",
+                        "body": [],
+                        "lineno": 266
+                    },
+                    "num_outputs": 128,
+                    "scope": "fc1"
+                },
+                "begin": 268
+            },
+            "layer7": {
+                "type": "dense",
+                "func": "tf.contrib.slim.fully_connected",
+                "args": {
+                    "input": {
+                        "func": "tf.contrib.slim.fully_connected",
+                        "args": {
+                            "input": {
+                                "func": "tf.contrib.slim.flatten",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.conv2d",
+                                        "args": {
+                                            "inputs": {
+                                                "func": "tf.contrib.slim.max_pool2d",
+                                                "args": {
+                                                    "inputs": {
+                                                        "func": "tf.contrib.slim.conv2d",
+                                                        "args": {
+                                                            "inputs": {
+                                                                "func": "tf.contrib.slim.max_pool2d",
+                                                                "args": {
+                                                                    "inputs": {
+                                                                        "func": "tf.contrib.slim.conv2d",
+                                                                        "args": {
+                                                                            "inputs": "inputs",
+                                                                            "num_outputs": 28,
+                                                                            "kernel_size": [
+                                                                                3
+                                                                            ],
+                                                                            "stride": 1,
+                                                                            "scope": "conv1"
+                                                                        },
+                                                                        "layer": "Conv2d",
+                                                                        "body": [],
+                                                                        "lineno": 256
+                                                                    },
+                                                                    "kernel_size": [
+                                                                        3
+                                                                    ],
+                                                                    "stride": 2,
+                                                                    "scope": "pool1",
+                                                                    "padding": "SAME"
+                                                                },
+                                                                "layer": "MaxPool",
+                                                                "body": [],
+                                                                "lineno": 258
+                                                            },
+                                                            "num_outputs": 48,
+                                                            "kernel_size": [
+                                                                3
+                                                            ],
+                                                            "stride": 1,
+                                                            "scope": "conv2"
+                                                        },
+                                                        "layer": "Conv2d",
+                                                        "body": [],
+                                                        "lineno": 260
+                                                    },
+                                                    "kernel_size": [
+                                                        3
+                                                    ],
+                                                    "stride": 2,
+                                                    "scope": "pool2"
+                                                },
+                                                "layer": "MaxPool",
+                                                "body": [],
+                                                "lineno": 262
+                                            },
+                                            "num_outputs": 64,
+                                            "kernel_size": [
+                                                2
+                                            ],
+                                            "stride": 1,
+                                            "scope": "conv3"
+                                        },
+                                        "layer": "Conv2d",
+                                        "body": [],
+                                        "lineno": 264
+                                    }
+                                },
+                                "layer": "Flatten",
+                                "body": [],
+                                "lineno": 266
+                            },
+                            "num_outputs": 128,
+                            "scope": "fc1"
+                        },
+                        "layer": "dense",
+                        "body": [],
+                        "lineno": 268
+                    },
+                    "num_outputs": 2,
+                    "scope": "cls_fc",
+                    "activation_fn": "tf.nn.softmax"
+                },
+                "begin": 271
+            },
+            "layer8": {
+                "type": "dense",
+                "func": "tf.contrib.slim.fully_connected",
+                "args": {
+                    "input": {
+                        "func": "tf.contrib.slim.fully_connected",
+                        "args": {
+                            "input": {
+                                "func": "tf.contrib.slim.flatten",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.conv2d",
+                                        "args": {
+                                            "inputs": {
+                                                "func": "tf.contrib.slim.max_pool2d",
+                                                "args": {
+                                                    "inputs": {
+                                                        "func": "tf.contrib.slim.conv2d",
+                                                        "args": {
+                                                            "inputs": {
+                                                                "func": "tf.contrib.slim.max_pool2d",
+                                                                "args": {
+                                                                    "inputs": {
+                                                                        "func": "tf.contrib.slim.conv2d",
+                                                                        "args": {
+                                                                            "inputs": "inputs",
+                                                                            "num_outputs": 28,
+                                                                            "kernel_size": [
+                                                                                3
+                                                                            ],
+                                                                            "stride": 1,
+                                                                            "scope": "conv1"
+                                                                        },
+                                                                        "layer": "Conv2d",
+                                                                        "body": [],
+                                                                        "lineno": 256
+                                                                    },
+                                                                    "kernel_size": [
+                                                                        3
+                                                                    ],
+                                                                    "stride": 2,
+                                                                    "scope": "pool1",
+                                                                    "padding": "SAME"
+                                                                },
+                                                                "layer": "MaxPool",
+                                                                "body": [],
+                                                                "lineno": 258
+                                                            },
+                                                            "num_outputs": 48,
+                                                            "kernel_size": [
+                                                                3
+                                                            ],
+                                                            "stride": 1,
+                                                            "scope": "conv2"
+                                                        },
+                                                        "layer": "Conv2d",
+                                                        "body": [],
+                                                        "lineno": 260
+                                                    },
+                                                    "kernel_size": [
+                                                        3
+                                                    ],
+                                                    "stride": 2,
+                                                    "scope": "pool2"
+                                                },
+                                                "layer": "MaxPool",
+                                                "body": [],
+                                                "lineno": 262
+                                            },
+                                            "num_outputs": 64,
+                                            "kernel_size": [
+                                                2
+                                            ],
+                                            "stride": 1,
+                                            "scope": "conv3"
+                                        },
+                                        "layer": "Conv2d",
+                                        "body": [],
+                                        "lineno": 264
+                                    }
+                                },
+                                "layer": "Flatten",
+                                "body": [],
+                                "lineno": 266
+                            },
+                            "num_outputs": 128,
+                            "scope": "fc1"
+                        },
+                        "layer": "dense",
+                        "body": [],
+                        "lineno": 268
+                    },
+                    "num_outputs": 4,
+                    "scope": "bbox_fc",
+                    "activation_fn": null
+                },
+                "begin": 274
+            },
+            "layer9": {
+                "type": "dense",
+                "func": "tf.contrib.slim.fully_connected",
+                "args": {
+                    "input": {
+                        "func": "tf.contrib.slim.fully_connected",
+                        "args": {
+                            "input": {
+                                "func": "tf.contrib.slim.flatten",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.contrib.slim.conv2d",
+                                        "args": {
+                                            "inputs": {
+                                                "func": "tf.contrib.slim.max_pool2d",
+                                                "args": {
+                                                    "inputs": {
+                                                        "func": "tf.contrib.slim.conv2d",
+                                                        "args": {
+                                                            "inputs": {
+                                                                "func": "tf.contrib.slim.max_pool2d",
+                                                                "args": {
+                                                                    "inputs": {
+                                                                        "func": "tf.contrib.slim.conv2d",
+                                                                        "args": {
+                                                                            "inputs": "inputs",
+                                                                            "num_outputs": 28,
+                                                                            "kernel_size": [
+                                                                                3
+                                                                            ],
+                                                                            "stride": 1,
+                                                                            "scope": "conv1"
+                                                                        },
+                                                                        "layer": "Conv2d",
+                                                                        "body": [],
+                                                                        "lineno": 256
+                                                                    },
+                                                                    "kernel_size": [
+                                                                        3
+                                                                    ],
+                                                                    "stride": 2,
+                                                                    "scope": "pool1",
+                                                                    "padding": "SAME"
+                                                                },
+                                                                "layer": "MaxPool",
+                                                                "body": [],
+                                                                "lineno": 258
+                                                            },
+                                                            "num_outputs": 48,
+                                                            "kernel_size": [
+                                                                3
+                                                            ],
+                                                            "stride": 1,
+                                                            "scope": "conv2"
+                                                        },
+                                                        "layer": "Conv2d",
+                                                        "body": [],
+                                                        "lineno": 260
+                                                    },
+                                                    "kernel_size": [
+                                                        3
+                                                    ],
+                                                    "stride": 2,
+                                                    "scope": "pool2"
+                                                },
+                                                "layer": "MaxPool",
+                                                "body": [],
+                                                "lineno": 262
+                                            },
+                                            "num_outputs": 64,
+                                            "kernel_size": [
+                                                2
+                                            ],
+                                            "stride": 1,
+                                            "scope": "conv3"
+                                        },
+                                        "layer": "Conv2d",
+                                        "body": [],
+                                        "lineno": 264
+                                    }
+                                },
+                                "layer": "Flatten",
+                                "body": [],
+                                "lineno": 266
+                            },
+                            "num_outputs": 128,
+                            "scope": "fc1"
+                        },
+                        "layer": "dense",
+                        "body": [],
+                        "lineno": 268
+                    },
+                    "num_outputs": 10,
+                    "scope": "landmark_fc",
+                    "activation_fn": null
+                },
+                "begin": 277
+            }
+        }
+    },
+    "5":{
+        "type": ["cnn"],
+        "hpyerparameters": {
+            "batch size": 64,
+            "learning rate": 0.001,
+            "epochs": 10
+        },
+        "num_layers": 5,
+        "tricks": [],
+        "layers": {
+            "layer0": {
+                "type": "conv1d",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "input": {
+                        "func": "tf.nn.embedding_lookup",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 46
+                    },
+                    "filters": "self.config.num_filters",
+                    "kernel_size": "self.config.kernel_size",
+                    "name": "conv"
+                },
+                "begin": 50
+            },
+            "layer1": {
+                "type": "dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "input": {
+                        "func": "tf.reduce_max",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 52
+                    },
+                    "units": "self.config.hidden_dim",
+                    "name": "fc1"
+                },
+                "begin": 56
+            },
+            "layer2": {
+                "type": "relu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": {
+                        "func": "tf.contrib.layers.dropout",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 57
+                    }
+                },
+                "begin": 58
+            },
+            "layer3": {
+                "type": "dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "input": {
+                        "func": "tf.nn.relu",
+                        "args": {
+                            "features": {
+                                "func": "tf.contrib.layers.dropout",
+                                "args": {},
+                                "layer": "",
+                                "body": [],
+                                "lineno": 57
+                            }
+                        },
+                        "layer": "relu",
+                        "body": [],
+                        "lineno": 58
+                    },
+                    "units": "self.config.num_classes",
+                    "name": "fc2"
+                },
+                "begin": 61
+            },
+            "layer4": {
+                "type": "loss",
+                "func": "tf.nn.softmax_cross_entropy_with_logits",
+                "args": {
+                    "logits": "self.logits",
+                    "labels": "self.input_y"
+                },
+                "begin": 66
+            }
+        }
+    },
+    "6":{
+        "type": ["rnn"],
+        "hpyerparameters": {
+            "batch size": 128,
+            "learning rate": 0.001,
+            "epochs": 10
+        },
+        "num_layers": 9,
+        "tricks": [],
+        "layers": {
+            "layer0": {
+                "type": "LSTMCell",
+                "func": "tf.contrib.rnn.BasicLSTMCell",
+                "args": {
+                    "num_units": "self.config.hidden_dim",
+                    "state_is_tuple": true
+                },
+                "begin": 65
+            },
+            "layer1": {
+                "type": "dropout",
+                "func": "tf.contrib.rnn.DropoutWrapper",
+                "args": {
+                    "cell": {
+                        "func": "tf.contrib.rnn.BasicLSTMCell",
+                        "args": {
+                            "num_units": "self.config.hidden_dim",
+                            "state_is_tuple": true
+                        },
+                        "layer": "LSTMCell",
+                        "body": [],
+                        "lineno": 65
+                    },
+                    "output_keep_prob": "self.keep_prob"
+                },
+                "begin": 66
+            },
+            "layer2": {
+                "type": "LSTMCell",
+                "func": "tf.contrib.rnn.BasicLSTMCell",
+                "args": {
+                    "num_units": "self.config.hidden_dim",
+                    "state_is_tuple": true
+                },
+                "begin": 65
+            },
+            "layer3": {
+                "type": "dropout",
+                "func": "tf.contrib.rnn.DropoutWrapper",
+                "args": {
+                    "cell": {
+                        "func": "tf.contrib.rnn.BasicLSTMCell",
+                        "args": {
+                            "num_units": "self.config.hidden_dim",
+                            "state_is_tuple": true
+                        },
+                        "layer": "LSTMCell",
+                        "body": [],
+                        "lineno": 65
+                    },
+                    "output_keep_prob": "self.keep_prob"
+                },
+                "begin": 66
+            },
+            "layer4": {
+                "type": "dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "input": 70,
+                    "units": "self.config.hidden_dim",
+                    "name": "fc1"
+                },
+                "begin": 74
+            },
+            "layer5": {
+                "type": "dropout",
+                "func": "tf.contrib.layers.dropout",
+                "args": {
+                    "inputs": {
+                        "func": "tf.layers.dense",
+                        "args": {
+                            "input": 70,
+                            "units": "self.config.hidden_dim",
+                            "name": "fc1"
+                        },
+                        "layer": "dense",
+                        "body": [],
+                        "lineno": 74
+                    }
+                },
+                "begin": 75
+            },
+            "layer6": {
+                "type": "relu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": {
+                        "func": "tf.contrib.layers.dropout",
+                        "args": {
+                            "inputs": {
+                                "func": "tf.layers.dense",
+                                "args": {
+                                    "input": 70,
+                                    "units": "self.config.hidden_dim",
+                                    "name": "fc1"
+                                },
+                                "layer": "dense",
+                                "body": [],
+                                "lineno": 74
+                            }
+                        },
+                        "layer": "dropout",
+                        "body": [],
+                        "lineno": 75
+                    }
+                },
+                "begin": 76
+            },
+            "layer7": {
+                "type": "dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "input": {
+                        "func": "tf.nn.relu",
+                        "args": {
+                            "features": {
+                                "func": "tf.contrib.layers.dropout",
+                                "args": {
+                                    "inputs": {
+                                        "func": "tf.layers.dense",
+                                        "args": {
+                                            "input": 70,
+                                            "units": "self.config.hidden_dim",
+                                            "name": "fc1"
+                                        },
+                                        "layer": "dense",
+                                        "body": [],
+                                        "lineno": 74
+                                    }
+                                },
+                                "layer": "dropout",
+                                "body": [],
+                                "lineno": 75
+                            }
+                        },
+                        "layer": "relu",
+                        "body": [],
+                        "lineno": 76
+                    },
+                    "units": "self.config.num_classes",
+                    "name": "fc2"
+                },
+                "begin": 79
+            },
+            "layer8": {
+                "type": "loss",
+                "func": "tf.nn.softmax_cross_entropy_with_logits",
+                "args": {
+                    "logits": "self.logits",
+                    "labels": "self.input_y"
+                },
+                "begin": 84
+            }
+        }
+    }
+}
