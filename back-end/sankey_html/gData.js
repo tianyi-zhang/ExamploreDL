@@ -7,7 +7,8 @@ var genData = function(idList, path) {
 		},
 		"RNN":{
 			'LSTM': "rgba(212, 80, 135, 0.5)",
-			'GRU': "rgba(249, 93, 106, 0.5)"
+			'GRU': "rgba(249, 93, 106, 0.5)",
+			'Bi-RNN': "rgba(249, 93, 106, 0.5)"
 		},
 		"Other": {
 			'input': "rgba(255, 214, 203, 0.5)",
@@ -15,7 +16,8 @@ var genData = function(idList, path) {
 			'dropout': "rgba(169, 98, 76, 0.5)",
 			'Flatten': "rgba(198, 137, 112, 0.5)",
 			'optimizer': "rgba(226, 176, 151, 0.5)",
-			'loss': "rgba(109, 16, 16, 0.5)"
+			'cross_entropy': "rgba(109, 16, 16, 0.5)",
+			'attention': "rgba(109, 16, 16, 0.5)"
 		},
 		"Activate": {
 			'relu': "rgba(255, 166, 1, 0.5)",
@@ -318,7 +320,7 @@ var genData = function(idList, path) {
 		.then(function(jsonResponse) {
 			var json_dic=jsonResponse;
 			for (const i in json_dic) {
-				if (idList.includes(i)) {
+				if (idList.includes(i) && json_dic[i]['num_layers'] < 20) {
 					var [li, model_arg_li] = generate_out_li(json_dic[i]);
 					arg_li.push(model_arg_li);
 					net_li.push(li);

@@ -1,7 +1,7 @@
 var json_file = "./output.json";
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
     width = 750 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    height = 800 - margin.top - margin.bottom;
 
 const _sankey = d3.sankey()
   .nodeAlign(d3[`sankey${"Left"}`])
@@ -39,7 +39,7 @@ var find_node_name = function (num, args_li) {
 	return name_li
 }
 
-var idList = ['0', '1', '2', '3', '4', '5', '6'];
+var idList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17'];
 var JSONpath = './data.json';
 resultOut = genData(idList, JSONpath);
 
@@ -143,6 +143,7 @@ resultOut.then(function(data) {
   };
 
   var legend_name = get_type_name(legend_li);
+  console.log(legend_name);
 
   var svg_table = d3.select('#chart_table').append("table");
 
