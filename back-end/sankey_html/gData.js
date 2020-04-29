@@ -29,6 +29,7 @@ var genData = function(idList, path) {
 	var json_path = path;
 	var arg_li = [];
 	var net_li = [];
+	var max_length = 0;
 
 	var generate_out_li = function(json_dic) {
 		var model_li = ["input"];
@@ -320,10 +321,13 @@ var genData = function(idList, path) {
 		.then(function(jsonResponse) {
 			var json_dic=jsonResponse;
 			for (const i in json_dic) {
-				if (idList.includes(i) && json_dic[i]['num_layers'] < 20) {
+				if (idList.includes(i) && json_dic[i]['num_layers'] < 500) {
 					var [li, model_arg_li] = generate_out_li(json_dic[i]);
 					arg_li.push(model_arg_li);
 					net_li.push(li);
+					if (max_length<json_dic[i]['num_layers']) {
+						max_length = json_dic[i]['num_layers'];
+					}
 				}
 				
 			}
@@ -333,7 +337,7 @@ var genData = function(idList, path) {
 			var [node_dic, link_dic, node_args] = generate_flow_txt(net_li, arg_li, colorDic);
 			var proj = genjson(node_dic, link_dic, node_args, colorDic);
 			var out_json = JSON.stringify(proj);
-			return proj;
+			return [proj,max_length];
 		}) 
 	return resultOut;
 }

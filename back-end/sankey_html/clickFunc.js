@@ -1,5 +1,6 @@
 var click_1 = function(d) {
 	var recordArgs = [d];
+    var svg = d3.select('#chart');
 	addRecord("Hightlight: " + d.name + " node.", {"click_1": recordArgs});
     d3.selectAll('#svg_th_tr').style("border", "1px solid #848484")
     d3.selectAll('#svg_tb_td').style("border", "1px solid #848484")
@@ -12,6 +13,7 @@ var click_1 = function(d) {
 
 var click_2 = function(d, i, cat_dic) {
 	var recordArgs = [d, i, cat_dic];
+    var svg = d3.select('#chart');
 	addRecord("Filter left: All " + d + " types.", {"click_2": recordArgs});
 	svg.selectAll("path").style("opacity", 0.35);
     svg.selectAll("rect").style("opacity", 0.35);
@@ -27,6 +29,7 @@ var click_2 = function(d, i, cat_dic) {
 
 var click_3 = function(d, i, nodes) {
 	var recordArgs = [d, i, nodes];
+    var svg = d3.select('#chart');
 	addRecord("Filter left: All " + d + " nodes.", {"click_3": recordArgs});
 	svg.selectAll("path").style("opacity", 0.35);
     svg.selectAll("rect").style("opacity", 0.35);
@@ -42,6 +45,7 @@ var click_3 = function(d, i, nodes) {
 }
 
 var click_4 = function(x0, x1, nowKey, hightlightNodes, selected_cat, newNodeData) {
+    var svg = d3.select('#chart');
 	var recordArgs = [x0, x1, nowKey, hightlightNodes, selected_cat, newNodeData];
 	svg.selectAll("rect").style("opacity", 0.35);
 	addRecord("Filter left args: All (" + x0 + " <= " + nowKey + " <= " + x1 +	") nodes.", {"click_4": recordArgs});
