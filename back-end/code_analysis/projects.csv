@@ -1,0 +1,19 @@
+﻿ID,Project_Name,URL,File_name,Tasks,Datasets,Models,Accuracy,Input_Dimension,Num_Parameters
+0,TensorFlow-Bitcoin-Robot,https://github.com/TensorFlowNews/TensorFlow-Bitcoin-Robot,rnn_predicter.py,prediction,table,rnn,0.733510976,"[none,20,1]",10648658
+1,text-classification-cnn-rnn,https://github.com/gaussic/text-classification-cnn-rnn,cnn_model.py,text_classification,"text, THUCNews",cnn,0.503508212,,10732936
+2,MTCNN-Tensorflow,https://github.com/AITTSMD/MTCNN-Tensorflow,mtcnn_model.py,object_detection,image,cnn,0.555919099,,8406569
+3,MTCNN-Tensorflow,https://github.com/AITTSMD/MTCNN-Tensorflow,mtcnn_model.py,object_detection,image,cnn,0.555919099,,8406569
+4,MTCNN-Tensorflow,https://github.com/AITTSMD/MTCNN-Tensorflow,mtcnn_model.py,object_detection,image,cnn,0.555919099,,8406569
+5,cnn-rtlsdr,https://github.com/randaller/cnn-rtlsdr,train.py,signal_classification,unknown,cnn,0.7841905,,2819298
+6,cnn-relation-extraction,https://github.com/roomylee/cnn-relation-extraction,text_cnn.py,relation_extraction,image,cnn,0.439380871,,10279990
+7,text-classification-cnn-rnn,https://github.com/gaussic/text-classification-cnn-rnn,rnn_model.py,text_classification,"text, THUCNews",lstm,0.503508212,,10732936
+8,text-classification-cnn-rnn,https://github.com/gaussic/text-classification-cnn-rnn,rnn_model.py,text_classification,"text, THUCNews",gru,0.503508212,,10732936
+9,zh-NER-TF,https://github.com/Determined22/zh-NER-TF,model.py,ner,text,bilstm,0.636164983,,9849136
+10,ResNeXt-Tensorflow,https://github.com/taki0112/ResNeXt-Tensorflow,ResNeXt.py,image_classification,Cifar10,ResNeXt,0.57745308,,3656430
+11,keras-text,https://github.com/raghakot/keras-text,sequence_encoders.py,text_classification,text,rnn,0.709983946,,11489312
+12,keras-text,https://github.com/raghakot/keras-text,sequence_encoders.py,text_classification,text,"cnn, rnn",0.709983946,,11489312
+13,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K Benchmark Suite, Sogou, DBPedia, Amazon Review",cnn,0.586613566,,3625703
+14,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K Benchmark Suite, Sogou, DBPedia, Amazon Review",cnn,0.586613566,,3625703
+15,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K Benchmark Suite, Sogou, DBPedia, Amazon Review",cnn,0.586613566,,3625703
+16,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K Benchmark Suite, Sogou, DBPedia, Amazon Review",cnn,0.586613566,,3625703
+17,tensorflow-hangul-recognition,https://github.com/IBM/tensorflow-hangul-recognition,hangul_model.py,text_recognition,text,"CNN,",0.542886591,,9556425

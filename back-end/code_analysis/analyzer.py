@@ -5,8 +5,11 @@ import json
 
 class traverse_dic():
 
-    def __init__(self,path):
+    def __init__(self,path,paras,exist_json):
+
         self.path = path
+        self.paras = paras
+        self.exist_json = exist_json
         self.import_dic = {}
         self.import_function = {}
         self.import_packages = []
@@ -25,33 +28,44 @@ class traverse_dic():
         """
         self.class_var_dic = {} # for the var that call the class
         self.def_func_rely = {} # {'def_1': ['def_2'], 'def_2': []}
-        self.net_type = {'type': {'cnn':{'tf.nn.conv2d': {'layer': 'conv2d', 'args': ['input', 'filters', 'strides', 'padding']},
+        self.net_type = {'type': {'cnn':{'tf.nn.conv2d': {'layer': 'conv2d', 'args': ['inputs', 'filters', 'strides', 'padding']},
                                          'tf.layers.conv1d': {'layer': 'conv1d',
-                                                              'args': ['input', 'filters', 'kernel_size', 'strides',
+                                                              'args': ['inputs', 'num_outputs', 'kernel_size', 'strides',
                                                                        'padding']},
+                                         'tf.keras.layers.Conv1D': {'layer': 'conv1d', 'args': ['num_outputs', 'kernel_size']},
                                          'tf.layers.conv2d': {'layer': 'conv2d',
-                                                              'args': ['input', 'filters', 'kernel_size', 'strides',
+                                                              'args': ['inputs', 'num_outputs', 'kernel_size', 'strides',
                                                                        'padding']},
                                          'tf.contrib.slim.conv2d': {'layer': 'conv2d',
                                                                     'args': ['inputs', 'num_outputs', 'kernel_size']},
-                                         'tf.keras.layers.MaxPool2D': {'layer': 'MaxPool',
+                                         'tf.keras.layers.GlobalMaxPooling1D': {'layer': 'MaxPool1d', 'args': []},
+                                         'tf.keras.layers.MaxPool2D': {'layer': 'MaxPool2d',
                                                                        'args': ['pool_size', 'strides', 'padding']},
-                                         'tf.contrib.slim.max_pool2d': {'layer': 'MaxPool',
-                                                                       'args': ['inputs', 'kernel_size']},
+                                         'tf.contrib.slim.max_pool2d': {'layer': 'MaxPool2d',
+                                                                       'args': ['inputs', 'pool_size']},
+                                         'tf.layers.max_pooling2d': {'layer': 'MaxPool2d',
+                                                                       'args': ['inputs', 'pool_size', 'strides']},
                                          'tf.nn.max_pool': {'layer': 'MaxPool',
-                                                            'args': ['input', 'ksize', 'strides', 'padding']},
-                                         'tf.layers.average_pooling2d': {'layer': 'AveragePool',
+                                                            'args': ['input', 'pool_size', 'strides', 'padding']},
+                                         'tf.layers.average_pooling2d': {'layer': 'AveragePool2d',
                                                                           'args': ['input', 'pool_size',
                                                                                    'strides']},
+                                         'tf.keras.layers.GlobalAveragePooling1D': {'layer': 'MaxPool1d', 'args': []}
                                          },
-                                  'dense': {'tf.layers.dense': {'layer': 'dense', 'args': ['input', 'units']},
-                                            'tf.contrib.slim.fully_connected': {'layer': 'dense', 'args': ['input', 'num_outputs']},
+                                  'dense': {'tf.layers.dense': {'layer': 'dense', 'args': ['inputs', 'units']},
+                                            'tf.keras.layers.Dense': {'layer': 'dense', 'args': ['inputs', 'units']},
+                                            'tf.contrib.slim.fully_connected': {'layer': 'dense', 'args': ['inputs', 'num_outputs']},
                                              },
                                   'flatten': {'tf.contrib.slim.flatten': {'layer': 'Flatten',
+                                                                       'args': ['inputs']},
+                                              'tf.keras.layers.Flatten': {'layer': 'Flatten',
                                                                        'args': ['inputs']}
                                               },
                                   'rnn': {'tf.contrib.rnn.BasicLSTMCell': {'layer': 'LSTMCell', 'args': ['num_units']},
-                                          'tf.contrib.rnn.GRUCell': {'layer': 'GRUCell', 'args': ['num_units']}
+                                          'tf.contrib.rnn.LSTMCell': {'layer': 'LSTMCell', 'args': ['num_units']},
+                                          'tf.keras.layers.LSTM': {'layer': 'LSTMCell', 'args': ['num_units']},
+                                          'tf.contrib.rnn.GRUCell': {'layer': 'GRUCell', 'args': ['num_units']},
+                                          'tf.nn.bidirectional_dynamic_rnn': {'layer': 'Bi-RNN', 'args': []}
                                           }
                                   },
                          # cnn
@@ -67,7 +81,8 @@ class traverse_dic():
 
                                       },
                          # activation function
-                         'loss': {'cross entropy': {'tf.nn.softmax_cross_entropy_with_logits': {'layer': 'loss', 'args': []}
+                         'loss': {'cross entropy': {'tf.nn.softmax_cross_entropy_with_logits': {'layer': 'cross_entropy', 'args': []},
+                                                    'tf.nn.sparse_softmax_cross_entropy_with_logits': {'layer': 'cross_entropy', 'args': []}
                                                     }
                                   },
                          'tricks': {'attention': {'tf.keras.layers.Attention': {'layer': 'attention', 'args': []}
@@ -94,10 +109,8 @@ class traverse_dic():
             for type in self.net_type[cat]:
                 self.net_li += list(self.net_type[cat][type].keys())
         # TODO add more
-        self.models = {}
         self.layers = {}
         self.tricks = []
-        self.type = []
         self.hyperparameters = {}
         """
         "layer_1": {
@@ -199,7 +212,7 @@ class traverse_dic():
         :param def_li:
         :return:
         """
-        # TODO 还原函数名称成: class.func, or class.__init__
+
         new_body = []
         if isinstance(body, list):
             # if structure will generate a list body
@@ -276,17 +289,21 @@ class traverse_dic():
 
         self.create_def_func_rely()
         self.traverse_safe_func()
-
         for dic in dic_li:
             self.traverse_module(dic)
 
-        first_model["type"] = self.type
+        first_model["id"] = self.paras[0]
+        first_model["Project_Name"] = self.paras[1]
+        first_model["url"] = self.paras[2]
+        first_model["file_name"] = self.paras[3]
+        first_model["type"] = self.paras[4]
         first_model["hpyerparameters"] = self.hyperparameters
         first_model["num_layers"] = len(self.layers)
-        first_model['tricks'] = self.tricks
         first_model['layers'] = self.layers
 
-        return first_model
+        self.exist_json[first_model["id"]] = first_model
+
+        return self.exist_json
 
     def traverse_import(self, body: dict):
         target = body['names']
@@ -324,7 +341,6 @@ class traverse_dic():
             if isinstance(call, dict):
                 if 'func' in call:
                     return call['func'] + '.' + attr
-
 
     def traverse_body(self, dic: dict, body_flag, traverse_flag, return_flag=False, var_dic=None, class_var_dic=None):
         """
@@ -507,8 +523,20 @@ class traverse_dic():
                         # fill args:
                         arg_kw_dic = {}
                         for i in range(min(len(arg_kw_list[:-1]), len(self.net_type[cat][type][func_kw]['args']))):
-                            arg_kw_dic[self.net_type[cat][type][func_kw]['args'][i]] = arg_kw_list[i]
+                            arg_name = self.net_type[cat][type][func_kw]['args'][i]
+
+                            if func_name == "tf.nn.conv2d" and arg_name == "filters":
+                                if isinstance(arg_kw_list[i], list) and len(arg_kw_list[i]) == 4:
+                                    arg_kw_dic['num_output'] = arg_kw_list[i][3]
+                                    arg_kw_dic['kernel_size'] = arg_kw_list[i][1]
+                            elif isinstance(arg_kw_list[i], int) or isinstance(arg_kw_list[i], float):
+                                arg_kw_dic[arg_name] = arg_kw_list[i]
+                            elif isinstance(arg_kw_list[i], list) and len(arg_kw_list[i]) == 1:
+                                arg_kw_dic[arg_name] = arg_kw_list[i][0]
+                            else:
+                                arg_kw_dic[arg_name] = ''
                         arg_kw_dic.update(arg_kw_list[-1])
+
                         func_detail_dic['args'] = arg_kw_dic
                         return func_detail_dic, cat, type
         return func_detail_dic, '', ''
@@ -516,15 +544,11 @@ class traverse_dic():
     def traverse_list(self, arg):
         if isinstance(arg, dict):
             arg = arg['elts']
+        out_li = []
         for elt in arg:
-            li = []
-            if elt['_type'] == 'List':
-                li.append(self.traverse_list(elt['elts']))
-                return li
-            else:
-                key = list(elt.keys())[3]
-                li.append(elt[key])
-                return li
+            if elt['_type'] == 'Num':
+                out_li.append(elt["n"])
+        return out_li
 
     def traverse_function_call(self, dic: dict, traverse_flag: list, var_dic, return_flag=False, class_var_dic=None):
         """
@@ -559,23 +583,24 @@ class traverse_dic():
             func_name = func['id']
         elif func['_type'] == 'Attribute':
             func_name = self.traverse_attribute(func, traverse_flag, var_dic, return_flag, class_var_dic)
-            if traverse_flag[0] in [0,1]:
-                loop_target = class_var_dic.keys()
-            else:
-                loop_target = self.class_var_dic.keys()
-            for pre_out in loop_target:
-                if func_name.find(pre_out+'.') != -1:
-                    func_name = func_name.lstrip(pre_out+'.')
-                    func_name = class_var_dic[pre_out] + '.' + func_name
-                    class_flag = class_var_dic[pre_out]
-            if func_name is None:
-                return
-            if traverse_flag[0] == 0:
-                func_name = func_name.split(".")[-1] # when doing match, we will not consider the attr
-            elif func_name.find('self.') != -1:
-                func_name = func_name.split('self.')[-1]
-                if isinstance(traverse_flag[1], str):
-                    func_name = traverse_flag[1] + '.' + func_name
+            if func_name and func_name.find("tf.") == -1:
+                if traverse_flag[0] in [0,1]:
+                    loop_target = class_var_dic.keys()
+                else:
+                    loop_target = self.class_var_dic.keys()
+                for pre_out in loop_target:
+                    if func_name.find(pre_out+'.') != -1:
+                        func_name = func_name.lstrip(pre_out+'.')
+                        func_name = class_var_dic[pre_out] + '.' + func_name
+                        class_flag = class_var_dic[pre_out]
+                if func_name is None:
+                    return
+                if traverse_flag[0] == 0:
+                    func_name = func_name.split(".")[-1] # when doing match, we will not consider the attr
+                elif func_name.find('self.') != -1:
+                    func_name = func_name.split('self.')[-1]
+                    if isinstance(traverse_flag[1], str):
+                        func_name = traverse_flag[1] + '.' + func_name
         if func_name is None:
             return
         elif traverse_flag[0] == 0 and func_name in self.class_name.keys():
@@ -608,6 +633,7 @@ class traverse_dic():
                     pass
 
         kw_dic = {}
+
         for kw in keywords:
             kw_name = kw['arg']
             if kw['value']['_type'] == 'Call':
@@ -617,11 +643,14 @@ class traverse_dic():
             elif kw['value']['_type'] == 'List':
                 kw_dic[kw_name] = self.traverse_list(kw['value'])
             else:
-                key = list(kw['value'].keys())[3]
-                if kw['value'][key] not in var_dic.keys():
-                    kw_dic[kw_name] = kw['value'][key]
-                else:
-                    kw_dic[kw_name] = var_dic[kw['value'][key]]
+                try:
+                    key = list(kw['value'].keys())[3]
+                    if kw['value'][key] not in var_dic.keys():
+                        kw_dic[kw_name] = kw['value'][key]
+                    else:
+                        kw_dic[kw_name] = var_dic[kw['value'][key]]
+                except TypeError:
+                    pass
 
         arg_kw_list.append(kw_dic)
 
@@ -643,6 +672,7 @@ class traverse_dic():
                         if func_name == func_def:
                             return self.func_def[func_name]
             else:
+                print(func_name)
                 layer_dic = {}
                 # add layers
                 count = len(list(self.layers.keys()))
@@ -653,13 +683,9 @@ class traverse_dic():
                     layer_dic['type'] = result['layer']
                     layer_dic['func'] = result['func']
                     layer_dic['args'] = result['args']
+                    print(result['args'])
                     layer_dic['begin'] = result['lineno']
                     self.layers[layer_name] = layer_dic
-                    if type:
-                        if type not in self.type and cat not in ['tricks', 'act_func']:
-                            self.type.append(type)
-                        elif cat == 'tricks' and type not in self.tricks:
-                            self.tricks.append(type)
                     if class_judge:
                         # tell the assignment that this is a class
                         return class_judge
@@ -681,6 +707,7 @@ class traverse_dic():
                                     layer_dic['type'] = body['layer']
                                     layer_dic['func'] = body['func']
                                     layer_dic['args'] = body['args']
+                                    print(body['args'])
                                     layer_dic['begin'] = body['lineno']
                                     self.layers[layer_name] = layer_dic
                                 else:
