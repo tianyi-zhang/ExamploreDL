@@ -1,53 +1,58 @@
 var json_file = "./output.json";
-var margin = {top: 10, right: 10, bottom: 10, left: 10},
-    width = 750 - margin.left - margin.right,
-    height = 800 - margin.top - margin.bottom;
-
-const _sankey = d3.sankey()
-  .nodeAlign(d3[`sankey${"Left"}`])
-  .nodeWidth(15)
-  .nodePadding(10)
-  .extent([
-    [1, 1],
-    [width - 1, height - 5]
-  ]);
-const sankey = ({nodes,links}) => _sankey({
-  nodes: nodes.map(d => Object.assign({}, d)),
-  links: links.map(d => Object.assign({}, d))
-});
-
-
-const f = d3.format(",.0f");
-const format = d => `${f(d)}`;
-
-var wid_svg = 750
-var wid_svg2 = 350
-var height_svg = height 
-
-var svg = d3.select('#chart')
-  .attr("viewBox", `0 0 ${wid_svg} ${height_svg}`)
-  .attr('width', width+margin.left+margin.right)
-  .attr('height', height_svg+margin.top+margin.bottom);
-
-var find_node_name = function (num, args_li) {
-	var name_li = []
-	for (i=0; i<args_li.length; i++) {
-		if (args_li[i][1] === num) {
-			name_li.splice(name_li.length, 0, args_li[i][0])
-		}
-	}
-	return name_li
-}
 
 var idList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17'];
 var JSONpath = './data.json';
 resultOut = genData(idList, JSONpath);
 
 resultOut.then(function(data) {
+
+  var max_length = data[1];
+
+  var margin = {top: 10, right: 10, bottom: 10, left: 10},
+      width = max_length*70 - margin.left - margin.right,
+      height = 800 - margin.top - margin.bottom;
+
+  const _sankey = d3.sankey()
+    .nodeAlign(d3[`sankey${"Left"}`])
+    .nodeWidth(15)
+    .nodePadding(10)
+    .extent([
+      [1, 1],
+      [width - 1, height - 5]
+    ]);
+
+
+  const sankey = ({nodes,links}) => _sankey({
+    nodes: nodes.map(d => Object.assign({}, d)),
+    links: links.map(d => Object.assign({}, d))
+  });
+
+
+  const f = d3.format(",.0f");
+  const format = d => `${f(d)}`;
+
+  var wid_svg = max_length*70;
+  var height_svg = height;
+
   const {
     nodes,
     links
-  } = sankey(data);
+  } = sankey(data[0]);
+
+  var svg = d3.select('#chart')
+    .attr("viewBox", `0 0 ${wid_svg} ${height_svg}`)
+    .attr('width', width+margin.left+margin.right)
+    .attr('height', height_svg+margin.top+margin.bottom);
+
+  var find_node_name = function (num, args_li) {
+    var name_li = []
+    for (i=0; i<args_li.length; i++) {
+      if (args_li[i][1] === num) {
+        name_li.splice(name_li.length, 0, args_li[i][0])
+      }
+    }
+    return name_li
+  }
   svg.append("g")
     .attr("stroke", "#000")
     .selectAll("rect")
@@ -128,7 +133,7 @@ resultOut.then(function(data) {
   	return legend_li;
   }
 
-  var cat_dic = get_catgory(data.nodes);
+  var cat_dic = get_catgory(data[0].nodes);
 
   var cat_li = Object.keys(cat_dic);
 
