@@ -334,9 +334,11 @@ var genData = function(idList, path) {
 					
 		})
 		.then(function() {
+			genLayerChart(net_li);
+			
 			var [node_dic, link_dic, node_args] = generate_flow_txt(net_li, arg_li, colorDic);
 			var proj = genjson(node_dic, link_dic, node_args, colorDic);
-			var out_json = JSON.stringify(proj);
+			genTypeChart(net_li, colorDic, proj);
 			return [proj,max_length];
 		}) 
 	return resultOut;

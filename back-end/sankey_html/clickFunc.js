@@ -27,8 +27,8 @@ var click_2 = function(d, i, cat_dic) {
     } 
 }
 
-var click_3 = function(d, i, nodes) {
-	var recordArgs = [d, i, nodes];
+var click_3 = function(d,nodes) {
+	var recordArgs = [d, nodes];
     var svg = d3.select('#chart');
 	addRecord("Filter left: All " + d + " nodes.", {"click_3": recordArgs});
 	svg.selectAll("path").style("opacity", 0.35);
@@ -36,10 +36,9 @@ var click_3 = function(d, i, nodes) {
     svg.selectAll("rect").attr("stroke", "#ffffff")
     d3.selectAll('.svg_th_tr').style("border", "1px solid #848484")
     d3.selectAll('.svg_tb_td').style("border", "1px solid #848484")
-    d3.select("#svg_tb_td"+i).style("border", "3px solid black")
+    d3.select("#svg_tb_td"+d).style("border", "3px solid black")
           
-    svg.selectAll("." + d).style("opacity", 1);
-    var args_li = [];       
+    svg.selectAll("." + d).style("opacity", 1);      
           
     var chart_svg1 = generateParameterChart(d, nodes, "#chart2", "none");
 }
@@ -53,4 +52,19 @@ var click_4 = function(x0, x1, nowKey, hightlightNodes, selected_cat, newNodeDat
 		svg.selectAll("#"+hightlightNodes[j]).style("opacity", 1);
 	}	 
 	generateParameterChart(selected_cat, newNodeData, "#chart2", "none");
+}
+
+var click_5 = function(nodeList, proName) {
+    var recordArgs = [nodeList, proName];
+    var svg = d3.select('#chart');
+    addRecord("Filter left: Project " + proName.split('Pro')[1], {"click_5": recordArgs});
+    svg.selectAll("path").style("opacity", 0.35);
+    svg.selectAll("rect").style("opacity", 0.35);
+    svg.selectAll("rect").attr("stroke", "#ffffff")
+    d3.selectAll('.svg_th_tr').style("border", "1px solid #848484")
+    d3.selectAll('.svg_tb_td').style("border", "1px solid #848484")
+    for (var i=0; i<nodeList.length; i++) {
+        svg.selectAll("#"+nodeList[i]).style("opacity", 1);
+        svg.selectAll("#path"+nodeList[i]).style("opacity", 1);
+    }
 }

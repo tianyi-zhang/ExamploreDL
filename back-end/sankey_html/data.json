@@ -7520,5 +7520,557 @@
                 "begin": 92
             }
         }
+    },
+    "18": {
+        "id": "18",
+        "Project_Name": "KerasDeepSpeech",
+        "url": "https://github.com/robmsmt/KerasDeepSpeech",
+        "file_name": "model.py",
+        "type": "CTC,",
+        "hpyerparameters": {},
+        "num_layers": 9,
+        "layers": {
+            "layer0": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 2048,
+                    "name": "fc1",
+                    "kernel_initializer": {
+                        "func": "random_normal",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 107
+                    },
+                    "bias_initializer": {
+                        "func": "random_normal",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 107
+                    },
+                    "activation": "clipped_relu"
+                },
+                "begin": 108
+            },
+            "layer1": {
+                "type": "dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.1
+                },
+                "begin": 109
+            },
+            "layer2": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 2048,
+                    "name": "fc2",
+                    "kernel_initializer": {
+                        "func": "random_normal",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 107
+                    },
+                    "bias_initializer": {
+                        "func": "random_normal",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 107
+                    },
+                    "activation": "clipped_relu"
+                },
+                "begin": 110
+            },
+            "layer3": {
+                "type": "dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.1
+                },
+                "begin": 111
+            },
+            "layer4": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 2048,
+                    "name": "fc3",
+                    "kernel_initializer": {
+                        "func": "random_normal",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 107
+                    },
+                    "bias_initializer": {
+                        "func": "random_normal",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 107
+                    },
+                    "activation": "clipped_relu"
+                },
+                "begin": 112
+            },
+            "layer5": {
+                "type": "dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.1
+                },
+                "begin": 113
+            },
+            "layer6": {
+                "type": "Bi-RNN",
+                "func": "tf.keras.layers.Bidirectional",
+                "args": {
+                    "layer": "",
+                    "merge_mode": "sum"
+                },
+                "begin": 116
+            },
+            "layer7": {
+                "type": "dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.1
+                },
+                "begin": 122
+            },
+            "layer8": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 29,
+                    "name": "y_pred",
+                    "kernel_initializer": {
+                        "func": "random_normal",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 107
+                    },
+                    "bias_initializer": {
+                        "func": "random_normal",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 107
+                    },
+                    "activation": "softmax"
+                },
+                "begin": 123
+            }
+        }
+    },
+    "19": {
+        "id": "19",
+        "Project_Name": "KerasDeepSpeech",
+        "url": "https://github.com/robmsmt/KerasDeepSpeech",
+        "file_name": "model.py",
+        "type": "CTC,",
+        "hpyerparameters": {},
+        "num_layers": 5,
+        "layers": {
+            "layer0": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 1024,
+                    "name": "fc1",
+                    "kernel_initializer": {
+                        "func": "random_normal",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 159
+                    },
+                    "bias_initializer": {
+                        "func": "random_normal",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 159
+                    },
+                    "activation": "clipped_relu"
+                },
+                "begin": 162
+            },
+            "layer1": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 1024,
+                    "name": "fc2",
+                    "kernel_initializer": {
+                        "func": "random_normal",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 159
+                    },
+                    "bias_initializer": {
+                        "func": "random_normal",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 159
+                    },
+                    "activation": "clipped_relu"
+                },
+                "begin": 163
+            },
+            "layer2": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 1024,
+                    "name": "fc3",
+                    "kernel_initializer": {
+                        "func": "random_normal",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 159
+                    },
+                    "bias_initializer": {
+                        "func": "random_normal",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 159
+                    },
+                    "activation": "clipped_relu"
+                },
+                "begin": 164
+            },
+            "layer3": {
+                "type": "Bi-RNN",
+                "func": "tf.keras.layers.Bidirectional",
+                "args": {
+                    "layer": "",
+                    "merge_mode": "sum"
+                },
+                "begin": 168
+            },
+            "layer4": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 29,
+                    "name": "y_pred",
+                    "kernel_initializer": {
+                        "func": "random_normal",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 159
+                    },
+                    "bias_initializer": {
+                        "func": "random_normal",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 159
+                    },
+                    "activation": "softmax"
+                },
+                "begin": 174
+            }
+        }
+    },
+    "20": {
+        "id": "20",
+        "Project_Name": "KerasDeepSpeech",
+        "url": "https://github.com/robmsmt/KerasDeepSpeech",
+        "file_name": "model.py",
+        "type": "CTC,",
+        "hpyerparameters": {},
+        "num_layers": 4,
+        "layers": {
+            "layer0": {
+                "type": "conv1d",
+                "func": "tf.keras.layers.Conv1D",
+                "args": {
+                    "filters": 1024,
+                    "name": null,
+                    "kernel_size": 11,
+                    "padding": "valid",
+                    "activation": "relu",
+                    "strides": 2
+                },
+                "begin": 216
+            },
+            "layer1": {
+                "type": "Bi-RNN",
+                "func": "tf.keras.layers.Bidirectional",
+                "args": {
+                    "layer": "",
+                    "merge_mode": "sum"
+                },
+                "begin": 220
+            },
+            "layer2": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": "",
+                    "activation": "clipped_relu"
+                },
+                "begin": 226
+            },
+            "layer3": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 29,
+                    "name": "y_pred",
+                    "activation": "softmax"
+                },
+                "begin": 227
+            }
+        }
+    },
+    "21": {
+        "id": "21",
+        "Project_Name": "KerasDeepSpeech",
+        "url": "https://github.com/robmsmt/KerasDeepSpeech",
+        "file_name": "model.py",
+        "type": "CTC,",
+        "hpyerparameters": {},
+        "num_layers": 10,
+        "layers": {
+            "layer0": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 512,
+                    "name": "fc1",
+                    "kernel_initializer": "init",
+                    "bias_initializer": "init",
+                    "activation": "relu"
+                },
+                "begin": 263
+            },
+            "layer1": {
+                "type": "dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.1
+                },
+                "begin": 264
+            },
+            "layer2": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 512,
+                    "name": "fc2",
+                    "kernel_initializer": "init",
+                    "bias_initializer": "init",
+                    "activation": "clipped_relu"
+                },
+                "begin": 265
+            },
+            "layer3": {
+                "type": "dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.1
+                },
+                "begin": 266
+            },
+            "layer4": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 512,
+                    "name": "fc3",
+                    "kernel_initializer": "init",
+                    "bias_initializer": "init",
+                    "activation": "clipped_relu"
+                },
+                "begin": 267
+            },
+            "layer5": {
+                "type": "dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.1
+                },
+                "begin": 268
+            },
+            "layer6": {
+                "type": "Bi-RNN",
+                "func": "tf.keras.layers.Bidirectional",
+                "args": {
+                    "layer": "",
+                    "merge_mode": "sum"
+                },
+                "begin": 272
+            },
+            "layer7": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 512,
+                    "activation": "relu",
+                    "kernel_initializer": "init",
+                    "bias_initializer": "init"
+                },
+                "begin": 276
+            },
+            "layer8": {
+                "type": "dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.1
+                },
+                "begin": 277
+            },
+            "layer9": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 29,
+                    "name": "y_pred",
+                    "kernel_initializer": "init",
+                    "bias_initializer": "init",
+                    "activation": "softmax"
+                },
+                "begin": 278
+            }
+        }
+    },
+    "22": {
+        "id": "22",
+        "Project_Name": "KerasDeepSpeech",
+        "url": "https://github.com/robmsmt/KerasDeepSpeech",
+        "file_name": "model.py",
+        "type": "CTC,",
+        "hpyerparameters": {},
+        "num_layers": 2,
+        "layers": {
+            "layer0": {
+                "type": "Bi-RNN",
+                "func": "tf.keras.layers.Bidirectional",
+                "args": {
+                    "layer": ""
+                },
+                "begin": 298
+            },
+            "layer1": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 29,
+                    "activation": "softmax"
+                },
+                "begin": 301
+            }
+        }
+    },
+    "23": {
+        "id": "23",
+        "Project_Name": "KerasDeepSpeech",
+        "url": "https://github.com/robmsmt/KerasDeepSpeech",
+        "file_name": "model.py",
+        "type": "CTC,",
+        "hpyerparameters": {},
+        "num_layers": 3,
+        "layers": {
+            "layer0": {
+                "type": "conv1d",
+                "func": "tf.keras.layers.Conv1D",
+                "args": {
+                    "filters": 128,
+                    "name": "conv_1",
+                    "kernel_size": 11,
+                    "padding": "valid",
+                    "activation": "relu",
+                    "strides": 2
+                },
+                "begin": 337
+            },
+            "layer1": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 1024,
+                    "activation": "relu"
+                },
+                "begin": 342
+            },
+            "layer2": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 29,
+                    "name": "y_pred",
+                    "activation": "softmax"
+                },
+                "begin": 343
+            }
+        }
+    },
+    "24": {
+        "id": "24",
+        "Project_Name": "KerasDeepSpeech",
+        "url": "https://github.com/robmsmt/KerasDeepSpeech",
+        "file_name": "model.py",
+        "type": "CTC,",
+        "hpyerparameters": {},
+        "num_layers": 4,
+        "layers": {
+            "layer0": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 1024,
+                    "kernel_initializer": "init",
+                    "bias_initializer": "init",
+                    "activation": "relu"
+                },
+                "begin": 371
+            },
+            "layer1": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 1024,
+                    "kernel_initializer": "init",
+                    "bias_initializer": "init",
+                    "activation": "relu"
+                },
+                "begin": 371
+            },
+            "layer2": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 1024,
+                    "kernel_initializer": "init",
+                    "bias_initializer": "init",
+                    "activation": "relu"
+                },
+                "begin": 371
+            },
+            "layer3": {
+                "type": "dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 29,
+                    "name": "y_pred",
+                    "activation": "softmax"
+                },
+                "begin": 376
+            }
+        }
     }
 }

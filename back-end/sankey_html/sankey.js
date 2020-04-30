@@ -1,6 +1,6 @@
 var json_file = "./output.json";
 
-var idList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17'];
+var idList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'];
 var JSONpath = './data.json';
 resultOut = genData(idList, JSONpath);
 
@@ -10,7 +10,7 @@ resultOut.then(function(data) {
 
   var margin = {top: 10, right: 10, bottom: 10, left: 10},
       width = max_length*70 - margin.left - margin.right,
-      height = 800 - margin.top - margin.bottom;
+      height = idList.length*32 - margin.top - margin.bottom;
 
   const _sankey = d3.sankey()
     .nodeAlign(d3[`sankey${"Left"}`])
@@ -161,7 +161,6 @@ resultOut.then(function(data) {
   };
 
   var legend_name = get_type_name(legend_li);
-  console.log(legend_name);
 
   var svg_table = d3.select('#chart_table').append("table");
 
@@ -193,7 +192,7 @@ resultOut.then(function(data) {
       .selectAll('#svg_tb')
       .data(legend_name).enter()
       .append('td')
-        .attr("id", function(d, i) {return "svg_tb_td"+i;})
+        .attr("id", function(d, i) {return "svg_tb_td"+d;})
         .attr("class", "svg_tb_td")
         .style("background-color", function(d, i) {
           return legend_li[i][d];
@@ -203,7 +202,7 @@ resultOut.then(function(data) {
         .style("font-size", 10)
         .text(function(d) { return d; })
         .on("click", function (d, i) {
-          click_3(d, i, nodes);
+          click_3(d, nodes);
         });
 
   //d3 = require("d3@5", "d3-sankey@0.7")
