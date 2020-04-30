@@ -42,7 +42,7 @@ resultOut.then(function(data) {
   var svg = d3.select('#chart')
     .attr("viewBox", `0 0 ${wid_svg} ${height_svg}`)
     .attr('width', width+margin.left+margin.right)
-    .attr('height', height_svg+margin.top+margin.bottom);
+    .attr('height', height_svg+margin.top+margin.bottom)
 
   var find_node_name = function (num, args_li) {
     var name_li = []
@@ -103,6 +103,19 @@ resultOut.then(function(data) {
       .attr("dy", "0.355em")
       .attr("text-anchor", d => "end")
       .text(d => d.name);
+
+  var zoom = d3.zoom()
+      .scaleExtent([0.05, 5])
+      .on('zoom', function() {
+          svg.selectAll('path')
+            .attr('transform', d3.event.transform);
+          svg.selectAll('rect')
+            .attr('transform', d3.event.transform);
+          svg.selectAll('text')
+            .attr('transform', d3.event.transform);
+  });
+
+  svg.call(zoom);
 
   var get_catgory = function (data) {
     var cat_dic = {};
