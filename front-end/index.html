@@ -39,21 +39,25 @@
 				<!-- Filter -->
 				<div class = 'filters'>
 					<input onclick = "validate()" class = 'checkbox1' type = 'checkbox' id='Image_dataset' value ='Image Dataset'>
+					<input onclick = "validate()" class = 'checkbox1' type = 'checkbox' id='Image' value ='Image Dataset'>
 					<label  class = 'label1' for='Image Dataset'>Image Dataset</label>
 					<text class = 'text1'>260</text>
 					<div id="dataset_image"></div>
 
 					<input onclick = "validate()" class = 'checkbox2' type = 'checkbox' id='Video_dataset' value ='Video Dataset'>
+					<input onclick = "validate()" class = 'checkbox2' type = 'checkbox' id='Video' value ='Video Dataset'>
 					<label class = 'label2' for='Video Dataset'>Video Dataset</label>
 					<text class = 'text2'>15</text>
 					<div id="dataset_video"></div>
 
 					<input onclick = "validate()" class = 'checkbox3' type = 'checkbox' id='Text_dataset' value ='Text Dataset'>
+					<input onclick = "validate()" class = 'checkbox3' type = 'checkbox' id='Text' value ='Text Dataset'>
 					<label class = 'label3' for='Text Dataset'>Text Dataset</label>
 					<text class = 'text3'>141</text>
 					<div id="dataset_text"></div>
 
 					<input onclick = "validate()" class = 'checkbox4' type = 'checkbox' id='Other_dataset' value ='Other Dataset'>
+					<input onclick = "validate()" class = 'checkbox4' type = 'checkbox' id='Other' value ='Other Dataset'>
 					<label class = 'label4' for='Other Dataset'>Other Dataset</label>
 					<text class = 'text4'>458</text>
 					<div id="dataset_other"></div>
@@ -66,13 +70,13 @@
 				<!-- Filter -->
 				<div class = 'filters'>
 					<!-- checkbox UNFINISHED YET -->
-					<input class = 'checkbox1' type = 'checkbox' id='Speech Processing' value ='Speech Processing'>
+					<input onclick = "validate()" class = 'checkbox1' type = 'checkbox' id='speech' value ='Speech Processing'>
 					<label class = 'label1' for='Speech Processing'>Speech Processing</label>
 
-					<input class = 'checkbox2' type = 'checkbox' id='Computer vision' value ='Computer vision'>
+					<input onclick = "validate()" class = 'checkbox2' type = 'checkbox' id='cv' value ='Computer vision'>
 					<label class = 'label2' for='Computer vision'>Computer vision</label>
 
-					<input class = 'checkbox3' type = 'checkbox' id='Natural Language Processing' value ='Natural Language Processing'>
+					<input onclick = "validate()" class = 'checkbox3' type = 'checkbox' id='nlp' value ='Natural Language Processing'>
 					<label class = 'label3' for='TNatural Language Processing'>Natural Language Processing</label>
 				</div>					
 			</form>
@@ -82,16 +86,16 @@
 				<a class = 'sidebar-category'>Models</a>
 				<!-- Filter -->
 				<div class = 'filters'>
-					<input onclick="select('CNN')" class = 'checkbox1' type = 'checkbox' id='CNN' value ='CNN'>
+					<input onclick = "validate()" class = 'checkbox1' type = 'checkbox' id='CNN' value ='CNN'>
 					<label class = 'label1' for='CNN'>CNN</label>
 
-					<input onclick="select('LSTM')" class = 'checkbox2' type = 'checkbox' id='LSTM' value ='LSTM'>
+					<input onclick = "validate()" class = 'checkbox2' type = 'checkbox' id='LSTM' value ='LSTM'>
 					<label class = 'label2' for='LSTM'>LSTM</label>
 
-					<input onclick="select('GRU')" class = 'checkbox3' type = 'checkbox' id='GRU' value ='GRU'>
+					<input onclick = "validate()" class = 'checkbox3' type = 'checkbox' id='GRU' value ='GRU'>
 					<label class = 'label3' for='GRU'>GRU</label>
 
-					<input onclick="select('RNN')" class = 'checkbox4' type = 'checkbox' id='RNN' value ='RNN'>
+					<input onclick = "validate()" class = 'checkbox4' type = 'checkbox' id='RNN' value ='RNN'>
 					<label class = 'label4' for='RNN'>RNN</label>
 				</div>					
 			</form>
@@ -101,9 +105,9 @@
 				<a class = 'sidebar-category'>Experiment Setting</a>
 				<!-- Filter -->
 				<div class = 'filters'>
-					<input class = 'checkbox1' type = 'checkbox' id='CPU Only' value ='CPU Only'>
+					<input onclick = "validate()" class = 'checkbox1' type = 'checkbox' id='CPU Only' value ='CPU Only'>
 					<label class = 'label1' for = 'CPU Only'>CPU Only</label>
-					<input class = 'checkbox2' type = 'checkbox' id='GPU' value ='GPU'>
+					<input onclick = "validate()" class = 'checkbox2' type = 'checkbox' id='GPU' value ='GPU'>
 					<label class = 'label2' for='GPU'>GPU</label>
 				</div>					
 			</form>
@@ -113,7 +117,7 @@
 					<a class = 'sidebar-category'>Input Dimentions</a>
 					<br><br>
 					<div id="my_dataviz"></div>
-					<input class = 'drag' type="range" name="mySlider1" id=mySlider1 min="1" max ="4" value="1">
+					<input onchange = "dragbar_validate()" class = 'drag' type="range" name="DimensionSlider" id=DimensionSlider min="0" max ="6" value="0">
 					<!-- <h6 class = 'drag' type = "mark">0 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;100</h6> -->
 					<pre class = 'drag'>0 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;100</pre>			
 				</div>
@@ -122,7 +126,7 @@
 					<a class = 'sidebar-category'>Accuracy</a>
 					<br><br>
 					<div id="my_dataviz2"></div>
-					<input class = "drag" type="range" name="mySlider2" id=mySlider2 min="1" max ="4" value="1">
+					<input class = "drag" type="range" name="AccuracySlider" id=AccuracySlider min="0" max ="6" value="0">
 					<pre class = 'drag'>0 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;100</pre>			
 				</div>
 
@@ -130,7 +134,7 @@
 					<a class = 'sidebar-category'>Number of Parameters</a>
 					<br><br>
 					<div id="my_dataviz3"></div>
-					<input class = "drag" type="range" name="mySlider" id=mySlider min="10" max ="100" value="0">			
+					<input class = "drag" type="range" name="ParameterSlider" id=ParameterSlider min="0" max ="6" value="0">			
 				</div>
 			</div>	
 	</div>
@@ -142,7 +146,7 @@
 	<!-- <script type="text/javascript" src="index.js" ></script> -->
 	<!-- <script type="text/javascript" src="searchbox.js" ></script>
 	<script type="text/javascript" src="searchbox_numberchange.js" ></script> -->
-	<script type="text/javascript" src="checkbox.js" ></script>
+	<script type="text/javascript" src="checkbox_dragbar.js" ></script>
 	<!-- <script type="text/javascript" src="slider.js" ></script> -->
 	<!-- <script>
 	d3.csv("searchboxData.csv", function(data) {
