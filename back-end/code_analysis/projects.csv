@@ -17,3 +17,10 @@
 15,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K Benchmark Suite, Sogou, DBPedia, Amazon Review",cnn,0.586613566,,3625703
 16,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K Benchmark Suite, Sogou, DBPedia, Amazon Review",cnn,0.586613566,,3625703
 17,tensorflow-hangul-recognition,https://github.com/IBM/tensorflow-hangul-recognition,hangul_model.py,text_recognition,text,"CNN,",0.542886591,,9556425
+18,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech","CTC,",0.628091214,,8455681
+19,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech","CTC,",0.628091214,,8455681
+20,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech","CTC,",0.628091214,,8455681
+21,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech","CTC,",0.628091214,,8455681
+22,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech","CTC,",0.628091214,,8455681
+23,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech","CTC,",0.628091214,,8455681
+24,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech","CTC,",0.628091214,,8455681

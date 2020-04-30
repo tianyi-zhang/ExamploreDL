@@ -53,7 +53,6 @@ var addRecord = function(textContent, func) {
 			myobj.remove();
 			recordArgList.splice(i, 1);
 		}
-		console.log(recordArgList);
   		if (funcName == "click_1") {
   			click_1(...args);
   		} else if (funcName == "click_2") {
@@ -62,7 +61,8 @@ var addRecord = function(textContent, func) {
   			click_3(...args);
   		} else if (funcName == "click_4") {
   			click_4(...args);
+  		} else if (funcName == "click_5") {
+  			click_5(...args);
   		}
-  		console.log(recordArgList);
 	}
 }

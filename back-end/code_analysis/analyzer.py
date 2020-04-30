@@ -65,7 +65,8 @@ class traverse_dic():
                                           'tf.contrib.rnn.LSTMCell': {'layer': 'LSTMCell', 'args': ['num_units']},
                                           'tf.keras.layers.LSTM': {'layer': 'LSTMCell', 'args': ['num_units']},
                                           'tf.contrib.rnn.GRUCell': {'layer': 'GRUCell', 'args': ['num_units']},
-                                          'tf.nn.bidirectional_dynamic_rnn': {'layer': 'Bi-RNN', 'args': []}
+                                          'tf.nn.bidirectional_dynamic_rnn': {'layer': 'Bi-RNN', 'args': []},
+                                          'tf.keras.layers.Bidirectional': {'layer': 'Bi-RNN', 'args': ['layer']}
                                           }
                                   },
                          # cnn

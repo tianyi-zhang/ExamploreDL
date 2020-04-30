@@ -12,6 +12,10 @@
 		font-size: 20px; 
 		color: #00144D;
 	}
+	.bar:hover {
+		fill: brown;
+	}
+
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
@@ -20,36 +24,50 @@
 <script type="text/javascript" src="./multi.js"></script>
 <script type="text/javascript" src="./clickFunc.js"></script>
 <script type="text/javascript" src="./newData.js"></script>
-<script type="text/javascript" src="./thumbnail.js"></script>
+<script type="text/javascript" src="./twoCharts.js"></script>
 </head>
 <body>
-	<div id='container'>
-	<table>
+	<div id='container' style="align-content: center;">
+	<table style="margin: 0 auto; width: 1163px">
+		<tr><td colspan="3">Datasets</td></tr>
+		<tr><td colspan="3">Tasks</td></tr>
+		<tr><td colspan="3">Models</td></tr>
+		<tr><td colspan="3">Experiment Setting</td></tr>
+		<tr><td colspan="3">Input dimension</td></tr>
+		<tr><td colspan="3">Accuracy</td></tr>
+		<tr><td colspan="3">Number of Parameters</td></tr>
 		<tr>
-		    <th><p>Layers</p></th> 
+		    <th colspan="2"><p>Layers</p></th> 
 		    <th><p>Parameters</p></th>
 		</tr>
 		<tr>
-			<td colspan="2">
+			<td>
+				<svg id="numLayers" style="width: 415px; height: 350px"></svg>
+			</td>
+			<td>
+				<svg id="numTypes" style="width: 415px; height: 350px"></svg>
+			</td>
+			<td id="record" valign="top">
+		    	<h1 style="font-size:20px; text-align:center"> Record filters </h1>				
+		    </td> 
+		</tr>
+		<tr>
+			<td colspan="3">
 				<div id='chart_table', style="width: 750px; height: 50 px"></div>
 			</td>			
 		</tr>
 		<tr>
-		    <td rowspan="5">	
+		    <td rowspan="6" colspan="2">	
 		    	<div id='chart_table', style="width: 800px; height: 800 px; overflow-x: scroll;overflow-y: hidden;">
 		    		<svg id='chart'></svg>
-		    	</div>		    	
-				
+		    	</div>		    					
 			</td>
-		    <td id="record">
-		    	<h1 style="font-size:20px; text-align:center"> Record filters </h1>
-				
-		    </td> 
-		</tr>
-		<tr><td><svg id='para-1' class='chart2'></svg></td></tr>
+		    <tr><td><svg id='para-1' class='chart2'></svg></td></tr>
+		</tr>		
 		<tr><td><svg id='para-2' class='chart2'></svg></td></tr>
 		<tr><td><svg id='para-3' class='chart2'></svg></td></tr>
 		<tr><td><svg id='para-4' class='chart2'></svg></td></tr>
+		<tr><td><svg id='para-5' class='chart2'></svg></td></tr>
 	</table>
 
 
