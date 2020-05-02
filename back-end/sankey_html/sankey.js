@@ -14,11 +14,11 @@ resultOut.then(function(data) {
 
   const _sankey = d3.sankey()
     .nodeAlign(d3[`sankey${"Left"}`])
-    .nodeWidth(15)
-    .nodePadding(10)
+    .nodeWidth(10)
+    .nodePadding(2)
     .extent([
       [1, 1],
-      [width - 1, height - 5]
+      [width - 100, height - 50]
     ]);
 
 
@@ -53,6 +53,7 @@ resultOut.then(function(data) {
     }
     return name_li
   }
+
   svg.append("g")
     .attr("stroke", "#000")
     .selectAll("rect")
