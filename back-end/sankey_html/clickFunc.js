@@ -54,10 +54,11 @@ var click_4 = function(x0, x1, nowKey, hightlightNodes, selected_cat, newNodeDat
 	generateParameterChart(selected_cat, newNodeData, "#chart2", "none");
 }
 
-var click_5 = function(nodeList, proName) {
-    var recordArgs = [nodeList, proName];
+var click_5 = function(nodeList, layNum) {
+    console.log(layNum);
+    var recordArgs = [nodeList, layNum];
     var svg = d3.select('#chart');
-    addRecord("Filter left: Project " + proName.split('Pro')[1], {"click_5": recordArgs});
+    addRecord("Filter left: Project with number of layers = " + layNum, {"click_5": recordArgs});
     svg.selectAll("path").style("opacity", 0.35);
     svg.selectAll("rect").style("opacity", 0.35);
     svg.selectAll("rect").attr("stroke", "#ffffff")

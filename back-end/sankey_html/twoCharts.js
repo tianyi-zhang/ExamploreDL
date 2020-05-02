@@ -15,9 +15,35 @@ var genLayerChart = function(layerData) {
 	data = [];
 
 	for (var i=0; i<layerData.length; i++) {
-		data.push({"proName": "Pro"+i, "value": layerData[i].length, 'node': layerData[i]});			
+		var flag = 0;
+		var layerLength = layerData[i].length;
+		if (data.length == 0) {
+			data.push({"layerNum": layerLength, 'value': 1, 'layerNodes': layerData[i]});
+			continue;
+		} else {
+			for (var j=0; j<data.length; j++) {
+				if (data[j]['layerNum'] == layerLength) {
+					data[j]['value'] += 1;
+					data[j]['layerNodes'] = [...data[j]['layerNodes'], ...layerData[i]];
+					flag = 1;
+					break;
+				}
+			}
+			if (flag==0) {
+				for (var j=0; j<data.length-1; j++) {
+					if (data[j]['layerNum'] < layerLength && layerLength <= data[j+1]['layerNum']) {
+						data.splice(j+1,0,{"layerNum": layerLength, 'value': 1, 'layerNodes': layerData[i]});
+						flag = 1;
+						break;
+					}
+				}
+				if (flag == 0) {
+					data.push({"layerNum": layerLength, 'value': 1, 'layerNodes': layerData[i]});
+				}		
+			}
+		}				
 	}
-
+	
 	var x = d3.scaleBand()
 		.rangeRound([0, width])
 		.padding(0.1);
@@ -26,7 +52,7 @@ var genLayerChart = function(layerData) {
 		.rangeRound([height, 0]);
 
 	x.domain(data.map(function (d) {
-			return d.proName;
+			return d.layerNum;
 		}));
 	y.domain([0, d3.max(data, function (d) {
 				return Number(d.value);
@@ -34,13 +60,7 @@ var genLayerChart = function(layerData) {
 
 	g.append("g")
 	.attr("transform", "translate(0," + height + ")")
-	.call(d3.axisBottom(x))
-	.selectAll("text")
-		.attr("y", 0)
-    	.attr("x", 9)
-    	.attr("dy", ".35em")
-		.attr("transform", "rotate(90)")
-		.style("text-anchor", "start");
+	.call(d3.axisBottom(x));
 
 	g.append("g")
 	.call(d3.axisLeft(y))
@@ -50,7 +70,7 @@ var genLayerChart = function(layerData) {
 	.attr("y", 6)
 	.attr("dy", "0.71em")
 	.attr("text-anchor", "end")
-	.text("Number of Layers");
+	.text("Frequency");
 
 	g.selectAll(".bar")
 	.data(data)
@@ -58,7 +78,7 @@ var genLayerChart = function(layerData) {
 	.attr("class", "bar")
 	.attr("fill", "steelblue")
 	.attr("x", function (d) {
-		return x(d.proName);
+		return x(d.layerNum);
 	})
 	.attr("y", function (d) {
 		return y(Number(d.value));
@@ -67,7 +87,7 @@ var genLayerChart = function(layerData) {
 	.attr("height", function (d) {
 		return height - y(Number(d.value));
 	})
-	.on("click", function(d) {click_5(d.node, d.proName)});
+	.on("click", function(d) {click_5(d.layerNodes, d.layerNum)});
 
 	g.append("text")
 		.attr("text-anchor", "middle")

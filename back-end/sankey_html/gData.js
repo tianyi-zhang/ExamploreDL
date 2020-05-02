@@ -98,17 +98,14 @@ var genData = function(idList, path) {
 			var layer = [];
 			var lay_arg_li = [];
 			for (var j=0; j<arg_li.length; j++) {
-				var net = net_li[j];
-				var arg_li_ele = arg_li[j];
-				if (net.length - 1 >= i) {
-					layer.push(net[i]);
-					lay_arg_li.push(arg_li_ele[i]);
+				if (net_li[j].length - 1 >= i) {
+					layer.push(net_li[j][i]);
+					lay_arg_li.push(arg_li[j][i]);
 				} else {
 					layer.push(" ");
 					lay_arg_li.push(" ");
 				}
 			}
-			
 			var new_li = [];
 			for (var k=0; k<layer.length; k++) {
 				var ele = layer[k];
@@ -119,20 +116,14 @@ var genData = function(idList, path) {
 							if (ele == layer[l]) {
 								var finded = new_li[l];
 								var compare = match[finded];
-								var need_compare = net_li[k].slice(0, i);
+								var need_compare = net_li[k].slice(0, i);							
 								if (compare_array(need_compare, compare)) {
 									var new_ele = finded;
-								} else {
-									count[ele] += 1;
-									var new_ele = ele + '-' + count[ele];
-									match[new_ele] = need_compare;
-								}
-								flag = 1;
-								break;
+									new_li.push(new_ele);
+									flag = 1;
+									break;
+								} 
 							}
-						}
-						if (flag == 1) {
-							new_li.push(new_ele);
 						}
 					}
 					if (flag == 0) {
@@ -187,7 +178,7 @@ var genData = function(idList, path) {
 						
 			}
 		}
-		
+
 		return [net_li, node, arg_li];
 	}
 
@@ -334,10 +325,10 @@ var genData = function(idList, path) {
 					
 		})
 		.then(function() {
-			genLayerChart(net_li);
-			
+			var oriNetLi = net_li;			
 			var [node_dic, link_dic, node_args] = generate_flow_txt(net_li, arg_li, colorDic);
 			var proj = genjson(node_dic, link_dic, node_args, colorDic);
+			genLayerChart(net_li);
 			genTypeChart(net_li, colorDic, proj);
 			return [proj,max_length];
 		}) 
