@@ -126,7 +126,7 @@
 					<a class = 'sidebar-category'>Accuracy</a>
 					<br><br>
 					<div id="my_dataviz2"></div>
-					<input class = "drag" type="range" name="AccuracySlider" id=AccuracySlider min="0" max ="6" value="0">
+					<input onchange = "dragbar_validate()" class = "drag" type="range" name="AccuracySlider" id=AccuracySlider min="0" max ="6" value="0">
 					<pre class = 'drag'>0 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;100</pre>			
 				</div>
 
@@ -134,7 +134,7 @@
 					<a class = 'sidebar-category'>Number of Parameters</a>
 					<br><br>
 					<div id="my_dataviz3"></div>
-					<input class = "drag" type="range" name="ParameterSlider" id=ParameterSlider min="0" max ="6" value="0">			
+					<input onchange = "dragbar_validate()" class = "drag" type="range" name="ParameterSlider" id=ParameterSlider min="0" max ="6" value="0">			
 				</div>
 			</div>	
 	</div>

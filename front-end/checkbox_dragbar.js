@@ -5,7 +5,6 @@
 // dragbar_validate() listen to dradbar selection, 
 // keep the filtered_data and start a new data array filtered_data2,
 // drawbar() draws based on filtered_data2.
-
 // Preset the 4 number to be original number
 var num_img_data = 0;
 var num_vid_data = 0;
@@ -29,17 +28,67 @@ var checkbox_datasets = ['Image','Video','Text','Other']
 var checkbox_tasks = ['speech','cv','nlp']
 var checkbox_models = ['CNN','LSTM','GRU','RNN']
 
+// CHECKBOX NEWLY NO HARDCODE
+// var checkbox_names = []
+// var checkbox_datasets = []
+// var checkbox_tasks = []
+// var checkbox_models = []
+
 var filtered_data = [];
 var accuracy_histograms = [];
 var dimension_histograms = [];
 
-// // an object: which is not iterable
-// var num_datas ={
-//   image_dataset:num_img_data,
-//   video_dataset:num_vid_data,
-//   text_dataset:num_txt_data,
-//   other_dataset:num_other_data,
-// }
+// for draw barchart
+var bin = 10;
+// set the dimensions and margins of the graph
+var margin = {top: 10, right: 30, bottom: 20, left: 50},
+    width = 360 - margin.left - margin.right,
+    height = 200 - margin.top - margin.bottom;
+
+// Dimension
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+  // Initialize the X axis
+var x = d3.scaleBand()
+  .range([ 0, width ])
+  .padding(0.2);
+var xAxis = svg.append("g")
+  .attr("transform", "translate(0," + height + ")")
+
+// Initialize the Y axis
+var y = d3.scaleLinear()
+  .range([ height, 0]);
+var yAxis = svg.append("g")
+  .attr("class", "myYaxis")
+
+// // Accuracy
+// var svg2 = d3.select("#my_dataviz2")
+//   .append("svg2")
+//     .attr("width", width + margin.left + margin.right)
+//     .attr("height", height + margin.top + margin.bottom)
+//   .append("g2")
+//     .attr("transform",
+//           "translate(" + margin.left + "," + margin.top + ")");
+
+// // Initialize the X axis
+// var x2 = d3.scaleBand()
+//   .range([ 0, width ])
+//   .padding(0.2);
+// var xAxis2 = svg2.append("g2")
+//   .attr("transform", "translate(0," + height + ")")
+
+// // Initialize the Y axis
+// var y2 = d3.scaleLinear()
+//   .range([ height, 0]);
+// var yAxis2 = svg2.append("g2")
+//   .attr("class", "myYaxis2")
+
+
 function preload(){
   // Count for the original
   d3.csv("datas/projects.csv", function(data){
@@ -47,7 +96,24 @@ function preload(){
     // console.log(filter_status);
     // console.log(data);
     // Set up a dictionary
+
     data.forEach(function(d){
+      // TO REPLACE THE HARDCODE CHECKBOXES, YOU COULD UNCOMMENT THOSE
+      // var dataset_ofthisline = d.Datasets.split(",")
+      // var task_ofthisline = d.Tasks.split(",")
+      // var model_ofthisline = d.Models.split(",")
+
+      // for (int i = 0; i<dataset_ofthisline.length; i++){
+      //   if !(checkbox_datasets.includes(dataset_ofthisline[i])){
+      //     checkbox_datasets.append(dataset_ofthisline[i])
+      //   }
+      //   if !(checkbox_tasks.includes(task_ofthisline[i])){
+      //     checkbox_datasets.append(dataset_ofthisline[i])
+      //   }
+      //   if !(checkbox_tasks.includes(model_ofthisline[i])){
+      //     checkbox_datasets.append(dataset_ofthisline[i])
+      //   }     
+
       alldata++;
       // For the dataset column
       this_d = d.Datasets
@@ -232,6 +298,7 @@ var validate = function(){
     //     .text(function(d){return ""+filters[0].value});
 
     dragbar_validate();
+    update_checkbox_number();
   })  
 }
 
@@ -244,7 +311,7 @@ var dragbar_validate = function(){
   input_dimensions = filtered_data.concat().sort((a, b) => (parseFloat(a.Input_Dimensions) > parseFloat(b.Input_Dimensions)) ? 1 : ((parseFloat(b.Input_Dimensions) > parseFloat(a.Input_Dimensions)) ? -1 : 0))
   num_parameters = filtered_data.concat().sort((a, b) => (parseFloat(a.Num_Parameters) > parseFloat(b.Num_Parameters)) ? 1 : ((parseFloat(b.Num_Parameters) > parseFloat(a.Num_Parameters)) ? -1 : 0))
 
-  console.log(accuracy);
+  // console.log(accuracy);
   min_accuracy = accuracy[0].Accuracy;
   max_accuracy = accuracy[accuracy.length-1].Accuracy;
   min_parameter = num_parameters[0].Num_Parameters;
@@ -265,19 +332,19 @@ var dragbar_validate = function(){
   // })
 
   Dim_Value = document.getElementById('DimensionSlider').value;
-  console.log(Dim_Value);
+  // console.log(Dim_Value);
   Acu_Value = document.getElementById('AccuracySlider').value;
-  console.log(Acu_Value);
+  // console.log(Acu_Value);
   Para_Value = document.getElementById('ParameterSlider').value;
-  console.log(Para_Value);
+  // console.log(Para_Value);
 
   for (var i = 0; i < filtered_data.length; i++){
       // console.log(filtered_data[i].Input_Dimensions);
       // console.log(parseFloat(min_dimension)+parseFloat(Dim_Value/6*dif_dimension));
       // If that fills the filter requirements
-      if(filtered_data[i].Input_Dimensions >= parseFloat(min_dimension)+parseFloat(Dim_Value/6*dif_dimension) 
-        && filtered_data[i].Accuracy >= parseFloat(min_accuracy)+parseFloat(Acu_Value/6*dif_accuracy)
-        && filtered_data[i].Num_Parameters >= parseFloat(min_parameter)+parseFloat(Acu_Value/6*dif_parameter)){
+      if(filtered_data[i].Input_Dimensions >= parseFloat(min_dimension)+parseFloat(Dim_Value/bin*dif_dimension) 
+        && filtered_data[i].Accuracy >= parseFloat(min_accuracy)+parseFloat(Acu_Value/bin*dif_accuracy)
+        && filtered_data[i].Num_Parameters >= parseFloat(min_parameter)+parseFloat(Acu_Value/bin*dif_parameter)){
         filtered_data2.push(filtered_data[i]);
       }
   }
@@ -295,12 +362,26 @@ var dragbar_validate = function(){
 
   //   }
   // }
-  update_checkbox_number()
-  drawbar();
+  draw_bar();
 }
 
 var update_checkbox_number = function(){
-
+  // Image2 = [];
+  // Video2 = [];
+  // Text2 = [];
+  // Speech2 = [];
+  // CV2 = [];
+  // Languae2 = [];
+  // CNN = [];
+  // LSTN = [];
+  // RNN = [];
+  // GRU = [];
+  // CPU = [];
+  // GPU = [];
+  // console.log(filtered_data2);
+  // for (int i = 0; i < filtered_data2.length; i++){
+  //   if (filtered_data2.Datasets.include)
+  // }
 }
 
 var draw_bar = function(){
@@ -308,10 +389,10 @@ var draw_bar = function(){
   input_dimensions  = []
   accuracy = []
   num_parameters = []
-  for (var i = 0; i < filtered_data.length; i++){
-    input_dimensions.push(filtered_data[i].Input_Dimensions);
-    accuracy.push(filtered_data[i].Accuracy);
-    num_parameters.push(filtered_data[i].Num_Parameters);
+  for (var i = 0; i < filtered_data2.length; i++){
+    input_dimensions.push(filtered_data2[i].Input_Dimensions);
+    accuracy.push(filtered_data2[i].Accuracy);
+    num_parameters.push(filtered_data2[i].Num_Parameters);
   }
 
   // For each one of those, get the smallest and the largest
@@ -321,9 +402,9 @@ var draw_bar = function(){
   // WHY SORT DOESN'T WORK HERE AT ALL?
   num_parameters.sort();
 
-  accuracy2 = filtered_data.concat().sort((a,b) => (parseFloat(a.Accuracy) > parseFloat(b.Accuracy)) ? 1 : ((parseFloat(b.Accuracy) > parseFloat(a.Accuracy)) ? -1 : 0));
-  input_dimensions2 = filtered_data.concat().sort((a, b) => (parseFloat(a.Input_Dimensions) > parseFloat(b.Input_Dimensions)) ? 1 : ((parseFloat(b.Input_Dimensions) > parseFloat(a.Input_Dimensions)) ? -1 : 0))
-  num_parameters2 = filtered_data.concat().sort((a, b) => (parseFloat(a.Num_Parameters) > parseFloat(b.Num_Parameters)) ? 1 : ((parseFloat(b.Num_Parameters) > parseFloat(a.Num_Parameters)) ? -1 : 0))
+  accuracy2 = filtered_data2.concat().sort((a,b) => (parseFloat(a.Accuracy) > parseFloat(b.Accuracy)) ? 1 : ((parseFloat(b.Accuracy) > parseFloat(a.Accuracy)) ? -1 : 0));
+  input_dimensions2 = filtered_data2.concat().sort((a, b) => (parseFloat(a.Input_Dimensions) > parseFloat(b.Input_Dimensions)) ? 1 : ((parseFloat(b.Input_Dimensions) > parseFloat(a.Input_Dimensions)) ? -1 : 0))
+  num_parameters2 = filtered_data2.concat().sort((a, b) => (parseFloat(a.Num_Parameters) > parseFloat(b.Num_Parameters)) ? 1 : ((parseFloat(b.Num_Parameters) > parseFloat(a.Num_Parameters)) ? -1 : 0))
 
 
   min_accuracy = accuracy2[0].Accuracy;
@@ -346,24 +427,24 @@ var draw_bar = function(){
   // console.log(num_parameters.length);
 
   // For each of the column, count how many data we have here
-  for (var i = 1; i < 7; i++){
+  for (var i = 1; i < bin+1; i++){
 
     filter_dimension_data_his = [];
     filter_accuracy_data_his = [];
     filter_parameter_data_his = [];
 
     // Go through each filtered out data
-    for (var j = 0; j< filtered_data.length; j++){
+    for (var j = 0; j< filtered_data2.length; j++){
       // console.log(dif_accuracy*i/6);       
       // console.log(dif_parameters*i/6);
-      if (num_parameters2[j].Num_Parameters<= parseFloat(dif_accuracy*i/6)+parseFloat(min_parameter) && num_parameters2[j].Num_Parameters>= parseFloat(dif_accuracy*(i-1)/6)+parseFloat(min_parameter)){
+      if (num_parameters2[j].Num_Parameters<= parseFloat(dif_accuracy*i/bin)+parseFloat(min_parameter) && num_parameters2[j].Num_Parameters>= parseFloat(dif_accuracy*(i-1)/bin)+parseFloat(min_parameter)){
         filter_parameter_data_his.push(input_dimensions2[j]);
       }
-      if (input_dimensions2[j].Input_Dimensions<= parseFloat(dif_dimension*i/6)+parseFloat(min_dimension) && input_dimensions2[j].Input_Dimensions>= parseFloat(dif_dimension*(i-1)/6)+parseFloat(min_dimension)){
+      if (input_dimensions2[j].Input_Dimensions<= parseFloat(dif_dimension*i/bin)+parseFloat(min_dimension) && input_dimensions2[j].Input_Dimensions>= parseFloat(dif_dimension*(i-1)/bin)+parseFloat(min_dimension)){
         filter_dimension_data_his.push(input_dimensions2[j]);
         // single_histogram_dimension++;
       }
-      if (accuracy2[j].Accuracy<= parseFloat(dif_accuracy*i/6)+parseFloat(min_accuracy) && accuracy2[j].Accuracy>= parseFloat(dif_accuracy*(i-1)/6)+parseFloat(min_accuracy)){
+      if (accuracy2[j].Accuracy<= parseFloat(dif_accuracy*i/bin)+parseFloat(min_accuracy) && accuracy2[j].Accuracy>= parseFloat(dif_accuracy*(i-1)/bin)+parseFloat(min_accuracy)){
         filter_accuracy_data_his.push(accuracy2[j]);
         // single_histogram_acurracy++;
       }
@@ -372,19 +453,19 @@ var draw_bar = function(){
     // Create object to store the value scale of each histogram and the height of it
     var single_histogram_info_dimension = {
       data:filter_dimension_data_his,
-      bound:parseFloat(dif_dimension*i/6)+parseFloat(min_dimension),
+      bound:(parseFloat(dif_dimension*i/bin)+parseFloat(min_dimension)).toFixed(2),
       // value:single_histogram_dimension,
     }
 
     var single_histogram_info_accuracy = {
       data:filter_accuracy_data_his,
-      bound:parseFloat(dif_accuracy*i/6)+parseFloat(min_accuracy),
+      bound:(parseFloat(dif_accuracy*i/bin)+parseFloat(min_accuracy)).toFixed(2),
       // value:single_histogram_acurracy,
     }
 
     var single_histogram_info_parameter = {
       data:filter_parameter_data_his,
-      bound:parseFloat(dif_parameter*i/6)+parseFloat(min_accuracy),
+      bound:parseFloat(dif_parameter*i/bin)+parseFloat(min_accuracy).toFixed(2),
       // value:single_histogram_acurracy,
     }
 
@@ -394,11 +475,69 @@ var draw_bar = function(){
   }
   // Test whether we have each histogram's info right (WORK WELL)
   // console.log(accuracy_histograms);
-  // console.log(parameter_histograms);
+  // console.log(paramet er_histograms);
   // console.log(dimension_histograms);
   // console.log(filtered_data);
+  // d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv", function(data) {
+  //   console.log(data);
+  // });
 
   // Draw histogram for input dimensions
+  // X axis
+  ac = accuracy_histograms;
+  pa = parameter_histograms;
+  di = dimension_histograms;
+  console.log(ac);
+  console.log(pa);
+  console.log(di);
+// DIMENSION
+  x.domain(di.map(function(d) { return d.bound; }))
+  xAxis.transition().duration(100).call(d3.axisBottom(x))
+
+  // Add Y axis
+  y.domain([0, d3.max(di, function(d) { return +d.data.length }) ]);
+  // yAxis.transition().duration(100).call(d3.axisLeft(y));
+
+  // variable u: map data to existing bars
+  var u = svg.selectAll("rect")
+    .data(di)
+  // update bars
+  u
+    .enter()
+    .append("rect")
+    .merge(u)
+    .transition()
+    .duration(100)
+      .attr("x", function(d) { return x(d.bound); })
+      .attr("y", function(d) { return y(d.data.length); })
+      .attr("width", x.bandwidth())
+      .attr("height", function(d) { return height - y(d.data.length); })
+      .attr("fill", "#2290A6")
+
+// // ACCURACY
+//   x2.domain(ac.map(function(d) { return d.bound; }))
+//   xAxis2.transition().duration(100).call(d3.axisBottom(x))
+
+//   // Add Y axis
+//   y2.domain([0, d3.max(ac, function(d) { return +d.data.length }) ]);
+//   yAxis2.transition().duration(100).call(d3.axisLeft(y2));
+
+//   // variable u: map data to existing bars
+//   var u2 = svg2.selectAll("rect")
+//     .data(ac)
+//   // update bars
+//   u2
+//     .enter()
+//     .append("rect")
+//     .merge(u2)
+//     .transition()
+//     .duration(100)
+//       .attr("x2", function(d) { return x2(d.bound); })
+//       .attr("y2", function(d) { return y2(d.data.length); })
+//       .attr("width", x2.bandwidth())
+//       .attr("height", function(d) { return height - y2(d.data.length); })
+//       .attr("fill", "#2290A6")
+update_checkbox_number();
 }
 
 preload();
