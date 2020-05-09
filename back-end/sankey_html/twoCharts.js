@@ -1,7 +1,10 @@
 var genLayerChart = function(layerData) {
-	var svgLayers = d3.select("#numLayers"),
+	var svgLayers = d3.select("#numLayers").append("svg")
+		.attr("width", '415')
+		.attr("height", '350')
+		.attr("id", "numLayersSvg");
 
-	margin = {
+	var margin = {
 		top: 30,
 		right: 5,
 		bottom: 10,
@@ -99,9 +102,13 @@ var genLayerChart = function(layerData) {
 }
 
 var genTypeChart = function(typeData, colorDic, proj) {
-	var svgTypes = d3.select("#numTypes"),
+	
+	var svgTypes = d3.select("#numTypes").append("svg")
+		.attr("width", '415')
+		.attr("height", '350')
+		.attr("id", "numTypesSvg");
 
-	margin = {
+	var margin = {
 		top: 30,
 		right: 5,
 		bottom: 50,
