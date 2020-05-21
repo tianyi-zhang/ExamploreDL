@@ -29,49 +29,69 @@
 </head>
 <body>
 	<div id='container' style="align-content: center;">
-		<table style="margin: 0 auto; width: 1163px">
-			<tr id="datasetsTr"></tr>
-			<tr id="tasksTr"></tr>
-			<tr id="modelsTr"></tr>
-			<tr><td colspan="3">Experiment Setting</td></tr>
-			<tr><td colspan="3">Input dimension</td></tr>
-			<tr><td colspan="3">Accuracy</td></tr>
-			<tr><td colspan="3">Number of Parameters</td></tr>
+		<table>
+			<tr>
+				<td>
+					<div id="filtersTableDiv" style="width: 700px; height: 1132px; overflow-y: scroll;">
+						<table id="filterTable" style="margin: 0 auto; width: 650px">
+							<tr id="datasetsTr"><td colspan="2">Datasets</td></tr>
+							<tr id="tasksTr"><td colspan="2">Tasks</td></tr>
+							<tr id="modelsTr"><td colspan="2">Models</td></tr>
+							<tr><td colspan="2">Experiment Setting</td></tr>
+							<tr><td colspan="2">Input dimension</td></tr>
+							<tr><td colspan="2">Accuracy</td></tr>
+							<tr><td colspan="2">Number of Parameters</td></tr>
+						</table>
+					</div>					
+				</td>
+				<td>
+					<table style="margin: 0 auto; width: 1163px">
+						<tr>
+							<th><p>Overview</p></th>
+							<th><p>Layers</p></th> 
+							<th><p>Parameters</p></th>
+						</tr>
+						<tr>
+							<td colspan="3">
+								<div id='chart_table', style="width: 750px; height: 50 px; display: block; margin: auto;"></div>
+							</td>			
+						</tr>
+						<tr>
+							<td rowspan="3" id="numLayersTd">
+								<div id="numLayers" style="width: 415px; height: 350px; align-content: center"></div>
+							</td>
+							<td rowspan="7">	
+								<div id='chart_div', style="width: 800px; height: 800 px; align-content: center; overflow-x: scroll;overflow-y: hidden;">
+									<svg id='chart'></svg>
+								</div>								
+							</td>
+							<td id="record" valign="top">
+								<h1 style="font-size:20px; text-align:center"> 
+									Record filters 
+								</h1>				
+							</td>
+						</tr>
+						<tr>
+							<td><svg id='para-1' class='chart2'></svg></td>
+						</tr>					
+						<tr><td><svg id='para-2' class='chart2'></svg></td></tr>
+						<tr>
+							<td rowspan="3" id="numTypesTd">
+								<div id="numTypes" style="width: 415px; height: 350px"></div>
+							</td>
+							<td><svg id='para-3' class='chart2'></svg></td>
+						</tr>
+						<tr><td><svg id='para-4' class='chart2'></svg></td></tr>
+						<tr><td><svg id='para-5' class='chart2'></svg></td></tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				
+			</tr>
 		</table>
-		<table style="margin: 0 auto; width: 1163px">
-			<tr>
-			    <th colspan="2"><p>Layers</p></th> 
-			    <th><p>Parameters</p></th>
-			</tr>
-			<tr>
-				<td id="numLayersTd">
-					<div id="numLayers" style="width: 415px; height: 350px"></div>
-				</td>
-				<td id="numTypesTd">
-					<div id="numTypes" style="width: 415px; height: 350px"></div>
-				</td>
-				<td id="record" valign="top">
-			    	<h1 style="font-size:20px; text-align:center"> Record filters </h1>				
-			    </td> 
-			</tr>
-			<tr>
-				<td colspan="3">
-					<div id='chart_table', style="width: 750px; height: 50 px"></div>
-				</td>			
-			</tr>
-			<tr>
-			    <td rowspan="6" colspan="2">	
-			    	<div id='chart_div', style="width: 800px; height: 800 px; overflow-x: scroll;overflow-y: hidden;">
-			    		<svg id='chart'></svg>
-			    	</div>		    					
-				</td>
-			    <tr><td><svg id='para-1' class='chart2'></svg></td></tr>
-			</tr>		
-			<tr><td><svg id='para-2' class='chart2'></svg></td></tr>
-			<tr><td><svg id='para-3' class='chart2'></svg></td></tr>
-			<tr><td><svg id='para-4' class='chart2'></svg></td></tr>
-			<tr><td><svg id='para-5' class='chart2'></svg></td></tr>
-		</table>
+		
+		
 		<script src="sankey.js"></script>
 	</div>
 </body>
