@@ -3,15 +3,17 @@ var csvData = readTextFile('./projects.csv');
 
 csvData.then(function(data) {
 	var newCheckData = [];
-	d3.selectAll("#myCheckbox").on("change",update);
-	update();
+	//d3.selectAll("#myCheckbox").on("change",update);
+	d3.selectAll("#myCheckbox").on("click",clickFilter);
+	//update();
 	
-	function update(){		
+	function update(thisClassName){		
 		var idList = [];
-
+		
 		d3.selectAll("#myCheckbox").each(function(d){
 			cb = d3.select(this);
 			if(cb.property("checked")){
+				
 				var val = cb.property("value").split(',');
 				for (i=0; i<val.length; i++) {
 					if (!(idList.includes(val[i]))) {
@@ -20,7 +22,12 @@ csvData.then(function(data) {
 				} 
 			}
 		});
+		updateFilterSVG(data, idList, thisClassName);
 		mainDraw(idList);	 
+	}
+
+	function clickFilter() {
+		update(this.className);
 	} 
 })
 
@@ -33,8 +40,6 @@ function mainDraw(idList) {
 	resultOut = genData(idList, JSONpath);
 
 	resultOut.then(function(data) {
-
-		console.log(data);
 
 		var max_length = data[1];
 
