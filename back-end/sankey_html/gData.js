@@ -1,28 +1,28 @@
 var genData = function(idList, path) {
 	var colorDic = {
 		"CNN": {
-			'conv': "rgba(54, 69, 133, 0.5)",
-			'MaxPool': "rgba(90, 102, 158, 0.5)",
-			'AveragePool': "rgba(163, 171, 206, 0.5)"
+			'conv': "rgba(54, 69, 133, 0.65)",
+			'MaxPool': "rgba(90, 102, 158, 0.65)",
+			'AveragePool': "rgba(163, 171, 206, 0.65)"
 		},
 		"RNN":{
-			'LSTM': "rgba(212, 80, 135, 0.5)",
-			'GRU': "rgba(249, 93, 106, 0.5)",
-			'Bi-RNN': "rgba(249, 93, 106, 0.5)"
+			'LSTM': "rgba(212, 80, 135, 0.65)",
+			'GRU': "rgba(249, 93, 106, 0.65)",
+			'Bi-RNN': "rgba(249, 93, 106, 0.65)"
 		},
 		"Other": {
-			'input': "rgba(255, 214, 203, 0.5)",
-			'dense': "rgba(139, 60, 44, 0.5)",
-			'dropout': "rgba(169, 98, 76, 0.5)",
-			'Flatten': "rgba(198, 137, 112, 0.5)",
-			'optimizer': "rgba(226, 176, 151, 0.5)",
-			'cross_entropy': "rgba(109, 16, 16, 0.5)",
-			'attention': "rgba(109, 16, 16, 0.5)"
+			'input': "rgba(76, 18, 1, 0.65)",
+			'dense': "rgba(176, 43, 2, 0.65)",
+			'Flatten': "rgba(252, 81, 28, 0.65)",
+			'dropout': "rgba(18, 109, 52, 0.65)",
+			'attention': "rgba(152, 231, 49, 0.65)",
+			'cross_entropy': "rgba(65, 39, 89, 0.65)",
+			'optimizer': "rgba(91, 54, 125, 0.65)"					
 		},
 		"Activate": {
-			'relu': "rgba(255, 166, 1, 0.5)",
-			'sigmoid': "rgba(255, 124, 1, 0.5)",
-			'softmax': "rgba(255, 192, 1, 0.5)"
+			'relu': "rgba(255, 166, 1, 0.65)",
+			'sigmoid': "rgba(255, 124, 1, 0.65)",
+			'softmax': "rgba(255, 192, 1, 0.65)"
 		}
 	};
 	var node_color = {};
@@ -30,6 +30,7 @@ var genData = function(idList, path) {
 	var arg_li = [];
 	var net_li = [];
 	var max_length = 0;
+	var totalNum = 0;
 
 	var generate_out_li = function(json_dic) {
 		var model_li = ["input"];
@@ -312,6 +313,7 @@ var genData = function(idList, path) {
 		.then(function(jsonResponse) {
 			var json_dic=jsonResponse;
 			for (const i in json_dic) {
+				totalNum += 1;
 				if (idList.includes(i) && json_dic[i]['num_layers'] < 500) {
 					var [li, model_arg_li] = generate_out_li(json_dic[i]);
 					arg_li.push(model_arg_li);
@@ -330,7 +332,7 @@ var genData = function(idList, path) {
 			var proj = genjson(node_dic, link_dic, node_args, colorDic);
 			genLayerChart(net_li);
 			genTypeChart(net_li, colorDic, proj);
-			return [proj,max_length];
+			return [[proj, max_length, totalNum], idList];
 		}) 
 	return resultOut;
 }
