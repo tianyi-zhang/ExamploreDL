@@ -1,97 +1,145 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
-<style>
-	table, th, td {
-		border: 1px dashed #848484;
-  		border-collapse: collapse;
-  		padding: 15px;
-	}
-	p {
-		font-family: FontAwesome; 
-		font-size: 20px; 
-		color: #00144D;
-	}
-	.bar:hover {
-		fill: brown;
-	}
-
-</style>
+<link rel="stylesheet" type="text/css" href="./myStyle.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
 <script type="text/javascript" src="https://unpkg.com/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+<script type="text/javascript" src="./sankey.js"></script>
 <script type="text/javascript" src="./gData.js"></script>
 <script type="text/javascript" src="./multi.js"></script>
 <script type="text/javascript" src="./clickFunc.js"></script>
 <script type="text/javascript" src="./newData.js"></script>
 <script type="text/javascript" src="./twoCharts.js"></script>
 <script type="text/javascript" src="./getCSVData.js"></script>
+<script type="text/javascript" src="./sliderHisto.js"></script>
 </head>
 <body>
-	<div id='container' style="align-content: center;">
-		<table>
+	<div id='container' style="margin: 0 auto; width: 100%; height: 100vh;">
+		<table style="margin: 0 auto; width: 100%; height: 100vh;">
 			<tr>
-				<td>
-					<div id="filtersTableDiv" style="width: 700px; height: 1132px; overflow-y: scroll;">
-						<table id="filterTable" style="margin: 0 auto; width: 650px">
-							<tr id="datasetsTr"><td colspan="2">Datasets</td></tr>
-							<tr id="tasksTr"><td colspan="2">Tasks</td></tr>
-							<tr id="modelsTr"><td colspan="2">Models</td></tr>
-							<tr><td colspan="2">Experiment Setting</td></tr>
-							<tr><td colspan="2">Input dimension</td></tr>
-							<tr><td colspan="2">Accuracy</td></tr>
-							<tr><td colspan="2">Number of Parameters</td></tr>
+				<td colspan="2" style="background-color: #1E7E95; height: 100px; font-family: sans-serif; font-size: 30px; color: white; padding: 16px 18px;">
+					Examplore for Deep Learning
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 420px;">
+					<div id="filtersTableDiv" style="width: 420px; height: 100%; overflow-y: scroll; background-color: #F7F7F7;">
+						<table id="filterTable" style="margin: 0 auto; width: 420px; height: 100px;">
+							<tr id="datasetsTr">
+								<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+									Datasets
+								</td>
+							</tr>
+							<tr id="tasksTr" style="border-top:#D4D4D4 solid 1px;">
+								<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+									Tasks
+								</td>
+							</tr>
+							<tr id="modelsTr">
+								<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+									Models
+								</td>
+							</tr>
+							<!--
+							<tr>
+							
+								<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+									Experiment Setting
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+									Input dimension
+									<div id="inputDimensionDiv" class="sliderDiv">
+										<svg id="inputDimensionSvg"></svg>
+									</div>
+								</td>
+							</tr>
+							-->
+							<tr>
+								<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+									Accuracy
+									<div id="accDiv" class="sliderDiv">
+										<svg id="accSvg"></svg>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+									Number of Parameters
+									<div id="nopDiv" class="sliderDiv">
+										<svg id="nopSvg"></svg>
+									</div>
+								</td>
+							</tr>
 						</table>
 					</div>					
 				</td>
 				<td>
-					<table style="margin: 0 auto; width: 1163px">
-						<tr>
-							<th><p>Overview</p></th>
-							<th><p>Layers</p></th> 
-							<th><p>Parameters</p></th>
+					<table style="margin: 0 auto; width: 100%; height: 100%;">
+						<tr style="border-bottom: 1px solid #F5F4F2;">
+							<td style="font-size: 25px; padding: 5px; text-align: center; width: 420px;">Overview</td>
+							<td style="width: 800px; font-size: 25px; padding: 15px; text-align: center;">Layers</td> 
+							<td style="width: 300px; font-size: 25px; padding: 15px; text-align: center;">Parameters</td>
+							<td style="font-size: 25px; padding: 15px; text-align: center;">GitHub Info</td>
 						</tr>
 						<tr>
-							<td colspan="3">
-								<div id='chart_table', style="width: 750px; height: 50 px; display: block; margin: auto;"></div>
-							</td>			
-						</tr>
-						<tr>
-							<td rowspan="3" id="numLayersTd">
-								<div id="numLayers" style="width: 415px; height: 350px; align-content: center"></div>
+							<td colspan="3" style="height: 100px; border-top: 1px solid #F5F4F2; border-bottom: 1px solid #F5F4F2;">
+								<div id='chart_table', style="width: 750px; height: 100 px; display: block;"></div>
 							</td>
-							<td rowspan="7">	
-								<div id='chart_div', style="width: 800px; height: 800 px; align-content: center; overflow-x: scroll;overflow-y: hidden;">
+							<td rowspan="3" style="border: 1px solid #F5F4F2;"></td>			
+						</tr>
+						<tr>
+							<td rowspan="2" id="numTypesTd" style="border-bottom: 1px solid #F5F4F2; border-right: 1px solid #F5F4F2;">
+								<div id="numTypes" style="width: 100%; height: 350px; border-bottom: 0.5px solid #F5F4F2"></div>
+								<div id="numLayers" style="width: 385px; height: 350px; align-content: center"></div>
+							</td>							
+							<td id="record" valign="top" style="border-bottom: 1px solid #F5F4F2;">	
+								<div id='bread_div', style="width: 800px; height: 100 px; align-content: center;">
+									<h1 style="font-family: sans-serif; font-size:18px; font-weight: 100; text-align:center; color: #505050;"> 
+										Footprints 
+									</h1>
+									<div id="home" style="background-color: red;" onclick="click_4();return false;">Home</div>
+								</div>								
+							</td>
+							<td rowspan="2" >
+								<div id="allParametersCharts" style="width: 100%; height: 100%; text-align: center; background-color: #F5F4F2">
+									<div style="width: 100%; height: 60px;">
+										<svg id="legend"></svg>
+									</div>
+									<div class="parametersDiv">
+										<svg id='para-1' class='chart2'></svg>
+									</div>
+									<div class="parametersDiv">
+										<svg id='para-2' class='chart2'></svg>
+									</div>
+									<div class="parametersDiv">
+										<svg id='para-3' class='chart2'></svg>
+									</div>
+									<div class="parametersDiv">
+										<svg id='para-4' class='chart2'></svg>
+									</div>
+									<div class="parametersDiv">
+										<svg id='para-5' class='chart2'></svg>
+									</div>
+								</div>								
+							</td>
+						</tr>
+						<tr>
+							<td rowspan="2">	
+								<div id='chart_div'>
 									<svg id='chart'></svg>
 								</div>								
 							</td>
-							<td id="record" valign="top">
-								<h1 style="font-size:20px; text-align:center"> 
-									Record filters 
-								</h1>				
-							</td>
-						</tr>
-						<tr>
-							<td><svg id='para-1' class='chart2'></svg></td>
-						</tr>					
-						<tr><td><svg id='para-2' class='chart2'></svg></td></tr>
-						<tr>
-							<td rowspan="3" id="numTypesTd">
-								<div id="numTypes" style="width: 415px; height: 350px"></div>
-							</td>
-							<td><svg id='para-3' class='chart2'></svg></td>
-						</tr>
-						<tr><td><svg id='para-4' class='chart2'></svg></td></tr>
-						<tr><td><svg id='para-5' class='chart2'></svg></td></tr>
+						</tr>				
 					</table>
 				</td>
 			</tr>
 			<tr>
 				
 			</tr>
-		</table>
-		
-		
-		<script src="sankey.js"></script>
+		</table>		
+		<script src="main.js"></script>
 	</div>
 </body>

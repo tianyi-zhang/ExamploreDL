@@ -1,4 +1,8 @@
 var genLayerChart = function(layerData) {
+
+	d3.selectAll("#numLayersSvg").remove();
+	
+
 	var svgLayers = d3.select("#numLayers").append("svg")
 		.attr("width", '415')
 		.attr("height", '350')
@@ -63,17 +67,13 @@ var genLayerChart = function(layerData) {
 
 	g.append("g")
 	.attr("transform", "translate(0," + height + ")")
-	.call(d3.axisBottom(x));
-
-	g.append("g")
-	.call(d3.axisLeft(y))
-	.append("text")
-	.attr("fill", "#000")
-	.attr("transform", "rotate(-90)")
-	.attr("y", 6)
-	.attr("dy", "0.71em")
-	.attr("text-anchor", "end")
-	.text("Frequency");
+	.call(d3.axisBottom(x))
+	.selectAll("text")
+		.attr("font-family", "sans-serif")
+		.attr("font-size", "12px")
+		.attr("font-weight", "100")
+		.attr("fill", "#505050")
+		.style("text-anchor", "middle");
 
 	g.selectAll(".bar")
 	.data(data)
@@ -92,16 +92,34 @@ var genLayerChart = function(layerData) {
 	})
 	.on("click", function(d) {click_5(d.layerNodes, d.layerNum)});
 
+	g.append("g")
+		.call(d3.axisLeft(y))
+		.append("text")
+		.attr("fill", "#000")
+		.attr("transform", "rotate(-90)")
+		.attr("y", 6)
+		.attr("dy", "0.71em")
+		.attr("text-anchor", "end")
+		.text("Frequency")
+			.attr("font-family", "sans-serif")
+			.attr("font-size", "12px")
+			.attr("font-weight", "100")
+			.attr("fill", "#505050");
+
 	g.append("text")
 		.attr("text-anchor", "middle")
 		.attr("y", -10)
 		.attr("x", width/2)
 		.text("Number of Layers in Each Project")
-		.attr("font-size","15px")
-		.style("fill", "black")
+			.attr("font-family", "sans-serif")
+			.attr("font-size", "15px")
+			.attr("font-weight", "100")
+			.attr("fill", "#505050");
 }
 
 var genTypeChart = function(typeData, colorDic, proj) {
+
+	d3.selectAll("#numTypesSvg").remove();
 	
 	var svgTypes = d3.select("#numTypes").append("svg")
 		.attr("width", '415')
@@ -167,7 +185,11 @@ var genTypeChart = function(typeData, colorDic, proj) {
 		.attr("y", 0)
     	.attr("x", 9)
     	.attr("dy", ".35em")
-		.attr("transform", "rotate(90)")
+		.attr("transform", "rotate(45)")
+		.attr("font-family", "sans-serif")
+		.attr("font-size", "12px")
+		.attr("font-weight", "100")
+		.attr("fill", "#505050")
 		.style("text-anchor", "start");
 
 	g.append("g")
@@ -178,7 +200,11 @@ var genTypeChart = function(typeData, colorDic, proj) {
 		.attr("y", 6)
 		.attr("dy", "0.71em")
 		.attr("text-anchor", "end")
-		.text("Number of Types of Layers");
+		.text("Number of Types of Layers")
+			.attr("font-family", "sans-serif")
+			.attr("font-size", "12px")
+			.attr("font-weight", "100")
+			.attr("fill", "#505050");
 
 	g.selectAll(".bar")
 	.data(data)
@@ -204,6 +230,8 @@ var genTypeChart = function(typeData, colorDic, proj) {
 		.attr("y", -10)
 		.attr("x", width/2)
 		.text("Number of Type of Layers in all Project")
-		.attr("font-size","15px")
-		.style("fill", "black")
+			.attr("font-family", "sans-serif")
+			.attr("font-size", "15px")
+			.attr("font-weight", "100")
+			.attr("fill", "#505050");
 }

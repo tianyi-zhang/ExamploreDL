@@ -24,18 +24,23 @@ function createFilterSvg(barLength, filterDivId, num) {
 
 	var svg = d3.select('#'+filterDivId).append("svg")
 		.attr("width", '180')
-		.attr("height", '30')
+		.attr("height", '22')
 		.attr("id", svg_id);
 
 	var rectSvg = svg.append("rect")
 		.attr("x", 0)
 		.attr("y", 0)
+		.attr('id', svg_id+"-oriRect")
 		.attr("width", barLength)
-		.attr("height", 25);
+		.attr("height", 20)
+		.attr("rx", 2)
+		.attr("ry", 2)
+		.attr('fill', '#8D85EE');
 
 	svg.append("text")
 	    .attr("x", barLength+5)
 	    .attr("y", 12.5)
+	    .attr("id", svg_id+"-oriText")
 	    .attr("dy", ".35em")
 	    .text(''+num);
 }
@@ -75,8 +80,8 @@ function createCell(dict, tableTar, pos, boxClassName) {
 	for (var l=0; l<sortedKey.length; l++) {
 		let newRow = tableTar.insertRow(pos); 
 		let newCell = newRow.insertCell(0);
-		newCell.style.width = '300px';
-		newCell.style.height = '30px';
+		newCell.style.width = '220px';
+		newCell.style.height = '20px';
 		let newCellSVGTd = newRow.insertCell(1);
 		newCellSVGTd.style.width = '200px';
 		var key = sortedKey[l];
@@ -119,14 +124,18 @@ function readTextFile(file)
 		.then(function(data) {
 			var taskDict = {},
 				modelDict = {},
-				datasetDict = {};
+				datasetDict = {},
+				accDict = {},
+				numParaDict = {};
 		
 			for (var i=0; i<data.length; i++) {
+				accDict[data[i]['ID']] = data[i]["Accuracy"];
+				numParaDict[data[i]['ID']] = data[i]["Num_Parameters"];
 				taskDict = classifyRecords(data[i], 'Tasks', taskDict);
 				modelDict = classifyRecords(data[i], 'Models', modelDict);
 				datasetDict = classifyRecords(data[i], 'Datasets', datasetDict);
 			}
-		
+			
 			var outData = {"datasetsTr":datasetDict, "tasksTr":taskDict, "modelsTr":modelDict};
 			var tableTar = document.getElementById("filterTable");
 			let dTr = document.getElementById("datasetsTr");
@@ -135,15 +144,48 @@ function readTextFile(file)
 			pos = createCell(taskDict, tableTar, pos+1, 'tasksTr');
 			let mTr = document.getElementById("modelsTr");
 			pos = createCell(modelDict, tableTar, pos+1, 'modelsTr');
+
+			histogramSlider('accSvg', accDict, data);
+			histogramSlider('nopSvg', numParaDict, data);
 			
-			return outData;
+			return [outData, data];
 		})
 	return finalOut;
 	
 }
 
+function changeFilterSvg(barLength, filterDivId, num) {
+	var svg_id = filterDivId + '-svg';
+
+	var svg = d3.select("#"+svg_id)
+
+	d3.select("#"+svg_id+"-oriText").remove();
+	d3.select("#"+svg_id+"-rect").remove();
+	d3.select("#"+svg_id+"-text").remove();
+
+	var oriRect = d3.select("#"+svg_id+"-oriRect")
+		.style("opacity", 0.45)
+
+	var rectSvg = svg.append("rect")
+		.attr("x", 0)
+		.attr("y", 0)
+		.attr("id", svg_id+"-rect")
+		.attr("width", barLength)
+		.attr("height", 20)
+		.attr("rx", 2)
+		.attr("ry", 2)
+		.attr('fill', '#8D85EE');
+
+	svg.append("text")
+	    .attr("x", barLength+5)
+	    .attr("y", 12.5)
+	    .attr("id", svg_id+"-text")
+	    .attr("dy", ".35em")
+	    .text(''+num);
+}
+
 function updateFilterSVG(data, idList, thisClassName) {
-	console.log(thisClassName);
+
 	var newData = {"datasetsTr":{}, "tasksTr":{}, "modelsTr":{}};
 	var maxLengthLi = {"datasetsTr":0, "tasksTr":0, "modelsTr":0};
 	for (const key in data) {
@@ -164,16 +206,16 @@ function updateFilterSVG(data, idList, thisClassName) {
 		maxLengthLi[key] = maxLength;
 	}
 	for (const newKey in newData) {
-		if (!(newKey == thisClassName)) {
-			for (const element in newData[newKey]) {
-				var barLength = (newData[newKey][element].length/maxLengthLi[newKey])*150;
-				if (element.indexOf('_') >= 0) {
-					newSVGDivId = newKey+"-"+element.split("_")[0].slice(0, 3) + element.split("_")[1].slice(0, 3);
-				} else {
-					newSVGDivId = newKey+"-"+element.slice(0, 3);
-				} 
-				createFilterSvg(barLength, newSVGDivId, newData[newKey][element].length);
-			}
+		
+		for (const element in newData[newKey]) {
+			var barLength = (newData[newKey][element].length/maxLengthLi[newKey])*150;
+			if (element.indexOf('_') >= 0) {
+				newSVGDivId = newKey+"-"+element.split("_")[0].slice(0, 3) + element.split("_")[1].slice(0, 3);
+			} else {
+				newSVGDivId = newKey+"-"+element.slice(0, 3);
+			} 
+			changeFilterSvg(barLength, newSVGDivId, newData[newKey][element].length);
 		}
+		
 	}
 }
