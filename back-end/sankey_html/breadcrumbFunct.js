@@ -1,6 +1,6 @@
 var recordArgList = []; 
 var addRecord = function(colorKey, textContent, func) {
-	var colorDict = {"Picked": "#00154D", "Selected": "#FCDAA5", "Project Length": "#DB0045"};
+	var colorDict = {"Picked": "#00154D", "Selected": "#FCDAA5", "Project Length": "#fca311", "Git": "#DB0045"};
 	var addColor = colorDict[colorKey];
 
 	recordArgList.push(func);
@@ -22,7 +22,7 @@ var addRecord = function(colorKey, textContent, func) {
 	paragraph.appendChild(breadcrumbDiv);
 
 	document.getElementById("bc-" + childcount).addEventListener("click", myFunction);
-
+	
 	function myFunction() {
 		
 		var funcName = Object.keys(recordArgList[childcount])[0];
@@ -45,6 +45,8 @@ var addRecord = function(colorKey, textContent, func) {
 			click_3(...args);
 		} else if (funcName == "click_5") {
 			click_5(...args);
+		} else if (funcName == "click_6") {
+			click_6(...args);
 		}
 	}
 }

@@ -117,7 +117,7 @@ function createCell(dict, tableTar, pos, boxClassName) {
 	return pos;
 }		
 	
-function readTextFile(file)
+function readCSVFile(file)
 {
 	
 	var finalOut = d3.csv(file)
@@ -147,6 +147,7 @@ function readTextFile(file)
 
 			histogramSlider('accSvg', accDict, data);
 			histogramSlider('nopSvg', numParaDict, data);
+			//genInfo(data, "all");
 			
 			return [outData, data];
 		})

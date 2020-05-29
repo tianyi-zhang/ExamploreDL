@@ -1,16 +1,15 @@
-function mainDraw(idList) {
+function mainDraw(idList, csvData) {
 
-	var JSONpath = './data.json';
-	resultOut = genData(idList, JSONpath);
+	var sankeyData = csvData[0];
+	var sankeyId = csvData[1];
+	var projectNodes = csvData[2];
+	genInfo(csvData, idList, projectNodes);
+	drawSankey(sankeyData, sankeyId, projectNodes);
+		
 
-	resultOut.then(function(data) {
-		var sankeyData = data[0];
-		var sankeyId = data[1];
-		drawSankey(sankeyData, sankeyId);
-	});
 }
  
- function drawSankey(data, idList) {
+ function drawSankey(data, idList, projectNodes) {
  	d3.selectAll("#chart").remove();
  	var max_length = data[1];
 	var totalNum = data[2];
@@ -84,7 +83,7 @@ function mainDraw(idList) {
 			.attr("fill", d => d.color)
 			.attr("stroke", "#ffffff")
 			.on("click", function(d) {
-				click_1(d);				
+				click_1(d, projectNodes);				
 			})
 			
 		.append("title")

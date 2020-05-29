@@ -126,27 +126,28 @@ var generateParameterChart = function(selected_cat, json_data, svg_id, target_ar
 				}
 			}
 		}
+		
+		function bubbleSort (arr) {
+			var max = arr.length - 1;
+			for (var j = 0; j < max; j++) {
+				var done = true;
+				for (var k = 0; k < max - j; k++) {
+					if (arr[k]["arg_value"] > arr[k + 1]["arg_value"]) {
+						var temp = arr[k];
+						arr[k] = arr[k + 1];
+						arr[k + 1] = temp;
+						done = false;
+					}
+				}
+				if (done) {
+					break;
+				}
+			}
+			return arr;
+		}
 
 		for (i=0; i<return_li.length; i++) {
 
-			function bubbleSort (arr) {
-				var max = arr.length - 1;
-				for (var j = 0; j < max; j++) {
-					var done = true;
-					for (var k = 0; k < max - j; k++) {
-						if (arr[k]["arg_value"] > arr[k + 1]["arg_value"]) {
-							var temp = arr[k];
-							arr[k] = arr[k + 1];
-							arr[k + 1] = temp;
-							done = false;
-						}
-					}
-					if (done) {
-						break;
-					}
-				}
-				return arr;
-			}
 			var return_li_val = return_li[i]["values"];
 			return_li[i]["values"] = bubbleSort(return_li_val);
 

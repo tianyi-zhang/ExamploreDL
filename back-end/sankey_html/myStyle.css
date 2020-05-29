@@ -18,7 +18,10 @@ td {
 	fill: white;
 }
 .bar:hover {
-	fill: brown;
+	fill: #fca311;
+}
+.typeBar:hover {
+	fill: #fca311;
 }
 .svg_tb_td {
 	align-self: center;
@@ -57,6 +60,19 @@ td {
 	border-top: 0.5px solid #E5E4E1; 
 	border-bottom: 0.5px solid #E5E4E1; 
 }
+.newProjectDiv {
+	padding: 15px 15px;
+	border: 5px solid white;
+	border-radius: 25px;
+	width: 100%;
+	background-color: #8d99ae;
+	text-align: left;
+	font-family: sans-serif; 
+	font-size: 14px;
+	font-weight: 100;
+	color: white;
+	overflow-x: scroll;
+}
 #chart_div {
 	width: 800px; 
 	height: 800px;
@@ -79,4 +95,30 @@ td {
 .sliderDiv {
 	width: 100%;
 	height: 180px;
+}
+.slider-label {
+	font-family: sans-serif;
+	font-size: 12px;
+	font-weight: 100;
+	fill: #505050;
+}
+select {
+	margin: 50px;
+	width: 250px;
+	padding: 5px 35px 5px 5px;
+	font-size: 16px;
+	border: 1px solid #CCC;
+	height: 34px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: DodgerBlue;
+	font-family: sans-serif;
+	font-size: 15px;
+	font-weight: 100;
+	color: #ffffff;
+	text-align: center;
+}
+select::-ms-expand {
+	display: none; /* Remove default arrow in Internet Explorer 10 and 11 */
 }

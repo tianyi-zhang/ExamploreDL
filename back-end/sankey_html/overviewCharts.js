@@ -1,4 +1,4 @@
-var genLayerChart = function(layerData) {
+var genLayerChart = function(layerData, proNode) {
 
 	d3.selectAll("#numLayersSvg").remove();
 	
@@ -50,7 +50,7 @@ var genLayerChart = function(layerData) {
 			}
 		}				
 	}
-	
+
 	var x = d3.scaleBand()
 		.rangeRound([0, width])
 		.padding(0.1);
@@ -78,6 +78,7 @@ var genLayerChart = function(layerData) {
 	g.selectAll(".bar")
 	.data(data)
 	.enter().append("rect")
+	.attr("id", function(d) {return "layerRect"+d.layerNum ;})
 	.attr("class", "bar")
 	.attr("fill", "steelblue")
 	.attr("x", function (d) {
@@ -90,7 +91,15 @@ var genLayerChart = function(layerData) {
 	.attr("height", function (d) {
 		return height - y(Number(d.value));
 	})
-	.on("click", function(d) {click_5(d.layerNodes, d.layerNum)});
+	.on("click", function(d) {
+		var proIdList = [];
+		for (const key in proNode) {
+			if (proNode[key].length == d.layerNum) {
+				proIdList.push(key);
+			}
+		};
+		click_5(d.layerNodes, d.layerNum, proIdList);
+	});
 
 	g.append("g")
 		.call(d3.axisLeft(y))
@@ -206,10 +215,10 @@ var genTypeChart = function(typeData, colorDic, proj) {
 			.attr("font-weight", "100")
 			.attr("fill", "#505050");
 
-	g.selectAll(".bar")
+	g.selectAll(".typeBar")
 	.data(data)
 	.enter().append("rect")
-	.attr("class", "bar")
+	.attr("class", "typeBar")
 	.attr("x", function (d) {
 		return x(d.typeName);
 	})

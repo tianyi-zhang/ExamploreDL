@@ -29,6 +29,7 @@ var genData = function(idList, path) {
 	var json_path = path;
 	var arg_li = [];
 	var net_li = [];
+	var proNode = {};
 	var max_length = 0;
 	var totalNum = 0;
 
@@ -318,6 +319,7 @@ var genData = function(idList, path) {
 					var [li, model_arg_li] = generate_out_li(json_dic[i]);
 					arg_li.push(model_arg_li);
 					net_li.push(li);
+					proNode[i] = li;
 					if (max_length<json_dic[i]['num_layers']) {
 						max_length = json_dic[i]['num_layers'];
 					}
@@ -329,10 +331,12 @@ var genData = function(idList, path) {
 		.then(function() {
 			var oriNetLi = net_li;			
 			var [node_dic, link_dic, node_args] = generate_flow_txt(net_li, arg_li, colorDic);
+
 			var proj = genjson(node_dic, link_dic, node_args, colorDic);
-			genLayerChart(net_li);
+			genLayerChart(net_li, proNode);
 			genTypeChart(net_li, colorDic, proj);
-			return [[proj, max_length, totalNum], idList];
+
+			return [[proj, max_length, totalNum], idList, proNode];
 		}) 
 	return resultOut;
 }
