@@ -1,4 +1,5 @@
 var getHistoData = function(data) {
+
 	var [ min, max ] = d3.extent(Object.values(data).map(d => +d));
 
 	const dataLength = Object.keys(data).length;
@@ -8,8 +9,8 @@ var getHistoData = function(data) {
 	
 	if (min == max) {
 		var oneValue = min;
-		min = oneValue-0.1;
-		max = oneValue+0.1;
+		min = oneValue-0.5;
+		max = oneValue+0.5;
 	}
 	var divideSpace = (max-min)/divideNum;
 
@@ -27,6 +28,13 @@ var getHistoData = function(data) {
 					targetDict[below] = 1;
 				}
 			}
+		}
+		if (dataValue == max) {
+			if (max in targetDict) {
+				targetDict[max] += 1;
+			} else {
+				targetDict[max] = 1;
+			}
 		}		
 	}
 	
@@ -34,13 +42,14 @@ var getHistoData = function(data) {
 	for (var k=0; k<divideNum; k++) {
 		rangeLi.push(min+k*divideSpace);
 	}
+	rangeLi.push(max);
 
-	return [targetDict, rangeLi, divideNum, divideSpace];
+	return [targetDict, rangeLi, divideNum, divideSpace, min, max];
 }
 
-var histogramSlider = function(svgId, data, allData, filterData) {
+var histogramSlider = function(svgId, data, allData, filterData, nodesData) {
 
-	var [histogram, range, divideNum, divideSpace] = getHistoData(data);
+	var [histogram, range, divideNum, divideSpace, min, max] = getHistoData(data);
 
 	const defaultOptions = {
 		'w': 400,
@@ -53,10 +62,9 @@ var histogramSlider = function(svgId, data, allData, filterData) {
 		},
 		bucketSize: 1,
 		defaultRange: [0, 100],
-		format: d3.format('.3s'),
+		format: d3.format('.2s'),
 	};
 	
-	const [ min, max ] = d3.extent(Object.keys(histogram).map(d => +d));
 
 	const [ ymin, ymax ] = d3.extent(Object.values(histogram).map(d => +d));
 
@@ -138,7 +146,7 @@ var histogramSlider = function(svgId, data, allData, filterData) {
 			x = e ? 1 : -1,
 			y = height / 2;
 		return "M" + (.5 * x) + "," + y + "A6,6 0 0 " + e + " " + (6.5 * x) + "," + (y + 6) + "V" + (2 * y - 6) + "A6,6 0 0 " + e + " " + (.5 * x) + "," + (2 * y) + "Z" + "M" + (2.5 * x) + "," + (y + 8) + "V" + (2 * y - 8) + "M" + (4.5 * x) + "," + (y + 8) + "V" + (2 * y - 8);
-}
+	}
 
 	var handle = gBrush.selectAll(".handle--custom")
 		.data([{type: "w"}, {type: "e"}])
@@ -154,22 +162,45 @@ var histogramSlider = function(svgId, data, allData, filterData) {
 
 	function brushnow() {
 		var s = d3.event.selection;
+		var sx = s.map(x.invert);
+
+		var f = d3.format(".3");
+		
+		d3.selectAll("#"+svgId+'labelleft').remove();	
+		d3.selectAll("#"+svgId+'labelright').remove();
+
+		var labelL = g.append('text')
+			.attr('id', svgId+'labelleft')
+			.attr("class", "slider-label")
+			.attr('x', s[0]+5)
+			.attr('y', 15)
+			.attr("text-anchor", "start")
+			.text(f(sx[0]));
+
+		var labelR = g.append('text')
+			.attr('id', svgId+'labelright')
+			.attr("class", "slider-label")
+			.attr("text-anchor", "end")
+			.attr('x', s[1]-5)
+			.attr('y', 15)
+			.text(f(sx[1]));
+			
 		handle.attr("display", null).attr("transform", function(d, i) { return "translate(" + [ s[i], - height / 4] + ")"; });
 	}
 
 	function brushmoved() {
+		if (!d3.event.sourceEvent) return;
 		var s = d3.event.selection;
 		var sx = s.map(x.invert);
+
 		handle.attr("display", null).attr("transform", function(d, i) { return "translate(" + [ s[i], - height / 4] + ")"; });
 		if (count!==0) {
-			moveProcess(sx, data, svgId, allData, filterData);
+			moveProcess(sx, data, svgId, allData, filterData, nodesData);
 		}			
 	}
-
-	return svg.node();
 }
 
-function moveProcess(sx, data, svgId, allData, filterData) {
+function moveProcess(sx, data, svgId, allData, filterData, nodesData) {
 
 	var svgIdList = ['accSvg', 'nopSvg'];
 	var idList = [];
@@ -178,8 +209,16 @@ function moveProcess(sx, data, svgId, allData, filterData) {
 			idList.push(key);
 		}
 	}
+
 	updateFilterSVG(filterData, idList, '');
-	mainDraw(idList);
+	genInfo(allData, idList, nodesData);
+	var JSONpath = './data.json';
+	resultOut = genData(idList, JSONpath);
+
+	resultOut.then(function(jsonData) {
+		mainDraw(idList, jsonData);
+	});
+
 	for (var i=0; i<svgIdList.length; i++) {
 		if (svgId !== svgIdList[i]) {
 			updateSlider(svgIdList[i], allData, idList, filterData);
@@ -187,7 +226,7 @@ function moveProcess(sx, data, svgId, allData, filterData) {
 	}
 }
 
-function updateSlider(svgId, data, idList, filterData) {
+function updateSlider(svgId, data, idList, filterData, nodesData) {
 
 	d3.selectAll("."+svgId+"-slider-xaxis").remove();
 	d3.selectAll("."+svgId+"-slider-rect").remove();
@@ -205,6 +244,6 @@ function updateSlider(svgId, data, idList, filterData) {
 			dict[data[idList[i]]['ID']] = data[idList[i]]["Num_Parameters"];
 		}
 	}
-	console.log('updata',data, dict);
-	histogramSlider(svgId, dict, data, filterData);
+
+	histogramSlider(svgId, dict, data, filterData, nodesData);
 }

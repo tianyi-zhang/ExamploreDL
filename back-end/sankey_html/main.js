@@ -1,5 +1,5 @@
 var json_file = "./output.json";
-var csvData = readTextFile('./projects.csv');
+var csvData = readCSVFile('./projects.csv');
 
 csvData.then(function(oriData) {
 	var [data, allData] = oriData;
@@ -25,14 +25,21 @@ csvData.then(function(oriData) {
 			}
 		});
 
-		updateFilterSVG(data, idList, thisClassName);
+		var JSONpath = './data.json';
+		resultOut = genData(idList, JSONpath);
 
-		mainDraw(idList);
+		resultOut.then(function(nodesData) {
 
-		updateSlider('accSvg', allData, idList, data);
+			updateFilterSVG(data, idList, thisClassName);
 
-		updateSlider('nopSvg', allData, idList, data);
-			 
+			mainDraw(idList, nodesData);
+
+			genInfo(allData, idList, nodesData[2]);
+
+			updateSlider('accSvg', allData, idList, data, nodesData[2]);
+
+			updateSlider('nopSvg', allData, idList, data, nodesData[2]);
+		});	 
 	}
 
 	function clickFilter() {
