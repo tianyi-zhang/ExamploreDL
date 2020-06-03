@@ -1,26 +1,26 @@
-﻿ID,Project_Name,URL,File_name,Tasks,Datasets,Models,Stars,Input_Dimension,Forks
-0,TensorFlow-Bitcoin-Robot,https://github.com/TensorFlowNews/TensorFlow-Bitcoin-Robot,rnn_predicter.py,prediction,table,rnn,0.733510976,"[none,20,1]",10648658
-1,text-classification-cnn-rnn,https://github.com/gaussic/text-classification-cnn-rnn,cnn_model.py,text_classification,THUCNews,cnn,0.503508212,,10732936
-2,MTCNN-Tensorflow,https://github.com/AITTSMD/MTCNN-Tensorflow,mtcnn_model.py,object_detection,image,cnn,0.555919099,,8406569
-3,MTCNN-Tensorflow,https://github.com/AITTSMD/MTCNN-Tensorflow,mtcnn_model.py,object_detection,image,cnn,0.555919099,,8406569
-4,MTCNN-Tensorflow,https://github.com/AITTSMD/MTCNN-Tensorflow,mtcnn_model.py,object_detection,image,cnn,0.555919099,,8406569
-5,cnn-rtlsdr,https://github.com/randaller/cnn-rtlsdr,train.py,signal_classification,unknown,cnn,0.7841905,,2819298
-6,cnn-relation-extraction,https://github.com/roomylee/cnn-relation-extraction,text_cnn.py,relation_extraction,image,cnn,0.439380871,,10279990
-7,text-classification-cnn-rnn,https://github.com/gaussic/text-classification-cnn-rnn,rnn_model.py,text_classification,THUCNews,rnn,0.503508212,,10732936
-8,text-classification-cnn-rnn,https://github.com/gaussic/text-classification-cnn-rnn,rnn_model.py,text_classification,THUCNews,rnn,0.503508212,,10732936
-9,zh-NER-TF,https://github.com/Determined22/zh-NER-TF,model.py,ner,text,rnn,0.636164983,,9849136
-10,ResNeXt-Tensorflow,https://github.com/taki0112/ResNeXt-Tensorflow,ResNeXt.py,image_classification,Cifar10,"cnn, rnn",0.57745308,,3656430
-11,keras-text,https://github.com/raghakot/keras-text,sequence_encoders.py,text_classification,text,rnn,0.709983946,,11489312
-12,keras-text,https://github.com/raghakot/keras-text,sequence_encoders.py,text_classification,text,"cnn, rnn",0.709983946,,11489312
-13,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",cnn,0.586613566,,3625703
-14,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",cnn,0.586613566,,3625703
-15,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",cnn,0.586613566,,3625703
-16,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",cnn,0.586613566,,3625703
-17,tensorflow-hangul-recognition,https://github.com/IBM/tensorflow-hangul-recognition,hangul_model.py,text_recognition,text,cnn,0.542886591,,9556425
-18,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",rnn,0.628091214,,8455681
-19,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",ctc,0.628091214,,8455681
-20,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",ctc,0.628091214,,8455681
-21,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",ctc,0.628091214,,8455681
-22,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",ctc,0.628091214,,8455681
-23,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",ctc,0.628091214,,8455681
-24,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",ctc,0.628091214,,8455681
+﻿ID,Project_Name,URL,File_name,Tasks,Datasets,Models,Stars,Forks
+0,TensorFlow-Bitcoin-Robot,https://github.com/TensorFlowNews/TensorFlow-Bitcoin-Robot,rnn_predicter.py,prediction,table,rnn,149,56
+1,text-classification-cnn-rnn,https://github.com/gaussic/text-classification-cnn-rnn,cnn_model.py,text_classification,THUCNews,cnn,3012,1300
+2,MTCNN-Tensorflow,https://github.com/AITTSMD/MTCNN-Tensorflow,mtcnn_model.py,object_detection,image,cnn-1,1371,692
+3,MTCNN-Tensorflow,https://github.com/AITTSMD/MTCNN-Tensorflow,mtcnn_model.py,object_detection,image,cnn-2,1371,692
+4,MTCNN-Tensorflow,https://github.com/AITTSMD/MTCNN-Tensorflow,mtcnn_model.py,object_detection,image,cnn-3,1371,692
+5,cnn-rtlsdr,https://github.com/randaller/cnn-rtlsdr,train.py,signal_classification,unknown,cnn,175,40
+6,cnn-relation-extraction,https://github.com/roomylee/cnn-relation-extraction,text_cnn.py,relation_extraction,image,cnn,189,52
+7,text-classification-cnn-rnn,https://github.com/gaussic/text-classification-cnn-rnn,rnn_model.py,text_classification,THUCNews,rnn-1,3012,1300
+8,text-classification-cnn-rnn,https://github.com/gaussic/text-classification-cnn-rnn,rnn_model.py,text_classification,THUCNews,rnn-2,3012,1300
+9,zh-NER-TF,https://github.com/Determined22/zh-NER-TF,model.py,ner,text,rnn,1791,825
+10,ResNeXt-Tensorflow,https://github.com/taki0112/ResNeXt-Tensorflow,ResNeXt.py,image_classification,Cifar10,"cnn, rnn",140,54
+11,keras-text,https://github.com/raghakot/keras-text,sequence_encoders.py,text_classification,text,rnn-1,421,99
+12,keras-text,https://github.com/raghakot/keras-text,sequence_encoders.py,text_classification,text,"cnn, rnn-2",421,99
+13,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",cnn-1,149,32
+14,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",cnn-2,149,32
+15,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",cnn-3,149,32
+16,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",cnn-4,149,32
+17,tensorflow-hangul-recognition,https://github.com/IBM/tensorflow-hangul-recognition,hangul_model.py,text_recognition,text,cnn-5,178,113
+18,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",rnn,230,87
+19,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",ctc-1,230,87
+20,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",ctc-2,230,87
+21,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",ctc-3,230,87
+22,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",ctc-4,230,87
+23,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",ctc-5,230,87
+24,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",ctc-6,230,87

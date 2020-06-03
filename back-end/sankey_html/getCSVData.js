@@ -1,6 +1,9 @@
 function classifyRecords(data, tarStr, tarDict) {
 				
 	var tar = data[tarStr];
+	if (tarStr=="Models") {
+		tar = tar.split("-")[0];
+	}
 	if ((typeof tar)=='string' && tar.includes(', ')) {
 		var tarLi = tar.split(', ');
 	} else {
