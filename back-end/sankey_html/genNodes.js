@@ -1,28 +1,28 @@
 var genData = function(idList, path) {
 	var colorDic = {
 		"CNN": {
-			'conv': "rgba(54, 69, 133, 0.65)",
-			'MaxPool': "rgba(90, 102, 158, 0.65)",
-			'AveragePool': "rgba(163, 171, 206, 0.65)"
+			'Convolution': "rgba(54, 69, 133, 0.65)",
+			'Max Pooling': "rgba(90, 102, 158, 0.65)",
+			'Average Pooling': "rgba(163, 171, 206, 0.65)"
 		},
 		"RNN":{
 			'LSTM': "rgba(212, 80, 135, 0.65)",
 			'GRU': "rgba(249, 93, 106, 0.65)",
-			'Bi-RNN': "rgba(249, 93, 106, 0.65)"
+			'BiRNN': "rgba(249, 93, 106, 0.65)"
 		},
 		"Other": {
-			'input': "rgba(76, 18, 1, 0.65)",
-			'dense': "rgba(176, 43, 2, 0.65)",
+			'Input': "rgba(76, 18, 1, 0.65)",
+			'Dense': "rgba(176, 43, 2, 0.65)",
 			'Flatten': "rgba(252, 81, 28, 0.65)",
-			'dropout': "rgba(18, 109, 52, 0.65)",
-			'attention': "rgba(152, 231, 49, 0.65)",
-			'cross_entropy': "rgba(65, 39, 89, 0.65)",
-			'optimizer': "rgba(91, 54, 125, 0.65)"					
+			'Dropout': "rgba(18, 109, 52, 0.65)",
+			'Attention': "rgba(152, 231, 49, 0.65)",
+			'Cross Entropy': "rgba(65, 39, 89, 0.65)",
+			'Optimizer': "rgba(91, 54, 125, 0.65)"					
 		},
 		"Activate": {
-			'relu': "rgba(255, 166, 1, 0.65)",
-			'sigmoid': "rgba(255, 124, 1, 0.65)",
-			'softmax': "rgba(255, 192, 1, 0.65)"
+			'ReLu': "rgba(255, 166, 1, 0.65)",
+			'Sigmoid': "rgba(255, 124, 1, 0.65)",
+			'Softmax': "rgba(255, 192, 1, 0.65)"
 		}
 	};
 	var node_color = {};
@@ -34,8 +34,8 @@ var genData = function(idList, path) {
 	var totalNum = 0;
 
 	var generate_out_li = function(json_dic) {
-		var model_li = ["input"];
-		var model_arg_li = [{"input": {}}];
+		var model_li = ["Input"];
+		var model_arg_li = [{"Input": {}}];
 		for (const layer in json_dic['layers']) {
 			var model_arg_dic = {};
 			var layer_type = json_dic['layers'][layer]['type'];
@@ -48,11 +48,11 @@ var genData = function(idList, path) {
 				if ( arg_name.search("activation")!= -1) {
 					if ((typeof tar) == "string") {
 						if (tar.search('relu') != -1) {
-							var act = 'relu';
+							var act = 'ReLu';
 						} else if (tar.search('softmax') != -1) {
-							var act = 'softmax';
+							var act = 'Softmax';
 						} else if (tar.search('sigmoid') != -1) {
-							var act = 'sigmoid';
+							var act = 'Sigmoid';
 						}
 						model_li.push(act);
 						act_li.push(act);
@@ -150,6 +150,7 @@ var genData = function(idList, path) {
 						if (color_flag == 1) {
 							break;
 						}
+
 						for (type in colorDic[out_type]) {
 							if (ele.search(type) != -1) {
 								if (Object.keys(node_color).includes(type)) {
@@ -328,13 +329,11 @@ var genData = function(idList, path) {
 			}
 					
 		})
-		.then(function() {
-			var oriNetLi = net_li;			
+		.then(function() {		
 			var [node_dic, link_dic, node_args] = generate_flow_txt(net_li, arg_li, colorDic);
-
 			var proj = genjson(node_dic, link_dic, node_args, colorDic);
-			genLayerChart(net_li, proNode);
-			genTypeChart(net_li, colorDic, proj);
+			genLayerChart(proNode);
+			//genTypeChart(net_li, colorDic, proj);
 
 			return [[proj, max_length, totalNum], idList, proNode];
 		}) 

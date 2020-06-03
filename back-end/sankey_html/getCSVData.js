@@ -45,7 +45,7 @@ function createFilterSvg(barLength, filterDivId, num) {
 	    .text(''+num);
 }
 
-let bubbleSort = (dict) => {
+let dictSort = (dict) => {
 	var inputArr = Object.keys(dict);
 
 	let len = inputArr.length;
@@ -75,7 +75,7 @@ function createCell(dict, tableTar, pos, boxClassName) {
 		}
 	}
 
-	var sortedKey = bubbleSort(dict);
+	var sortedKey = dictSort(dict);
 	
 	for (var l=0; l<sortedKey.length; l++) {
 		let newRow = tableTar.insertRow(pos); 
@@ -125,12 +125,12 @@ function readCSVFile(file)
 			var taskDict = {},
 				modelDict = {},
 				datasetDict = {},
-				accDict = {},
-				numParaDict = {};
+				starsDict = {},
+				forksDict = {};
 		
 			for (var i=0; i<data.length; i++) {
-				accDict[data[i]['ID']] = data[i]["Accuracy"];
-				numParaDict[data[i]['ID']] = data[i]["Num_Parameters"];
+				starsDict[data[i]['ID']] = data[i]["Stars"];
+				forksDict[data[i]['ID']] = data[i]["Forks"];
 				taskDict = classifyRecords(data[i], 'Tasks', taskDict);
 				modelDict = classifyRecords(data[i], 'Models', modelDict);
 				datasetDict = classifyRecords(data[i], 'Datasets', datasetDict);
@@ -145,78 +145,11 @@ function readCSVFile(file)
 			let mTr = document.getElementById("modelsTr");
 			pos = createCell(modelDict, tableTar, pos+1, 'modelsTr');
 
-			histogramSlider('accSvg', accDict, data);
-			histogramSlider('nopSvg', numParaDict, data);
-			//genInfo(data, "all");
+			histogramSlider('starsSvg', starsDict, data);
+			histogramSlider('forksSvg', forksDict, data);
 			
 			return [outData, data];
 		})
 	return finalOut;
 	
-}
-
-function changeFilterSvg(barLength, filterDivId, num) {
-	var svg_id = filterDivId + '-svg';
-
-	var svg = d3.select("#"+svg_id)
-
-	d3.select("#"+svg_id+"-oriText").remove();
-	d3.select("#"+svg_id+"-rect").remove();
-	d3.select("#"+svg_id+"-text").remove();
-
-	var oriRect = d3.select("#"+svg_id+"-oriRect")
-		.style("opacity", 0.45)
-
-	var rectSvg = svg.append("rect")
-		.attr("x", 0)
-		.attr("y", 0)
-		.attr("id", svg_id+"-rect")
-		.attr("width", barLength)
-		.attr("height", 20)
-		.attr("rx", 2)
-		.attr("ry", 2)
-		.attr('fill', '#8D85EE');
-
-	svg.append("text")
-	    .attr("x", barLength+5)
-	    .attr("y", 12.5)
-	    .attr("id", svg_id+"-text")
-	    .attr("dy", ".35em")
-	    .text(''+num);
-}
-
-function updateFilterSVG(data, idList, thisClassName) {
-
-	var newData = {"datasetsTr":{}, "tasksTr":{}, "modelsTr":{}};
-	var maxLengthLi = {"datasetsTr":0, "tasksTr":0, "modelsTr":0};
-	for (const key in data) {
-		var maxLength = 0;
-		for (const insideKey in data[key]) {
-			var insideList = [];
-			for (var i=0; i<data[key][insideKey].length; i++) {
-
-				if (idList.includes(data[key][insideKey][i])) {
-					insideList.push(data[key][insideKey][i]);
-				}
-			}
-			newData[key][insideKey] = insideList;
-			if (insideList.length>maxLength) {
-				maxLength = insideList.length;
-			}
-		}
-		maxLengthLi[key] = maxLength;
-	}
-	for (const newKey in newData) {
-		
-		for (const element in newData[newKey]) {
-			var barLength = (newData[newKey][element].length/maxLengthLi[newKey])*150;
-			if (element.indexOf('_') >= 0) {
-				newSVGDivId = newKey+"-"+element.split("_")[0].slice(0, 3) + element.split("_")[1].slice(0, 3);
-			} else {
-				newSVGDivId = newKey+"-"+element.slice(0, 3);
-			} 
-			changeFilterSvg(barLength, newSVGDivId, newData[newKey][element].length);
-		}
-		
-	}
 }

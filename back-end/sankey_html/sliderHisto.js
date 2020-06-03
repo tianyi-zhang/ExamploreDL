@@ -47,7 +47,7 @@ var getHistoData = function(data) {
 	return [targetDict, rangeLi, divideNum, divideSpace, min, max];
 }
 
-var histogramSlider = function(svgId, data, allData, filterData, nodesData) {
+var histogramSlider = function(svgId, data, nodesData) {
 
 	var [histogram, range, divideNum, divideSpace, min, max] = getHistoData(data);
 
@@ -93,7 +93,8 @@ var histogramSlider = function(svgId, data, allData, filterData, nodesData) {
 
  // draw histogram values
 	g.append("g")
-		.attr("class", svgId+"-slider-xaxis")
+		.attr("id", svgId+"-slider-xaxis")
+		.attr("class", "slider-xaxis")
 		.attr("transform", "translate(0," + height + ")")
 		.call(d3.axisBottom(x)
 			.ticks(9)
@@ -109,16 +110,18 @@ var histogramSlider = function(svgId, data, allData, filterData, nodesData) {
 		.data(range)
 		.enter()
 		.append('rect')
-		.attr("class", svgId+"-slider-rect")
+		.attr("id", svgId+"-slider-rect")
+		.attr("class", "slider-rect")
 		.attr('x', d => x(d))
-		.attr('y', d => height - y(histogram[d] || 0))
+		.attr('y', d => height - (y(histogram[d] || 0) || 0))
 		.attr('width', width / divideNum)
-		.attr('height', d => y(histogram[d] || 0)) //d => y(histogram[d] || 0))
+		.attr('height', d => (y(histogram[d] || 0) || 0)) 
 		.style('fill', '#7096FF');
 
 	for (const key in histogram) {
 		svg.append("text")
-			.attr("class", svgId+"-slider-text")
+			.attr("id", svgId+"-slider-text")
+			.attr("class", "slider-text")
 			.attr("text-anchor", "start")
 			.attr("y", height - y(histogram[key]) + 35)
 			.attr("x", (x(key)+margin.left+5))
@@ -137,7 +140,8 @@ var histogramSlider = function(svgId, data, allData, filterData, nodesData) {
 	
 	// append brush to g
 	var gBrush = g.append("g")
-			.attr("class", svgId+"-brush")
+			.attr("id", svgId+"-brush")
+			.attr("class", "brush")
 			.call(brush);
 
 	// add brush handles (from https://bl.ocks.org/Fil/2d43867ba1f36a05459c7113c7f6f98a)
@@ -151,12 +155,14 @@ var histogramSlider = function(svgId, data, allData, filterData, nodesData) {
 	var handle = gBrush.selectAll(".handle--custom")
 		.data([{type: "w"}, {type: "e"}])
 		.enter().append("path")
-		.attr("class", svgId+"-handle--custom")
+		.attr("id", svgId+"-handle--custom")
+		.attr("class", "handle--custom")
 		.attr("stroke", "#000")
 		.attr("cursor", "ew-resize")
 		.attr("d", brushResizePath);
 
 	var count = 0;
+
 	gBrush.call(brush.move, [min, max+divideSpace].map(x));
 	count = 1;
 
@@ -170,7 +176,7 @@ var histogramSlider = function(svgId, data, allData, filterData, nodesData) {
 		d3.selectAll("#"+svgId+'labelright').remove();
 
 		var labelL = g.append('text')
-			.attr('id', svgId+'labelleft')
+			.attr('id', svgId+'-labelleft')
 			.attr("class", "slider-label")
 			.attr('x', s[0]+5)
 			.attr('y', 15)
@@ -178,7 +184,7 @@ var histogramSlider = function(svgId, data, allData, filterData, nodesData) {
 			.text(f(sx[0]));
 
 		var labelR = g.append('text')
-			.attr('id', svgId+'labelright')
+			.attr('id', svgId+'-labelright')
 			.attr("class", "slider-label")
 			.attr("text-anchor", "end")
 			.attr('x', s[1]-5)
@@ -195,55 +201,54 @@ var histogramSlider = function(svgId, data, allData, filterData, nodesData) {
 
 		handle.attr("display", null).attr("transform", function(d, i) { return "translate(" + [ s[i], - height / 4] + ")"; });
 		if (count!==0) {
-			moveProcess(sx, data, svgId, allData, filterData, nodesData);
+			
+			moveProcess(sx, data, svgId, nodesData);
 		}			
 	}
 }
 
-function moveProcess(sx, data, svgId, allData, filterData, nodesData) {
+function moveProcess(sx, data, svgId, nodesData) {
 
-	var svgIdList = ['accSvg', 'nopSvg'];
+	var svgIdList = ['starsSvg', 'forksSvg'];
 	var idList = [];
 	for (const key in data) {
 		if (sx[0] <= data[key] && data[key] <= sx[1]) {
 			idList.push(key);
 		}
-	}
-
-	updateFilterSVG(filterData, idList, '');
-	genInfo(allData, idList, nodesData);
+	}	
+	updateFilterSVG(idList, '');	
 	var JSONpath = './data.json';
 	resultOut = genData(idList, JSONpath);
-
 	resultOut.then(function(jsonData) {
 		mainDraw(idList, jsonData);
-	});
-
-	for (var i=0; i<svgIdList.length; i++) {
-		if (svgId !== svgIdList[i]) {
-			updateSlider(svgIdList[i], allData, idList, filterData);
+		for (var i=0; i<svgIdList.length; i++) {
+			if (svgId !== svgIdList[i]) {
+				updateSlider(svgIdList[i], idList, jsonData[2]);
+			}
 		}
-	}
+	});
 }
 
-function updateSlider(svgId, data, idList, filterData, nodesData) {
+function updateSlider(svgId, idList, nodesData) {
 
-	d3.selectAll("."+svgId+"-slider-xaxis").remove();
-	d3.selectAll("."+svgId+"-slider-rect").remove();
-	d3.selectAll("."+svgId+"-slider-text").remove();
-	d3.selectAll("."+svgId+"-brush").remove();
-	d3.selectAll("."+svgId+"-handle--custom").remove();
+	d3.selectAll("#"+svgId+"-slider-xaxis").remove();
+	d3.selectAll("#"+svgId+"-slider-rect").remove();
+	d3.selectAll("#"+svgId+"-slider-text").remove();
+	d3.selectAll("#"+svgId+"-brush").remove();
+	d3.selectAll("#"+svgId+"-handle--custom").remove();
+	d3.selectAll("#"+svgId+'-labelleft').remove();
+	d3.selectAll("#"+svgId+'-labelright').remove();
 
 	var dict = {};
-	if (svgId=="accSvg") {
+	if (svgId=="starsSvg") {
 		for (var i=0; i<idList.length; i++) {
-			dict[data[idList[i]]['ID']] = data[idList[i]]["Accuracy"];
+			dict[csvData[idList[i]]['ID']] = csvData[idList[i]]["Stars"];
 		}
-	} else if (svgId=="nopSvg") {
+	} else if (svgId=="forksSvg") {
 		for (var i=0; i<idList.length; i++) {
-			dict[data[idList[i]]['ID']] = data[idList[i]]["Num_Parameters"];
+			dict[csvData[idList[i]]['ID']] = csvData[idList[i]]["Forks"];
 		}
 	}
 
-	histogramSlider(svgId, dict, data, filterData, nodesData);
+	histogramSlider(svgId, dict, nodesData);
 }

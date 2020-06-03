@@ -18,10 +18,10 @@ td {
 	fill: white;
 }
 .bar:hover {
-	fill: #fca311;
+	fill: #8D85EE;
 }
 .typeBar:hover {
-	fill: #fca311;
+	fill: #8D85EE;
 }
 .svg_tb_td {
 	align-self: center;
@@ -64,17 +64,16 @@ td {
 	padding: 15px 15px;
 	border: 5px solid white;
 	border-radius: 25px;
-	width: 100%;
+	width: 520px;
 	background-color: #8d99ae;
 	text-align: left;
 	font-family: sans-serif; 
 	font-size: 14px;
 	font-weight: 100;
 	color: white;
-	overflow-x: scroll;
 }
 #chart_div {
-	width: 800px; 
+	width: 1200px; 
 	height: 800px;
 	align-content: center; 
 	overflow-x: scroll;
@@ -121,4 +120,7 @@ select {
 }
 select::-ms-expand {
 	display: none; /* Remove default arrow in Internet Explorer 10 and 11 */
+}
+.bc-close-btn {
+	margin: 0 0 0 10%;
 }

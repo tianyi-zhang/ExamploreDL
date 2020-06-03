@@ -1,4 +1,4 @@
-﻿ID,Project_Name,URL,File_name,Tasks,Datasets,Models,Accuracy,Input_Dimension,Num_Parameters
+﻿ID,Project_Name,URL,File_name,Tasks,Datasets,Models,Stars,Input_Dimension,Forks
 0,TensorFlow-Bitcoin-Robot,https://github.com/TensorFlowNews/TensorFlow-Bitcoin-Robot,rnn_predicter.py,prediction,table,rnn,0.733510976,"[none,20,1]",10648658
 1,text-classification-cnn-rnn,https://github.com/gaussic/text-classification-cnn-rnn,cnn_model.py,text_classification,THUCNews,cnn,0.503508212,,10732936
 2,MTCNN-Tensorflow,https://github.com/AITTSMD/MTCNN-Tensorflow,mtcnn_model.py,object_detection,image,cnn,0.555919099,,8406569

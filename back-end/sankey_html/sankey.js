@@ -1,9 +1,10 @@
-function mainDraw(idList, csvData) {
+function mainDraw(idList, nodesData) {
 
-	var sankeyData = csvData[0];
-	var sankeyId = csvData[1];
-	var projectNodes = csvData[2];
-	genInfo(csvData, idList, projectNodes);
+	var sankeyData = nodesData[0];
+	var sankeyId = nodesData[1];
+	var projectNodes = nodesData[2];
+
+	genInfo(idList, projectNodes);
 	drawSankey(sankeyData, sankeyId, projectNodes);
 		
 
@@ -74,8 +75,8 @@ function mainDraw(idList, csvData) {
 		.selectAll("rect")
 		.data(nodes)
 		.join("rect")
-			.attr("id", d => d.name)
-			.attr("class", d => d.category)
+			.attr("id", d => d.name.replace(" ", "_"))
+			.attr("class", d => d.category.replace(" ", "_"))
 			.attr("x", d => d.x0)
 			.attr("y", d => d.y0)
 			.attr("height", d => d.y1 - d.y0)
@@ -83,7 +84,7 @@ function mainDraw(idList, csvData) {
 			.attr("fill", d => d.color)
 			.attr("stroke", "#ffffff")
 			.on("click", function(d) {
-				click_1(d, projectNodes);				
+				click_1(d, nodes, projectNodes);				
 			})
 			
 		.append("title")
@@ -91,7 +92,7 @@ function mainDraw(idList, csvData) {
 
 	const link = svg.append("g")
 		.attr("fill", "none")
-		.attr("stroke-opacity", 0.35)
+		.attr("stroke-opacity", 0.65)
 		.selectAll("g")
 		.data(links)
 		.join("g")
@@ -100,8 +101,8 @@ function mainDraw(idList, csvData) {
 	link.append("path")
 			.attr("d", d3.sankeyLinkHorizontal())
 			.attr("stroke", d => d.color)
-			.attr("id", function(d) {return "path" + d.target.name;})
-			.attr("class", function(d) {return "path" + d.target.category;})
+			.attr("id", function(d) {return "path" + d.target.name.replace(" ", "_");})
+			.attr("class", function(d) {return "path" + d.target.category.replace(" ", "_");})
 			.attr("stroke-width", d => Math.max(1, d.width));
 
 
@@ -120,7 +121,7 @@ function mainDraw(idList, csvData) {
 			.attr("y", d => (d.y1 + d.y0) / 2)
 			.attr("dy", "0.355em")
 			.attr("text-anchor", d => "start")
-			.text(d => d.name);
+			.text(function(d) {return d.name.split("-")[0];});
 
 	var zoom = d3.zoom()
 			.scaleExtent([0.05, 5])
@@ -134,96 +135,5 @@ function mainDraw(idList, csvData) {
 	});
 
 	svg.call(zoom);
-
-	var get_catgory = function (data) {
-		var cat_dic = {};
-		data.forEach(function(d) {
-
-			if (d.type in cat_dic) {
-				cat_dic[d.type][d.category] = d.color;
-			} else {
-				cat_dic[d.type] = {};
-				cat_dic[d.type][d.category] = d.color;
-			}
-			
-		});
-		return cat_dic;
-		// cat_dic = {"conv2d": "rgba()"}
-	}
-
-	var get_legend_li = function(cat_dic) {
-		var legend_li = [];
-		for (const key in cat_dic) {
-
-			for (const cat in cat_dic[key]) {
-				var ele = {};
-				ele[cat] = cat_dic[key][cat];
-				legend_li.splice(legend_li.length,0,ele);
-			}
-		}
-		return legend_li;
-	}
-
-	var cat_dic = get_catgory(data[0].nodes);
-
-	var cat_li = Object.keys(cat_dic);
-
-	var legend_li = get_legend_li(cat_dic);
-
-	var get_type_name = function(legend_li) {
-		var type_li = []
-		for (i=0; i<legend_li.length; i++) {
-			type_li.splice(type_li.length,0,Object.keys(legend_li[i])[0]);
-		}
-		return type_li;
-	};
-
-	var legend_name = get_type_name(legend_li);
-
-	d3.select("#lengendTable").remove();
-	var svg_table = d3.select('#chart_table').append("table")
-		.attr("id", "lengendTable");
-
-	svg_table.append('thead')
-			 .attr("id", "svg_th")
-		.append('tr')
-			.selectAll('#svg_th')
-			.data(cat_li).enter()
-			.append('th')
-			.attr("id", function(d, i) {return "svg_th_tr" + i;})
-			.attr("class", "svg_th_tr")
-			.attr("colspan", function(d) {
-				return Object.keys(cat_dic[d]).length;
-			})
-			.style("background-color", "#ffffff")
-			.style("border-top", "1px solid #808080")
-			.style("border-right", "1px solid #808080")
-			.style("border-left", "1px solid #808080")
-			.style("border-collapse", "collapse")
-			.style("font-family", "sans-serif")
-			.style("font-size", 20)
-			.style("font-weight", "100")
-			.text(function(d) { return d; })
-			.on("click", function (d, i) {
-				click_2(d, i, cat_dic);		
-			});
-
-
-	svg_table.append('tbody')
-			.attr("id", "svg_tb")
-		.append('tr')
-			.attr("id", "svg_tb_tr")
-			.selectAll('#svg_tb')
-			.data(legend_name).enter()
-			.append('td')
-				.attr("id", function(d, i) {return "svg_tb_td"+d;})
-				.attr("class", "svg_tb_td")
-				.style("background-color", function(d, i) {
-					return legend_li[i][d];
-				})
-				.style("border", "none")
-				.text(function(d) { return d; })
-				.on("click", function (d, i) {
-					click_3(d, nodes);
-				});
+	createLegend(projectNodes, nodes);
  }
