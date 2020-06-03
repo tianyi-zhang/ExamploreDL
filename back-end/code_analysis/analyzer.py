@@ -28,73 +28,73 @@ class traverse_dic():
         """
         self.class_var_dic = {} # for the var that call the class
         self.def_func_rely = {} # {'def_1': ['def_2'], 'def_2': []}
-        self.net_type = {'type': {'cnn':{'tf.nn.conv2d': {'layer': 'conv2d', 'args': ['inputs', 'filters', 'strides', 'padding']},
-                                         'tf.layers.conv1d': {'layer': 'conv1d',
+        self.net_type = {'type': {'cnn':{'tf.nn.conv2d': {'layer': 'Convolution', 'args': ['inputs', 'filters', 'strides', 'padding']},
+                                         'tf.layers.conv1d': {'layer': 'Convolution',
                                                               'args': ['inputs', 'num_outputs', 'kernel_size', 'strides',
                                                                        'padding']},
-                                         'tf.keras.layers.Conv1D': {'layer': 'conv1d', 'args': ['num_outputs', 'kernel_size']},
-                                         'tf.layers.conv2d': {'layer': 'conv2d',
+                                         'tf.keras.layers.Conv1D': {'layer': 'Convolution', 'args': ['num_outputs', 'kernel_size']},
+                                         'tf.layers.conv2d': {'layer': 'Convolution',
                                                               'args': ['inputs', 'num_outputs', 'kernel_size', 'strides',
                                                                        'padding']},
-                                         'tf.contrib.slim.conv2d': {'layer': 'conv2d',
+                                         'tf.contrib.slim.conv2d': {'layer': 'Convolution',
                                                                     'args': ['inputs', 'num_outputs', 'kernel_size']},
-                                         'tf.keras.layers.GlobalMaxPooling1D': {'layer': 'MaxPool1d', 'args': []},
-                                         'tf.keras.layers.MaxPool2D': {'layer': 'MaxPool2d',
+                                         'tf.keras.layers.GlobalMaxPooling1D': {'layer': 'Max Pooling', 'args': []},
+                                         'tf.keras.layers.MaxPool2D': {'layer': 'Max Pooling',
                                                                        'args': ['pool_size', 'strides', 'padding']},
-                                         'tf.contrib.slim.max_pool2d': {'layer': 'MaxPool2d',
+                                         'tf.contrib.slim.max_pool2d': {'layer': 'Max Pooling',
                                                                        'args': ['inputs', 'pool_size']},
-                                         'tf.layers.max_pooling2d': {'layer': 'MaxPool2d',
+                                         'tf.layers.max_pooling2d': {'layer': 'Max Pooling',
                                                                        'args': ['inputs', 'pool_size', 'strides']},
-                                         'tf.nn.max_pool': {'layer': 'MaxPool',
+                                         'tf.nn.max_pool': {'layer': 'Max Pooling',
                                                             'args': ['input', 'pool_size', 'strides', 'padding']},
-                                         'tf.layers.average_pooling2d': {'layer': 'AveragePool2d',
+                                         'tf.layers.average_pooling2d': {'layer': 'Average Pooling',
                                                                           'args': ['input', 'pool_size',
                                                                                    'strides']},
-                                         'tf.keras.layers.GlobalAveragePooling1D': {'layer': 'MaxPool1d', 'args': []}
+                                         'tf.keras.layers.GlobalAveragePooling1D': {'layer': 'Max Pooling', 'args': []}
                                          },
-                                  'dense': {'tf.layers.dense': {'layer': 'dense', 'args': ['inputs', 'units']},
-                                            'tf.keras.layers.Dense': {'layer': 'dense', 'args': ['inputs', 'units']},
-                                            'tf.contrib.slim.fully_connected': {'layer': 'dense', 'args': ['inputs', 'num_outputs']},
+                                  'dense': {'tf.layers.dense': {'layer': 'Dense', 'args': ['inputs', 'units']},
+                                            'tf.keras.layers.Dense': {'layer': 'Dense', 'args': ['inputs', 'units']},
+                                            'tf.contrib.slim.fully_connected': {'layer': 'Dense', 'args': ['inputs', 'num_outputs']},
                                              },
                                   'flatten': {'tf.contrib.slim.flatten': {'layer': 'Flatten',
                                                                        'args': ['inputs']},
                                               'tf.keras.layers.Flatten': {'layer': 'Flatten',
                                                                        'args': ['inputs']}
                                               },
-                                  'rnn': {'tf.contrib.rnn.BasicLSTMCell': {'layer': 'LSTMCell', 'args': ['num_units']},
-                                          'tf.contrib.rnn.LSTMCell': {'layer': 'LSTMCell', 'args': ['num_units']},
-                                          'tf.keras.layers.LSTM': {'layer': 'LSTMCell', 'args': ['num_units']},
-                                          'tf.contrib.rnn.GRUCell': {'layer': 'GRUCell', 'args': ['num_units']},
-                                          'tf.nn.bidirectional_dynamic_rnn': {'layer': 'Bi-RNN', 'args': []},
-                                          'tf.keras.layers.Bidirectional': {'layer': 'Bi-RNN', 'args': ['layer']}
+                                  'rnn': {'tf.contrib.rnn.BasicLSTMCell': {'layer': 'LSTM', 'args': ['num_units']},
+                                          'tf.contrib.rnn.LSTMCell': {'layer': 'LSTM', 'args': ['num_units']},
+                                          'tf.keras.layers.LSTM': {'layer': 'LSTM', 'args': ['num_units']},
+                                          'tf.contrib.rnn.GRUCell': {'layer': 'GRU', 'args': ['num_units']},
+                                          'tf.nn.bidirectional_dynamic_rnn': {'layer': 'BiRNN', 'args': []},
+                                          'tf.keras.layers.Bidirectional': {'layer': 'BiRNN', 'args': ['layer']}
                                           }
                                   },
                          # cnn
                          # rnn
 
-                         'act_func': {'relu': {'tf.nn.relu': {'layer': 'relu', 'args': ['features']},
-                                               'tf.keras.activations.relu': {'layer': 'relu', 'args': ['x']},
-                                               'tf.keras.layers.ReLU': {'layer': 'relu', 'args': []}
+                         'act_func': {'relu': {'tf.nn.relu': {'layer': 'ReLu', 'args': ['features']},
+                                               'tf.keras.activations.relu': {'layer': 'ReLu', 'args': ['x']},
+                                               'tf.keras.layers.ReLU': {'layer': 'ReLu', 'args': []}
                                                },
-                                      'softmax': {'tf.nn.softmax': {'layer': 'softmax', 'args': ['logits']}
+                                      'softmax': {'tf.nn.softmax': {'layer': 'Softmax', 'args': ['logits']}
                                                    },
-                                      'sigmoid': {'tf.nn.sigmoid': {'layer': 'sigmoid', 'args': ['x']}}
+                                      'sigmoid': {'tf.nn.sigmoid': {'layer': 'Sigmoid', 'args': ['x']}}
 
                                       },
                          # activation function
-                         'loss': {'cross entropy': {'tf.nn.softmax_cross_entropy_with_logits': {'layer': 'cross_entropy', 'args': []},
-                                                    'tf.nn.sparse_softmax_cross_entropy_with_logits': {'layer': 'cross_entropy', 'args': []}
+                         'loss': {'cross entropy': {'tf.nn.softmax_cross_entropy_with_logits': {'layer': 'Cross Entropy', 'args': []},
+                                                    'tf.nn.sparse_softmax_cross_entropy_with_logits': {'layer': 'Cross Entropy', 'args': []}
                                                     }
                                   },
-                         'tricks': {'attention': {'tf.keras.layers.Attention': {'layer': 'attention', 'args': []}
+                         'tricks': {'attention': {'tf.keras.layers.Attention': {'layer': 'Attention', 'args': []}
                                                   },
-                                    'dropout': {'tf.nn.dropout': {'layer': 'dropout', 'args': ['x', 'rate']},
-                                                'tf.keras.layers.Dropout': {'layer': 'dropout', 'args': ['rate']},
-                                                'tf.compat.v1.nn.dropout': {'layer': 'dropout', 'args': ['x']},
-                                                'tf.contrib.layers.dropout': {'layer': 'dropout', 'args': ['inputs']},
-                                                'tf.contrib.rnn.DropoutWrapper': {'layer': 'dropout', 'args': ['cell']}
+                                    'dropout': {'tf.nn.dropout': {'layer': 'Dropout', 'args': ['x', 'rate']},
+                                                'tf.keras.layers.Dropout': {'layer': 'Dropout', 'args': ['rate']},
+                                                'tf.compat.v1.nn.dropout': {'layer': 'Dropout', 'args': ['x']},
+                                                'tf.contrib.layers.dropout': {'layer': 'Dropout', 'args': ['inputs']},
+                                                'tf.contrib.rnn.DropoutWrapper': {'layer': 'Dropout', 'args': ['cell']}
                                                 },
-                                    'optimizer': {'tf.train.AdamOptimizer': {'layer': 'optimizer', 'args': []}
+                                    'optimizer': {'tf.train.AdamOptimizer': {'layer': 'Optimizer', 'args': []}
                                                   }
                                     }
                          }

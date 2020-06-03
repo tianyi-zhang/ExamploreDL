@@ -1,3 +1,31 @@
+function bubbleSort (arr, key, flag=">") {
+	var max = arr.length - 1;
+	for (var j = 0; j < max; j++) {
+		var done = true;
+		for (var k = 0; k < max - j; k++) {
+			if (flag == ">") {
+				if (arr[k][key] > arr[k + 1][key]) {
+					var temp = arr[k];
+					arr[k] = arr[k + 1];
+					arr[k + 1] = temp;
+					done = false;
+				}
+			} else {
+				if (arr[k][key] < arr[k + 1][key]) {
+					var temp = arr[k];
+					arr[k] = arr[k + 1];
+					arr[k + 1] = temp;
+					done = false;
+				}
+			}
+		}
+		if (done) {
+			break;
+		}
+	}
+	return arr;
+}
+
 function drawLegend() {
 
 	var leng = d3.select("#legend")
@@ -10,7 +38,7 @@ function drawLegend() {
 		.attr("x", 25)
 		.attr("width", "20px")
 		.attr("height", "20px")
-		.attr("fill", "orange")
+		.attr("fill", "#8D85EE")
 		.attr("rx", 5)
 		.attr("ry", 5);
 
@@ -31,7 +59,7 @@ function drawLegend() {
 		.attr("x", 25)
 		.attr("width", "20px")
 		.attr("height", "20px")
-		.attr("fill", "#58A691")
+		.attr("fill", "#BBB5F0")
 		.attr("rx", 5)
 		.attr("ry", 5);
 
@@ -46,10 +74,10 @@ function drawLegend() {
 		.attr("font-weight", 100)
 		.style("fill", "#7F7F7F");
 }
-var generateParameterChart = function(selected_cat, json_data, svg_id, target_args) {
+var generateParameterChart = function(selected_cat, json_data, target_args) {
 
 	drawLegend();
-
+	
 	d3.selectAll(".chart2-text").remove();
 	d3.selectAll(".chart2-rect").remove();
 	d3.selectAll(".chart2-xaxis").remove();
@@ -127,29 +155,10 @@ var generateParameterChart = function(selected_cat, json_data, svg_id, target_ar
 			}
 		}
 		
-		function bubbleSort (arr) {
-			var max = arr.length - 1;
-			for (var j = 0; j < max; j++) {
-				var done = true;
-				for (var k = 0; k < max - j; k++) {
-					if (arr[k]["arg_value"] > arr[k + 1]["arg_value"]) {
-						var temp = arr[k];
-						arr[k] = arr[k + 1];
-						arr[k + 1] = temp;
-						done = false;
-					}
-				}
-				if (done) {
-					break;
-				}
-			}
-			return arr;
-		}
-
 		for (i=0; i<return_li.length; i++) {
 
 			var return_li_val = return_li[i]["values"];
-			return_li[i]["values"] = bubbleSort(return_li_val);
+			return_li[i]["values"] = bubbleSort(return_li_val, "arg_value");
 
 		}
 
@@ -236,13 +245,13 @@ var generateParameterChart = function(selected_cat, json_data, svg_id, target_ar
 							
 							if ((d.x0 <= target_arg_val) && (target_arg_val < d.x1)) {
 								flag = 1;
-								return "orange";
+								return "#8D85EE";
 							}
 				
 						}
-						return "#69b3a2";
+						return "#BBB5F0";
 					} else {
-						return "#69b3a2";
+						return "#BBB5F0";
 					}
 				});
 				/*.on("click", function(d) {
@@ -263,13 +272,7 @@ var generateParameterChart = function(selected_cat, json_data, svg_id, target_ar
 				.style("font-family", "sans-serif")
 				.attr("font-size","12px")
 				.attr("font-weight", 100)
-				.style("fill", function() {
-					if (height-10 > inside_li[j][2] + 15) {
-						return "ffffff";
-					} else {
-						return "black"
-					}
-				})
+				.style("fill", "#ffffff")
 		}
 
 		svg_this
@@ -292,7 +295,7 @@ var generateParameterChart = function(selected_cat, json_data, svg_id, target_ar
 				.attr("x", (width/2-80))
 				.attr("width", "200px")
 				.attr("height", "20px")
-				.attr("fill", "red")
+				.attr("fill", "#8D85EE")
 				.attr("rx", 6)
 				.attr("ry", 6);
 
