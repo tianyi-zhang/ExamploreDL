@@ -96,9 +96,7 @@ var histogramSlider = function(svgId, data, nodesData) {
 		.attr("id", svgId+"-slider-xaxis")
 		.attr("class", "slider-xaxis")
 		.attr("transform", "translate(0," + height + ")")
-		.call(d3.axisBottom(x)
-			.ticks(9)
-			.tickFormat(d3.format(".2")))
+		.call(d3.axisBottom(x).ticks(9))
 		.selectAll("text")
 			.attr("font-family", "sans-serif")
 			.attr("font-size", "12px")
@@ -169,8 +167,6 @@ var histogramSlider = function(svgId, data, nodesData) {
 	function brushnow() {
 		var s = d3.event.selection;
 		var sx = s.map(x.invert);
-
-		var f = d3.format(".3");
 		
 		d3.selectAll("#"+svgId+'labelleft').remove();	
 		d3.selectAll("#"+svgId+'labelright').remove();
@@ -181,7 +177,7 @@ var histogramSlider = function(svgId, data, nodesData) {
 			.attr('x', s[0]+5)
 			.attr('y', 15)
 			.attr("text-anchor", "start")
-			.text(f(sx[0]));
+			.text(sx[0]);
 
 		var labelR = g.append('text')
 			.attr('id', svgId+'-labelright')
@@ -189,7 +185,7 @@ var histogramSlider = function(svgId, data, nodesData) {
 			.attr("text-anchor", "end")
 			.attr('x', s[1]-5)
 			.attr('y', 15)
-			.text(f(sx[1]));
+			.text(sx[1]);
 			
 		handle.attr("display", null).attr("transform", function(d, i) { return "translate(" + [ s[i], - height / 4] + ")"; });
 	}

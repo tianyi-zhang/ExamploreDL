@@ -43,7 +43,7 @@ function createLegend(projectNodes, nodesData) {
 	
 
 	d3.selectAll("#legendSvg").remove();
-	var margin = {top: 10, right: 10, bottom: 10, left: 10},
+	var margin = {top: 10, right: 10, bottom: 10, left: 70},
 		width = 2090 - margin.left - margin.right,
 		height = 280 - margin.top - margin.bottom;
 
@@ -53,7 +53,7 @@ function createLegend(projectNodes, nodesData) {
 		.attr("id", "legendSvg")
 		
 	var g = svg.append("g")
-		    .attr("transform", "translate(0," + margin.top + ")");
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 	var x = d3.scaleBand()
 		.rangeRound([0, width])
@@ -64,8 +64,15 @@ function createLegend(projectNodes, nodesData) {
 
 	x.domain(legendArr.map(function (d) {return d.name;}));
 	y.domain([0.1, d3.max(legendArr, function (d) {return Number(d.number);})]);
+	let yAxisGenerator = d3.axisLeft(y);
+	yAxisGenerator.ticks(5);
+	//yAxisGenerator.tickFormat(d3.format(".3"));
+	g.append("g")
+		.attr("transform", "translate(0," + margin.top + ")")
+		.call(yAxisGenerator);
 
 	var barG = g.append("g")
+		.attr("transform", "translate(" + 0 + "," + margin.top + ")");
 	barG.selectAll(".typeBar")
 		.data(legendArr)
 		.enter()
