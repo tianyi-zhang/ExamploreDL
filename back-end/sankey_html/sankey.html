@@ -77,8 +77,42 @@
 						<!--
 							<td style="font-size: 25px; padding: 5px; text-align: center; width: 420px;">Overview</td>
 						-->
-							<td colspan="2" style="width: 1200px; font-size: 25px; padding: 15px; text-align: center;">Layers</td> 
-							<td style="font-size: 25px; padding: 15px; text-align: center;">GitHub Info</td>
+							<td colspan="2" style="width: 1200px; font-size: 25px; padding: 15px; text-align: center;">
+								Layers
+								<div id="legendSelection">
+									<select id="legend-select">
+										<option value="" disabled selected>Select Layer Types</option>
+										<option value="CNN">
+											CNN
+										</option>
+										<option value="RNN">
+											RNN
+										</option>
+										<option value="Activate">
+											Activate Functions
+										</option>
+										<option value="Other">
+											Other
+										</option>
+										<option value="None">None</option>
+									</select>
+								</div>
+							</td> 
+							<td style="font-size: 25px; padding: 15px; text-align: center;">
+								GitHub Info
+								<div id="selection-github" style="text-align: center;">
+									<select id="GitHub-select" onchange="sortByfunction(this)">
+										<option value="" disabled selected>Sort by</option>
+										<option value="Stars">
+											Project Stars
+										</option>
+										<option value="Forks">
+											Project Forks
+										</option>
+										<option value="None">None</option>
+									</select>
+								</div>
+							</td>
 						</tr>
 						<tr>
 							<td colspan="3" style="height: 300px; border-top: 1px solid #F5F4F2; border-bottom: 1px solid #F5F4F2;">
@@ -104,18 +138,6 @@
 							</td>
 							<td style="border-bottom: 1px solid #F5F4F2; border-right: 1px solid #F5F4F2; width: 300px; font-size: 25px; padding: 15px; text-align: center;">Parameters</td>
 							<td style="border-bottom: 1px solid #F5F4F2;">
-								<div id="selection-github" style="text-align: center;">
-									<select id="GitHub-select" onchange="sortByfunction(this)">
-										<option value="" disabled selected>Sort by</option>
-										<option value="Stars">
-											Project Stars
-										</option>
-										<option value="Forks">
-											Project Forks
-										</option>
-										<option value="None">None</option>
-									</select>
-								</div>
 							</td>
 						</tr>
 						<tr>

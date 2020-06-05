@@ -136,4 +136,18 @@ function mainDraw(idList, nodesData) {
 
 	svg.call(zoom);
 	createLegend(projectNodes, nodes);
+	
+	d3.select('#legend-select')
+		.on('change', function() {
+			var newData = [];
+			var selectValue = d3.select(this).property('value');
+			if (selectValue !== "None") {
+				for (var ind=0; ind<nodes.length; ind++) {
+					if (nodes[ind].type == selectValue) {
+						newData.push(nodes[ind]);
+					}
+				}
+			}
+			createLegend(projectNodes, newData, selectValue);
+	});
  }
