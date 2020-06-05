@@ -62,8 +62,8 @@ function createNewDiv(parentNode, keyList, record, nodeList, projectId) {
 			.style("border-collapse", "collapse");
 		d3.selectAll('.svg_tb_td').style("border", "none");
 		for (var l=0; l<nodeList.length; l++) {
-			svg.selectAll("#"+nodeList[l]).style("opacity", 1);
-			svg.selectAll("#path"+nodeList[l]).style("opacity", 1);
+			svg.selectAll("#"+nodeList[l].replace(" ", "_")).style("opacity", 1);
+			svg.selectAll("#path"+nodeList[l].replace(" ", "_")).style("opacity", 1);
 		}
 	}
 }

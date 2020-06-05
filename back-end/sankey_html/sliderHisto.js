@@ -160,7 +160,7 @@ var histogramSlider = function(svgId, data, nodesData) {
 		.attr("d", brushResizePath);
 
 	var count = 0;
-
+	var f = d3.format('.2s');
 	gBrush.call(brush.move, [min, max+divideSpace].map(x));
 	count = 1;
 
@@ -168,8 +168,8 @@ var histogramSlider = function(svgId, data, nodesData) {
 		var s = d3.event.selection;
 		var sx = s.map(x.invert);
 		
-		d3.selectAll("#"+svgId+'labelleft').remove();	
-		d3.selectAll("#"+svgId+'labelright').remove();
+		d3.selectAll("#"+svgId+'-labelleft').remove();	
+		d3.selectAll("#"+svgId+'-labelright').remove();
 
 		var labelL = g.append('text')
 			.attr('id', svgId+'-labelleft')
@@ -177,7 +177,7 @@ var histogramSlider = function(svgId, data, nodesData) {
 			.attr('x', s[0]+5)
 			.attr('y', 15)
 			.attr("text-anchor", "start")
-			.text(sx[0]);
+			.text(f(sx[0]));
 
 		var labelR = g.append('text')
 			.attr('id', svgId+'-labelright')
@@ -185,7 +185,7 @@ var histogramSlider = function(svgId, data, nodesData) {
 			.attr("text-anchor", "end")
 			.attr('x', s[1]-5)
 			.attr('y', 15)
-			.text(sx[1]);
+			.text(f(sx[1]));
 			
 		handle.attr("display", null).attr("transform", function(d, i) { return "translate(" + [ s[i], - height / 4] + ")"; });
 	}

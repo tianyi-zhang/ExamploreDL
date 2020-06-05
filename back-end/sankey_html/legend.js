@@ -1,4 +1,4 @@
-function createLegend(projectNodes, nodesData) {
+function createLegend(projectNodes, nodesData, nodesType='None') {
 	var colorDic = {
 			'Convolution': "rgba(54, 69, 133, 0.65)",
 			'Max Pooling': "rgba(90, 102, 158, 0.65)",
@@ -17,14 +17,38 @@ function createLegend(projectNodes, nodesData) {
 			'Sigmoid': "rgba(255, 124, 1, 0.65)",
 			'Softmax': "rgba(255, 192, 1, 0.65)",
 	};
+	var typeDic = {
+		'Convolution': "CNN",
+		'Max Pooling': "CNN",
+		'Average Pooling': "CNN",
+		'LSTM': "RNN",
+		'GRU': "RNN",
+		'BiRNN': "RNN",
+		'Input': "Other",
+		'Dense': "Other",
+		'Flatten': "Other",
+		'Dropout': "Other",
+		'Attention': "Other",
+		'Cross Entropy': "Other",
+		'Optimizer': "Other",					
+		'ReLu': "Activate",
+		'Sigmoid': "Activate",
+		'Softmax': "Activate",
+	}
+	if (nodesType !== "None") {
+		click_2(nodesType, typeDic);
+	}
 	var legendArr = [];
 	// {"name": "relu", "color": "rgba(255, 166, 1, 0.65)", "number": 65}
-
 	for (const proId in projectNodes) {
 		for (var i=0; i<projectNodes[proId].length; i++) {
 			var flag = 0;
 			var nodeName = projectNodes[proId][i].split("-")[0];
-
+			if (nodesType !== "None") {
+				if (typeDic[nodeName] !== nodesType) {
+					continue;
+				}
+			}
 			for (var j=0; j<legendArr.length; j++) {
 				
 				if (nodeName == legendArr[j]["name"]) {

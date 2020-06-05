@@ -24,9 +24,9 @@ var click_1 = function(d, nodes, projectNodes, appendNow='pass in') {
 	hightlightInfo(proIdList);
 }
 
-var click_2 = function(d, i, cat_dic, projectNodes, appendNow='pass in') {
+var click_2 = function(d, typeDic, appendNow='pass in') {
 	d3.selectAll(".bar").attr("fill", "#BBB5F0")
-	var recordArgs = [d, i, cat_dic, projectNodes];
+	var recordArgs = [d, typeDic];
 	var svg = d3.select('#chart');
 
 	if (appendNow=="pass in") {
@@ -43,11 +43,12 @@ var click_2 = function(d, i, cat_dic, projectNodes, appendNow='pass in') {
 		.style("border-bottom", "none")
 		.style("border-collapse", "collapse");
 
-	var class_name_li = Object.keys(cat_dic[d]);   
-	for (j=0; j<class_name_li.length; j++) {
-		svg.selectAll("." + class_name_li[j]).style("opacity", 1);
+	for (const key in typeDic) {
+		if (typeDic[key] == d) {
+			svg.selectAll("." + key.replace(" ", "_")).style("opacity", 1);
+			svg.selectAll(".path" + key.replace(" ", "_")).style("opacity", 1);
+		}		
 	} 
-
 }
 
 var click_3 = function(d, nodes, projectNodes, appendNow='pass in') {
