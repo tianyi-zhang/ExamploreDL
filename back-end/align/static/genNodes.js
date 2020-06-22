@@ -1,5 +1,5 @@
 var allProNodes = [];
-var genData = function(idList, path) {
+var genData = function(idList, path, viewName='oriView') {
 	var typedic = {'C': "Convolution",
 			'M': "Max Pooling",
 			'A': "Average Pooling",
@@ -347,65 +347,77 @@ var genData = function(idList, path) {
 			}
 					
 		})
-		.then(function() {	
-			var res = new Promise(function (resolve, reject) {
-			    $.ajax({
-					url: "/_alignment/",
-					type: "POST",
-					data: JSON.stringify(idList.toString()),
-					success: function(response){
-						var newNetLi = [];
-						var newArgLi = [];
-						var countPro = 0;
-						var countNodeDash = {};
-						for (const pId in response) {
-							var newProNetLi = [];
-							var newProArgLi = [];
-							var countOriNode = 0;
-							var countDash = 0;
-							for (var ind=0; ind<response[pId].length; ind++) {
-								var nodeName = response[pId].charAt(ind);
-								if (nodeName !== '-') {								
-									
-									var thisNode = arg_li[countPro][countOriNode];
-									var nodeType = typedic[nodeName];
-									for (var cou=1; cou<countDash+1; cou++) {
-										if (nodeType in Object.keys(countNodeDash)) {									
-											countNodeDash[nodeType] += 1;
-										} else {
-											countNodeDash[nodeType] = 1;
-										}	
-										var dashName = nodeType+'-align-'+countNodeDash[nodeType];
-										newProNetLi.push(dashName);
-										var dashArg = {};
-										dashArg[dashName] = {};
-										newProArgLi.push(dashArg);									
+		.then(function() {
+			if (viewName=='oriView') {
+				var [node_dic, link_dic, node_args] = generate_flow_txt(net_li, arg_li, colorDic);
+				var proj = genjson(node_dic, link_dic, node_args, colorDic);
+				var nodesData = [[proj, max_length, totalNum], idList, proNode, allProNodes];
+				mainDraw(idList, nodesData);
+				genInfo(idList, proNode);
+				updateSlider('starsSvg', idList,  proNode);
+				updateSlider('forksSvg', idList, proNode);
+				updateSlider('numLayersSvg', idList, proNode);
+			} else {
+				var res = new Promise(function (resolve, reject) {
+					$.ajax({
+						url: "/_alignment/",
+						type: "POST",
+						data: JSON.stringify(idList.toString()),
+						success: function(response){
+							var newNetLi = [];
+							var newArgLi = [];
+							var countPro = 0;
+							var countNodeDash = {};
+							for (const pId in response) {
+								var newProNetLi = [];
+								var newProArgLi = [];
+								var countOriNode = 0;
+								var countDash = 0;
+								for (var ind=0; ind<response[pId].length; ind++) {
+									var nodeName = response[pId].charAt(ind);
+									if (nodeName !== '-') {								
+										
+										var thisNode = arg_li[countPro][countOriNode];
+										var nodeType = typedic[nodeName];
+										for (var cou=1; cou<countDash+1; cou++) {
+											if (nodeType in Object.keys(countNodeDash)) {									
+												countNodeDash[nodeType] += 1;
+											} else {
+												countNodeDash[nodeType] = 1;
+											}	
+											var dashName = nodeType+'-align-'+countNodeDash[nodeType];
+											newProNetLi.push(dashName);
+											var dashArg = {};
+											dashArg[dashName] = {};
+											newProArgLi.push(dashArg);									
+										}
+										newProNetLi.push(Object.keys(arg_li[countPro][countOriNode])[0]);
+										newProArgLi.push(arg_li[countPro][countOriNode]);
+										countDash = 0;
+										countOriNode += 1;
 									}
-									newProNetLi.push(Object.keys(arg_li[countPro][countOriNode])[0]);
-									newProArgLi.push(arg_li[countPro][countOriNode]);
-									countDash = 0;
-									countOriNode += 1;
+									else {
+										countDash += 1;
+									}
 								}
-								else {
-									countDash += 1;
-								}
+								newNetLi.push(newProNetLi);
+								newArgLi.push(newProArgLi);
+								countPro += 1;
 							}
-							newNetLi.push(newProNetLi);
-							newArgLi.push(newProArgLi);
-							countPro += 1;
+							//console.log(newNetLi,newArgLi);
+							var [node_dic, link_dic, node_args] = generate_flow_txt(newNetLi, newArgLi, colorDic);
+							var proj = genjson(node_dic, link_dic, node_args, colorDic);
+							//console.log(node_dic, link_dic);
+							var nodesData = [[proj, max_length, totalNum], idList, proNode, allProNodes];
+							mainDraw(idList, nodesData);
+							genInfo(idList, proNode);
+							updateSlider('starsSvg', idList,  proNode);
+							updateSlider('forksSvg', idList, proNode);
+							updateSlider('numLayersSvg', idList, proNode);
 						}
-						console.log(newNetLi,newArgLi);
-						var [node_dic, link_dic, node_args] = generate_flow_txt(newNetLi, newArgLi, colorDic);
-						var proj = genjson(node_dic, link_dic, node_args, colorDic);
-						var nodesData = [[proj, max_length, totalNum], idList, proNode, allProNodes];
-						mainDraw(idList, nodesData);
-						genInfo(idList, nodesData[2]);
-						updateSlider('starsSvg', idList,  nodesData[2]);
-						updateSlider('forksSvg', idList, nodesData[2]);
-						updateSlider('numLayersSvg', idList, nodesData[2]);
-					}
+					});
 				});
-			});		
-		}) 
-	return resultOut;
+			}
+			//console.log(Array.prototype.slice.call(net_li, 0));			
+		})
 }

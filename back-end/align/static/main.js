@@ -122,13 +122,32 @@ mixData.then(function(oriData) {
 			d3.selectAll(".slider-label").remove();
 			d3.selectAll("#numLayersSvg").remove();
 		} else {
-			var JSONpath = './static/data.json';
-			genData(idList, JSONpath);
-			updateFilterSVG(idList, thisClassName); 
+			d3.selectAll("#viewbtn").each(function(d){
+				var cb = d3.select(this);
+				if(cb.property("checked")){
+					var viewName = cb.property("value");
+					var JSONpath = './static/data.json';
+					genData(idList, JSONpath, viewName);
+					updateFilterSVG(idList, thisClassName);
+				}
+			}); 
+
+			d3.selectAll('#viewbtn').on("click",updateView);
+			function updateView() {
+				d3.selectAll("#viewbtn").each(function(d){
+					var cb = d3.select(this);
+					if(cb.property("checked")){
+						var viewName = cb.property("value");
+						var JSONpath = './static/data.json';
+						genData(idList, JSONpath, viewName);
+						updateFilterSVG(idList, thisClassName);
+					}
+				});
+			}
 		}
 		
 	}
-
+	
 	function clickFilter() {
 		update(this.className);
 	} 

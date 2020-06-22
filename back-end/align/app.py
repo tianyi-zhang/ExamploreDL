@@ -56,17 +56,15 @@ def _alignment():
 					continue
 			outfile.close()
 		datajson.close()
-	os.system('mafft --text net.txt > out.txt')
+	os.system('mafft --localpair --text net.txt > out.txt')
 	with open('out.txt', 'r') as alifile:
 		data = {}
 		for line in alifile:
 			if '>' in line:
 				dataKey = line.split(">")[1]
-				print('datakey',dataKey)
 				data[dataKey] = 'I'				
 			else:
 				data[dataKey] = data[dataKey]+line.split('\n')[0]
-		print(data)
 		response = app.response_class(
 			response=json.dumps(data),
 			status=200,

@@ -81,14 +81,35 @@ function mainDraw(idList, nodesData) {
 			.attr("y", d => d.y0)
 			.attr("height", d => d.y1 - d.y0)
 			.attr("width", d => d.x1 - d.x0)
-			.attr("fill", d => d.color)
-			.attr("stroke", "#ffffff")
+			.attr("fill", function(d) {
+				if (d.name.includes('align')) {
+					return d.color.replace('0.65', '0.4225');
+				} else {
+					return d.color;
+				}
+			})
+			.attr("stroke", '#ffffff')
+			.attr("stroke-width", function(d) {
+				if (d.name.includes('align')) {
+					return 0;
+				} else {
+					return 3;
+				}
+			})
 			.on("click", function(d) {
-				click_1(d, nodes, projectNodes);				
+				if (!d.name.includes('align')) {
+					click_1(d, nodes, projectNodes);
+				}				
 			})
 			
 		.append("title")
-			.text(d => `${d.name}\n${format(d.value)}`);
+			.text(function(d) {
+				if (d.name.includes('align')) {
+					return '';
+				} else {
+					return `${d.name}\n${format(d.value)}`
+				}
+			});
 
 	const link = svg.append("g")
 		.attr("fill", "none")
@@ -103,7 +124,7 @@ function mainDraw(idList, nodesData) {
 			.attr("stroke", d => d.color)
 			.attr("id", function(d) {return "path" + d.target.name.replace(" ", "_");})
 			.attr("class", function(d) {return "path" + d.target.category.replace(" ", "_");})
-			.attr("stroke-width", d => Math.max(1, d.width));
+			.attr("stroke-width", d => Math.max(3, d.width));
 
 
 	link.append("title")
@@ -121,7 +142,13 @@ function mainDraw(idList, nodesData) {
 			.attr("y", d => (d.y1 + d.y0) / 2)
 			.attr("dy", "0.355em")
 			.attr("text-anchor", d => "start")
-			.text(function(d) {return d.name.split("-")[0];});
+			.text(function(d) {
+				if (d.name.includes('align')) {
+					return '';
+				} else {
+					return d.name.split("-")[0];
+				}
+			});
 
 	var zoom = d3.zoom()
 			.scaleExtent([0.05, 5])
