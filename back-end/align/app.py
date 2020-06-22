@@ -1,0 +1,78 @@
+from Bio.Align.Applications import MafftCommandline
+import json
+import os
+from flask import Flask, render_template, request, jsonify
+
+app = Flask(__name__,template_folder='template',static_folder='static')
+
+
+@app.route('/')
+def index():
+	return render_template('sankey.html')
+
+
+@app.route('/_alignment/', methods=['GET','POST'])
+def _alignment():
+	idList = request.get_data().decode("utf-8") 
+	idList = idList.strip('"')
+	idList = idList.split(",")
+
+	typedic = {'Convolution': "C",
+			'Max Pooling': "M",
+			'Average Pooling': "A",
+			'LSTM': "L",
+			'GRU': "G",
+			'BiRNN': "B",
+			'Input': "I",
+			'Dense': "D",
+			'Flatten': "F",
+			'Dropout': "P",
+			'Attention': "T",
+			'Cross Entropy': "E",
+			'Optimizer': "O",					
+			'ReLu': "R",
+			'Sigmoid': "S",
+			'Softmax': "X"}
+	with open("data.json", "r") as datajson:
+		alldata = json.loads(datajson.read())
+		with open("net.txt", "w") as outfile:
+			for key in alldata:
+				if key in idList:
+					outfile.write(">"+key+'\n')
+					for layer in alldata[key]['layers']:
+						outfile.write(""+typedic[alldata[key]['layers'][layer]['type']])
+						for argname in alldata[key]['layers'][layer]["args"]:
+							if 'activation' in argname:
+								tar = alldata[key]['layers'][layer]["args"][argname]
+								if isinstance(tar, str):
+									if 'relu' in tar:
+										outfile.write('R')
+									elif 'softmax' in tar:
+										outfile.write('X')
+									elif 'sigmoid' in tar:
+										outfile.write('S')
+					outfile.write('\n')
+				else:
+					continue
+			outfile.close()
+		datajson.close()
+	os.system('mafft --text net.txt > out.txt')
+	with open('out.txt', 'r') as alifile:
+		data = {}
+		for line in alifile:
+			if '>' in line:
+				dataKey = line.split(">")[1]
+				print('datakey',dataKey)
+				data[dataKey] = 'I'				
+			else:
+				data[dataKey] = data[dataKey]+line.split('\n')[0]
+		print(data)
+		response = app.response_class(
+			response=json.dumps(data),
+			status=200,
+			mimetype='application/json'
+		)
+		return response
+
+if __name__ == "__main__":
+	app.run(debug=True)

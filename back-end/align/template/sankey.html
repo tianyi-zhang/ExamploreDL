@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+	<?PHP
+		echo shell_exec("python3 align.py");
+	?>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='myStyle.css') }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename = 'breadcrumbFunct.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename = 'clickFunc.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename = 'filter.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename = 'genGitHubInfo.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename = 'genNodes.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename = 'getCSVData.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename = 'legend.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename = 'parametersCharts.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename = 'sankey.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename = 'sliderHisto.js') }}"></script>
+
+</head>
+<body>
+	<div id='container' style="margin: 0 auto; width: 100%; height: 100vh;">
+		<table style="margin: 0 auto; width: 100%; height: 100vh;">
+			<tr>
+				<td colspan="2" style="background-color: #1E7E95; height: 100px; font-family: sans-serif; font-size: 30px; color: white; padding: 16px 18px;">
+					Visualizing DL Models at Scale
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 420px;">
+					<div id="filtersTableDiv" style="width: 420px; height: 100%; overflow-y: scroll; background-color: #F7F7F7;">
+						<table id="filterTable" style="margin: 0 auto; width: 420px; height: 100px;">
+							<tr id="datasetsTr">
+								<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+									Datasets
+								</td>
+							</tr>
+							<tr id="tasksTr" style="border-top:#D4D4D4 solid 1px;">
+								<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+									Tasks
+								</td>
+							</tr>
+							<tr id="modelsTr">
+								<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+									Models
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+									Project Stars
+									<div id="accDiv" class="sliderDiv">
+										<svg id="starsSvg"></svg>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+									Project Forks
+									<div id="nopDiv" class="sliderDiv">
+										<svg id="forksSvg"></svg>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+									Number of Layers in Each Projects
+									<div id="numLayers">
+										<svg id="numLayersSvg"></svg>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>					
+				</td>
+				<td>
+					<table style="margin: 0 auto; width: 100%; height: 100%;">
+						<tr style="border-bottom: 1px solid #F5F4F2;">
+						<!--
+							<td style="font-size: 25px; padding: 5px; text-align: center; width: 420px;">Overview</td>
+						-->
+							<td colspan="2" style="width: 1200px; font-size: 25px; padding: 15px; text-align: center;">
+								Layers
+								<div id="legendSelection">
+									<select id="legend-select">
+										<option value="" disabled selected>Select Layer Types</option>
+										<option value="CNN">
+											CNN
+										</option>
+										<option value="RNN">
+											RNN
+										</option>
+										<option value="Activate">
+											Activate Functions
+										</option>
+										<option value="Other">
+											Other
+										</option>
+										<option value="None">None</option>
+									</select>
+								</div>
+							</td> 
+							<td style="font-size: 25px; padding: 15px; text-align: center;">
+								GitHub Info
+								<div id="selection-github" style="width: 100%; text-align: center;">
+									<select id="GitHub-select" onchange="sortByfunction(this)">
+										<option value="" disabled selected>Sort by</option>
+										<option value="Stars">
+											Project Stars
+										</option>
+										<option value="Forks">
+											Project Forks
+										</option>
+										<option value="None">None</option>
+									</select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="height: 300px; width: 320px; border-top: 1px solid #F5F4F2; border-bottom: 1px solid #F5F4F2;">
+								<div id='chart_table', style="width: 100%; height: 300 px; display: block;">
+									<svg id="legendSvg"></svg>
+								</div>
+							</td>
+							<td rowspan="3">
+								<div id="GitHub-info-div" style="height: 100%; text-align: center; background-color: white; overflow-y: scroll; overflow-x: hidden;">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<!--
+							<td rowspan="2" id="numTypesTd" style="border-bottom: 1px solid #F5F4F2; border-right: 1px solid #F5F4F2;">
+								<div id="numTypes" style="width: 100%; height: 350px; border-bottom: 0.5px solid #F5F4F2"></div>
+								<div id="numLayers" style="width: 385px; height: 350px; align-content: center"></div>
+							</td>
+							-->							
+							<td id="record" valign="top" style="border-bottom: 1px solid #F5F4F2; border-right: 1px solid #F5F4F2;">	
+								<div id='bread_div', style="width: 100%; height: 100 px; align-content: center;">
+									<h1 style="font-family: sans-serif; font-size:18px; font-weight: 100; text-align:center; color: #505050;"> 
+										User Selections 
+									</h1>
+									<div id="home" style="background-color: red; font-size: 15px;" onclick="click_4();return false;">Reset</div>
+								</div>								
+							</td>
+							<td style="border-bottom: 1px solid #F5F4F2; border-right: 1px solid #F5F4F2; width: 300px; font-size: 25px; padding: 15px; text-align: center;">Parameters</td>
+							<td style="border-bottom: 1px solid #F5F4F2;">
+							</td>
+						</tr>
+						<tr>
+							<td>	
+								<div id='chart_div'>
+									<svg id='chart'></svg>
+								</div>								
+							</td>
+							<td>
+								<div id="allParametersCharts" style="width: 100%; height: 100%; text-align: center; background-color: #F5F4F2; overflow-y: scroll;">
+									<div style="width: 100%; height: 60px;">
+										<svg id="legend"></svg>
+									</div>
+									<div class="parametersDiv">
+										<svg id='para-1' class='chart2'></svg>
+									</div>
+									<div class="parametersDiv">
+										<svg id='para-2' class='chart2'></svg>
+									</div>
+									<div class="parametersDiv">
+										<svg id='para-3' class='chart2'></svg>
+									</div>
+									<div class="parametersDiv">
+										<svg id='para-4' class='chart2'></svg>
+									</div>
+									<div class="parametersDiv">
+										<svg id='para-5' class='chart2'></svg>
+									</div>
+								</div>								
+							</td>
+						</tr>				
+					</table>
+				</td>
+			</tr>
+			<tr>
+				
+			</tr>
+		</table>		
+		<script src="{{ url_for('static', filename = 'main.js') }}"></script>
+	</div>
+</body>
