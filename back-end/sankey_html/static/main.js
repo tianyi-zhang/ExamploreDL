@@ -122,38 +122,32 @@ mixData.then(function(oriData) {
 			d3.selectAll(".slider-label").remove();
 			d3.selectAll("#numLayersSvg").remove();
 		} else {
-			var JSONpath = './static/data.json';
-			resultOut = genData(idList, JSONpath);
-
-			resultOut.then(function(nodesData) {
-
-				$(function() {					
-					alert('Im going to start processing');
-					$.ajax({
-						url: "/_alignment/",
-						type: "POST",
-						success: function(response){
-							console.log(response);
-						}
-					});
-				});
-
-				updateFilterSVG(idList, thisClassName);
-
-				mainDraw(idList, nodesData);
-
-				genInfo(idList, nodesData[2]);
-
-				updateSlider('starsSvg', idList,  nodesData[2]);
-
-				updateSlider('forksSvg', idList, nodesData[2]);
-
-				updateSlider('numLayersSvg', idList, nodesData[2]);
+			d3.selectAll("#viewbtn").each(function(d){
+				var cb = d3.select(this);
+				if(cb.property("checked")){
+					var viewName = cb.property("value");
+					var JSONpath = './static/data.json';
+					genData(idList, JSONpath, viewName);
+					updateFilterSVG(idList, thisClassName);
+				}
 			}); 
+
+			d3.selectAll('#viewbtn').on("click",updateView);
+			function updateView() {
+				d3.selectAll("#viewbtn").each(function(d){
+					var cb = d3.select(this);
+					if(cb.property("checked")){
+						var viewName = cb.property("value");
+						var JSONpath = './static/data.json';
+						genData(idList, JSONpath, viewName);
+						updateFilterSVG(idList, thisClassName);
+					}
+				});
+			}
 		}
 		
 	}
-
+	
 	function clickFilter() {
 		update(this.className);
 	} 

@@ -47,6 +47,7 @@ var genData = function(idList, path, viewName='oriView') {
 	var arg_li = [];
 	var net_li = [];
 	var proNode = {};
+	var hyper = {};
 	var max_length = 0;
 	var totalNum = 0;
 
@@ -335,7 +336,8 @@ var genData = function(idList, path, viewName='oriView') {
 				totalNum += 1;
 				var [li, model_arg_li] = generate_out_li(json_dic[i]);
 				allProNodes.push(li);
-				if (idList.includes(i)) {			
+				if (idList.includes(i)) {
+					hyper[i] = json_dic[i]['hyperparameters'];			
 					arg_li.push(model_arg_li);
 					net_li.push(li);
 					proNode[i] = li;
@@ -348,12 +350,13 @@ var genData = function(idList, path, viewName='oriView') {
 					
 		})
 		.then(function() {
+			hyperparameterChart(hyper);
 			if (viewName=='oriView') {
 				var [node_dic, link_dic, node_args] = generate_flow_txt(net_li, arg_li, colorDic);
 				var proj = genjson(node_dic, link_dic, node_args, colorDic);
 				var nodesData = [[proj, max_length, totalNum], idList, proNode, allProNodes];
 				mainDraw(idList, nodesData);
-				genInfo(idList, proNode);
+				genInfo(idList, proNode, hyper);
 				updateSlider('starsSvg', idList,  proNode);
 				updateSlider('forksSvg', idList, proNode);
 				updateSlider('numLayersSvg', idList, proNode);
@@ -410,7 +413,7 @@ var genData = function(idList, path, viewName='oriView') {
 							//console.log(node_dic, link_dic);
 							var nodesData = [[proj, max_length, totalNum], idList, proNode, allProNodes];
 							mainDraw(idList, nodesData);
-							genInfo(idList, proNode);
+							genInfo(idList, proNode, hyper);
 							updateSlider('starsSvg', idList,  proNode);
 							updateSlider('forksSvg', idList, proNode);
 							updateSlider('numLayersSvg', idList, proNode);
