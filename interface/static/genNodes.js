@@ -259,7 +259,8 @@ var genData = function(idList, path, viewName='oriView') {
 			for (var l=0; l<node_dic.length; l++) {
 				if (in_flow in node_dic[l]) {
 					var flowIn = node_dic[l][in_flow];
-				} else if (out_flow in node_dic[l]) {
+				}
+				if (out_flow in node_dic[l]) {
 					var flowOut = node_dic[l][out_flow];
 				}
 			}
@@ -270,16 +271,13 @@ var genData = function(idList, path, viewName='oriView') {
 	}
 
 	var generate_flow_txt = function(net_li, arg_li, colorDic) {
-		
 		var [new_net_li, node_label, arg_li] = standardize(net_li, arg_li, colorDic);
 		var newNodeLabel = [];
-
 		for (const myKey in node_label) {
 			var newDict = {};
 			newDict[myKey] = node_label[myKey];
 			newNodeLabel.push(newDict);
 		}
-
 		for (var k=0; k<new_net_li.length; k++) {
 			var middleLi = [];
 			for (var l=0; l<new_net_li[k].length; l++) {
@@ -288,22 +286,41 @@ var genData = function(idList, path, viewName='oriView') {
 				} else {
 					var changeName = new_net_li[k][l];
 					for (var m=0; m<middleLi.length; m++) {
-						//Convolution-align-1-1 & Convolution-19
 						var oriName = new_net_li[k][middleLi[m]];
-						new_net_li[k][middleLi[m]]=changeName+"-align-"+m;
-						arg_li[k][middleLi[m]]=changeName+"-align-"+m;
+						/*for (var u=0; u<new_net_li.length; u++) {
+							for (var v=0; v<new_net_li[u].length; v++) {
+								if (new_net_li[u][v] == oriName) {
+									new_net_li[u][v]=changeName+"-align-"+m;
+									arg_li[u][v]=changeName+"-align-"+m;
+								}
+							}
+						}*/
+						var newName = changeName+"-align-"+m;
+						new_net_li[k][middleLi[m]]=newName;
+						arg_li[k][middleLi[m]]=newName;
+						var flag = 0;
 						for (var n=0; n<newNodeLabel.length; n++) {
 							if (oriName in newNodeLabel[n]) {
 								newNodeLabel[n] = {};
-								newNodeLabel[n][changeName+"-align-"+m] = node_label[oriName];
+								newNodeLabel[n][newName] = node_label[oriName];
+								flag = 1;
+								break;
+							}
+							if (newName in newNodeLabel[n]) {
+								flag = 1;
+								break;
 							}
 						}
+						if (flag == 0) {
+							var newEle = {};
+							newEle[newName] = [newNodeLabel.length, '', {}];
+							newNodeLabel.push(newEle);
+						}				
 					}
 					middleLi = [];
 				}
 			}
 		}
-
 		var node_args = generate_args(newNodeLabel, arg_li);
 		var node_dic = generate_node(newNodeLabel);
 		var tuple_li = [];
@@ -324,7 +341,6 @@ var genData = function(idList, path, viewName='oriView') {
 			link_dic["color"].push(t[3]);
 			link_dic["label"].push(t[4]);
 		}	
-
 		return [node_dic, link_dic, node_args, new_net_li];
 	}
 
@@ -389,9 +405,7 @@ var genData = function(idList, path, viewName='oriView') {
 						max_length = json_dic[i]['num_layers'];
 					}
 				}
-				
-			}
-					
+			}		
 		})
 		.then(function() {
 			hyperparameterChart(hyper);
@@ -431,7 +445,7 @@ var genData = function(idList, path, viewName='oriView') {
 											} else {
 												countNodeDash[nodeType] = 1;
 											}	
-											var dashName = nodeType+'-align-'+countNodeDash[nodeType];
+											var dashName = nodeType+'-align';
 											newProNetLi.push(dashName);
 											var dashArg = {};
 											dashArg[dashName] = {};
@@ -449,16 +463,19 @@ var genData = function(idList, path, viewName='oriView') {
 								newNetLi.push(newProNetLi);
 								newArgLi.push(newProArgLi);
 								countPro += 1;
-							}
+							}							
 							var [nodeDic, linkDic, nodeArgs, new_net_li] = generate_flow_txt(newNetLi, newArgLi, colorDic);
 							var proj = genjson(nodeDic, linkDic, nodeArgs, colorDic);
-							
-							var nodesData = [[proj, max_length, totalNum], idList, proNode, allProNodes, new_net_li];
+							var newProNode = {};
+							for (var z=0; z<new_net_li.length; z++) {
+								newProNode[idList[z]] = new_net_li[z];
+							}
+							var nodesData = [[proj, max_length, totalNum], idList, newProNode, allProNodes, new_net_li];
 							mainDraw(idList, nodesData);
-							genInfo(idList, proNode, hyper);
-							updateSlider('starsSvg', idList,  proNode);
-							updateSlider('forksSvg', idList, proNode);
-							updateSlider('numLayersSvg', idList, proNode);
+							genInfo(idList, newProNode, hyper);
+							updateSlider('starsSvg', idList,  newProNode);
+							updateSlider('forksSvg', idList, newProNode);
+							updateSlider('numLayersSvg', idList, newProNode);
 						}
 					});
 				});

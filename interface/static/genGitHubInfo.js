@@ -95,6 +95,7 @@ function createNewDiv(parentNode, proName, keyList, record, hyper) {
 	document.getElementById("proInfo-"+proName).addEventListener("click", clickDiv);
 	
 	function clickDiv() {
+		console.log(record["nodes"]);
 		d3.selectAll(".bar").attr("fill", "#BBB5F0");
 		var svg = d3.select('#chart');
 		svg.selectAll("path").style("opacity", 0.35);

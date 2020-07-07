@@ -60,12 +60,24 @@ function buildLinks(links, net_li) {
 								var endLinks = links[l];
 								flag += 1;
 							}
-							if (flag==2) {
+							var repeatFlag = 0;
+							for (var m=0; m<newLinks.length; m++) {
+								var liSource = newLinks[m]['source']['name'],
+									liTarget = newLinks[m]['target']['name'];
+								if (liSource == beginPoints[0] && liTarget == endPoints[1]) {
+									repeatFlag = 1;
+									break;
+								}
+							}
+							if (repeatFlag == 0 && flag==2) {
 								beginLinks['target']=endLinks['target'];
 								beginLinks['color']=endLinks['color'];
 								beginLinks['label']=beginPoints[0]+"->"+endPoints[1];
 								beginLinks['y1']=endLinks['y1'];
 								newLinks.push(beginLinks);
+								j=k;
+								break;
+							} else if (repeatFlag == 1) {
 								j=k;
 								break;
 							}
@@ -76,10 +88,21 @@ function buildLinks(links, net_li) {
 					}
 				}
 			} else if (!(beginNodes.includes("align")) && !(nextNodes.includes("align"))) {
-
 				for (var l=0; l<links.length; l++) {
 					if (links[l]['source']['name']==beginNodes && links[l]['target']['name']==nextNodes) {
-						newLinks.push(links[l]);
+						var repeatFlag = 0;
+						for (var m=0; m<newLinks.length; m++) {
+							var liSource = newLinks[m]['source']['name'],
+								liTarget = newLinks[m]['target']['name'];
+							if (liSource == beginNodes && liTarget == nextNodes) {
+								repeatFlag = 1;
+								break;
+							}
+						}
+						if (repeatFlag == 0) {
+							newLinks.push(links[l]);
+						}	
+						break;					
 					}
 				}
 			}
