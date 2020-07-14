@@ -259,6 +259,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 	var zoom = d3.zoom()
 			.scaleExtent([0.05, 5])
 			.on('zoom', function() {
+				if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return;
 				svg.selectAll('path')
 					.attr('transform', d3.event.transform.toString());
 				svg.selectAll('rect')
@@ -333,6 +334,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 
 			})
 			.on("end", function() {
+				if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return;
 				svg.selectAll('path')
 					.attr('transform', d3.event.transform.toString());
 				svg.selectAll('rect')
@@ -406,7 +408,6 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 			});
 
 	drawThumbnail(data, idList, myWidth, myHeight, viewBoxHeight, zoom, net_li);
-	svg.call(zoom);
 
 	createLegend(projectNodes, nodes);
 	

@@ -415,6 +415,8 @@ var genData = function(idList, path, viewName='oriView') {
 				var nodesData = [[proj, max_length, totalNum], idList, proNode, allProNodes];
 				mainDraw(idList, nodesData);
 				genInfo(idList, proNode, hyper);
+				var e = document.getElementById("GitHub-select");
+				sortByfunction(e);
 				updateSlider('starsSvg', idList,  proNode);
 				updateSlider('forksSvg', idList, proNode);
 				updateSlider('numLayersSvg', idList, proNode);
@@ -473,6 +475,8 @@ var genData = function(idList, path, viewName='oriView') {
 							var nodesData = [[proj, max_length, totalNum], idList, newProNode, allProNodes, new_net_li];
 							mainDraw(idList, nodesData);
 							genInfo(idList, newProNode, hyper);
+							var e = document.getElementById("GitHub-select");
+							sortByfunction(e);
 							updateSlider('starsSvg', idList,  newProNode);
 							updateSlider('forksSvg', idList, newProNode);
 							updateSlider('numLayersSvg', idList, newProNode);
