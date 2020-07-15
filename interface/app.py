@@ -18,21 +18,30 @@ def _alignment():
 	idList = idList.split(",")
 
 	typedic = {'Convolution': "C",
+			'Deconvolution': "Y",
 			'Max Pooling': "M",
 			'Average Pooling': "A",
 			'LSTM': "L",
 			'GRU': "G",
 			'BiRNN': "B",
+			'RNN': "N",
 			'Input': "I",
 			'Dense': "D",
+			'CRF': "C",
+			'Embedding': "I",
 			'Flatten': "F",
 			'Dropout': "P",
 			'Attention': "T",
-			'Cross Entropy': "E",
+			'Normalization': "Z",
 			'Optimizer': "O",					
 			'ReLu': "R",
 			'Sigmoid': "S",
-			'Softmax': "X"}
+			'Softmax': "X",
+			'Cross Entropy': "E",
+			'L2': "W",
+			'CTC': "H",
+			'MSE': "U"
+			}
 	with open("data.json", "r") as datajson:
 		alldata = json.loads(datajson.read())
 		with open("net.txt", "w") as outfile:

@@ -21,11 +21,11 @@ function classifyRecords(data, tarStr, tarDict) {
 }
 
 function createFilterSvg(barLength, filterDivId, num) {
-	var svg_id = filterDivId + '-svg';
-
+	var svg_id = filterDivId.split(" ")[0] + '-svg';
+	console.log(filterDivId);
 	d3.select("#"+svg_id).remove();
 
-	var svg = d3.select('#'+filterDivId).append("svg")
+	var svg = d3.select('#'+filterDivId.split(" ")[0]).append("svg")
 		.attr("width", '180')
 		.attr("height", '22')
 		.attr("id", svg_id);
@@ -106,11 +106,12 @@ function createCell(dict, tableTar, pos, boxClassName) {
 
 		var newSVGDiv = document.createElement('div');
 		if (key.indexOf('_') >= 0) {
-			newSVGDivId = boxClassName+"-"+key.split("_")[0].slice(0, 3) + key.split("_")[1].slice(0, 3);
+			newSVGDivId = boxClassName+"-"+key.split("_")[0] + key.split("_")[1];
 		} else {
-			newSVGDivId = boxClassName+"-"+key.slice(0, 3);
+			newSVGDivId = boxClassName+"-"+key.replace("!", "");
 		}
-		newSVGDiv.id = newSVGDivId;
+
+		newSVGDiv.id = newSVGDivId.split(" ")[0];
 		newCellSVGTd.appendChild(newSVGDiv);
 		
 		var barLength = (dict[key].length/maxLength)*150;
@@ -130,7 +131,6 @@ function readCSVFile(file)
 				datasetDict = {},
 				starsDict = {},
 				forksDict = {};
-		
 			for (var i=0; i<data.length; i++) {
 				starsDict[data[i]['ID']] = data[i]["Stars"];
 				forksDict[data[i]['ID']] = data[i]["Forks"];

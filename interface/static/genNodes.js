@@ -1,45 +1,66 @@
 var allProNodes = [];
 var genData = function(idList, path, viewName='oriView') {
 	var typedic = {'C': "Convolution",
+			'Y': "Deconvolution",
 			'M': "Max Pooling",
 			'A': "Average Pooling",
 			'L': "LSTM",
 			'G': "GRU",
 			'B': "BiRNN",
+			'N': "RNN",
 			'I': "Input",
 			'D': "Dense",
+			'C': "CRF",
+			'I': "Embedding",
 			'F': "Flatten",
 			'P': "Dropout",
 			'T': "Attention",
-			'E': "Cross Entropy",
+			'Z': "Normalization",
 			'O': "Optimizer",					
 			'R': "ReLu",
 			'S': "Sigmoid",
-			'X': "Softmax"};
+			'X': "Softmax",
+			'E': "Cross Entropy",
+			'W': "L2",
+			'H': "CTC",
+			'U': "MSE"
+		};
 	var colorDic = {
 		"CNN": {
-			'Convolution': "rgba(54, 69, 133, 0.65)",
-			'Max Pooling': "rgba(90, 102, 158, 0.65)",
-			'Average Pooling': "rgba(163, 171, 206, 0.65)"
+			'Convolution': "#20C6FE",
+			'Deconvolution': "#00394c",
+			'Max Pooling': "#0F7BA3",
+			'Average Pooling': "#042E3B"
 		},
 		"RNN":{
-			'LSTM': "rgba(212, 80, 135, 0.65)",
-			'GRU': "rgba(249, 93, 106, 0.65)",
-			'BiRNN': "rgba(249, 93, 106, 0.65)"
+			'LSTM': "#D48E9C",
+			'GRU': "#C46677",
+			'BiRNN': "#912C0E",
+			'RNN': "#B43F56",
+			'CRF': "#97293E",
+			'Attention': "#6E202F"
+		},
+		"DNN": {
+			'Input': "#D8C28E",
+			'Dense': "#C9AB66",
+			'Flatten': "#179D3E",
+			'Dropout': "#10682A"
 		},
 		"Other": {
-			'Input': "rgba(76, 18, 1, 0.65)",
-			'Dense': "rgba(176, 43, 2, 0.65)",
-			'Flatten': "rgba(252, 81, 28, 0.65)",
-			'Dropout': "rgba(18, 109, 52, 0.65)",
-			'Attention': "rgba(152, 231, 49, 0.65)",
-			'Cross Entropy': "rgba(65, 39, 89, 0.65)",
-			'Optimizer': "rgba(91, 54, 125, 0.65)"					
+			'Embedding': "#FC333D",
+			'Normalization': "#DD0005",
+			'Optimizer': "#6B0001"				
 		},
 		"Activate": {
-			'ReLu': "rgba(255, 166, 1, 0.65)",
-			'Sigmoid': "rgba(255, 124, 1, 0.65)",
-			'Softmax': "rgba(255, 192, 1, 0.65)"
+			'ReLu': "#FFFF17",
+			'Sigmoid': "#FFFF6D",
+			'Softmax': "#DFE509"
+		},
+		"Loss": {
+			'Cross Entropy': "#FC20FF",
+			'CTC': "#DD00DF",
+			'L2': "#A100A3",
+			'MSE': "#6B006C"
 		}
 	};
 	var node_color = {};

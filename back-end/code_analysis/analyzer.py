@@ -35,11 +35,14 @@ class traverse_dic():
 			                             'args': ['inputs', 'num_outputs', 'kernel_size', 'strides',
 			                                      'padding']},
 			        'tf.keras.layers.Conv1D': {'layer': 'Convolution', 'args': ['num_outputs', 'kernel_size']},
+			        'tf.keras.layers.Conv2D': {'layer': 'Convolution', 'args': ['filters', 'kernel_size']},
 			        'tf.layers.conv2d': {'layer': 'Convolution',
 			                             'args': ['inputs', 'num_outputs', 'kernel_size', 'strides',
 			                                      'padding']},
 			        'tf.contrib.slim.conv2d': {'layer': 'Convolution',
 			                                   'args': ['inputs', 'num_outputs', 'kernel_size']},
+			        'tf.nn.conv2d_transpose': {'layer': 'Deconvolution',
+			                                   'args': ['input', 'filters', 'output_shape', 'strides']},
 			        'tf.keras.layers.GlobalMaxPooling1D': {'layer': 'Max Pooling', 'args': []},
 			        'tf.keras.layers.MaxPool2D': {'layer': 'Max Pooling',
 			                                      'args': ['pool_size', 'strides', 'padding']},
@@ -74,7 +77,8 @@ class traverse_dic():
 			         },
             'gru': {'tf.contrib.rnn.GRUCell': {'layer': 'GRU', 'args': ['num_units']}
             },
-			'crf': {'tf.contrib.crf.crf_log_likelihood': {'layer': 'CRF', 'args': ['inputs','tag_indices','sequence_lengths']}}
+			'crf': {'tf.contrib.crf.crf_log_likelihood': {'layer': 'CRF', 'args': ['inputs','tag_indices','sequence_lengths']}},
+			'embedding': {"tf.nn.embedding_lookup": {'layer': 'Embedding', 'args':['params', 'ids']}}
 		},
 			# cnn
 			# rnn
@@ -91,7 +95,16 @@ class traverse_dic():
 			'loss': {'cross entropy': {
 				'tf.nn.softmax_cross_entropy_with_logits': {'layer': 'Cross Entropy', 'args': []},
 				'tf.nn.sparse_softmax_cross_entropy_with_logits': {'layer': 'Cross Entropy', 'args': []}
-			}
+				},
+				'ctc': {
+					"tf.nn.ctc_loss": {'layer': 'CTC', 'args': ['labels', 'logits', 'label_length', 'logit_length']}
+				},
+				'l2': {
+					"tf.nn.l2_loss": {'layer': 'L2', 'args': ['t']}
+				},
+				'MSE': {
+					'tf.keras.losses.MSE': {'layer': 'MSE', 'args': []}
+				}
 			},
 			'tricks': {'attention': {'tf.keras.layers.Attention': {'layer': 'Attention', 'args': []}
 			                         },
@@ -101,21 +114,28 @@ class traverse_dic():
 			                       'tf.contrib.layers.dropout': {'layer': 'Dropout', 'args': ['inputs']},
 			                       'tf.contrib.rnn.DropoutWrapper': {'layer': 'Dropout', 'args': ['cell']}
 			                       },
-			           'optimizer': {'tf.train.AdamOptimizer': {'layer': 'Optimizer', 'args': []}
+			           'optimizer': {'tf.train.AdamOptimizer': {'layer': 'Optimizer', 'args': []},
+			                         'tf.keras.optimizers.Adam': {'layer': 'Optimizer', 'args': []}
 			                         },
 			           "normalization": {"tf.nn.batch_normalization": {'layer': 'Normalization', 'args': ['x']}}
 			           }
 		}
 		self.parameters = {'lr': 'learning rate',
 		                   'learning_rate': 'learning rate',
+		                   'LEARNING_RATE': 'learning rate',
 		                   'batch': 'batch size',
 		                   'batch_size': 'batch size',
                            'BATCH_SIZE': 'batch size',
 		                   'epochs': 'epochs',
 		                   'epoch': 'epochs',
+		                   'EPOCHS': 'epochs',
 		                   'num_epochs': 'epochs',
                            'DROPOUT_RATE': 'dropout rate',
-		                   'decay_rate': 'decay rate'}
+		                   'decay_rate': 'decay rate',
+		                   'LR_DECAY_RATE': 'decay rate',
+		                   'DECAY_RATE': 'decay rate',
+		                   "momentum": 'momentum',
+		                   'MOMENTUM': 'momentum'}
 		self.net_li = []
 		for cat in self.net_type.keys():
 			for type in self.net_type[cat]:
