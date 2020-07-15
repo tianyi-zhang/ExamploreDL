@@ -225,7 +225,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 		.attr("font-family", "sans-serif")
 		.attr("font-size", 15)
 		.attr("font-weight", "100")
-		.attr("fill", "#505050")
+		.attr("fill", "#d2dfde")
 		.selectAll("text")
 		.data(newNodes)
 		.join("text")

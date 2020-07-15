@@ -21901,7 +21901,7 @@
         "file_name": "vgg.py",
         "type": "vgg16,",
         "hpyerparameters": {
-            "learning rate": 1e-5,
+            "learning rate": 1e-05,
             "decay rate": 0.0005
         },
         "num_layers": 22,
@@ -22133,6 +22133,4567 @@
                     "logits": ""
                 },
                 "begin": 43
+            }
+        }
+    },
+    "31": {
+        "id": "31",
+        "Project_Name": "CRNN_Tensorflow",
+        "url": "https://github.com/MaybeShewill-CV/CRNN_Tensorflow",
+        "file_name": "crnn_net.py",
+        "type": "CRNN,",
+        "hpyerparameters": {
+            "learning rate": 0.01,
+            "decay rate": 0.1,
+            "momentum": 0.9,
+            "epochs": 2000000,
+            "batch size": 32
+        },
+        "num_layers": 59,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": 1,
+                    "name": "conv",
+                    "padding": "SAME"
+                },
+                "begin": 48
+            },
+            "layer1": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 49
+            },
+            "layer2": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 50
+            },
+            "layer3": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": 2,
+                    "strides": 2
+                },
+                "begin": 51
+            },
+            "layer4": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": 1,
+                    "name": "conv",
+                    "padding": "SAME"
+                },
+                "begin": 48
+            },
+            "layer5": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 49
+            },
+            "layer6": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 50
+            },
+            "layer7": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": 2,
+                    "strides": 2
+                },
+                "begin": 51
+            },
+            "layer8": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": 1,
+                    "name": "conv",
+                    "padding": "SAME"
+                },
+                "begin": 63
+            },
+            "layer9": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 64
+            },
+            "layer10": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 65
+            },
+            "layer11": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": 1,
+                    "name": "conv",
+                    "padding": "SAME"
+                },
+                "begin": 66
+            },
+            "layer12": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 67
+            },
+            "layer13": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 68
+            },
+            "layer14": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": [
+                        2,
+                        1
+                    ],
+                    "strides": [
+                        2,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "max_pool4"
+                },
+                "begin": 69
+            },
+            "layer15": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": 1,
+                    "name": "conv",
+                    "padding": "SAME"
+                },
+                "begin": 70
+            },
+            "layer16": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 71
+            },
+            "layer17": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 72
+            },
+            "layer18": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": 1,
+                    "name": "conv",
+                    "padding": "SAME"
+                },
+                "begin": 73
+            },
+            "layer19": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 74
+            },
+            "layer20": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 75
+            },
+            "layer21": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": [
+                        2,
+                        1
+                    ],
+                    "strides": [
+                        2,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "max_pool6"
+                },
+                "begin": 76
+            },
+            "layer22": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": "",
+                    "name": "conv",
+                    "padding": "SAME"
+                },
+                "begin": 77
+            },
+            "layer23": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 78
+            },
+            "layer24": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 79
+            },
+            "layer25": {
+                "type": "Dropout",
+                "func": "tf.nn.dropout",
+                "args": {
+                    "x": "",
+                    "keep_prob": 0.5
+                },
+                "begin": 99
+            },
+            "layer26": {
+                "type": "Softmax",
+                "func": "tf.nn.softmax",
+                "args": {
+                    "logits": ""
+                },
+                "begin": 100
+            },
+            "layer27": {
+                "type": "Dropout",
+                "func": "tf.nn.dropout",
+                "args": {
+                    "x": "",
+                    "keep_prob": 0.5
+                },
+                "begin": 99
+            },
+            "layer28": {
+                "type": "Softmax",
+                "func": "tf.nn.softmax",
+                "args": {
+                    "logits": ""
+                },
+                "begin": 100
+            },
+            "layer29": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": 1,
+                    "name": "conv",
+                    "padding": "SAME"
+                },
+                "begin": 48
+            },
+            "layer30": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 49
+            },
+            "layer31": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 50
+            },
+            "layer32": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": 2,
+                    "strides": 2
+                },
+                "begin": 51
+            },
+            "layer33": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": 1,
+                    "name": "conv",
+                    "padding": "SAME"
+                },
+                "begin": 48
+            },
+            "layer34": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 49
+            },
+            "layer35": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 50
+            },
+            "layer36": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": 2,
+                    "strides": 2
+                },
+                "begin": 51
+            },
+            "layer37": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": 1,
+                    "name": "conv",
+                    "padding": "SAME"
+                },
+                "begin": 63
+            },
+            "layer38": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 64
+            },
+            "layer39": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 65
+            },
+            "layer40": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": 1,
+                    "name": "conv",
+                    "padding": "SAME"
+                },
+                "begin": 66
+            },
+            "layer41": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 67
+            },
+            "layer42": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 68
+            },
+            "layer43": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": [
+                        2,
+                        1
+                    ],
+                    "strides": [
+                        2,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "max_pool4"
+                },
+                "begin": 69
+            },
+            "layer44": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": 1,
+                    "name": "conv",
+                    "padding": "SAME"
+                },
+                "begin": 70
+            },
+            "layer45": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 71
+            },
+            "layer46": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 72
+            },
+            "layer47": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": 1,
+                    "name": "conv",
+                    "padding": "SAME"
+                },
+                "begin": 73
+            },
+            "layer48": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 74
+            },
+            "layer49": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 75
+            },
+            "layer50": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": [
+                        2,
+                        1
+                    ],
+                    "strides": [
+                        2,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "max_pool6"
+                },
+                "begin": 76
+            },
+            "layer51": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": "",
+                    "name": "conv",
+                    "padding": "SAME"
+                },
+                "begin": 77
+            },
+            "layer52": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 78
+            },
+            "layer53": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 79
+            },
+            "layer54": {
+                "type": "Dropout",
+                "func": "tf.nn.dropout",
+                "args": {
+                    "x": "",
+                    "keep_prob": 0.5
+                },
+                "begin": 99
+            },
+            "layer55": {
+                "type": "Softmax",
+                "func": "tf.nn.softmax",
+                "args": {
+                    "logits": ""
+                },
+                "begin": 100
+            },
+            "layer56": {
+                "type": "Dropout",
+                "func": "tf.nn.dropout",
+                "args": {
+                    "x": "",
+                    "keep_prob": 0.5
+                },
+                "begin": 99
+            },
+            "layer57": {
+                "type": "Softmax",
+                "func": "tf.nn.softmax",
+                "args": {
+                    "logits": ""
+                },
+                "begin": 100
+            },
+            "layer58": {
+                "type": "ctc",
+                "func": "tf.nn.ctc_loss",
+                "args": {
+                    "labels": "labels",
+                    "inputs": {
+                        "func": "ShadowNet.inference",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 129
+                    }
+                },
+                "begin": 132
+            }
+        }
+    },
+    "32": {
+        "id": "32",
+        "Project_Name": "Deep-Alignment-Network-A-convolutional-neural-network-for-robust-face-alignment",
+        "url": "https://github.com/zjjMaiMai/Deep-Alignment-Network-A-convolutional-neural-network-for-robust-face-alignment",
+        "file_name": "dan_model.py",
+        "type": "DAN,",
+        "hpyerparameters": {
+            "batch size": 128
+        },
+        "num_layers": 53,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 64,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "same",
+                    "data_format": "data_format"
+                },
+                "begin": 28
+            },
+            "layer1": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 29
+            },
+            "layer2": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 2,
+                    "strides": 2
+                },
+                "begin": 31
+            },
+            "layer3": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 64,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "same",
+                    "data_format": "data_format"
+                },
+                "begin": 28
+            },
+            "layer4": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 29
+            },
+            "layer5": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 2,
+                    "strides": 2
+                },
+                "begin": 31
+            },
+            "layer6": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "same",
+                    "data_format": "data_format"
+                },
+                "begin": 34
+            },
+            "layer7": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 35
+            },
+            "layer8": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 2,
+                    "strides": 2
+                },
+                "begin": 37
+            },
+            "layer9": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "same",
+                    "data_format": "data_format"
+                },
+                "begin": 34
+            },
+            "layer10": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 35
+            },
+            "layer11": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 2,
+                    "strides": 2
+                },
+                "begin": 37
+            },
+            "layer12": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "same",
+                    "data_format": "data_format"
+                },
+                "begin": 40
+            },
+            "layer13": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 41
+            },
+            "layer14": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 2,
+                    "strides": 2
+                },
+                "begin": 43
+            },
+            "layer15": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "same",
+                    "data_format": "data_format"
+                },
+                "begin": 40
+            },
+            "layer16": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 41
+            },
+            "layer17": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 2,
+                    "strides": 2
+                },
+                "begin": 43
+            },
+            "layer18": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "same",
+                    "data_format": "data_format"
+                },
+                "begin": 46
+            },
+            "layer19": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 47
+            },
+            "layer20": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 2,
+                    "strides": 2
+                },
+                "begin": 49
+            },
+            "layer21": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "same",
+                    "data_format": "data_format"
+                },
+                "begin": 46
+            },
+            "layer22": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 47
+            },
+            "layer23": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 2,
+                    "strides": 2
+                },
+                "begin": 49
+            },
+            "layer24": {
+                "type": "Dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "inputs": "",
+                    "units": 256,
+                    "activation": "tf.nn.relu"
+                },
+                "begin": 55
+            },
+            "layer25": {
+                "type": "Dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "inputs": "",
+                    "activation": null
+                },
+                "begin": 58
+            },
+            "layer26": {
+                "type": "Dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "inputs": "",
+                    "activation": "tf.nn.relu"
+                },
+                "begin": 60
+            },
+            "layer27": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 64,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "same",
+                    "data_format": "data_format"
+                },
+                "begin": 65
+            },
+            "layer28": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 66
+            },
+            "layer29": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 2,
+                    "strides": 2
+                },
+                "begin": 68
+            },
+            "layer30": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 64,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "same",
+                    "data_format": "data_format"
+                },
+                "begin": 65
+            },
+            "layer31": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 66
+            },
+            "layer32": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 2,
+                    "strides": 2
+                },
+                "begin": 68
+            },
+            "layer33": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "same",
+                    "data_format": "data_format"
+                },
+                "begin": 71
+            },
+            "layer34": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 72
+            },
+            "layer35": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 2,
+                    "strides": 2
+                },
+                "begin": 74
+            },
+            "layer36": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "same",
+                    "data_format": "data_format"
+                },
+                "begin": 71
+            },
+            "layer37": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 72
+            },
+            "layer38": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 2,
+                    "strides": 2
+                },
+                "begin": 74
+            },
+            "layer39": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "same",
+                    "data_format": "data_format"
+                },
+                "begin": 77
+            },
+            "layer40": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 78
+            },
+            "layer41": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 2,
+                    "strides": 2
+                },
+                "begin": 80
+            },
+            "layer42": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "same",
+                    "data_format": "data_format"
+                },
+                "begin": 77
+            },
+            "layer43": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 78
+            },
+            "layer44": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 2,
+                    "strides": 2
+                },
+                "begin": 80
+            },
+            "layer45": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "same",
+                    "data_format": "data_format"
+                },
+                "begin": 83
+            },
+            "layer46": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 84
+            },
+            "layer47": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 2,
+                    "strides": 2
+                },
+                "begin": 86
+            },
+            "layer48": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "same",
+                    "data_format": "data_format"
+                },
+                "begin": 83
+            },
+            "layer49": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 84
+            },
+            "layer50": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 2,
+                    "strides": 2
+                },
+                "begin": 86
+            },
+            "layer51": {
+                "type": "Dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "inputs": "",
+                    "units": 256,
+                    "activation": "tf.nn.relu"
+                },
+                "begin": 91
+            },
+            "layer52": {
+                "type": "Dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "inputs": "",
+                    "activation": null
+                },
+                "begin": 94
+            }
+        }
+    },
+    "33": {
+        "id": "33",
+        "Project_Name": "Tiny_Faces_in_Tensorflow",
+        "url": "https://github.com/cydonia999/Tiny_Faces_in_Tensorflow",
+        "file_name": "tiny_face_model.py",
+        "type": "ResNet,",
+        "hpyerparameters": {},
+        "num_layers": 283,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        2,
+                        2,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 39
+            },
+            "layer1": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 41
+            },
+            "layer2": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 43
+            },
+            "layer3": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": [
+                        1,
+                        3,
+                        3,
+                        1
+                    ],
+                    "strides": [
+                        1,
+                        2,
+                        2,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 45
+            },
+            "layer4": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        2,
+                        2,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 47
+            },
+            "layer5": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 49
+            },
+            "layer6": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer7": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer8": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer9": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer10": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer11": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer12": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer13": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer14": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer15": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer16": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer17": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer18": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer19": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer20": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer21": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer22": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer23": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer24": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer25": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer26": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer27": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer28": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer29": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer30": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer31": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer32": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer33": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        2,
+                        2,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 55
+            },
+            "layer34": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 57
+            },
+            "layer35": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer36": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer37": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer38": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer39": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer40": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer41": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer42": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer43": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer44": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer45": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer46": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer47": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer48": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer49": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer50": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer51": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer52": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer53": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer54": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer55": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer56": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer57": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer58": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer59": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer60": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer61": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer62": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer63": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer64": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer65": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer66": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer67": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer68": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer69": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer70": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer71": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        2,
+                        2,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 64
+            },
+            "layer72": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 66
+            },
+            "layer73": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer74": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer75": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer76": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer77": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer78": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer79": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer80": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer81": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer82": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer83": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer84": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer85": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer86": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer87": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer88": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer89": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer90": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer91": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer92": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer93": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer94": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer95": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer96": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer97": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer98": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer99": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer100": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer101": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer102": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer103": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer104": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer105": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer106": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer107": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer108": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer109": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer110": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer111": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer112": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer113": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer114": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer115": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer116": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer117": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer118": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer119": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer120": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer121": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer122": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer123": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer124": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer125": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer126": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer127": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer128": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer129": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer130": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer131": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer132": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer133": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer134": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer135": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer136": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer137": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer138": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer139": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer140": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer141": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer142": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer143": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer144": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer145": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer146": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer147": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer148": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer149": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer150": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer151": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer152": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer153": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer154": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer155": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer156": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer157": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer158": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer159": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer160": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer161": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer162": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer163": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer164": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer165": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer166": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer167": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer168": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer169": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer170": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer171": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer172": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer173": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer174": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer175": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer176": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer177": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer178": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer179": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer180": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer181": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer182": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer183": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer184": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer185": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer186": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer187": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer188": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer189": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer190": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer191": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer192": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer193": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer194": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer195": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer196": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer197": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer198": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer199": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer200": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer201": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer202": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer203": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer204": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer205": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer206": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer207": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer208": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer209": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer210": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer211": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer212": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer213": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer214": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer215": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer216": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer217": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer218": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer219": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer220": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer221": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer222": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer223": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer224": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer225": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer226": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer227": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer228": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer229": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer230": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer231": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer232": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer233": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer234": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer235": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer236": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer237": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer238": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer239": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer240": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer241": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer242": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer243": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer244": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer245": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer246": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer247": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer248": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer249": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer250": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer251": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer252": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer253": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer254": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer255": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer256": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer257": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer258": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer259": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer260": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer261": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer262": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer263": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer264": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer265": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer266": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer267": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer268": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer269": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer270": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer271": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 17
+            },
+            "layer272": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 19
+            },
+            "layer273": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 21
+            },
+            "layer274": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 23
+            },
+            "layer275": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 25
+            },
+            "layer276": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 27
+            },
+            "layer277": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 29
+            },
+            "layer278": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": "",
+                    "variance_epsilon": "eps"
+                },
+                "begin": 31
+            },
+            "layer279": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 33
+            },
+            "layer280": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        2,
+                        2,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 74
+            },
+            "layer281": {
+                "type": "Deconvolution",
+                "func": "tf.nn.conv2d_transpose",
+                "args": {
+                    "input": "",
+                    "filters": "",
+                    "output_shape": "",
+                    "strides": [
+                        1,
+                        2,
+                        2,
+                        1
+                    ],
+                    "padding": "SAME"
+                },
+                "begin": 76
+            },
+            "layer282": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        2,
+                        2,
+                        1
+                    ],
+                    "padding": "VALID"
+                },
+                "begin": 78
+            }
+        }
+    },
+    "34": {
+        "id": "34",
+        "Project_Name": "Chinese-Text-Classification",
+        "url": "https://github.com/fendouai/Chinese-Text-Classification",
+        "file_name": "text_cnn.py",
+        "type": "CNN,",
+        "hpyerparameters": {
+            "batch size": 64,
+            "epochs": 200,
+            "dropout rate": 1.0,
+            "learning rate": 0.001
+        },
+        "num_layers": 13,
+        "layers": {
+            "layer0": {
+                "type": "Embedding",
+                "func": "tf.nn.embedding_lookup",
+                "args": {
+                    "params": "",
+                    "ids": ""
+                },
+                "begin": 24
+            },
+            "layer1": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "conv"
+                },
+                "begin": 32
+            },
+            "layer2": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": "",
+                    "name": "relu"
+                },
+                "begin": 34
+            },
+            "layer3": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "pool"
+                },
+                "begin": 36
+            },
+            "layer4": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "conv"
+                },
+                "begin": 32
+            },
+            "layer5": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": "",
+                    "name": "relu"
+                },
+                "begin": 34
+            },
+            "layer6": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "pool"
+                },
+                "begin": 36
+            },
+            "layer7": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "conv"
+                },
+                "begin": 32
+            },
+            "layer8": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": "",
+                    "name": "relu"
+                },
+                "begin": 34
+            },
+            "layer9": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "pool"
+                },
+                "begin": 36
+            },
+            "layer10": {
+                "type": "Dropout",
+                "func": "tf.nn.dropout",
+                "args": {
+                    "x": "",
+                    "rate": ""
+                },
+                "begin": 45
+            },
+            "layer11": {
+                "type": "L2",
+                "func": "tf.nn.l2_loss",
+                "args": {
+                    "t": ""
+                },
+                "begin": 50
+            },
+            "layer12": {
+                "type": "Cross Entropy",
+                "func": "tf.nn.softmax_cross_entropy_with_logits",
+                "args": {
+                    "logits": "self.scores",
+                    "labels": "self.input_y"
+                },
+                "begin": 55
+            }
+        }
+    },
+    "35": {
+        "id": "35",
+        "Project_Name": "Direct-Future-Prediction-Keras",
+        "url": "https://github.com/flyyufelix/Direct-Future-Prediction-Keras",
+        "file_name": "networks.py",
+        "type": "DFP,",
+        "hpyerparameters": {
+            "learning rate": 1e-05,
+            "batch size": 32
+        },
+        "num_layers": 17,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": 32,
+                    "kernel_size": 8,
+                    "activation": "relu"
+                },
+                "begin": 34
+            },
+            "layer1": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": 64,
+                    "kernel_size": 4,
+                    "activation": "relu"
+                },
+                "begin": 35
+            },
+            "layer2": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": 64,
+                    "kernel_size": 3,
+                    "activation": "relu"
+                },
+                "begin": 36
+            },
+            "layer3": {
+                "type": "Flatten",
+                "func": "tf.keras.layers.Flatten",
+                "args": {},
+                "begin": 37
+            },
+            "layer4": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 512,
+                    "activation": "relu"
+                },
+                "begin": 38
+            },
+            "layer5": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 128,
+                    "activation": "relu"
+                },
+                "begin": 41
+            },
+            "layer6": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 128,
+                    "activation": "relu"
+                },
+                "begin": 42
+            },
+            "layer7": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 128,
+                    "activation": "relu"
+                },
+                "begin": 43
+            },
+            "layer8": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 128,
+                    "activation": "relu"
+                },
+                "begin": 46
+            },
+            "layer9": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 128,
+                    "activation": "relu"
+                },
+                "begin": 47
+            },
+            "layer10": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 128,
+                    "activation": "relu"
+                },
+                "begin": 48
+            },
+            "layer11": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": "",
+                    "activation": "relu"
+                },
+                "begin": 51
+            },
+            "layer12": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": "",
+                    "activation": "relu"
+                },
+                "begin": 55
+            },
+            "layer13": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": "",
+                    "activation": "relu"
+                },
+                "begin": 55
+            },
+            "layer14": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": "",
+                    "activation": "relu"
+                },
+                "begin": 55
+            },
+            "layer15": {
+                "type": "Optimizer",
+                "func": "tf.keras.optimizers.Adam",
+                "args": {
+                    "lr": "learning_rate"
+                },
+                "begin": 57
+            },
+            "layer16": {
+                "type": "MSE",
+                "func": "tf.keras.losses.MSE",
+                "args": {},
+                "begin": 59
             }
         }
     }
