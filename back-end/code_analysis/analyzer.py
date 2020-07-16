@@ -43,6 +43,8 @@ class traverse_dic():
 			                                   'args': ['inputs', 'num_outputs', 'kernel_size']},
 			        'tf.nn.conv2d_transpose': {'layer': 'Deconvolution',
 			                                   'args': ['input', 'filters', 'output_shape', 'strides']},
+			        'tf.keras.layers.Deconvolution3D': {'layer': 'Deconvolution', 'args': ['filters', 'kernel_size']},
+			        'tf.keras.layers.Conv3D': {'layer': 'Convolution', 'args': ['filters', 'kernel_size']},
 			        'tf.keras.layers.GlobalMaxPooling1D': {'layer': 'Max Pooling', 'args': []},
 			        'tf.keras.layers.MaxPool2D': {'layer': 'Max Pooling',
 			                                      'args': ['pool_size', 'strides', 'padding']},
@@ -52,6 +54,8 @@ class traverse_dic():
 			                                    'args': ['inputs', 'pool_size', 'strides']},
 			        'tf.nn.max_pool': {'layer': 'Max Pooling',
 			                           'args': ['input', 'pool_size', 'strides', 'padding']},
+			        'tf.keras.layers.MaxPooling3D': {'layer': 'Max Pooling',
+			                                      'args': ['pool_size', 'strides', 'padding']},
 			        'tf.layers.average_pooling2d': {'layer': 'Average Pooling',
 			                                        'args': ['input', 'pool_size',
 			                                                 'strides']},
@@ -95,7 +99,9 @@ class traverse_dic():
 			# activation function
 			'loss': {'cross entropy': {
 				'tf.nn.softmax_cross_entropy_with_logits': {'layer': 'Cross Entropy', 'args': []},
-				'tf.nn.sparse_softmax_cross_entropy_with_logits': {'layer': 'Cross Entropy', 'args': []}
+				'tf.nn.sigmoid_cross_entropy_with_logits': {'layer': 'Cross Entropy', 'args': []},
+				'tf.nn.sparse_softmax_cross_entropy_with_logits': {'layer': 'Cross Entropy', 'args': []},
+				'tf.keras.losses.categorical_crossentropy': {'layer': 'Cross Entropy', 'args': []}
 				},
 				'ctc': {
 					"tf.nn.ctc_loss": {'layer': 'CTC', 'args': ['labels', 'logits', 'label_length', 'logit_length']}
@@ -116,7 +122,8 @@ class traverse_dic():
 			                       'tf.contrib.rnn.DropoutWrapper': {'layer': 'Dropout', 'args': ['cell']}
 			                       },
 			           'optimizer': {'tf.train.AdamOptimizer': {'layer': 'Optimizer', 'args': []},
-			                         'tf.keras.optimizers.Adam': {'layer': 'Optimizer', 'args': []}
+			                         'tf.keras.optimizers.Adam': {'layer': 'Optimizer', 'args': []},
+			                         'tf.keras.optimizers.Adadelta': {'layer': 'Optimizer', 'args': []}
 			                         },
 			           "normalization": {"tf.nn.batch_normalization": {'layer': 'Normalization', 'args': ['x']}}
 			           }
@@ -134,6 +141,7 @@ class traverse_dic():
                            'DROPOUT_RATE': 'dropout rate',
 		                   'keep_prob': 'dropout rate',
 		                   'decay_rate': 'decay rate',
+		                   'decay': 'decay rate',
 		                   'LR_DECAY_RATE': 'decay rate',
 		                   'DECAY_RATE': 'decay rate',
 		                   "momentum": 'momentum',

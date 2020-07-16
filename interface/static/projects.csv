@@ -9,37 +9,34 @@
 7,text-classification-cnn-rnn,https://github.com/gaussic/text-classification-cnn-rnn,rnn_model.py,text_classification,THUCNews,RNN-1,3012,1300
 8,text-classification-cnn-rnn,https://github.com/gaussic/text-classification-cnn-rnn,rnn_model.py,text_classification,THUCNews,RNN-2,3012,1300
 9,zh-NER-TF,https://github.com/Determined22/zh-NER-TF,model.py,ner,text,RNN,1791,825
-10,ResNeXt-Tensorflow,https://github.com/taki0112/ResNeXt-Tensorflow,ResNeXt.py,image_classification,Cifar-10,"CNN, RNN",140,54
-11,keras-text,https://github.com/raghakot/keras-text,sequence_encoders.py,text_classification,text,RNN-1,421,99
-12,keras-text,https://github.com/raghakot/keras-text,sequence_encoders.py,text_classification,text,"CNN, RNN-2",421,99
-13,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",CNN-1,149,32
-14,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",CNN-2,149,32
-15,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",CNN-3,149,32
-16,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",CNN-4,149,32
-17,tensorflow-hangul-recognition,https://github.com/IBM/tensorflow-hangul-recognition,hangul_model.py,text_recognition,text,CNN-5,178,113
-18,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",RNN,230,87
-19,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech","RNN, CTC-1",230,87
-20,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech","RNN, CTC-2",230,87
-21,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech","RNN, CTC-3",230,87
-22,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech","RNN, CTC-4",230,87
-23,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech","RNN, CTC-5",230,87
-24,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech","RNN, CTC-6",230,87
-25,NER,https://github.com/shiyybua/NER,rnn.py,ner,text,"RCRF, RNN",891,376
-26,NoiseMaker,https://github.com/HaloOrangeWang/NoiseMaker,LstmModel.py,audio,midi,LSTM,166,51
-27,SENet-Tensorflow,https://github.com/taki0112/SENet-Tensorflow,SE_ResNeXt.py,image_classification,"Cifar-10, ImageNet",ResNeXt,636,239
-28,SENet-Tensorflow,https://github.com/taki0112/SENet-Tensorflow,SE_Inception_v4.py,image_classification,"Cifar-10, ImageNet",Inception_v4,636,239
-29,SENet-Tensorflow,https://github.com/taki0112/SENet-Tensorflow,SE_Inception_resnet_v2.py,image_classification,"Cifar-10, ImageNet",Inception_resnet_v2,636,239
-30,text-detection-ctpn,https://github.com/eragonruan/text-detection-ctpn,vgg.py,text_detection,"text, image",VGG,2934,1300
-31,CRNN_Tensorflow,https://github.com/MaybeShewill-CV/CRNN_Tensorflow,crnn_net.py,text_recognition,synth90k,CRNN,857,380
-32,Deep-Alignment-Network-A-convolutional-neural-network-for-robust-face-alignment,https://github.com/zjjMaiMai/Deep-Alignment-Network-A-convolutional-neural-network-for-robust-face-alignment,dan_model.py,object_detection,image,DAN,212,69
-33,Tiny_Faces_in_Tensorflow,https://github.com/cydonia999/Tiny_Faces_in_Tensorflow,tiny_face_model.py,object_detection,image,ResNet,354,128
-34,Chinese-Text-Classification,https://github.com/fendouai/Chinese-Text-Classification,text_cnn.py,text_classification,text,CNN,280,93
-35,Direct-Future-Prediction-Keras,https://github.com/flyyufelix/Direct-Future-Prediction-Keras,networks.py,"reinforcement learning, ner",VizDoom,DFP,102,22
-36,dc_tts,https://github.com/Kyubyong/dc_tts,networks.py,speech_recognition,"LJ Speech, KSS",SSRN,897,292
-37,Age-Gender-Estimate-TF,https://github.com/BoyuanJiang/Age-Gender-Estimate-TF,inception_resnet_v1.py,object_recognition,"image, wiki, IMDB",Inception_resnet_v1,492,160
-38,Age-Gender-Estimate-TF,https://github.com/BoyuanJiang/Age-Gender-Estimate-TF,resnet_model.py,object_recognition,Cifar-10,ResNet-1,492,160
-39,Age-Gender-Estimate-TF,https://github.com/BoyuanJiang/Age-Gender-Estimate-TF,resnet_model.py,object_recognition,Cifar-10,ResNet-2,492,160
-40,Age-Gender-Estimate-TF,https://github.com/BoyuanJiang/Age-Gender-Estimate-TF,resnet_model.py,object_recognition,ImageNet,ResNet-3,492,160
-41,text-cnn-tensorflow,https://github.com/DongjunLee/text-cnn-tensorflow,text_cnn.py,"sentiment_analysis, text_classification",kaggle movie review,CNN,221,65
-42,PassGAN,https://github.com/brannondorsey/PassGAN,models.py,prediction,password,GAN,649,136
-43,chemical_vae,https://github.com/aspuru-guzik-group/chemical_vae,models.py,prediction,chem,"VAE, RNN",220,92
+10,keras-text,https://github.com/raghakot/keras-text,sequence_encoders.py,text_classification,text,RNN-1,421,99
+11,keras-text,https://github.com/raghakot/keras-text,sequence_encoders.py,text_classification,text,"CNN, RNN-2",421,99
+12,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",CNN-1,149,32
+13,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",CNN-2,149,32
+14,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",CNN-3,149,32
+15,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",CNN-4,149,32
+16,tensorflow-hangul-recognition,https://github.com/IBM/tensorflow-hangul-recognition,hangul_model.py,text_recognition,text,CNN-5,178,113
+17,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",CTC,230,87
+18,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",CTC-1,230,87
+19,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",CTC-2,230,87
+20,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",CTC-3,230,87
+21,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",CTC-4,230,87
+22,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",CTC-5,230,87
+23,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",CTC-6,230,87
+24,NER,https://github.com/shiyybua/NER,rnn.py,ner,text,"BiRNN, CRF",891,376
+25,NoiseMaker,https://github.com/HaloOrangeWang/NoiseMaker,LstmModel.py,audio,midi,LSTM,166,51
+26,text-detection-ctpn,https://github.com/eragonruan/text-detection-ctpn,vgg.py,text_detection,"text, image",VGG,2934,1300
+27,CRNN_Tensorflow,https://github.com/MaybeShewill-CV/CRNN_Tensorflow,crnn_net.py,text_recognition,synth90k,CRNN,857,380
+28,Deep-Alignment-Network-A-convolutional-neural-network-for-robust-face-alignment,https://github.com/zjjMaiMai/Deep-Alignment-Network-A-convolutional-neural-network-for-robust-face-alignment,dan_model.py,object_detection,image,DAN,212,69
+29,Chinese-Text-Classification,https://github.com/fendouai/Chinese-Text-Classification,text_cnn.py,text_classification,text,CNN,280,93
+30,Direct-Future-Prediction-Keras,https://github.com/flyyufelix/Direct-Future-Prediction-Keras,networks.py,"reinforcement learning, ner",VizDoom,DFP,102,22
+31,dc_tts,https://github.com/Kyubyong/dc_tts,networks.py,speech_recognition,"LJ Speech, KSS",SSRN,897,292
+32,text-cnn-tensorflow,https://github.com/DongjunLee/text-cnn-tensorflow,text_cnn.py,"sentiment_analysis, text_classification",kaggle movie review,CNN,221,65
+33,PassGAN,https://github.com/brannondorsey/PassGAN,models.py,prediction,password,GAN,649,136
+34,chemical_vae,https://github.com/aspuru-guzik-group/chemical_vae,models.py,prediction,chem,"VAE, RNN",220,92
+35,cnn-text-classification-tf,https://github.com/dennybritz/cnn-text-classification-tf,text_cnn.py,text_classification,"MPQA, TREC",CNN,5240,2700
+36,CNNGestureRecognizer,https://github.com/asingh33/CNNGestureRecognizer,gestureCNN.py,gesture_recognition,image,CNN,720,301
+37,fast-style-transfer,https://github.com/lengstrom/fast-style-transfer,vgg.py,style_transfer,"video, image",VGG,9251,2300
+38,cnn_captcha,https://github.com/nickliqian/cnn_captcha,network.py,image_recognition,image,CNN,1586,502
+39,3DUnetCNN,https://github.com/ellisdg/3DUnetCNN/blob/master/unet3d/model/unet.py#L111,unet.py,volumetric_segmentation,BRATS,"CNN, UNet",1086,503
+40,PoseCNN,https://github.com/yuxng/PoseCNN,vgg16.py,pose_estimation,YCB-Video,VGG,491,189
