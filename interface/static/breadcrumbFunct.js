@@ -14,13 +14,13 @@ var addRecord = function(colorKey, textContent, func) {
 	textContent = textContent.replace("_", " ");
 	var colorDic = {
 			'Convolution': "#20C6FE",
-			'Deconvolution': "#00394c",
+			'Deconvolution': "#4dd2fe",
 			'Max Pooling': "#0F7BA3",
-			'Average Pooling': "#042E3B",
+			'Average Pooling': "#0b5875",
 			//
 			'LSTM': "#D48E9C",
 			'GRU': "#C46677",
-			'BiRNN': "#912C0E",
+			'BiRNN': "#bf596c",
 			'RNN': "#B43F56",
 			'CRF': "#97293E",
 			'Attention': "#6E202F",
@@ -28,20 +28,22 @@ var addRecord = function(colorKey, textContent, func) {
 			'Input': "#D8C28E",
 			'Dense': "#C9AB66",
 			'Flatten': "#179D3E",
-			'Dropout': "#10682A",
+			'Dropout': "#aa883c",
 			//
-			'Embedding': "#FC333D",
+			'Embedding': "#ff1a1f",
 			'Normalization': "#DD0005",
-			'Optimizer': "#6B0001",
+			'Optimizer': "#e60005",
 			//					
 			'ReLu': "#FFFF17",
 			'Sigmoid': "#FFFF6D",
 			'Softmax': "#DFE509",
+			'Linear': "#f7fa84",
+			'tanh': "#f1f622",
 			//
 			'Cross Entropy': "#FC20FF",
-			'CTC': "#DD00DF",
-			'L2': "#A100A3",
-			'MSE': "#6B006C",
+			'CTC': "#fc1aff",
+			'L2': "#e200e6",
+			'MSE': "#b000b3"
 	};
 	if (colorKey !== "") {
 		var addColor = colorKey;

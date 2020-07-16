@@ -9,22 +9,22 @@ function genInfo(idList, nodesData, hyper) {
 	proData = {};
 	for (var i=0; i<idList.length; i++) {
 		var proid = idList[i];
-		if (Object.keys(proData).includes(csvData[proid]['Project_Name'])) {
-			proData[csvData[proid]['Project_Name']]['Models'].push(csvData[proid]['Models']);
-			proData[csvData[proid]['Project_Name']]["id"].push(proid);
-			proData[csvData[proid]['Project_Name']]["nodes"].push(nodesData[proid]);
+		var proName = csvData[proid]['Project_Name'].replaceAll("_", "-");
+		if (Object.keys(proData).includes(proName)) {
+			proData[proName]['Models'].push(csvData[proid]['Models']);
+			proData[proName]["id"].push(proid);
+			proData[proName]["nodes"].push(nodesData[proid]);
 		} else {
-			proData[csvData[proid]['Project_Name']] = {"Models": [csvData[proid]['Models']], "id": [proid], "nodes": [nodesData[proid]]};
-			proData[csvData[proid]['Project_Name']]["Tasks"] = csvData[proid]["Tasks"];
-			proData[csvData[proid]['Project_Name']]["URL"] = csvData[proid]["URL"];
-			proData[csvData[proid]['Project_Name']]["Datasets"] = csvData[proid]["Datasets"];
-			proData[csvData[proid]['Project_Name']]["Stars"] = csvData[proid]["Stars"];
-			proData[csvData[proid]['Project_Name']]["Forks"] = csvData[proid]["Forks"];
+			proData[proName] = {"Models": [csvData[proid]['Models']], "id": [proid], "nodes": [nodesData[proid]]};
+			proData[proName]["Tasks"] = csvData[proid]["Tasks"];
+			proData[proName]["URL"] = csvData[proid]["URL"];
+			proData[proName]["Datasets"] = csvData[proid]["Datasets"];
+			proData[proName]["Stars"] = csvData[proid]["Stars"];
+			proData[proName]["Forks"] = csvData[proid]["Forks"];
 		}
 	}
 
 	for (const key in proData) {
-		
 		createNewDiv(myNode, key, keyList, proData[key], hyper, proData);	
 		
 	}

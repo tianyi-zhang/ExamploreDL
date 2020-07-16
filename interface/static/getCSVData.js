@@ -21,11 +21,10 @@ function classifyRecords(data, tarStr, tarDict) {
 }
 
 function createFilterSvg(barLength, filterDivId, num) {
-	var svg_id = filterDivId.split(" ")[0] + '-svg';
-	console.log(filterDivId);
+	var svg_id = filterDivId + '-svg';
 	d3.select("#"+svg_id).remove();
 
-	var svg = d3.select('#'+filterDivId.split(" ")[0]).append("svg")
+	var svg = d3.select('#'+filterDivId).append("svg")
 		.attr("width", '180')
 		.attr("height", '22')
 		.attr("id", svg_id);
@@ -105,13 +104,9 @@ function createCell(dict, tableTar, pos, boxClassName) {
 		newCell.appendChild(label);
 
 		var newSVGDiv = document.createElement('div');
-		if (key.indexOf('_') >= 0) {
-			newSVGDivId = boxClassName+"-"+key.split("_")[0] + key.split("_")[1];
-		} else {
-			newSVGDivId = boxClassName+"-"+key.replace("!", "");
-		}
-
-		newSVGDiv.id = newSVGDivId.split(" ")[0];
+		newSVGDivId = boxClassName+"-"+key.replace("!", "");
+		newSVGDivId = newSVGDivId.replaceAll(" ", "_")
+		newSVGDiv.id = newSVGDivId;
 		newCellSVGTd.appendChild(newSVGDiv);
 		
 		var barLength = (dict[key].length/maxLength)*150;
