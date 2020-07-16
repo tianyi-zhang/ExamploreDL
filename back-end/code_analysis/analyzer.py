@@ -75,7 +75,8 @@ class traverse_dic():
 			         'tf.contrib.rnn.LSTMCell': {'layer': 'LSTM', 'args': ['num_units']},
 			         'tf.keras.layers.LSTM': {'layer': 'LSTM', 'args': ['num_units']}
 			         },
-            'gru': {'tf.contrib.rnn.GRUCell': {'layer': 'GRU', 'args': ['num_units']}
+            'gru': {'tf.contrib.rnn.GRUCell': {'layer': 'GRU', 'args': ['num_units']},
+                    'tf.keras.layers.GRU': {'layer': 'GRU', 'args': ['num_units']}
             },
 			'crf': {'tf.contrib.crf.crf_log_likelihood': {'layer': 'CRF', 'args': ['inputs','tag_indices','sequence_lengths']}},
 			'embedding': {"tf.nn.embedding_lookup": {'layer': 'Embedding', 'args':['params', 'ids']}}
@@ -131,6 +132,7 @@ class traverse_dic():
 		                   'EPOCHS': 'epochs',
 		                   'num_epochs': 'epochs',
                            'DROPOUT_RATE': 'dropout rate',
+		                   'keep_prob': 'dropout rate',
 		                   'decay_rate': 'decay rate',
 		                   'LR_DECAY_RATE': 'decay rate',
 		                   'DECAY_RATE': 'decay rate',

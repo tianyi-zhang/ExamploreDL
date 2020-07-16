@@ -6299,7 +6299,7 @@
         "Project_Name": "VDCNN",
         "url": "https://github.com/zonetrooper32/VDCNN",
         "file_name": "vdcnn.py",
-        "type": "CNN",
+        "type": "cnn",
         "hyperparameters": {
             "learning rate": 0.01,
             "batch size": 64,
@@ -7405,7 +7405,7 @@
         "Project_Name": "tensorflow-hangul-recognition",
         "url": "https://github.com/IBM/tensorflow-hangul-recognition",
         "file_name": "hangul_model.py",
-        "type": "CNN",
+        "type": "CNN,",
         "hyperparameters": {
             "batch size": 100,
             "epochs": 15,
@@ -7586,7 +7586,7 @@
         "Project_Name": "KerasDeepSpeech",
         "url": "https://github.com/robmsmt/KerasDeepSpeech",
         "file_name": "model.py",
-        "type": "CTC, RNN",
+        "type": "CTC,",
         "hyperparameters": {
             "learning rate": 0.01,
             "batch size": 2,
@@ -7738,7 +7738,7 @@
         "Project_Name": "KerasDeepSpeech",
         "url": "https://github.com/robmsmt/KerasDeepSpeech",
         "file_name": "model.py",
-        "type": "CTC, RNN",
+        "type": "CTC,",
         "hyperparameters": {
             "learning rate": 0.01,
             "batch size": 2,
@@ -7858,7 +7858,7 @@
         "Project_Name": "KerasDeepSpeech",
         "url": "https://github.com/robmsmt/KerasDeepSpeech",
         "file_name": "model.py",
-        "type": "CTC, RNN",
+        "type": "CTC,",
         "hyperparameters": {
             "learning rate": 0.01,
             "batch size": 2,
@@ -7914,7 +7914,7 @@
         "Project_Name": "KerasDeepSpeech",
         "url": "https://github.com/robmsmt/KerasDeepSpeech",
         "file_name": "model.py",
-        "type": "CTC, RNN",
+        "type": "CTC,",
         "hyperparameters": {
             "learning rate": 0.01,
             "batch size": 2,
@@ -8029,7 +8029,7 @@
         "Project_Name": "KerasDeepSpeech",
         "url": "https://github.com/robmsmt/KerasDeepSpeech",
         "file_name": "model.py",
-        "type": "CTC, RNN",
+        "type": "CTC,",
         "hyperparameters": {
             "learning rate": 0.01,
             "batch size": 2,
@@ -8061,7 +8061,7 @@
         "Project_Name": "KerasDeepSpeech",
         "url": "https://github.com/robmsmt/KerasDeepSpeech",
         "file_name": "model.py",
-        "type": "CTC, RNN",
+        "type": "CTC,",
         "hyperparameters": {
             "learning rate": 0.01,
             "batch size": 2,
@@ -8108,7 +8108,7 @@
         "Project_Name": "KerasDeepSpeech",
         "url": "https://github.com/robmsmt/KerasDeepSpeech",
         "file_name": "model.py",
-        "type": "CTC, RNN",
+        "type": "CTC,",
         "hyperparameters": {
             "learning rate": 0.01,
             "batch size": 2,
@@ -8312,7 +8312,7 @@
         "Project_Name": "SENet-Tensorflow",
         "url": "https://github.com/taki0112/SENet-Tensorflow",
         "file_name": "SE_ResNeXt.py",
-        "type": "ResNeXt",
+        "type": "ResNeXt,",
         "hpyerparameters": {
             "learning rate": 0.1,
             "decay rate": 0.0005,
@@ -13571,7 +13571,7 @@
         "Project_Name": "SENet-Tensorflow",
         "url": "https://github.com/taki0112/SENet-Tensorflow",
         "file_name": "SE_Inception_v4.py",
-        "type": "Inception_v4",
+        "type": "Inception v4,",
         "hpyerparameters": {
             "learning rate": 0.1,
             "decay rate": 0.0005,
@@ -17818,7 +17818,7 @@
         "Project_Name": "SENet-Tensorflow",
         "url": "https://github.com/taki0112/SENet-Tensorflow",
         "file_name": "SE_Inception_resnet_v2.py",
-        "type": "Inception_resne_v2",
+        "type": "Inception_resnet_v2,",
         "hpyerparameters": {
             "learning rate": 0.1,
             "decay rate": 0.0005,
@@ -21899,7 +21899,7 @@
         "Project_Name": "text-detection-ctpn",
         "url": "https://github.com/eragonruan/text-detection-ctpn",
         "file_name": "vgg.py",
-        "type": "vgg16",
+        "type": "vgg16,",
         "hpyerparameters": {
             "learning rate": 1e-05,
             "decay rate": 0.0005
@@ -22141,7 +22141,7 @@
         "Project_Name": "CRNN_Tensorflow",
         "url": "https://github.com/MaybeShewill-CV/CRNN_Tensorflow",
         "file_name": "crnn_net.py",
-        "type": "CRNN",
+        "type": "CRNN,",
         "hpyerparameters": {
             "learning rate": 0.01,
             "decay rate": 0.1,
@@ -22710,7 +22710,7 @@
                 "begin": 100
             },
             "layer58": {
-                "type": "CTC, RNN",
+                "type": "ctc",
                 "func": "tf.nn.ctc_loss",
                 "args": {
                     "labels": "labels",
@@ -22731,7 +22731,7 @@
         "Project_Name": "Deep-Alignment-Network-A-convolutional-neural-network-for-robust-face-alignment",
         "url": "https://github.com/zjjMaiMai/Deep-Alignment-Network-A-convolutional-neural-network-for-robust-face-alignment",
         "file_name": "dan_model.py",
-        "type": "DAN",
+        "type": "DAN,",
         "hpyerparameters": {
             "batch size": 128
         },
@@ -23287,7 +23287,7 @@
         "Project_Name": "Tiny_Faces_in_Tensorflow",
         "url": "https://github.com/cydonia999/Tiny_Faces_in_Tensorflow",
         "file_name": "tiny_face_model.py",
-        "type": "ResNet",
+        "type": "ResNet,",
         "hpyerparameters": {},
         "num_layers": 283,
         "layers": {
@@ -26350,7 +26350,7 @@
         "Project_Name": "Chinese-Text-Classification",
         "url": "https://github.com/fendouai/Chinese-Text-Classification",
         "file_name": "text_cnn.py",
-        "type": "CNN",
+        "type": "CNN,",
         "hpyerparameters": {
             "batch size": 64,
             "epochs": 200,
@@ -26694,6 +26694,4824 @@
                 "func": "tf.keras.losses.MSE",
                 "args": {},
                 "begin": 59
+            }
+        }
+    },
+    "36": {
+        "id": "36",
+        "Project_Name": "dc_tts",
+        "url": "https://github.com/Kyubyong/dc_tts",
+        "file_name": "networks.py",
+        "type": "SSRN",
+        "hpyerparameters": {
+            "learning rate": 0.001,
+            "batch size": 32
+        },
+        "num_layers": 98,
+        "layers": {
+            "layer0": {
+                "type": "Embedding",
+                "func": "tf.nn.embedding_lookup",
+                "args": {
+                    "params": ""
+                },
+                "begin": 16
+            },
+            "layer1": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1,
+                    "dilation_rate": 1,
+                    "dropout_rate": "hp.dropout_rate",
+                    "activation_fn": "tf.nn.relu"
+                },
+                "begin": 17
+            },
+            "layer2": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1,
+                    "dilation_rate": 1,
+                    "dropout_rate": "hp.dropout_rate"
+                },
+                "begin": 20
+            },
+            "layer3": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 25
+            },
+            "layer4": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 28
+            },
+            "layer5": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 25
+            },
+            "layer6": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 28
+            },
+            "layer7": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 25
+            },
+            "layer8": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 28
+            },
+            "layer9": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 25
+            },
+            "layer10": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 28
+            },
+            "layer11": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 25
+            },
+            "layer12": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 28
+            },
+            "layer13": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 25
+            },
+            "layer14": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 28
+            },
+            "layer15": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 25
+            },
+            "layer16": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 28
+            },
+            "layer17": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 25
+            },
+            "layer18": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 28
+            },
+            "layer19": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 25
+            },
+            "layer20": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 28
+            },
+            "layer21": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 25
+            },
+            "layer22": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 28
+            },
+            "layer23": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1
+                },
+                "begin": 32
+            },
+            "layer24": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 35
+            },
+            "layer25": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1
+                },
+                "begin": 32
+            },
+            "layer26": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 35
+            },
+            "layer27": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1,
+                    "dilation_rate": 1,
+                    "dropout_rate": "hp.dropout_rate",
+                    "activation_fn": "tf.nn.relu"
+                },
+                "begin": 41
+            },
+            "layer28": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1,
+                    "dilation_rate": 1,
+                    "dropout_rate": "hp.dropout_rate",
+                    "activation_fn": "tf.nn.relu"
+                },
+                "begin": 44
+            },
+            "layer29": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1,
+                    "dilation_rate": 1,
+                    "dropout_rate": "hp.dropout_rate"
+                },
+                "begin": 48
+            },
+            "layer30": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 53
+            },
+            "layer31": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 56
+            },
+            "layer32": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 53
+            },
+            "layer33": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 56
+            },
+            "layer34": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 53
+            },
+            "layer35": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 56
+            },
+            "layer36": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 53
+            },
+            "layer37": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 56
+            },
+            "layer38": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 53
+            },
+            "layer39": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 56
+            },
+            "layer40": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 53
+            },
+            "layer41": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 56
+            },
+            "layer42": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 53
+            },
+            "layer43": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 56
+            },
+            "layer44": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 53
+            },
+            "layer45": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 56
+            },
+            "layer46": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 53
+            },
+            "layer47": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 56
+            },
+            "layer48": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 53
+            },
+            "layer49": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 56
+            },
+            "layer50": {
+                "type": "Attention",
+                "func": "Attention",
+                "args": {},
+                "begin": 180
+            },
+            "layer51": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1,
+                    "dilation_rate": 1,
+                    "dropout_rate": "hp.dropout_rate"
+                },
+                "begin": 87
+            },
+            "layer52": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 92
+            },
+            "layer53": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 95
+            },
+            "layer54": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 92
+            },
+            "layer55": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 95
+            },
+            "layer56": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 92
+            },
+            "layer57": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 95
+            },
+            "layer58": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 92
+            },
+            "layer59": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 95
+            },
+            "layer60": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 92
+            },
+            "layer61": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 95
+            },
+            "layer62": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 92
+            },
+            "layer63": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 95
+            },
+            "layer64": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1
+                },
+                "begin": 99
+            },
+            "layer65": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 102
+            },
+            "layer66": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 103
+            },
+            "layer67": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1
+                },
+                "begin": 99
+            },
+            "layer68": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 102
+            },
+            "layer69": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 103
+            },
+            "layer70": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1
+                },
+                "begin": 99
+            },
+            "layer71": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 102
+            },
+            "layer72": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 103
+            },
+            "layer73": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1
+                },
+                "begin": 106
+            },
+            "layer74": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 109
+            },
+            "layer75": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1
+                },
+                "begin": 123
+            },
+            "layer76": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 128
+            },
+            "layer77": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 131
+            },
+            "layer78": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 128
+            },
+            "layer79": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 131
+            },
+            "layer80": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 141
+            },
+            "layer81": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 144
+            },
+            "layer82": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 141
+            },
+            "layer83": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 144
+            },
+            "layer84": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 141
+            },
+            "layer85": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 144
+            },
+            "layer86": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 141
+            },
+            "layer87": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 144
+            },
+            "layer88": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1
+                },
+                "begin": 147
+            },
+            "layer89": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 152
+            },
+            "layer90": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 155
+            },
+            "layer91": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3
+                },
+                "begin": 152
+            },
+            "layer92": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 155
+            },
+            "layer93": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1
+                },
+                "begin": 158
+            },
+            "layer94": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1,
+                    "activation_fn": "tf.nn.relu"
+                },
+                "begin": 163
+            },
+            "layer95": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1,
+                    "activation_fn": "tf.nn.relu"
+                },
+                "begin": 163
+            },
+            "layer96": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1
+                },
+                "begin": 167
+            },
+            "layer97": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 171
+            }
+        }
+    },
+    "37": {
+        "id": "37",
+        "Project_Name": "Age-Gender-Estimate-TF",
+        "url": "https://github.com/BoyuanJiang/Age-Gender-Estimate-TF",
+        "file_name": "inception_resnet_v1.py",
+        "type": "Inception_resnet_v1",
+        "hpyerparameters": {
+            "learning rate": 0.001,
+            "decay rate": 1e-05,
+            "epochs": 6,
+            "batch size": 128,
+            "dropout rate": 0.8
+        },
+        "num_layers": 194,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "stride": 2,
+                    "padding": "VALID",
+                    "scope": "Conv2d_1a_3x3"
+                },
+                "begin": 123
+            },
+            "layer1": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "padding": "VALID",
+                    "scope": "Conv2d_2a_3x3"
+                },
+                "begin": 126
+            },
+            "layer2": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 64,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_2b_3x3"
+                },
+                "begin": 129
+            },
+            "layer3": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 3,
+                    "stride": 2,
+                    "padding": "VALID",
+                    "scope": "MaxPool_3a_3x3"
+                },
+                "begin": 132
+            },
+            "layer4": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 80,
+                    "kernel_size": 1,
+                    "padding": "VALID",
+                    "scope": "Conv2d_3b_1x1"
+                },
+                "begin": 135
+            },
+            "layer5": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 192,
+                    "kernel_size": 3,
+                    "padding": "VALID",
+                    "scope": "Conv2d_4a_3x3"
+                },
+                "begin": 138
+            },
+            "layer6": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": 3,
+                    "stride": 2,
+                    "padding": "VALID",
+                    "scope": "Conv2d_4b_3x3"
+                },
+                "begin": 141
+            },
+            "layer7": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 33
+            },
+            "layer8": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 34
+            },
+            "layer9": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 35
+            },
+            "layer10": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 36
+            },
+            "layer11": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 37
+            },
+            "layer12": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0c_3x3"
+                },
+                "begin": 38
+            },
+            "layer13": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 40,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 40
+            },
+            "layer14": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 41
+            },
+            "layer15": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 33
+            },
+            "layer16": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 34
+            },
+            "layer17": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 35
+            },
+            "layer18": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 36
+            },
+            "layer19": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 37
+            },
+            "layer20": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0c_3x3"
+                },
+                "begin": 38
+            },
+            "layer21": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 40,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 40
+            },
+            "layer22": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 41
+            },
+            "layer23": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 33
+            },
+            "layer24": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 34
+            },
+            "layer25": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 35
+            },
+            "layer26": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 36
+            },
+            "layer27": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 37
+            },
+            "layer28": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0c_3x3"
+                },
+                "begin": 38
+            },
+            "layer29": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 40,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 40
+            },
+            "layer30": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 41
+            },
+            "layer31": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 33
+            },
+            "layer32": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 34
+            },
+            "layer33": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 35
+            },
+            "layer34": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 36
+            },
+            "layer35": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 37
+            },
+            "layer36": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0c_3x3"
+                },
+                "begin": 38
+            },
+            "layer37": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 40,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 40
+            },
+            "layer38": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 41
+            },
+            "layer39": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 33
+            },
+            "layer40": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 34
+            },
+            "layer41": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 35
+            },
+            "layer42": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 36
+            },
+            "layer43": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 37
+            },
+            "layer44": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0c_3x3"
+                },
+                "begin": 38
+            },
+            "layer45": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 40,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 40
+            },
+            "layer46": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 41
+            },
+            "layer47": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3,
+                    "stride": 2,
+                    "padding": "VALID",
+                    "scope": "Conv2d_1a_3x3"
+                },
+                "begin": 72
+            },
+            "layer48": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 73
+            },
+            "layer49": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 74
+            },
+            "layer50": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 3,
+                    "stride": 2,
+                    "padding": "VALID",
+                    "scope": "Conv2d_1a_3x3"
+                },
+                "begin": 75
+            },
+            "layer51": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 3,
+                    "stride": 2,
+                    "padding": "VALID",
+                    "scope": "MaxPool_1a_3x3"
+                },
+                "begin": 76
+            },
+            "layer52": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 48
+            },
+            "layer53": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 49
+            },
+            "layer54": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0b_1x7"
+                },
+                "begin": 50
+            },
+            "layer55": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0c_7x1"
+                },
+                "begin": 51
+            },
+            "layer56": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 53,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 53
+            },
+            "layer57": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 54
+            },
+            "layer58": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 48
+            },
+            "layer59": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 49
+            },
+            "layer60": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0b_1x7"
+                },
+                "begin": 50
+            },
+            "layer61": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0c_7x1"
+                },
+                "begin": 51
+            },
+            "layer62": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 53,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 53
+            },
+            "layer63": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 54
+            },
+            "layer64": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 48
+            },
+            "layer65": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 49
+            },
+            "layer66": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0b_1x7"
+                },
+                "begin": 50
+            },
+            "layer67": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0c_7x1"
+                },
+                "begin": 51
+            },
+            "layer68": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 53,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 53
+            },
+            "layer69": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 54
+            },
+            "layer70": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 48
+            },
+            "layer71": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 49
+            },
+            "layer72": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0b_1x7"
+                },
+                "begin": 50
+            },
+            "layer73": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0c_7x1"
+                },
+                "begin": 51
+            },
+            "layer74": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 53,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 53
+            },
+            "layer75": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 54
+            },
+            "layer76": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 48
+            },
+            "layer77": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 49
+            },
+            "layer78": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0b_1x7"
+                },
+                "begin": 50
+            },
+            "layer79": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0c_7x1"
+                },
+                "begin": 51
+            },
+            "layer80": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 53,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 53
+            },
+            "layer81": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 54
+            },
+            "layer82": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 48
+            },
+            "layer83": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 49
+            },
+            "layer84": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0b_1x7"
+                },
+                "begin": 50
+            },
+            "layer85": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0c_7x1"
+                },
+                "begin": 51
+            },
+            "layer86": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 53,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 53
+            },
+            "layer87": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 54
+            },
+            "layer88": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 48
+            },
+            "layer89": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 49
+            },
+            "layer90": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0b_1x7"
+                },
+                "begin": 50
+            },
+            "layer91": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0c_7x1"
+                },
+                "begin": 51
+            },
+            "layer92": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 53,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 53
+            },
+            "layer93": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 54
+            },
+            "layer94": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 48
+            },
+            "layer95": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 49
+            },
+            "layer96": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0b_1x7"
+                },
+                "begin": 50
+            },
+            "layer97": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0c_7x1"
+                },
+                "begin": 51
+            },
+            "layer98": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 53,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 53
+            },
+            "layer99": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 54
+            },
+            "layer100": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 48
+            },
+            "layer101": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 49
+            },
+            "layer102": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0b_1x7"
+                },
+                "begin": 50
+            },
+            "layer103": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0c_7x1"
+                },
+                "begin": 51
+            },
+            "layer104": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 53,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 53
+            },
+            "layer105": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 54
+            },
+            "layer106": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 48
+            },
+            "layer107": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 49
+            },
+            "layer108": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0b_1x7"
+                },
+                "begin": 50
+            },
+            "layer109": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0c_7x1"
+                },
+                "begin": 51
+            },
+            "layer110": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 53,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 53
+            },
+            "layer111": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 54
+            },
+            "layer112": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 82
+            },
+            "layer113": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 384,
+                    "kernel_size": 3,
+                    "stride": 2,
+                    "padding": "VALID",
+                    "scope": "Conv2d_1a_3x3"
+                },
+                "begin": 83
+            },
+            "layer114": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 84
+            },
+            "layer115": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": 3,
+                    "stride": 2,
+                    "padding": "VALID",
+                    "scope": "Conv2d_1a_3x3"
+                },
+                "begin": 85
+            },
+            "layer116": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 87
+            },
+            "layer117": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 88
+            },
+            "layer118": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": 3,
+                    "stride": 2,
+                    "padding": "VALID",
+                    "scope": "Conv2d_1a_3x3"
+                },
+                "begin": 89
+            },
+            "layer119": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": 3,
+                    "stride": 2,
+                    "padding": "VALID",
+                    "scope": "MaxPool_1a_3x3"
+                },
+                "begin": 91
+            },
+            "layer120": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 33
+            },
+            "layer121": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 34
+            },
+            "layer122": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 35
+            },
+            "layer123": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 36
+            },
+            "layer124": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 37
+            },
+            "layer125": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0c_3x3"
+                },
+                "begin": 38
+            },
+            "layer126": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 40,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 40
+            },
+            "layer127": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 41
+            },
+            "layer128": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 33
+            },
+            "layer129": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 34
+            },
+            "layer130": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 35
+            },
+            "layer131": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 36
+            },
+            "layer132": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 37
+            },
+            "layer133": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0c_3x3"
+                },
+                "begin": 38
+            },
+            "layer134": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 40,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 40
+            },
+            "layer135": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 41
+            },
+            "layer136": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 33
+            },
+            "layer137": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 34
+            },
+            "layer138": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 35
+            },
+            "layer139": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 36
+            },
+            "layer140": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 37
+            },
+            "layer141": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0c_3x3"
+                },
+                "begin": 38
+            },
+            "layer142": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 40,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 40
+            },
+            "layer143": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 41
+            },
+            "layer144": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 33
+            },
+            "layer145": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 34
+            },
+            "layer146": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 35
+            },
+            "layer147": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 36
+            },
+            "layer148": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 37
+            },
+            "layer149": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0c_3x3"
+                },
+                "begin": 38
+            },
+            "layer150": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 40,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 40
+            },
+            "layer151": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 41
+            },
+            "layer152": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 33
+            },
+            "layer153": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 34
+            },
+            "layer154": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 35
+            },
+            "layer155": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 36
+            },
+            "layer156": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 37
+            },
+            "layer157": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0c_3x3"
+                },
+                "begin": 38
+            },
+            "layer158": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 40,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 40
+            },
+            "layer159": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 41
+            },
+            "layer160": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 33
+            },
+            "layer161": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 34
+            },
+            "layer162": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 35
+            },
+            "layer163": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 36
+            },
+            "layer164": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 37
+            },
+            "layer165": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0c_3x3"
+                },
+                "begin": 38
+            },
+            "layer166": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 40,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 40
+            },
+            "layer167": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 41
+            },
+            "layer168": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 33
+            },
+            "layer169": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 34
+            },
+            "layer170": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 35
+            },
+            "layer171": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 36
+            },
+            "layer172": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 37
+            },
+            "layer173": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0c_3x3"
+                },
+                "begin": 38
+            },
+            "layer174": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 40,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 40
+            },
+            "layer175": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 41
+            },
+            "layer176": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 33
+            },
+            "layer177": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 34
+            },
+            "layer178": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 35
+            },
+            "layer179": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 36
+            },
+            "layer180": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0b_3x3"
+                },
+                "begin": 37
+            },
+            "layer181": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": 3,
+                    "scope": "Conv2d_0c_3x3"
+                },
+                "begin": 38
+            },
+            "layer182": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 40,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 40
+            },
+            "layer183": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 41
+            },
+            "layer184": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 192,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 61
+            },
+            "layer185": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 192,
+                    "kernel_size": 1,
+                    "scope": "Conv2d_0a_1x1"
+                },
+                "begin": 62
+            },
+            "layer186": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 192,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0b_1x3"
+                },
+                "begin": 63
+            },
+            "layer187": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 192,
+                    "kernel_size": "",
+                    "scope": "Conv2d_0c_3x1"
+                },
+                "begin": 64
+            },
+            "layer188": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 66,
+                    "kernel_size": 1,
+                    "normalizer_fn": null,
+                    "activation_fn": null,
+                    "scope": "Conv2d_1x1"
+                },
+                "begin": 66
+            },
+            "layer189": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 67
+            },
+            "layer190": {
+                "type": "Flatten",
+                "func": "tf.contrib.slim.flatten",
+                "args": {
+                    "inputs": ""
+                },
+                "begin": 162
+            },
+            "layer191": {
+                "type": "Dense",
+                "func": "tf.contrib.slim.fully_connected",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "activation_fn": null,
+                    "scope": "Bottleneck",
+                    "reuse": false
+                },
+                "begin": 167
+            },
+            "layer192": {
+                "type": "Dense",
+                "func": "tf.contrib.slim.fully_connected",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 101,
+                    "activation_fn": null,
+                    "weights_initializer": {
+                        "func": "tf.truncated_normal_initializer",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 97
+                    },
+                    "weights_regularizer": {
+                        "func": "tf.contrib.slim.l2_regularizer",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 97
+                    },
+                    "scope": "logits/age",
+                    "reuse": false
+                },
+                "begin": 97
+            },
+            "layer193": {
+                "type": "Dense",
+                "func": "tf.contrib.slim.fully_connected",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 2,
+                    "activation_fn": null,
+                    "weights_initializer": {
+                        "func": "tf.truncated_normal_initializer",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 98
+                    },
+                    "weights_regularizer": {
+                        "func": "tf.contrib.slim.l2_regularizer",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 98
+                    },
+                    "scope": "logits/gender",
+                    "reuse": false
+                },
+                "begin": 98
+            }
+        }
+    },
+    "38": {
+        "id": "38",
+        "Project_Name": "Age-Gender-Estimate-TF",
+        "url": "https://github.com/BoyuanJiang/Age-Gender-Estimate-TF",
+        "file_name": "resnet_model.py",
+        "type": "ResNet-1",
+        "hpyerparameters": {
+            "learning rate": 0.001,
+            "decay rate": 1e-05,
+            "epochs": 6,
+            "batch size": 128,
+            "dropout rate": 0.8
+        },
+        "num_layers": 12,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "inputs",
+                    "filters": 16,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 55
+            },
+            "layer1": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 57
+                    },
+                    "filters": 16,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 59
+            },
+            "layer2": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 57
+                    },
+                    "filters": 16,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 61
+            },
+            "layer3": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 63
+                    },
+                    "filters": 16,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 64
+            },
+            "layer4": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 66
+                    },
+                    "filters": 32,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 68
+            },
+            "layer5": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 66
+                    },
+                    "filters": 32,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 70
+            },
+            "layer6": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 72
+                    },
+                    "filters": 32,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 73
+            },
+            "layer7": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 74
+                    },
+                    "filters": 64,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 76
+            },
+            "layer8": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 74
+                    },
+                    "filters": 64,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 78
+            },
+            "layer9": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 80
+                    },
+                    "filters": 64,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 81
+            },
+            "layer10": {
+                "type": "Average Pooling",
+                "func": "tf.layers.average_pooling2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 83
+                    },
+                    "pool_size": 8,
+                    "strides": 1,
+                    "padding": "VALID"
+                },
+                "begin": 84
+            },
+            "layer11": {
+                "type": "Dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "inputs": {
+                        "func": "tf.reshape",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 86
+                    },
+                    "units": "num_classes"
+                },
+                "begin": 87
+            }
+        }
+    },
+    "39": {
+        "id": "39",
+        "Project_Name": "Age-Gender-Estimate-TF",
+        "url": "https://github.com/BoyuanJiang/Age-Gender-Estimate-TF",
+        "file_name": "resnet_model.py",
+        "type": "ResNet-2",
+        "hpyerparameters": {
+            "learning rate": 0.001,
+            "decay rate": 1e-05,
+            "epochs": 6,
+            "batch size": 128,
+            "dropout rate": 0.8
+        },
+        "num_layers": 15,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "inputs",
+                    "filters": 16,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 55
+            },
+            "layer1": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 57
+                    },
+                    "filters": 16,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 59
+            },
+            "layer2": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 57
+                    },
+                    "filters": 16,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 61
+            },
+            "layer3": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 63
+                    },
+                    "filters": 16,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 64
+            },
+            "layer4": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 66
+                    },
+                    "filters": 32,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 68
+            },
+            "layer5": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 66
+                    },
+                    "filters": 32,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 70
+            },
+            "layer6": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 72
+                    },
+                    "filters": 32,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 73
+            },
+            "layer7": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 74
+                    },
+                    "filters": 64,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 76
+            },
+            "layer8": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 74
+                    },
+                    "filters": 64,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 78
+            },
+            "layer9": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 80
+                    },
+                    "filters": 64,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 81
+            },
+            "layer10": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 83
+                    },
+                    "filters": 128,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 85
+            },
+            "layer11": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 83
+                    },
+                    "filters": 128,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 87
+            },
+            "layer12": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 89
+                    },
+                    "filters": 128,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 90
+            },
+            "layer13": {
+                "type": "Average Pooling",
+                "func": "tf.layers.average_pooling2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 92
+                    },
+                    "pool_size": 8,
+                    "strides": 1,
+                    "padding": "VALID"
+                },
+                "begin": 93
+            },
+            "layer14": {
+                "type": "Dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "inputs": {
+                        "func": "tf.reshape",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 95
+                    },
+                    "units": "num_classes"
+                },
+                "begin": 96
+            }
+        }
+    },
+    "40": {
+        "id": "40",
+        "Project_Name": "Age-Gender-Estimate-TF",
+        "url": "https://github.com/BoyuanJiang/Age-Gender-Estimate-TF",
+        "file_name": "resnet_model.py",
+        "type": "ResNet-3",
+        "hpyerparameters": {
+            "learning rate": 0.001,
+            "decay rate": 1e-05,
+            "epochs": 6,
+            "batch size": 128,
+            "dropout rate": 0.8
+        },
+        "num_layers": 21,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "inputs",
+                    "filters": 16,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 55
+            },
+            "layer1": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 57
+                    },
+                    "filters": 16,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 59
+            },
+            "layer2": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 57
+                    },
+                    "filters": 16,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 61
+            },
+            "layer3": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 63
+                    },
+                    "filters": 16,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 64
+            },
+            "layer4": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 66
+                    },
+                    "filters": 32,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 68
+            },
+            "layer5": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 66
+                    },
+                    "filters": 32,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 70
+            },
+            "layer6": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 72
+                    },
+                    "filters": 32,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 73
+            },
+            "layer7": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 74
+                    },
+                    "filters": 64,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 76
+            },
+            "layer8": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 74
+                    },
+                    "filters": 64,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 78
+            },
+            "layer9": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 80
+                    },
+                    "filters": 64,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 81
+            },
+            "layer10": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 83
+                    },
+                    "filters": 128,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 85
+            },
+            "layer11": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 83
+                    },
+                    "filters": 128,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 87
+            },
+            "layer12": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 89
+                    },
+                    "filters": 128,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 90
+            },
+            "layer13": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 92
+                    },
+                    "filters": 256,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 94
+            },
+            "layer14": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 92
+                    },
+                    "filters": 256,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 96
+            },
+            "layer15": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 98
+                    },
+                    "filters": 256,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 99
+            },
+            "layer16": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 102
+                    },
+                    "filters": 512,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 104
+            },
+            "layer17": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 102
+                    },
+                    "filters": 512,
+                    "kernel_size": 3,
+                    "strides": 2,
+                    "padding": "VALID"
+                },
+                "begin": 106
+            },
+            "layer18": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 108
+                    },
+                    "filters": 512,
+                    "kernel_size": 3,
+                    "strides": 1,
+                    "padding": "SAME"
+                },
+                "begin": 109
+            },
+            "layer19": {
+                "type": "Average Pooling",
+                "func": "tf.layers.average_pooling2d",
+                "args": {
+                    "inputs": {
+                        "func": "batch_norm_relu",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 111
+                    },
+                    "pool_size": 8,
+                    "strides": 1,
+                    "padding": "VALID"
+                },
+                "begin": 112
+            },
+            "layer20": {
+                "type": "Dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "inputs": {
+                        "func": "tf.reshape",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 114
+                    },
+                    "units": "num_classes"
+                },
+                "begin": 115
+            }
+        }
+    },
+    "41": {
+        "id": "41",
+        "Project_Name": "text-cnn-tensorflow",
+        "url": "https://github.com/DongjunLee/text-cnn-tensorflow",
+        "file_name": "text_cnn.py",
+        "type": "CNN",
+        "hpyerparameters": {},
+        "num_layers": 10,
+        "layers": {
+            "layer0": {
+                "type": "Embedding",
+                "func": "tf.nn.embedding_lookup",
+                "args": {
+                    "params": "",
+                    "ids": ""
+                },
+                "begin": 19
+            },
+            "layer1": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "activation": "tf.nn.relu"
+                },
+                "begin": 28
+            },
+            "layer2": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": ""
+                },
+                "begin": 29
+            },
+            "layer3": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "activation": "tf.nn.relu"
+                },
+                "begin": 30
+            },
+            "layer4": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": ""
+                },
+                "begin": 31
+            },
+            "layer5": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "activation": "tf.nn.relu"
+                },
+                "begin": 32
+            },
+            "layer6": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": ""
+                },
+                "begin": 33
+            },
+            "layer7": {
+                "type": "Convolution",
+                "func": "tf.layers.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "activation": "tf.nn.relu"
+                },
+                "begin": 34
+            },
+            "layer8": {
+                "type": "Max Pooling",
+                "func": "tf.layers.max_pooling2d",
+                "args": {
+                    "inputs": ""
+                },
+                "begin": 35
+            },
+            "layer9": {
+                "type": "Dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "inputs": "",
+                    "units": 5
+                },
+                "begin": 40
+            }
+        }
+    },
+    "42": {
+        "id": "42",
+        "Project_Name": "PassGAN",
+        "url": "https://github.com/brannondorsey/PassGAN",
+        "file_name": "models.py",
+        "type": "GAN",
+        "hpyerparameters": {
+            "batch size": 64
+        },
+        "num_layers": 46,
+        "layers": {
+            "layer0": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {},
+                "begin": 15
+            },
+            "layer1": {
+                "type": "Dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "inputs": 128,
+                    "units": ""
+                },
+                "begin": 16
+            },
+            "layer2": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 8
+            },
+            "layer3": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 9
+            },
+            "layer4": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 10
+            },
+            "layer5": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 11
+            },
+            "layer6": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 8
+            },
+            "layer7": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 9
+            },
+            "layer8": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 10
+            },
+            "layer9": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 11
+            },
+            "layer10": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 8
+            },
+            "layer11": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 9
+            },
+            "layer12": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 10
+            },
+            "layer13": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 11
+            },
+            "layer14": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 8
+            },
+            "layer15": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 9
+            },
+            "layer16": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 10
+            },
+            "layer17": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 11
+            },
+            "layer18": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 8
+            },
+            "layer19": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 9
+            },
+            "layer20": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 10
+            },
+            "layer21": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 11
+            },
+            "layer22": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1,
+                    "strides": ""
+                },
+                "begin": 22
+            },
+            "layer23": {
+                "type": "Softmax",
+                "func": "tf.nn.softmax",
+                "args": {
+                    "logits": ""
+                },
+                "begin": 23
+            },
+            "layer24": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 1,
+                    "strides": ""
+                },
+                "begin": 27
+            },
+            "layer25": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 8
+            },
+            "layer26": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 9
+            },
+            "layer27": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 10
+            },
+            "layer28": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 11
+            },
+            "layer29": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 8
+            },
+            "layer30": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 9
+            },
+            "layer31": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 10
+            },
+            "layer32": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 11
+            },
+            "layer33": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 8
+            },
+            "layer34": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 9
+            },
+            "layer35": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 10
+            },
+            "layer36": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 11
+            },
+            "layer37": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 8
+            },
+            "layer38": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 9
+            },
+            "layer39": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 10
+            },
+            "layer40": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 11
+            },
+            "layer41": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 8
+            },
+            "layer42": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 9
+            },
+            "layer43": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 10
+            },
+            "layer44": {
+                "type": "Convolution",
+                "func": "tf.layers.conv1d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": 5,
+                    "strides": ""
+                },
+                "begin": 11
+            },
+            "layer45": {
+                "type": "Dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "inputs": 1,
+                    "units": ""
+                },
+                "begin": 33
+            }
+        }
+    },
+    "43": {
+        "id": "43",
+        "Project_Name": "chemical_vae",
+        "url": "https://github.com/aspuru-guzik-group/chemical_vae",
+        "file_name": "models.py",
+        "type": "VAE, RNN",
+        "hpyerparameters": {
+            "batch size": 100,
+            "epochs": 1,
+            "learning rate": 0.000312087049936,
+            "momentum": 0.936948773087
+        },
+        "num_layers": 38,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv1D",
+                "args": {
+                    "num_outputs": "",
+                    "activation": "tanh",
+                    "name": "encoder_conv0"
+                },
+                "begin": 17
+            },
+            "layer1": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "name": "encoder_norm0"
+                },
+                "begin": 18
+            },
+            "layer2": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv1D",
+                "args": {
+                    "activation": "tanh"
+                },
+                "begin": 21
+            },
+            "layer3": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {},
+                "begin": 22
+            },
+            "layer4": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv1D",
+                "args": {
+                    "activation": "tanh"
+                },
+                "begin": 21
+            },
+            "layer5": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {},
+                "begin": 22
+            },
+            "layer6": {
+                "type": "Flatten",
+                "func": "tf.keras.layers.Flatten",
+                "args": {},
+                "begin": 24
+            },
+            "layer7": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "activation": "tanh"
+                },
+                "begin": 27
+            },
+            "layer8": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {},
+                "begin": 28
+            },
+            "layer9": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {},
+                "begin": 29
+            },
+            "layer10": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "activation": "tanh"
+                },
+                "begin": 30
+            },
+            "layer11": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {},
+                "begin": 31
+            },
+            "layer12": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {},
+                "begin": 32
+            },
+            "layer13": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 100
+                },
+                "begin": 34
+            },
+            "layer14": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 100,
+                    "activation": "tanh"
+                },
+                "begin": 45
+            },
+            "layer15": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {},
+                "begin": 46
+            },
+            "layer16": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {},
+                "begin": 47
+            },
+            "layer17": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 100,
+                    "activation": "tanh"
+                },
+                "begin": 49
+            },
+            "layer18": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {},
+                "begin": 50
+            },
+            "layer19": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {},
+                "begin": 51
+            },
+            "layer20": {
+                "type": "GRU",
+                "func": "tf.keras.layers.GRU",
+                "args": {
+                    "num_units": 50,
+                    "activation": "tanh"
+                },
+                "begin": 57
+            },
+            "layer21": {
+                "type": "GRU",
+                "func": "tf.keras.layers.GRU",
+                "args": {
+                    "num_units": 50,
+                    "activation": "tanh"
+                },
+                "begin": 60
+            },
+            "layer22": {
+                "type": "GRU",
+                "func": "tf.keras.layers.GRU",
+                "args": {
+                    "num_units": 50,
+                    "activation": "tanh"
+                },
+                "begin": 60
+            },
+            "layer23": {
+                "type": "GRU",
+                "func": "tf.keras.layers.GRU",
+                "args": {
+                    "activation": "softmax"
+                },
+                "begin": 62
+            },
+            "layer24": {
+                "type": "GRU",
+                "func": "tf.keras.layers.GRU",
+                "args": {
+                    "activation": "softmax"
+                },
+                "begin": 65
+            },
+            "layer25": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 100,
+                    "name": "z_log_var_sample"
+                },
+                "begin": 78
+            },
+            "layer26": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {},
+                "begin": 80
+            },
+            "layer27": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 36,
+                    "activation": "tanh"
+                },
+                "begin": 91
+            },
+            "layer28": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {},
+                "begin": 92
+            },
+            "layer29": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "activation": "tanh"
+                },
+                "begin": 95
+            },
+            "layer30": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {},
+                "begin": 96
+            },
+            "layer31": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {},
+                "begin": 97
+            },
+            "layer32": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "activation": "tanh"
+                },
+                "begin": 95
+            },
+            "layer33": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {},
+                "begin": 96
+            },
+            "layer34": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {},
+                "begin": 97
+            },
+            "layer35": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "activation": "linear"
+                },
+                "begin": 100
+            },
+            "layer36": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "activation": "sigmoid"
+                },
+                "begin": 103
+            },
+            "layer37": {
+                "type": "Optimizer",
+                "func": "tf.train.AdamOptimizer",
+                "args": {},
+                "begin": 113
             }
         }
     }

@@ -1,13 +1,13 @@
 function createLegend(projectNodes, nodesData, nodesType='None') {
 	var colorDic = {
 		'Convolution': "#20C6FE",
-		'Deconvolution': "#00394c",
+		'Deconvolution': "#4dd2fe",
 		'Max Pooling': "#0F7BA3",
-		'Average Pooling': "#042E3B",
+		'Average Pooling': "#0b5875",
 		//
 		'LSTM': "#D48E9C",
 		'GRU': "#C46677",
-		'BiRNN': "#912C0E",
+		'BiRNN': "#bf596c",
 		'RNN': "#B43F56",
 		'CRF': "#97293E",
 		'Attention': "#6E202F",
@@ -15,20 +15,22 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		'Input': "#D8C28E",
 		'Dense': "#C9AB66",
 		'Flatten': "#179D3E",
-		'Dropout': "#10682A",
+		'Dropout': "#aa883c",
 		//
-		'Embedding': "#FC333D",
+		'Embedding': "#ff1a1f",
 		'Normalization': "#DD0005",
-		'Optimizer': "#6B0001",
+		'Optimizer': "#e60005",
 		//					
 		'ReLu': "#FFFF17",
 		'Sigmoid': "#FFFF6D",
 		'Softmax': "#DFE509",
+		'Linear': "#f7fa84",
+		'tanh': "#f1f622",
 		//
 		'Cross Entropy': "#FC20FF",
-		'CTC': "#DD00DF",
-		'L2': "#A100A3",
-		'MSE': "#6B006C",
+		'CTC': "#fc1aff",
+		'L2': "#e200e6",
+		'MSE': "#b000b3"
 	};
 	var typeDic = {
 		'Convolution': "CNN",
@@ -51,6 +53,8 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		'ReLu': "Activate",
 		'Sigmoid': "Activate",
 		'Softmax': "Activate",
+		'Linear': "Activate",
+		'tanh': "Activate",
 		'Cross Entropy': "Loss",
 		'CTC': "Loss",
 		'L2': "Loss",
@@ -164,21 +168,39 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		g.append("text")
 		.attr("text-anchor", "middle")
 		.attr("y", height)
-		.attr("x", x(leName)+40)
+		.attr("x", x(leName)+25)
 		.text(leName)
 			.attr("font-family", "sans-serif")
 			.attr("font-size", "14px")
 			.attr("font-weight", "100")
-			.attr("fill", "#ffffff");
+			.attr("fill", function() {
+				if (leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh') {
+					return "#d2dfde"
+				} else {
+					return "#ffffff"
+				}
+			});
 
 		g.append("text")
 		.attr("text-anchor", "middle")
 		.attr("y", y(leNum))
 		.attr("x", x(leName) + x.bandwidth()/2)
-		.text(leNum)
+		.text(function() {
+			if (leNum==0) {
+				return ""
+			} else {
+				return leNum
+			}
+		})
 			.attr("font-family", "sans-serif")
 			.attr("font-size", "16px")
 			.attr("font-weight", "100")
-			.attr("fill", "#ffffff");
+			.attr("fill", function() {
+				if (leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh') {
+					return "#d2dfde"
+				} else {
+					return "#ffffff"
+				}
+			});
 	}
 }

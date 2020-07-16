@@ -20,6 +20,8 @@ var genData = function(idList, path, viewName='oriView') {
 			'R': "ReLu",
 			'S': "Sigmoid",
 			'X': "Softmax",
+			'K': "Linear",
+			'J': "tanh",
 			'E': "Cross Entropy",
 			'W': "L2",
 			'H': "CTC",
@@ -28,14 +30,14 @@ var genData = function(idList, path, viewName='oriView') {
 	var colorDic = {
 		"CNN": {
 			'Convolution': "#20C6FE",
-			'Deconvolution': "#00394c",
+			'Deconvolution': "#4dd2fe",
 			'Max Pooling': "#0F7BA3",
-			'Average Pooling': "#042E3B"
+			'Average Pooling': "#0b5875"
 		},
 		"RNN":{
 			'LSTM': "#D48E9C",
 			'GRU': "#C46677",
-			'BiRNN': "#912C0E",
+			'BiRNN': "#bf596c",
 			'RNN': "#B43F56",
 			'CRF': "#97293E",
 			'Attention': "#6E202F"
@@ -44,23 +46,25 @@ var genData = function(idList, path, viewName='oriView') {
 			'Input': "#D8C28E",
 			'Dense': "#C9AB66",
 			'Flatten': "#179D3E",
-			'Dropout': "#10682A"
+			'Dropout': "#aa883c"
 		},
 		"Other": {
-			'Embedding': "#FC333D",
+			'Embedding': "#ff1a1f",
 			'Normalization': "#DD0005",
-			'Optimizer': "#6B0001"				
+			'Optimizer': "#e60005"				
 		},
 		"Activate": {
 			'ReLu': "#FFFF17",
 			'Sigmoid': "#FFFF6D",
-			'Softmax': "#DFE509"
+			'Softmax': "#DFE509",
+			'Linear': "#f7fa84",
+			'tanh': "#f1f622",
 		},
 		"Loss": {
 			'Cross Entropy': "#FC20FF",
-			'CTC': "#DD00DF",
-			'L2': "#A100A3",
-			'MSE': "#6B006C"
+			'CTC': "#fc1aff",
+			'L2': "#e200e6",
+			'MSE': "#b000b3"
 		}
 	};
 	var node_color = {};
@@ -90,8 +94,10 @@ var genData = function(idList, path, viewName='oriView') {
 							var act = 'ReLu';
 						} else if (tar.search('softmax') != -1) {
 							var act = 'Softmax';
-						} else if (tar.search('sigmoid') != -1) {
-							var act = 'Sigmoid';
+						} else if (tar.search('linear') != -1) {
+							var act = 'Linear';
+						} else if (tar.search('tanh') != -1) {
+							var act = 'tanh';
 						}
 						model_li.push(act);
 						act_li.push(act);

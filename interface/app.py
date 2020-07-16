@@ -37,6 +37,8 @@ def _alignment():
 			'ReLu': "R",
 			'Sigmoid': "S",
 			'Softmax': "X",
+			"Linear": "K",
+			"tanh": 'J',
 			'Cross Entropy': "E",
 			'L2': "W",
 			'CTC': "H",
@@ -60,6 +62,10 @@ def _alignment():
 										outfile.write('X')
 									elif 'sigmoid' in tar:
 										outfile.write('S')
+									elif 'linear' in tar:
+										outfile.write('K')
+									elif 'tanh' in tar:
+										outfile.write('J')
 					outfile.write('\n')
 				else:
 					continue

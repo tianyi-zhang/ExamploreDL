@@ -225,7 +225,6 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 		.attr("font-family", "sans-serif")
 		.attr("font-size", 15)
 		.attr("font-weight", "100")
-		.attr("fill", "#d2dfde")
 		.selectAll("text")
 		.data(newNodes)
 		.join("text")
@@ -233,11 +232,13 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 			.attr("y", d => (d.y1 + d.y0) / 2)
 			.attr("dy", "0.355em")
 			.attr("text-anchor", d => "end")
-			.text(function(d) {
-				if (d.name.includes('align')) {
-					return '';
+			.text(d => d.name.split("-")[0])
+			.attr("fill", function(d) {
+				var leName = d.name.split("-")[0]
+				if (leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh') {
+					return "#d2dfde"
 				} else {
-					return d.name.split("-")[0];
+					return "#ffffff"
 				}
 			});
 
