@@ -181,7 +181,10 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 		}
 		return name_li
 	}
-	svg.append("g")
+	var allG = svg.append("g")
+		.attr("id", 'allG');
+
+	allG.append("g")
 		.attr("id", "rectG")
 		.attr("stroke", "#000")
 		.selectAll("rect")
@@ -201,7 +204,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 		.append("title")
 			.text(d => `${d.name}\n${format(d.value)}`);
 	
-	const link = svg.append("g")
+	const link = allG.append("g")
 		.attr("id", 'linkG')
 		.attr("stroke-opacity", 1)
 		.selectAll("g")
@@ -220,12 +223,11 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 	link.append("title")
 		.text(d => `${d.source.name} → ${d.target.name}\n${format(d.value)}`);
 
-	svg.append("g")
+	allG.append("g")
 		.attr("id", 'textG')
 		.attr("font-family", "sans-serif")
 		.attr("font-size", 15)
 		.attr("font-weight", "100")
-		.attr("fill", "#505050")
 		.selectAll("text")
 		.data(newNodes)
 		.join("text")
@@ -233,11 +235,13 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 			.attr("y", d => (d.y1 + d.y0) / 2)
 			.attr("dy", "0.355em")
 			.attr("text-anchor", d => "end")
-			.text(function(d) {
-				if (d.name.includes('align')) {
-					return '';
+			.text(d => d.name.split("-")[0])
+			.attr("fill", function(d) {
+				var leName = d.name.split("-")[0]
+				if (leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh') {
+					return "#d2dfde"
 				} else {
-					return d.name.split("-")[0];
+					return "#ffffff"
 				}
 			});
 
@@ -259,6 +263,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 	var zoom = d3.zoom()
 			.scaleExtent([0.05, 5])
 			.on('zoom', function() {
+				if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return;
 				svg.selectAll('path')
 					.attr('transform', d3.event.transform.toString());
 				svg.selectAll('rect')
@@ -333,6 +338,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 
 			})
 			.on("end", function() {
+				if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return;
 				svg.selectAll('path')
 					.attr('transform', d3.event.transform.toString());
 				svg.selectAll('rect')
@@ -405,8 +411,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 					.attr("height", 6);
 			});
 
-	drawThumbnail(data, idList, myWidth, myHeight, viewBoxHeight, zoom, net_li);
-	svg.call(zoom);
+	zoom = drawThumbnail(data, idList, myWidth, myHeight, viewBoxHeight, zoom, net_li);
 
 	createLegend(projectNodes, nodes);
 	

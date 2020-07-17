@@ -40,7 +40,7 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 		}
 	}
 
-	var svg = d3.select('#thumbnailDiv').append("svg")
+	var thumbSvg = d3.select('#thumbnailDiv').append("svg")
 		.attr('width', width)
 		.attr('height', height)
 		.attr("id", "thumbnail");
@@ -55,7 +55,7 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 		return name_li
 	}
 
-	svg.append("g")
+	thumbSvg.append("g")
 		.attr("stroke", "#000")
 		.selectAll("rect")
 		.data(newNodes)
@@ -76,7 +76,7 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 			})
 			.attr("stroke-width", 0);
 
-	const link = svg.append("g")
+	const link = thumbSvg.append("g")
 		.attr("fill", "none")
 		.attr("stroke-opacity", 1)
 		.selectAll("g")
@@ -128,7 +128,10 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 	thumbBrushG.selectAll(".handle.handle--se")
 		.attr("id", "se-handle");
 
+	d3.select("#allG").call(zoom);
+
 	function brushed() {
+		if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return;
 		if (!d3.event.sourceEvent) return;
 		var s = d3.event.selection;
 		var brushW = s[1][0] - s[0][0];
@@ -147,8 +150,11 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 		var transform = d3.zoomIdentity
 			.scale(magnify)
 			.translate(-moveX, -moveY);
-		d3.selectAll("#rectG").call(zoom.transform, transform);
-		d3.selectAll("#linkG").call(zoom.transform, transform);
-		d3.selectAll("#textG").call(zoom.transform, transform);
+
+		d3.selectAll("#allG").call(zoom.transform, transform);
+		//d3.selectAll("#linkG").call(zoom.transform, transform);
+		//d3.selectAll("#textG").call(zoom.transform, transform);
 	}
+
+	return zoom;
 }

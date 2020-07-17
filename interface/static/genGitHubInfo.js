@@ -9,27 +9,28 @@ function genInfo(idList, nodesData, hyper) {
 	proData = {};
 	for (var i=0; i<idList.length; i++) {
 		var proid = idList[i];
-		if (Object.keys(proData).includes(csvData[proid]['Project_Name'])) {
-			proData[csvData[proid]['Project_Name']]['Models'].push(csvData[proid]['Models']);
-			proData[csvData[proid]['Project_Name']]["id"].push(proid);
-			proData[csvData[proid]['Project_Name']]["nodes"].push(nodesData[proid]);
+		var proName = csvData[proid]['Project_Name'].replaceAll("_", "-");
+		if (Object.keys(proData).includes(proName)) {
+			proData[proName]['Models'].push(csvData[proid]['Models']);
+			proData[proName]["id"].push(proid);
+			proData[proName]["nodes"].push(nodesData[proid]);
 		} else {
-			proData[csvData[proid]['Project_Name']] = {"Models": [csvData[proid]['Models']], "id": [proid], "nodes": [nodesData[proid]]};
-			proData[csvData[proid]['Project_Name']]["Tasks"] = csvData[proid]["Tasks"];
-			proData[csvData[proid]['Project_Name']]["Datasets"] = csvData[proid]["Datasets"];
-			proData[csvData[proid]['Project_Name']]["Stars"] = csvData[proid]["Stars"];
-			proData[csvData[proid]['Project_Name']]["Forks"] = csvData[proid]["Forks"];
+			proData[proName] = {"Models": [csvData[proid]['Models']], "id": [proid], "nodes": [nodesData[proid]]};
+			proData[proName]["Tasks"] = csvData[proid]["Tasks"];
+			proData[proName]["URL"] = csvData[proid]["URL"];
+			proData[proName]["Datasets"] = csvData[proid]["Datasets"];
+			proData[proName]["Stars"] = csvData[proid]["Stars"];
+			proData[proName]["Forks"] = csvData[proid]["Forks"];
 		}
 	}
 
 	for (const key in proData) {
-		
-		createNewDiv(myNode, key, keyList, proData[key], hyper);	
+		createNewDiv(myNode, key, keyList, proData[key], hyper, proData);	
 		
 	}
 }
 
-function createNewDiv(parentNode, proName, keyList, record, hyper) {
+function createNewDiv(parentNode, proName, keyList, record, hyper, proData) {
 
 	var newProjectDiv = document.createElement("div");
 	newProjectDiv.setAttribute("id", "info-"+proName);
@@ -71,31 +72,59 @@ function createNewDiv(parentNode, proName, keyList, record, hyper) {
 		newModelDiv.appendChild(text);
 		newProjectDiv.appendChild(newModelDiv);
 		document.getElementById(proName+"_"+record["id"][j]).addEventListener("click", function() {
-			var ind = 0;
-			for (var n=0; n<record["id"].length; n++) {
-				if (record["id"][n] == this.id.split("_")[1]) {
-					ind = n;
-				}
+			
+			if (this.style.backgroundColor == "#8D85EE" || this.style.backgroundColor == "rgb(141, 133, 238)") {
+				this.style.background = "#B3B3B3";
+			} else {
+				this.style.background = "#8D85EE";
 			}
 
 			hyperparameterChart(hyper, this.id.split("_")[1]);
 			d3.selectAll(".bar").attr("fill", "#BBB5F0");
-			d3.select("#layerRect"+record["nodes"][ind].length).attr("fill", "#8D85EE");
+			//d3.select("#layerRect"+record["nodes"][ind].length).attr("fill", "#8D85EE");
 			var svg = d3.select('#chart');
-			svg.selectAll("path").style("opacity", 0.35);
-			svg.selectAll("rect").style("opacity", 0.35);
-			svg.selectAll("rect").attr("stroke", "#ffffff");
-			for (var m=0; m<record["nodes"][ind].length; m++) {
-				svg.selectAll("#"+record["nodes"][ind][m].replace(" ", "_")).style("opacity", 1);
-				svg.selectAll("#path"+record["nodes"][ind][m].replace(" ", "_")).style("opacity", 1);
-			}
+
+			var parent = document.getElementById('GitHub-info-div'),
+				child = parent.getElementsByClassName("newProjectDiv"),
+				childLi = Array.prototype.slice.call(child, 0),
+				safeLi = [];
+			for (var k=0; k<childLi.length; k++) {
+				var boxId = childLi[k].id,
+					grandChild = document.getElementById(boxId).getElementsByClassName("newModelDiv"),
+					grandChildLi = Array.prototype.slice.call(grandChild, 0);
+				for (var l=0; l<grandChildLi.length; l++) {
+					var modelId = grandChildLi[l].id,
+						realName = modelId.split("_")[0],
+						thisBox = document.getElementById(modelId);
+					if (thisBox.style.backgroundColor == "#8D85EE" || thisBox.style.backgroundColor == "rgb(141, 133, 238)") {
+						var flag = 1;
+					} else {
+						var flag = 0.35;
+					}
+					var ind = 0;
+					for (var n=0; n<proData[realName]["id"].length; n++) {
+						if (proData[realName]["id"][n] == modelId.split("_")[1]) {
+							ind = n;
+						}
+					}
+					for (var m=0; m<proData[realName]["nodes"][ind].length; m++) {
+						var findId = proData[realName]["nodes"][ind][m].replace(" ", "_");
+						if (!safeLi.includes(findId)){
+							svg.selectAll("#"+findId).style("opacity", flag);
+							svg.selectAll("#path"+findId).style("opacity", flag);
+							if (flag==1) {
+								safeLi.push(proData[realName]["nodes"][ind][m].replace(" ", "_"));
+							}
+						}
+					}
+				}
+			}		
 		});
 	}	
 
 	document.getElementById("proInfo-"+proName).addEventListener("click", clickDiv);
 	
 	function clickDiv() {
-		console.log(record["nodes"]);
 		d3.selectAll(".bar").attr("fill", "#BBB5F0");
 		var svg = d3.select('#chart');
 		svg.selectAll("path").style("opacity", 0.35);

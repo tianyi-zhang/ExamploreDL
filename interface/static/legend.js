@@ -1,39 +1,64 @@
 function createLegend(projectNodes, nodesData, nodesType='None') {
 	var colorDic = {
-			'Convolution': "rgba(54, 69, 133, 0.65)",
-			'Max Pooling': "rgba(90, 102, 158, 0.65)",
-			'Average Pooling': "rgba(163, 171, 206, 0.65)",
-			'LSTM': "rgba(212, 80, 135, 0.65)",
-			'GRU': "rgba(249, 93, 106, 0.65)",
-			'BiRNN': "rgba(249, 93, 106, 0.65)",
-			'Input': "rgba(76, 18, 1, 0.65)",
-			'Dense': "rgba(176, 43, 2, 0.65)",
-			'Flatten': "rgba(252, 81, 28, 0.65)",
-			'Dropout': "rgba(18, 109, 52, 0.65)",
-			'Attention': "rgba(152, 231, 49, 0.65)",
-			'Cross Entropy': "rgba(65, 39, 89, 0.65)",
-			'Optimizer': "rgba(91, 54, 125, 0.65)",					
-			'ReLu': "rgba(255, 166, 1, 0.65)",
-			'Sigmoid': "rgba(255, 124, 1, 0.65)",
-			'Softmax': "rgba(255, 192, 1, 0.65)",
+		'Convolution': "#20C6FE",
+		'Deconvolution': "#4dd2fe",
+		'Max Pooling': "#0F7BA3",
+		'Average Pooling': "#0b5875",
+		//
+		'LSTM': "#D48E9C",
+		'GRU': "#C46677",
+		'BiRNN': "#bf596c",
+		'RNN': "#B43F56",
+		'CRF': "#97293E",
+		'Attention': "#6E202F",
+		//
+		'Input': "#D8C28E",
+		'Dense': "#C9AB66",
+		'Flatten': "#179D3E",
+		'Dropout': "#aa883c",
+		//
+		'Embedding': "#ff1a1f",
+		'Normalization': "#DD0005",
+		'Optimizer': "#e60005",
+		//					
+		'ReLu': "#FFFF17",
+		'Sigmoid': "#FFFF6D",
+		'Softmax': "#DFE509",
+		'Linear': "#f7fa84",
+		'tanh': "#f1f622",
+		//
+		'Cross Entropy': "#FC20FF",
+		'CTC': "#fc1aff",
+		'L2': "#e200e6",
+		'MSE': "#b000b3"
 	};
 	var typeDic = {
 		'Convolution': "CNN",
+		'Deconvolution': "CNN",
 		'Max Pooling': "CNN",
 		'Average Pooling': "CNN",
 		'LSTM': "RNN",
 		'GRU': "RNN",
 		'BiRNN': "RNN",
-		'Input': "Other",
-		'Dense': "Other",
-		'Flatten': "Other",
-		'Dropout': "Other",
-		'Attention': "Other",
-		'Cross Entropy': "Other",
+		'RNN': "RNN",
+		'CRF': "RNN",
+		'Attention': "RNN",
+		'Input': "DNN",
+		'Dense': "DNN",
+		'Flatten': "DNN",
+		'Dropout': "DNN",
+		'Embedding': "Other",
+		'Normalization': "Other",
 		'Optimizer': "Other",					
 		'ReLu': "Activate",
 		'Sigmoid': "Activate",
 		'Softmax': "Activate",
+		'Linear': "Activate",
+		'tanh': "Activate",
+		'Cross Entropy': "Loss",
+		'CTC': "Loss",
+		'L2': "Loss",
+		'MSE': "Loss"
 	}
 	if (nodesType !== "None") {
 		click_2(nodesType, typeDic);
@@ -143,21 +168,39 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		g.append("text")
 		.attr("text-anchor", "middle")
 		.attr("y", height)
-		.attr("x", x(leName)+40)
+		.attr("x", x(leName)+25)
 		.text(leName)
 			.attr("font-family", "sans-serif")
 			.attr("font-size", "14px")
 			.attr("font-weight", "100")
-			.attr("fill", "#ffffff");
+			.attr("fill", function() {
+				if (leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh') {
+					return "#d2dfde"
+				} else {
+					return "#ffffff"
+				}
+			});
 
 		g.append("text")
 		.attr("text-anchor", "middle")
 		.attr("y", y(leNum))
 		.attr("x", x(leName) + x.bandwidth()/2)
-		.text(leNum)
+		.text(function() {
+			if (leNum==0) {
+				return ""
+			} else {
+				return leNum
+			}
+		})
 			.attr("font-family", "sans-serif")
 			.attr("font-size", "16px")
 			.attr("font-weight", "100")
-			.attr("fill", "#ffffff");
+			.attr("fill", function() {
+				if (leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh') {
+					return "#d2dfde"
+				} else {
+					return "#ffffff"
+				}
+			});
 	}
 }

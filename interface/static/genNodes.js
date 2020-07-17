@@ -1,45 +1,70 @@
 var allProNodes = [];
 var genData = function(idList, path, viewName='oriView') {
 	var typedic = {'C': "Convolution",
+			'Y': "Deconvolution",
 			'M': "Max Pooling",
 			'A': "Average Pooling",
 			'L': "LSTM",
 			'G': "GRU",
 			'B': "BiRNN",
+			'N': "RNN",
 			'I': "Input",
 			'D': "Dense",
+			'C': "CRF",
+			'I': "Embedding",
 			'F': "Flatten",
 			'P': "Dropout",
 			'T': "Attention",
-			'E': "Cross Entropy",
+			'Z': "Normalization",
 			'O': "Optimizer",					
 			'R': "ReLu",
 			'S': "Sigmoid",
-			'X': "Softmax"};
+			'X': "Softmax",
+			'K': "Linear",
+			'J': "tanh",
+			'E': "Cross Entropy",
+			'W': "L2",
+			'H': "CTC",
+			'U': "MSE"
+		};
 	var colorDic = {
 		"CNN": {
-			'Convolution': "rgba(54, 69, 133, 0.65)",
-			'Max Pooling': "rgba(90, 102, 158, 0.65)",
-			'Average Pooling': "rgba(163, 171, 206, 0.65)"
+			'Convolution': "#20C6FE",
+			'Deconvolution': "#4dd2fe",
+			'Max Pooling': "#0F7BA3",
+			'Average Pooling': "#0b5875"
 		},
 		"RNN":{
-			'LSTM': "rgba(212, 80, 135, 0.65)",
-			'GRU': "rgba(249, 93, 106, 0.65)",
-			'BiRNN': "rgba(249, 93, 106, 0.65)"
+			'LSTM': "#D48E9C",
+			'GRU': "#C46677",
+			'BiRNN': "#bf596c",
+			'RNN': "#B43F56",
+			'CRF': "#97293E",
+			'Attention': "#6E202F"
+		},
+		"DNN": {
+			'Input': "#D8C28E",
+			'Dense': "#C9AB66",
+			'Flatten': "#179D3E",
+			'Dropout': "#aa883c"
 		},
 		"Other": {
-			'Input': "rgba(76, 18, 1, 0.65)",
-			'Dense': "rgba(176, 43, 2, 0.65)",
-			'Flatten': "rgba(252, 81, 28, 0.65)",
-			'Dropout': "rgba(18, 109, 52, 0.65)",
-			'Attention': "rgba(152, 231, 49, 0.65)",
-			'Cross Entropy': "rgba(65, 39, 89, 0.65)",
-			'Optimizer': "rgba(91, 54, 125, 0.65)"					
+			'Embedding': "#ff1a1f",
+			'Normalization': "#DD0005",
+			'Optimizer': "#e60005"				
 		},
 		"Activate": {
-			'ReLu': "rgba(255, 166, 1, 0.65)",
-			'Sigmoid': "rgba(255, 124, 1, 0.65)",
-			'Softmax': "rgba(255, 192, 1, 0.65)"
+			'ReLu': "#FFFF17",
+			'Sigmoid': "#FFFF6D",
+			'Softmax': "#DFE509",
+			'Linear': "#f7fa84",
+			'tanh': "#f1f622",
+		},
+		"Loss": {
+			'Cross Entropy': "#FC20FF",
+			'CTC': "#fc1aff",
+			'L2': "#e200e6",
+			'MSE': "#b000b3"
 		}
 	};
 	var node_color = {};
@@ -69,8 +94,10 @@ var genData = function(idList, path, viewName='oriView') {
 							var act = 'ReLu';
 						} else if (tar.search('softmax') != -1) {
 							var act = 'Softmax';
-						} else if (tar.search('sigmoid') != -1) {
-							var act = 'Sigmoid';
+						} else if (tar.search('linear') != -1) {
+							var act = 'Linear';
+						} else if (tar.search('tanh') != -1) {
+							var act = 'tanh';
 						}
 						model_li.push(act);
 						act_li.push(act);
@@ -415,6 +442,8 @@ var genData = function(idList, path, viewName='oriView') {
 				var nodesData = [[proj, max_length, totalNum], idList, proNode, allProNodes];
 				mainDraw(idList, nodesData);
 				genInfo(idList, proNode, hyper);
+				var e = document.getElementById("GitHub-select");
+				sortByfunction(e);
 				updateSlider('starsSvg', idList,  proNode);
 				updateSlider('forksSvg', idList, proNode);
 				updateSlider('numLayersSvg', idList, proNode);
@@ -473,6 +502,8 @@ var genData = function(idList, path, viewName='oriView') {
 							var nodesData = [[proj, max_length, totalNum], idList, newProNode, allProNodes, new_net_li];
 							mainDraw(idList, nodesData);
 							genInfo(idList, newProNode, hyper);
+							var e = document.getElementById("GitHub-select");
+							sortByfunction(e);
 							updateSlider('starsSvg', idList,  newProNode);
 							updateSlider('forksSvg', idList, newProNode);
 							updateSlider('numLayersSvg', idList, newProNode);
