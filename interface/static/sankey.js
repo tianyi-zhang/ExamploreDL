@@ -181,7 +181,10 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 		}
 		return name_li
 	}
-	svg.append("g")
+	var allG = svg.append("g")
+		.attr("id", 'allG');
+
+	allG.append("g")
 		.attr("id", "rectG")
 		.attr("stroke", "#000")
 		.selectAll("rect")
@@ -201,7 +204,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 		.append("title")
 			.text(d => `${d.name}\n${format(d.value)}`);
 	
-	const link = svg.append("g")
+	const link = allG.append("g")
 		.attr("id", 'linkG')
 		.attr("stroke-opacity", 1)
 		.selectAll("g")
@@ -220,7 +223,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 	link.append("title")
 		.text(d => `${d.source.name} → ${d.target.name}\n${format(d.value)}`);
 
-	svg.append("g")
+	allG.append("g")
 		.attr("id", 'textG')
 		.attr("font-family", "sans-serif")
 		.attr("font-size", 15)
@@ -260,8 +263,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 	var zoom = d3.zoom()
 			.scaleExtent([0.05, 5])
 			.on('zoom', function() {
-				//console.log(d3.event.transform.toString(), d3.event.sourceEvent);
-				if (d3.event.sourceEvent && d3.event.sourceEvent.type !== "mousemove") return;
+				if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return;
 				svg.selectAll('path')
 					.attr('transform', d3.event.transform.toString());
 				svg.selectAll('rect')
