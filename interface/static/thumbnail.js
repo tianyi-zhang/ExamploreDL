@@ -155,4 +155,6 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 		d3.selectAll("#linkG").call(zoom.transform, transform);
 		d3.selectAll("#textG").call(zoom.transform, transform);
 	}
+
+	return zoom;
 }
