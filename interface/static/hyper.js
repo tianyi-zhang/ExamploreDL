@@ -23,12 +23,8 @@ var genHyperLi = function(tarId, data) {
 	return [li, tarDict];
 }
 var hyperparameterChart = function(hyperData, tarId='') {
-
-	drawLegend();
 	
-	d3.selectAll(".chart2-text").remove();
-	d3.selectAll(".para-rect").remove();
-	d3.selectAll(".chart2-xaxis").remove();
+	d3.selectAll(".paraChart").remove();
 
 	var margin = {top: 30, right: 0, bottom: 30, left: 50},
 			width = 300 - margin.left - margin.right,
@@ -67,20 +63,24 @@ var hyperparameterChart = function(hyperData, tarId='') {
 				bins.push({"name": data['li'][i], "value": 1})
 			}
 		}
-		// And apply this function to data to get the bins
-		
-
-		// Y axis: scale and draw:
 		var y = d3.scaleLinear()
 			.range([height, 40])
-			.domain([0, d3.max(bins, function(d) { return +d.value;}) ]);	 
+			.domain([0, d3.max(bins, function(d) { return +d.value;}) ]);
+	 
 		return [x, y, bins]
 	}
-
 	var text_pos = [];
+	var maxNum = d3.max(return_li, function(d) { return +d.li.length;});
+	var r = d3.scaleLinear()
+			.range([5, 30])
+			.domain([1, maxNum]);
+
+	drawLegend("hyper", maxNum);
 	for (i=0; i<return_li.length; i++) { 
 		var nowKey = return_li[i].key;
-		var Mysvg = d3.select("#para-"+(i+1))
+		var Mysvg = d3.select("#paraChart-"+(i)).append("svg")
+			.attr("id", 'paraSvg-'+i)
+			.attr("class", "paraChart")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom);
 
@@ -88,27 +88,18 @@ var hyperparameterChart = function(hyperData, tarId='') {
 
 		var inside_li = [];
 		var hyperG = Mysvg.append("g")
-			.attr('id', 'hyperG'+(i+1))
+			.attr('id', 'hyperG'+(i))
 			.attr("transform", "translate(20,40)");
 
-		hyperG.selectAll("para-rect")
+		hyperG.selectAll(".hyper-cir")
 			.data(bins)
 			.enter()
-			.append("rect")
+			.append("circle")
 				.attr("id", nowKey)
-				.attr("class", "para-rect")
-				.attr("x", d => x(d.name))
-				.attr("y", d => y(d.value))
-				.attr("width", 20)
-				.attr("height", function(d) {
-					var he = y(Number(d.value));
-					if (Number.isNaN(he)) {
-						return 0;
-					} else {
-						return height - he;
-					}
-					
-				})
+				.attr("class", "hyper-cir")
+				.attr("cx", d => x(d.name))
+				.attr("cy", d => y(d.value))
+				.attr("r", d => r(d.value))
 				.style("fill", function(d) {
 					if (nowKey in returnHyper[1]) {
 
@@ -126,10 +117,42 @@ var hyperparameterChart = function(hyperData, tarId='') {
 					} else {
 						return "#BBB5F0";
 					}
+				})
+				.on("mouseover", function(d) {
+					d3.selectAll("#tooltipRect").remove();
+					d3.selectAll(".toolText").remove();
+					var selectG = d3.select("#"+this.parentNode.id);
+					var toolRect = selectG.append("rect")
+						.attr("id", "tooltipRect")
+						.attr("x", 50)
+						.attr("y", 0)
+						.attr("height", 50)
+						.attr("width", 230)
+						.attr("rx", 6)
+	 					.attr("ry", 6)
+						.attr("fill", "#ccc")
+						.attr("opacity", 0.7);
+
+					var topicText = selectG.append("text")
+						.attr("class", "toolText")
+						.attr("x", 60)
+						.attr("y", 20)
+						.text(this.id+": "+d.name)
+						.attr("font-size","18px")
+						.attr("color", "#BBB5F0");
+
+					var valueText = selectG.append("text")
+						.attr("class", "toolText")
+						.attr("x", 60)
+						.attr("y", 40)
+						.text(d.value+" projects use this value.")
+						.attr("font-size","18px")
+						.attr("color", "#BBB5F0");
+				})
+				.on("mouseout", function(d) {
+					d3.selectAll("#tooltipRect").remove();
+					d3.selectAll(".toolText").remove();
 				});
-				/*.on("click", function(d) {
-					newData(d.x0, d.x1, json_data, this.id, selected_cat)
-				})*/
 
 		text_pos.push(inside_li); 
 		

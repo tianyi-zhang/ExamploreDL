@@ -26,12 +26,12 @@ function bubbleSort (arr, key, flag=">") {
 	return arr;
 }
 
-function drawLegend(legendType='hyper') {
+function drawLegend(legendType, maxNum) {
 	d3.selectAll("#legend").remove();
 	var leng = d3.select("#paraLegendDiv").append("svg")
 		.attr("id", "legend")
 		.attr("width", 300)
-		.attr("height", 60);
+		.attr("height", 120);
 
 	var rect_1 = leng.append("rect")
 		.attr("class", "legend")
@@ -82,6 +82,76 @@ function drawLegend(legendType='hyper') {
 				return "hyperparameters of other project";
 			} else {
 				return "parameters of other nodes";
+			}
+		})
+		.style("font-family", "sans-serif")
+		.attr("font-size","16px")
+		.attr("font-weight", 100)
+		.style("fill", "#7F7F7F");
+
+	leng.append("circle")
+		.attr("cx", 60)
+		.attr("cy", 110)
+		.attr("r", 5)
+		.attr("fill", "none")
+		.style("stroke", "#ccc")
+		.style("stroke-dasharray", "4 2");
+
+	leng.append("circle")
+		.attr("cx", 60)
+		.attr("cy", 85)
+		.attr("r", 30)
+		.attr("fill", "none")
+		.style("stroke", "#ccc")
+		.style("stroke-dasharray", "4 2");
+
+	leng.append("line")
+		.attr("id", "line1")
+		.attr("x1", 65)
+		.attr("y1", 110)
+		.attr("x2", 120)
+		.attr("y2", 110)
+		.attr("fill", "none")
+		.style("stroke", "black")
+		.style("stroke-width", 1);
+
+	leng.append("line")
+		.attr("id", "line2")
+		.attr("x1", 90)
+		.attr("y1", 85)
+		.attr("x2", 120)
+		.attr("y2", 85)
+		.attr("fill", "none")
+		.style("stroke", "black")
+		.style("stroke-width", 1);
+
+	leng.append("text")
+		.attr("class", "legend")
+		.attr("text-anchor", "start")
+		.attr("y", 115)
+		.attr("x", 120)
+		.text(function() {
+			if (legendType=='hyper') {
+				return "1 project use";
+			} else {
+				return "1 layer use";
+			}
+		})
+		.style("font-family", "sans-serif")
+		.attr("font-size","16px")
+		.attr("font-weight", 100)
+		.style("fill", "#7F7F7F");
+
+	leng.append("text")
+		.attr("class", "legend")
+		.attr("text-anchor", "start")
+		.attr("y", 90)
+		.attr("x", 120)
+		.text(function() {
+			if (legendType=='hyper') {
+				return maxNum+" projects use";
+			} else {
+				return maxNum+" layers use";
 			}
 		})
 		.style("font-family", "sans-serif")
@@ -172,12 +242,8 @@ var get_data = function(d_node, selected_cat) {
 }
 
 var generateParameterChart = function(selected_cat, json_data, target_args) {
-
-	drawLegend("parameters");
 	
-	d3.selectAll(".chart2-text").remove();
-	d3.selectAll(".para-rect").remove();
-	d3.selectAll(".chart2-xaxis").remove();
+	d3.selectAll(".paraChart").remove();
 
 	var margin = {top: 30, right: 0, bottom: 30, left: 50},
 			width = 300 - margin.left - margin.right,
@@ -213,80 +279,98 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 				bins.push({"name": data['li'][i], "value": 1})
 			}
 		}
-		// And apply this function to data to get the bins
-		
-
-		// Y axis: scale and draw:
 		var y = d3.scaleLinear()
 			.range([height, 40])
 			.domain([0, d3.max(bins, function(d) { return +d.value;}) ]);	 
 		return [x, y, bins]
 	}
+	var maxNum = d3.max(return_li, function(d) { return +d.li.length;});
+	var r = d3.scaleLinear()
+			.range([5, 30])
+			.domain([1, maxNum]);
 
+	drawLegend("parameters", maxNum);
 	var text_pos = [];
 	for (i=0; i<return_li.length; i++) { 	
 
 		var nowKey = return_li[i].key;
-		var Mysvg = d3.select("#para-"+(i+1))
+		var Mysvg = d3.select("#paraChart-"+(i)).append("svg")
+			.attr("id", 'paraSvg-'+i)
+			.attr("class", "paraChart")
 			.attr("width", width + margin.left + margin.right)
-			.attr("height", height + margin.top + margin.bottom)
-			.data(return_li)
-			.enter();
+			.attr("height", height + margin.top + margin.bottom);
 
-		var svg_this = d3.selectAll("#para-"+(i+1));
-		[x, y, bins] = hist(svg_this, return_li[i]);
-		console.log(bins, return_li[i]);
+		[x, y, bins] = hist(Mysvg, return_li[i]);
 		var inside_li = [];
 		var paraG = Mysvg.append("g")
-			.attr('id', 'paraG'+(i+1))
+			.attr('id', 'paraG'+(i))
 			.attr("transform", "translate(20,40)");
-		paraG.selectAll(".para-rect")
+		console.log(bins);
+		paraG.selectAll(".para-cir")
 			.data(bins)
 			.enter()
-			.append("rect")
+			.append("circle")
 				.attr("id", nowKey)
-				.attr("class", "para-rect")
-				.attr("x", d => x(d.name))
-				.attr("y", d => y(d.value))
-				.attr("width", 20)
-				.attr("height", function(d) {
-
-					var he = y(Number(d.value));
-					if (Number.isNaN(he)) {
-						return 0;
-					} else {
-						console.log(x(d.name));
-						return height - he;
-					}
-					
-				})
+				.attr("class", "para-cir")
+				.attr("cx", d => x(d.name))
+				.attr("cy", d => y(d.value))
+				.attr("r", d=>r(d.value))
 				.style("fill", function(d) {
 					if (Object.keys(target_args).includes(nowKey)) {
-
 						for (k=0; k<target_args[nowKey].length; k++) {
-
 							var target_arg_val = target_args[nowKey][k];
 							
-							if ((d.x0 <= target_arg_val) && (target_arg_val < d.x1)) {
+							if (d.name == target_arg_val+"") {
 								flag = 1;
 								return "#8D85EE";
 							}
-				
 						}
 						return "#BBB5F0";
 					} else {
 						return "#BBB5F0";
 					}
+				})
+				.on("mouseover", function(d) {
+					d3.selectAll("#tooltipRect").remove();
+					d3.selectAll(".toolText").remove();
+					var selectG = d3.select("#"+this.parentNode.id);
+					var toolRect = selectG.append("rect")
+						.attr("id", "tooltipRect")
+						.attr("x", 50)
+						.attr("y", 40)
+						.attr("height", 50)
+						.attr("width", 230)
+						.attr("rx", 6)
+	 					.attr("ry", 6)
+						.attr("fill", "#ccc")
+						.attr("opacity", 0.7);
+
+					var topicText = selectG.append("text")
+						.attr("class", "toolText")
+						.attr("x", 60)
+						.attr("y", 60)
+						.text(this.id+": "+d.name)
+						.attr("font-size","18px")
+						.attr("color", "#BBB5F0");
+
+					var valueText = selectG.append("text")
+						.attr("class", "toolText")
+						.attr("x", 60)
+						.attr("y", 80)
+						.text(d.value+" layers use this value.")
+						.attr("font-size","18px")
+						.attr("color", "#BBB5F0");
+				})
+				.on("mouseout", function(d) {
+					d3.selectAll("#tooltipRect").remove();
+					d3.selectAll(".toolText").remove();
 				});
-				/*.on("click", function(d) {
-					newData(d.x0, d.x1, json_data, this.id, selected_cat)
-				})*/
 
 		text_pos.push(inside_li); 
 		
 		for (j=0; j<inside_li.length; j++) {
 
-			svg_this
+			Mysvg
 				.append("text")
 				.attr("class", "chart2-text")
 				.attr("text-anchor", "middle")
@@ -299,7 +383,7 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 				.style("fill", "#ffffff")
 		}
 
-		svg_this
+		Mysvg
 			.append("text")
 			.attr("class", "chart2-text")
 			.attr("text-anchor", "middle")
@@ -312,9 +396,7 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 				.attr("fill", "#505050");
 
 		if (target_args !== "none") {
-
-			console.log(target_args, nowKey);
-			var selectText = svg_this.append("rect")
+			var selectText = Mysvg.append("rect")
 				.attr("class", "chart2-text")
 				.attr("y", 35)
 				.attr("x", 0)
@@ -324,7 +406,7 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 				.attr("rx", 6)
 				.attr("ry", 6);
 
-			svg_this
+			Mysvg
 				.append("text")
 				.attr("class", "chart2-text")
 				.attr("text-anchor", "middle")

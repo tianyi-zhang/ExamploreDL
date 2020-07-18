@@ -254,12 +254,10 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 	}
 	const myHeight = nodes[0]['y1']-nodes[0]['y0'];
 	const myWidth = d3.max(nodes, function (d) { return d.x1;})-d3.min(nodes, function (d) { return d.x0;});
-	//drawThumbnail(data, idList, myWidth, myHeight);
 	var x2 = 1100;
 	if (myWidth>1100) {
 		x2 = 1200;
 	}
-	//zoomBrush(nodes, thumbNodes, [sankeyWidth, sankeyWidth]);
 	var zoom = d3.zoom()
 			.scaleExtent([0.05, 5])
 			.on('zoom', function() {
