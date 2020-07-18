@@ -9,7 +9,7 @@ function genInfo(idList, nodesData, hyper) {
 	proData = {};
 	for (var i=0; i<idList.length; i++) {
 		var proid = idList[i];
-		var proName = csvData[proid]['Project_Name'].replaceAll("_", "-");
+		var proName = csvData[proid]['Project_Name'].split("_").join("-");
 		if (Object.keys(proData).includes(proName)) {
 			proData[proName]['Models'].push(csvData[proid]['Models']);
 			proData[proName]["id"].push(proid);

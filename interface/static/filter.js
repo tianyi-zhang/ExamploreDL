@@ -25,7 +25,7 @@ function updateFilterSVG(idList, thisClassName) {
 			for (const element in newData[newKey]) {
 				var barLength = (newData[newKey][element].length/maxLengthLi[newKey])*150;
 				newSVGDivId = newKey+"-"+element.replace("!", "");
-				newSVGDivId = newSVGDivId.replaceAll(" ", "_")
+				newSVGDivId = newSVGDivId.split(" ").join("_");
 				changeFilterSvg(barLength, newSVGDivId, newData[newKey][element].length);
 			}
 		}		

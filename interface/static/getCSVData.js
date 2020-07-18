@@ -105,7 +105,7 @@ function createCell(dict, tableTar, pos, boxClassName) {
 
 		var newSVGDiv = document.createElement('div');
 		newSVGDivId = boxClassName+"-"+key.replace("!", "");
-		newSVGDivId = newSVGDivId.replaceAll(" ", "_")
+		newSVGDivId = newSVGDivId.split(" ").join("_");
 		newSVGDiv.id = newSVGDivId;
 		newCellSVGTd.appendChild(newSVGDiv);
 		
