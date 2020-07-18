@@ -1,5 +1,4 @@
 function updateFilterSVG(idList, thisClassName) {
-
 	var newData = {"datasetsTr":{}, "tasksTr":{}, "modelsTr":{}};
 	var maxLengthLi = {"datasetsTr":0, "tasksTr":0, "modelsTr":0};
 	for (const key in filterData) {
@@ -22,17 +21,14 @@ function updateFilterSVG(idList, thisClassName) {
 		maxLengthLi[key] = maxLength;
 	}
 	for (const newKey in newData) {
-		
-		for (const element in newData[newKey]) {
-			var barLength = (newData[newKey][element].length/maxLengthLi[newKey])*150;
-			if (element.indexOf('_') >= 0) {
-				newSVGDivId = newKey+"-"+element.split("_")[0].slice(0, 3) + element.split("_")[1].slice(0, 3);
-			} else {
-				newSVGDivId = newKey+"-"+element.slice(0, 3);
-			} 
-			changeFilterSvg(barLength, newSVGDivId, newData[newKey][element].length);
-		}
-		
+		if (newKey !== thisClassName) {
+			for (const element in newData[newKey]) {
+				var barLength = (newData[newKey][element].length/maxLengthLi[newKey])*150;
+				newSVGDivId = newKey+"-"+element.replace("!", "");
+				newSVGDivId = newSVGDivId.replaceAll(" ", "_")
+				changeFilterSvg(barLength, newSVGDivId, newData[newKey][element].length);
+			}
+		}		
 	}
 }
 

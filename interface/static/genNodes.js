@@ -94,6 +94,8 @@ var genData = function(idList, path, viewName='oriView') {
 							var act = 'ReLu';
 						} else if (tar.search('softmax') != -1) {
 							var act = 'Softmax';
+						} else if (tar.search('sigmoid') != -1) {
+							var act = 'Sigmoid';
 						} else if (tar.search('linear') != -1) {
 							var act = 'Linear';
 						} else if (tar.search('tanh') != -1) {

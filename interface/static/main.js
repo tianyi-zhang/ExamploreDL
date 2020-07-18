@@ -18,7 +18,6 @@ mixData.then(function(oriData) {
 	function update(thisClassName){	
 
 		function genContainId(newOrder) {
-
 			var containIdLi = [];		
 			var startModifyPos = 0;	
 			var isEmpty = 0;	
@@ -101,27 +100,44 @@ mixData.then(function(oriData) {
 			var newOrder = Object.keys(selectOrder).length;
 			var isEmptyResult = genContainId(newOrder);			
 		}
-
+		var notNone = 0;
 		if (isEmptyResult == 0) {
 			if (Object.keys(selectOrder).length == 1) {
 				idList = allId;
+				selectOrder = {};
+				d3.selectAll("#chart").remove();
+				d3.selectAll(".slider-xaxis").remove();
+				d3.selectAll(".slider-rect").remove();
+				d3.selectAll(".slider-text").remove();
+				d3.selectAll(".brush").remove();
+				d3.selectAll(".handle--custom").remove();
+				d3.selectAll(".slider-label").remove();
+				d3.selectAll("#numLayersSvg").remove();
+				d3.selectAll("#thumbnail").remove();
+				d3.selectAll(".newProjectDiv").remove();
+				d3.selectAll(".projectInfoDiv").remove();
+				d3.selectAll("#legendSvg").remove();
+				d3.selectAll("#legend").remove();
+				d3.selectAll(".chart2-text").remove();
+				d3.selectAll(".para-rect").remove();
+				d3.selectAll(".chart2-xaxis").remove();
+				updateFilterSVG(idList, thisClassName);
+				notNone = 0;
 			} else if (Object.keys(selectOrder).length > 1) {
 				idList = Object.values(Object.values(selectOrder)[Object.keys(selectOrder).length-2])[0];
+				notNone = 1;
 			}
 		} else {
 			idList = Object.values(Object.values(selectOrder)[Object.keys(selectOrder).length-1])[0];
+			notNone = 1;
 		}
-	
-		if (idList.length == 0) {	
-			d3.selectAll("#chart").remove();
-			d3.selectAll(".slider-xaxis").remove();
-			d3.selectAll(".slider-rect").remove();
-			d3.selectAll(".slider-text").remove();
-			d3.selectAll(".brush").remove();
-			d3.selectAll(".handle--custom").remove();
-			d3.selectAll(".slider-label").remove();
-			d3.selectAll("#numLayersSvg").remove();
-		} else {
+		for (const orderKey in selectOrder) {
+			var key = Object.keys(selectOrder[orderKey])[0];
+			if (selectOrder[orderKey][key].length==0) {
+				delete selectOrder[orderKey];
+			}
+		}
+		if (notNone == 1) {
 			d3.selectAll("#viewbtn").each(function(d){
 				var cb = d3.select(this);
 				if(cb.property("checked")){
@@ -145,7 +161,6 @@ mixData.then(function(oriData) {
 				});
 			}
 		}
-		
 	}
 	
 	function clickFilter() {

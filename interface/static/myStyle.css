@@ -134,6 +134,16 @@ td {
 	background: white;
 	border-radius: 10px;
 }
+.tab {
+	margin-left: 60px;
+	width: 1200px;
+	display: flex;
+  	align-items: center;
+	height: 60px; 
+}
+#viewbtn {
+	margin: 20px 10px 20px 50px; 
+}
 #chart_div {
 	width: 1200px; 
 	height: 800px;

@@ -128,7 +128,7 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 	thumbBrushG.selectAll(".handle.handle--se")
 		.attr("id", "se-handle");
 
-	d3.select("#chart").call(zoom);
+	d3.select("#allG").call(zoom);
 
 	function brushed() {
 		if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return;
@@ -151,8 +151,10 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 			.scale(magnify)
 			.translate(-moveX, -moveY);
 
-		d3.selectAll("#rectG").call(zoom.transform, transform);
-		d3.selectAll("#linkG").call(zoom.transform, transform);
-		d3.selectAll("#textG").call(zoom.transform, transform);
+		d3.selectAll("#allG").call(zoom.transform, transform);
+		//d3.selectAll("#linkG").call(zoom.transform, transform);
+		//d3.selectAll("#textG").call(zoom.transform, transform);
 	}
+
+	return zoom;
 }

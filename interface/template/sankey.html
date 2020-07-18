@@ -6,7 +6,6 @@
 	<script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
 	<script type="text/javascript" src="https://unpkg.com/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script type="text/javascript" src="{{ url_for('static', filename = 'breadcrumbFunct.js') }}"></script>
 	<script type="text/javascript" src="{{ url_for('static', filename = 'clickFunc.js') }}"></script>
 	<script type="text/javascript" src="{{ url_for('static', filename = 'filter.js') }}"></script>
 	<script type="text/javascript" src="{{ url_for('static', filename = 'hyper.js') }}"></script>
@@ -134,28 +133,20 @@
 							</td>
 						</tr>
 						<tr>
-							<!--
-							<td rowspan="2" id="numTypesTd" style="border-bottom: 1px solid #F5F4F2; border-right: 1px solid #F5F4F2;">
-								<div id="numTypes" style="width: 100%; height: 350px; border-bottom: 0.5px solid #F5F4F2"></div>
-								<div id="numLayers" style="width: 385px; height: 350px; align-content: center"></div>
+							<td>
+								<div id="sankeyHead" style="text-align: center; font-size: 35px;">Sankey Diagram</div>
 							</td>
-							-->							
-							<td id="record" valign="top" style="border-bottom: 1px solid #F5F4F2; border-right: 1px solid #F5F4F2;">	
-								<div id='bread_div', style="width: 100%; height: 100 px; align-content: center;">
-									<div id="home" style="background-color: red; font-size: 15px;" onclick="click_4();return false;">Reset</div>
-								</div>								
-							</td>
-							<td id="paraHead" style="border-bottom: 1px solid #F5F4F2; border-right: 1px solid #F5F4F2; width: 300px; font-size: 25px; padding: 15px; text-align: center;">Hyperparameters/Parameters</td>
-							<td style="border-bottom: 1px solid #F5F4F2;">
+							<td>
+								<div id="paraHead" style="text-align: center; font-size: 35px;">Hyperparameters</div>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<div id="sankeyHead" style="text-align: center; font-size: 35px;">Sankey Diagram</div>
 								<div id='thumbnailDiv'>
 									<svg id='thumbnail'></svg>
 								</div>	
 								<div class="tab">
+									<div id="home" style="background-color: red; font-size: 15px;" onclick="click_4();return false;">Reset</div>
 									<input type="radio" id="viewbtn" name="view" value="oriView" checked>
 									<label for="huey" style="font-size: 25px;">Original View</label>
 									<input type="radio" id="viewbtn" name="view" value="aliView">
