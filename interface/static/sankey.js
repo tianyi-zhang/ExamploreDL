@@ -264,11 +264,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 			.scaleExtent([0.05, 5])
 			.on('zoom', function() {
 				if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return;
-				svg.selectAll('path')
-					.attr('transform', d3.event.transform.toString());
-				svg.selectAll('rect')
-					.attr('transform', d3.event.transform.toString());
-				svg.selectAll('text')
+				d3.select("#allG")
 					.attr('transform', d3.event.transform.toString());
 				var t = d3.zoomTransform(this);
 				
@@ -339,11 +335,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 			})
 			.on("end", function() {
 				if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return;
-				svg.selectAll('path')
-					.attr('transform', d3.event.transform.toString());
-				svg.selectAll('rect')
-					.attr('transform', d3.event.transform.toString());
-				svg.selectAll('text')
+				d3.select("#allG")
 					.attr('transform', d3.event.transform.toString());
 				var t = d3.zoomTransform(this);
 				

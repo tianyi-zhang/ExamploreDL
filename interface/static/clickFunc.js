@@ -1,12 +1,8 @@
-var click_1 = function(d, nodes, projectNodes, appendNow='pass in') {
+var click_1 = function(d, nodes, projectNodes) {
 
 	var nodeName = d.name.split("-")[0];
-	d3.selectAll(".bar").attr("fill", "#BBB5F0")
-	var recordArgs = [d, projectNodes];
+	d3.selectAll(".bar").attr("fill", "#BBB5F0");
 	var svg = d3.select('#chart');
-	if (appendNow=="pass in") {
-		addRecord("", nodeName, {"click_1": recordArgs});
-	}
 
 	svg.selectAll("rect").style("opacity", 0.35);
 	svg.selectAll("rect").attr("stroke", "#ffffff");
@@ -24,14 +20,9 @@ var click_1 = function(d, nodes, projectNodes, appendNow='pass in') {
 	genInfo(proIdList, projectNodes);
 }
 
-var click_2 = function(d, typeDic, appendNow='pass in') {
-	d3.selectAll(".bar").attr("fill", "#BBB5F0")
-	var recordArgs = [d, typeDic];
+var click_2 = function(d, typeDic) {
+	d3.selectAll(".bar").attr("fill", "#BBB5F0");
 	var svg = d3.select('#chart');
-
-	if (appendNow=="pass in") {
-		addRecord("#8D85EE", d, {"click_2": recordArgs});
-	}
 	
 	svg.selectAll("path").style("opacity", 0.35);
 	svg.selectAll("rect").style("opacity", 0.35);
@@ -51,16 +42,12 @@ var click_2 = function(d, typeDic, appendNow='pass in') {
 	} 
 }
 
-var click_3 = function(d, nodes, projectNodes, appendNow='pass in') {
-	d3.selectAll(".bar").attr("fill", "#BBB5F0")
-	var recordArgs = [d, nodes, projectNodes];
+var click_3 = function(d, nodes, projectNodes) {
+	d3.selectAll(".bar").attr("fill", "#BBB5F0");
 	var svg = d3.select('#chart');
-	if (appendNow=="pass in") {
-		addRecord("", d, {"click_3": recordArgs});
-	}
 	svg.selectAll("path").style("opacity", 0.35);
 	svg.selectAll("rect").style("opacity", 0.35);
-	svg.selectAll("rect").attr("stroke", "#ffffff")
+	svg.selectAll("rect").attr("stroke", "#ffffff");
 
 	var all_th = d3.selectAll('.svg_th_tr')
 		.style("border-top", "1px solid #848484")
@@ -104,15 +91,11 @@ var click_4 = function() {
 	d3.selectAll(".breadcrumbDiv").remove();
 }
 
-var click_5 = function(nodeList, layNum, proIdList, appendNow='pass in') {
+var click_5 = function(nodeList, layNum, proIdList) {
 	d3.selectAll(".bar").attr("fill", "#BBB5F0")
 	d3.select("#layerRect"+layNum).attr("fill", "#8D85EE");
 
-	var recordArgs = [nodeList, layNum, proIdList];
 	var svg = d3.select('#chart');
-	if (appendNow=="pass in") {
-		addRecord("#8D85EE", layNum+" Layers", {"click_5": recordArgs});
-	}
 	svg.selectAll("path").style("opacity", 0.35);
 	svg.selectAll("rect").style("opacity", 0.35);
 	svg.selectAll("rect").attr("stroke", "#ffffff");

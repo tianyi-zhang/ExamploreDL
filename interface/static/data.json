@@ -4008,7 +4008,7 @@
         "Project_Name": "tensorflow-hangul-recognition",
         "url": "https://github.com/IBM/tensorflow-hangul-recognition",
         "file_name": "hangul_model.py",
-        "type": "CNN,",
+        "type": "CNN",
         "hyperparameters": {
             "batch size": 100,
             "epochs": 15,
@@ -4195,7 +4195,7 @@
             "batch size": 2,
             "epochs": 20
         },
-        "num_layers": 9,
+        "num_layers": 10,
         "layers": {
             "layer0": {
                 "type": "Dense",
@@ -4330,9 +4330,20 @@
                         "body": [],
                         "lineno": 107
                     },
-                    "activation": "sigmoid"
+                    "activation": "softmax"
                 },
                 "begin": 123
+            },
+            "layer9": {
+                "type": "CTC",
+                "func": "tf.nn.ctc_loss",
+                "args": {
+                    "labels": "",
+                    "logits": "",
+                    "label_length": "",
+                    "logit_length": ""
+                },
+                "begin": 140
             }
         }
     },
@@ -4347,7 +4358,7 @@
             "batch size": 2,
             "epochs": 20
         },
-        "num_layers": 5,
+        "num_layers": 6,
         "layers": {
             "layer0": {
                 "type": "Dense",
@@ -4450,9 +4461,20 @@
                         "body": [],
                         "lineno": 159
                     },
-                    "activation": "sigmoid"
+                    "activation": "softmax"
                 },
                 "begin": 174
+            },
+            "layer5": {
+                "type": "CTC",
+                "func": "tf.nn.ctc_loss",
+                "args": {
+                    "labels": "",
+                    "logits": "",
+                    "label_length": "",
+                    "logit_length": ""
+                },
+                "begin": 201
             }
         }
     },
@@ -4467,9 +4489,17 @@
             "batch size": 2,
             "epochs": 20
         },
-        "num_layers": 4,
+        "num_layers": 7,
         "layers": {
             "layer0": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 239
+            },
+            "layer1": {
                 "type": "Convolution",
                 "func": "tf.keras.layers.Conv1D",
                 "args": {
@@ -4482,7 +4512,7 @@
                 },
                 "begin": 216
             },
-            "layer1": {
+            "layer2": {
                 "type": "BiRNN",
                 "func": "tf.keras.layers.Bidirectional",
                 "args": {
@@ -4491,7 +4521,15 @@
                 },
                 "begin": 220
             },
-            "layer2": {
+            "layer3": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 255
+            },
+            "layer4": {
                 "type": "Dense",
                 "func": "tf.keras.layers.Dense",
                 "args": {
@@ -4500,15 +4538,26 @@
                 },
                 "begin": 226
             },
-            "layer3": {
+            "layer5": {
                 "type": "Dense",
                 "func": "tf.keras.layers.Dense",
                 "args": {
                     "inputs": 29,
                     "name": "y_pred",
-                    "activation": "sigmoid"
+                    "activation": "softmax"
                 },
                 "begin": 227
+            },
+            "layer6": {
+                "type": "CTC",
+                "func": "tf.nn.ctc_loss",
+                "args": {
+                    "labels": "",
+                    "logits": "",
+                    "label_length": "",
+                    "logit_length": ""
+                },
+                "begin": 268
             }
         }
     },
@@ -4523,9 +4572,17 @@
             "batch size": 2,
             "epochs": 20
         },
-        "num_layers": 10,
+        "num_layers": 13,
         "layers": {
             "layer0": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 302
+            },
+            "layer1": {
                 "type": "Dense",
                 "func": "tf.keras.layers.Dense",
                 "args": {
@@ -4537,7 +4594,7 @@
                 },
                 "begin": 263
             },
-            "layer1": {
+            "layer2": {
                 "type": "Dropout",
                 "func": "tf.keras.layers.Dropout",
                 "args": {
@@ -4545,7 +4602,7 @@
                 },
                 "begin": 264
             },
-            "layer2": {
+            "layer3": {
                 "type": "Dense",
                 "func": "tf.keras.layers.Dense",
                 "args": {
@@ -4557,7 +4614,7 @@
                 },
                 "begin": 265
             },
-            "layer3": {
+            "layer4": {
                 "type": "Dropout",
                 "func": "tf.keras.layers.Dropout",
                 "args": {
@@ -4565,7 +4622,7 @@
                 },
                 "begin": 266
             },
-            "layer4": {
+            "layer5": {
                 "type": "Dense",
                 "func": "tf.keras.layers.Dense",
                 "args": {
@@ -4577,7 +4634,7 @@
                 },
                 "begin": 267
             },
-            "layer5": {
+            "layer6": {
                 "type": "Dropout",
                 "func": "tf.keras.layers.Dropout",
                 "args": {
@@ -4585,7 +4642,15 @@
                 },
                 "begin": 268
             },
-            "layer6": {
+            "layer7": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 312
+            },
+            "layer8": {
                 "type": "BiRNN",
                 "func": "tf.keras.layers.Bidirectional",
                 "args": {
@@ -4594,7 +4659,7 @@
                 },
                 "begin": 272
             },
-            "layer7": {
+            "layer9": {
                 "type": "Dense",
                 "func": "tf.keras.layers.Dense",
                 "args": {
@@ -4605,7 +4670,7 @@
                 },
                 "begin": 276
             },
-            "layer8": {
+            "layer10": {
                 "type": "Dropout",
                 "func": "tf.keras.layers.Dropout",
                 "args": {
@@ -4613,7 +4678,7 @@
                 },
                 "begin": 277
             },
-            "layer9": {
+            "layer11": {
                 "type": "Dense",
                 "func": "tf.keras.layers.Dense",
                 "args": {
@@ -4621,10 +4686,22 @@
                     "name": "y_pred",
                     "kernel_initializer": "init",
                     "bias_initializer": "init",
-                    "activation": "sigmoid"
+                    "activation": "softmax"
                 },
                 "begin": 278
+            },
+            "layer12": {
+                "type": "CTC",
+                "func": "tf.nn.ctc_loss",
+                "args": {
+                    "labels": "",
+                    "logits": "",
+                    "label_length": "",
+                    "logit_length": ""
+                },
+                "begin": 330
             }
+
         }
     },
     "21": {
@@ -4638,7 +4715,7 @@
             "batch size": 2,
             "epochs": 20
         },
-        "num_layers": 2,
+        "num_layers": 3,
         "layers": {
             "layer0": {
                 "type": "BiRNN",
@@ -4653,9 +4730,20 @@
                 "func": "tf.keras.layers.Dense",
                 "args": {
                     "inputs": 29,
-                    "activation": "sigmoid"
+                    "activation": "softmax"
                 },
                 "begin": 301
+            },
+            "layer2": {
+                "type": "CTC",
+                "func": "tf.nn.ctc_loss",
+                "args": {
+                    "labels": "",
+                    "logits": "",
+                    "label_length": "",
+                    "logit_length": ""
+                },
+                "begin": 368
             }
         }
     },
@@ -4670,7 +4758,7 @@
             "batch size": 2,
             "epochs": 20
         },
-        "num_layers": 3,
+        "num_layers": 4,
         "layers": {
             "layer0": {
                 "type": "Convolution",
@@ -4700,9 +4788,20 @@
                 "args": {
                     "inputs": 29,
                     "name": "y_pred",
-                    "activation": "sigmoid"
+                    "activation": "softmax"
                 },
                 "begin": 343
+            },
+             "layer3": {
+                "type": "CTC",
+                "func": "tf.nn.ctc_loss",
+                "args": {
+                    "labels": "",
+                    "logits": "",
+                    "label_length": "",
+                    "logit_length": ""
+                },
+                "begin": 330
             }
         }
     },
@@ -4717,7 +4816,7 @@
             "batch size": 2,
             "epochs": 20
         },
-        "num_layers": 4,
+        "num_layers": 5,
         "layers": {
             "layer0": {
                 "type": "Dense",
@@ -4758,9 +4857,20 @@
                 "args": {
                     "inputs": 29,
                     "name": "y_pred",
-                    "activation": "sigmoid"
+                    "activation": "softmax"
                 },
                 "begin": 376
+            },
+             "layer4": {
+                "type": "CTC",
+                "func": "tf.nn.ctc_loss",
+                "args": {
+                    "labels": "",
+                    "logits": "",
+                    "label_length": "",
+                    "logit_length": ""
+                },
+                "begin": 330
             }
         }
     },
@@ -5726,7 +5836,7 @@
                 "begin": 100
             },
             "layer58": {
-                "type": "ctc",
+                "type": "CTC",
                 "func": "tf.nn.ctc_loss",
                 "args": {
                     "labels": "labels",

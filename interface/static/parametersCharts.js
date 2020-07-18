@@ -168,7 +168,6 @@ var get_data = function(d_node, selected_cat) {
 		return_li[i]["values"] = bubbleSort(return_li_val, "arg_value");
 
 	}
-
 	return return_li;
 }
 
@@ -177,22 +176,20 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 	drawLegend("parameters");
 	
 	d3.selectAll(".chart2-text").remove();
-	d3.selectAll(".chart2-rect").remove();
+	d3.selectAll(".para-rect").remove();
 	d3.selectAll(".chart2-xaxis").remove();
 
 	var margin = {top: 30, right: 0, bottom: 30, left: 50},
 			width = 300 - margin.left - margin.right,
 			height = 180 - margin.top - margin.bottom;
-
 	var return_li = get_data(json_data, selected_cat);
 
-	var hist = function(svgThis, d) {
+	var hist = function(svgThis, data) {
 
-		var num_sticks = 5;
-		var max_x = function(d) {return d3.max(d.li) * (1 + 1/num_sticks)}
-
+		var num_sticks = 5,
+			maxX = d3.max(data['li']);
 		var x = d3.scaleLinear()
-			.domain([0,max_x(d)]) 
+			.domain([0, maxX ]) 
 			.range([0, width]);
 
 		svgThis.append("g")
@@ -202,23 +199,27 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 			.call(d3.axisBottom(x).ticks(num_sticks));
 
 		// set the parameters for the histogram
-		var bins = d3.histogram()
-			.domain(x.domain())
-			.thresholds(x.ticks(8))
-		(d.li)
-
+		var bins = [];
+		for (var i=0; i<data['li'].length; i++) {
+			var flag = 0;
+			for (var j=0; j<bins.length; j++) {
+				if (bins[j]['name']==data['li'][i]) {
+					bins[j]['value'] += 1;
+					flag = 1;
+					break;
+				}
+			}
+			if (flag == 0) {
+				bins.push({"name": data['li'][i], "value": 1})
+			}
+		}
 		// And apply this function to data to get the bins
 		
 
 		// Y axis: scale and draw:
 		var y = d3.scaleLinear()
-			.range([height, 0]);
-			y.domain([0, d3.max(bins, function() {return d.li.length + 1; })]);	 // d3.hist has to be called before the Y axis obviously
-		/*
-		svg_this.append("g")
-				.call(d3.axisRight(y).ticks(num_sticks));
-		*/
-
+			.range([height, 40])
+			.domain([0, d3.max(bins, function(d) { return +d.value;}) ]);	 
 		return [x, y, bins]
 	}
 
@@ -234,32 +235,30 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 
 		var svg_this = d3.selectAll("#para-"+(i+1));
 		[x, y, bins] = hist(svg_this, return_li[i]);
-		
+		console.log(bins, return_li[i]);
 		var inside_li = [];
-		svg_this
-			.selectAll("rect"+i)
+		var paraG = Mysvg.append("g")
+			.attr('id', 'paraG'+(i+1))
+			.attr("transform", "translate(20,40)");
+		paraG.selectAll(".para-rect")
 			.data(bins)
 			.enter()
 			.append("rect")
 				.attr("id", nowKey)
-				.attr("class", "chart2-rect")
-				.attr("x", 0)
-				.attr("rx", 6)
-				.attr("transform", function(d) {return "translate(" + (20+x(d.x0)) + "," + (y(d.length)+40) + ")"; })
-				.attr("width", function(d) { 
-					var wi = x(d.x1) - x(d.x0) -1 || 0;
-					if (wi==-1) {
+				.attr("class", "para-rect")
+				.attr("x", d => x(d.name))
+				.attr("y", d => y(d.value))
+				.attr("width", 20)
+				.attr("height", function(d) {
+
+					var he = y(Number(d.value));
+					if (Number.isNaN(he)) {
 						return 0;
 					} else {
-						return wi; 
-					}					
-				})
-				.attr("height", function(d) {
-					if (d.length != 0) {
-
-						inside_li.push([d.length, (x(d.x0)+x(d.x1))/2, y(d.length)]);
+						console.log(x(d.name));
+						return height - he;
 					}
-					return height - y(d.length); 
+					
 				})
 				.style("fill", function(d) {
 					if (Object.keys(target_args).includes(nowKey)) {
@@ -312,8 +311,9 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 				.attr("font-weight", 100)
 				.attr("fill", "#505050");
 
-		if (target_args != "none") {
+		if (target_args !== "none") {
 
+			console.log(target_args, nowKey);
 			var selectText = svg_this.append("rect")
 				.attr("class", "chart2-text")
 				.attr("y", 35)
