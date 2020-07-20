@@ -168,7 +168,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		g.append("text")
 		.attr("text-anchor", "middle")
 		.attr("y", height)
-		.attr("x", x(leName)+40)
+		.attr("x", x(leName)+x.bandwidth()/2)
 		.text(leName)
 			.attr("font-family", "sans-serif")
 			.attr("font-size", "14px")
@@ -184,7 +184,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		g.append("text")
 		.attr("text-anchor", "middle")
 		.attr("y", y(leNum))
-		.attr("x", x(leName)+40)
+		.attr("x", x(leName)+x.bandwidth()/2)
 		.text(function() {
 			if (leNum==0) {
 				return ""

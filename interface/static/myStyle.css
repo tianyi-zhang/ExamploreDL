@@ -259,11 +259,9 @@ h1 {
 	font-weight: 100;
 	fill: #505050;
 }
-#legendSelection {
-	margin: 0px auto;
-}
 select {
-	margin: 10px auto;
+	display: block;
+	margin: 0 auto;
 	width: 180px;
 	padding: 5px 5px 5px 5px;
 	font-size: 16px;
