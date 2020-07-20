@@ -121,6 +121,7 @@ var hyperparameterChart = function(hyperData, tarId='') {
 				.on("mouseover", function(d) {
 					d3.selectAll("#tooltipRect").remove();
 					d3.selectAll(".toolText").remove();
+					d3.select(this).style("fill", "#ccc");
 					var selectG = d3.select("#"+this.parentNode.id);
 					var toolRect = selectG.append("rect")
 						.attr("id", "tooltipRect")
@@ -152,6 +153,20 @@ var hyperparameterChart = function(hyperData, tarId='') {
 				.on("mouseout", function(d) {
 					d3.selectAll("#tooltipRect").remove();
 					d3.selectAll(".toolText").remove();
+					d3.select(this).style("fill", function(d) {
+						if (this.id in returnHyper[1]) {
+							for (k=0; k<returnHyper[1][this.id].length; k++) {
+								var target_arg_val = returnHyper[1][this.id][k];
+								if ((d.x0 <= target_arg_val) && (target_arg_val < d.x1)) {
+									flag = 1;
+									return "#8D85EE";
+								}
+							}
+							return "#BBB5F0";
+						} else {
+							return "#BBB5F0";
+						}
+					});
 				});
 
 		text_pos.push(inside_li); 

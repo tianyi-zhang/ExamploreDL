@@ -86,7 +86,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 	
 	d3.selectAll("#legendSvg").remove();
 	var margin = {top: 30, right: 10, bottom: 10, left: 70},
-		width = 1500 - margin.left - margin.right,
+		width = 2500 - margin.left - margin.right,
 		height = 280 - margin.top - margin.bottom;
 
 	var svg = d3.select('#chart_table').append("svg")
@@ -168,7 +168,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		g.append("text")
 		.attr("text-anchor", "middle")
 		.attr("y", height)
-		.attr("x", x(leName)+25)
+		.attr("x", x(leName)+40)
 		.text(leName)
 			.attr("font-family", "sans-serif")
 			.attr("font-size", "14px")
@@ -184,7 +184,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		g.append("text")
 		.attr("text-anchor", "middle")
 		.attr("y", y(leNum))
-		.attr("x", x(leName) + x.bandwidth()/2)
+		.attr("x", x(leName)+40)
 		.text(function() {
 			if (leNum==0) {
 				return ""

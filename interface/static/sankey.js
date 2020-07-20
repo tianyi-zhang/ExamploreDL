@@ -145,8 +145,8 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 	const f = d3.format(",.0f");
 	const format = d => `${f(d)}`;
 
-	var wid_svg = d3.max([(max_length+1)*100 + 70, 1200]);
-	var height_svg = d3.max([800, height]);
+	var wid_svg = d3.max([(max_length+1)*100 + 70, 2000]);
+	var height_svg = d3.max([780, height]);
 
 	const {
 		nodes,
@@ -245,19 +245,12 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 				}
 			});
 
-	if (viewBoxHeight == -250) {
-		var y1 = -290;
-		var y2 = 550;
-	} else {
-		var y1 = -110;
-		var y2 = 690;
-	}
+	
+	var y1 = 0;
+	var y2 = 780;
 	const myHeight = nodes[0]['y1']-nodes[0]['y0'];
 	const myWidth = d3.max(nodes, function (d) { return d.x1;})-d3.min(nodes, function (d) { return d.x0;});
-	var x2 = 1100;
-	if (myWidth>1100) {
-		x2 = 1200;
-	}
+	var x2 = 2000
 	var zoom = d3.zoom()
 			.scaleExtent([0.05, 5])
 			.on('zoom', function() {
@@ -268,7 +261,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 				
 				var zoomed1 = t.invert([0, y1]);
 				var zoomed2 = t.invert([x2, y2]);
-				var xRatio = 1180/myWidth;
+				var xRatio = 2000/myWidth;
 				var yRatio = 180/myHeight;
 
 				var X0 = xRatio*zoomed1[0],
@@ -339,7 +332,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 				
 				var zoomed1 = t.invert([0, y1]);
 				var zoomed2 = t.invert([x2, y2]);
-				var xRatio = 1180/myWidth;
+				var xRatio = 2000/myWidth;
 				var yRatio = 180/myHeight;
 				var X0 = xRatio*zoomed1[0],
 					Y0 = yRatio*zoomed1[1],

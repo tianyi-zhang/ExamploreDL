@@ -50,10 +50,10 @@ function drawLegend(legendType, maxNum) {
 		.attr("x", 40)
 		.text(function() {
 			if (legendType=='hyper') {
-				document.getElementById("paraHead").innerHTML = "Hyperparameters";
+				document.getElementById("paraHeadName").innerHTML = "Hyperparameters";
 				return "hyperparameters of selected project";
 			} else {
-				document.getElementById("paraHead").innerHTML = "Parameters";
+				document.getElementById("paraHeadName").innerHTML = "Parameters";
 				return "parameters of selected nodes";
 			}
 		})
@@ -305,7 +305,6 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 		var paraG = Mysvg.append("g")
 			.attr('id', 'paraG'+(i))
 			.attr("transform", "translate(20,40)");
-		console.log(bins);
 		paraG.selectAll(".para-cir")
 			.data(bins)
 			.enter()
@@ -334,6 +333,7 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 					d3.selectAll("#tooltipRect").remove();
 					d3.selectAll(".toolText").remove();
 					var selectG = d3.select("#"+this.parentNode.id);
+					d3.select(this).style("fill", "#ccc");
 					var toolRect = selectG.append("rect")
 						.attr("id", "tooltipRect")
 						.attr("x", 50)
@@ -364,6 +364,21 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 				.on("mouseout", function(d) {
 					d3.selectAll("#tooltipRect").remove();
 					d3.selectAll(".toolText").remove();
+					d3.select(this).style("fill", function(d) {
+						if (Object.keys(target_args).includes(this.id)) {
+							for (k=0; k<target_args[this.id].length; k++) {
+								var target_arg_val = target_args[this.id][k];
+								
+								if (d.name == target_arg_val+"") {
+									flag = 1;
+									return "#8D85EE";
+								}
+							}
+							return "#BBB5F0";
+						} else {
+							return "#BBB5F0";
+						}
+					});
 				});
 
 		text_pos.push(inside_li); 

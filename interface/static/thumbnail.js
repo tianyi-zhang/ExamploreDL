@@ -2,7 +2,7 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 	d3.selectAll("#thumbnail").remove();
 
 	var margin = {top: 10, right: 10, bottom: 10, left: 10},
-			width = 1180,
+			width = 2000,
 			height = 180;
 	
 	const _sankey = d3.sankey()
@@ -99,7 +99,7 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 		.attr("id", "thumbBrushG")
 		.call(thumbBrush);
 
-	thumbBrushG.call(thumbBrush.move, [[0, 0], [1180, 180]]);
+	thumbBrushG.call(thumbBrush.move, [[0, 0], [2000, 180]]);
 
 	thumbBrushG.selectAll(".selection")
 		.attr("id", "thumbnailRect");
@@ -136,8 +136,8 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 		var s = d3.event.selection;
 		var brushW = s[1][0] - s[0][0];
 		var brushH = s[1][1] - s[0][1];
-		var magnify1 = 180*800/(sankeyHeight*brushH),
-			magnify2 = 1180*1200/(sankeyWidth*brushW);
+		var magnify1 = 180*780/(sankeyHeight*brushH),
+			magnify2 = 2000*2000/(sankeyWidth*brushW);
 		var magnify = d3.min([magnify1, magnify2]);
 
 		let elem = document.querySelector('#rectG');
@@ -145,7 +145,7 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 		var rectTop = rect['top'];
 		var rectLeft = rect['left'];
 		
-		var moveX=s[0][0]*sankeyWidth/1180;
+		var moveX=s[0][0]*sankeyWidth/2000;
 		var moveY=s[0][1]*sankeyHeight/180+VBH;
 		var transform = d3.zoomIdentity
 			.scale(magnify)
