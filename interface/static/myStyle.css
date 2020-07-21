@@ -12,7 +12,7 @@ td {
 	z-index: 1;
 	position: absolute;
 	transition: 0.5s;
-	height: 1575px !important;
+	height: 1500px !important;
 	border-radius: 10px;
 	margin: 186px auto 0px auto;
 	box-shadow:
@@ -30,20 +30,26 @@ h1 {
 .openbtn {
 	font-size: 20px;
 	cursor: pointer;
-	background-color: #ccc;
+	background-color: #f44336;
 	color: #ffffff;
 	padding: 10px 15px;
 	border: none;
 	float: left;
 }
+.openbtn:hover {
+	background-color: #555555;
+}
 .openbtn2 {
 	font-size: 20px;
 	cursor: pointer;
-	background-color: #ccc;
+	background-color: #f44336;
 	color: #ffffff;
 	padding: 10px 15px;
 	border: none;
 	float: right;
+}
+.openbtn2:hover {
+	background-color: #555555;
 }
 #sidePanelHead {
 	padding: 0px 10px;
@@ -66,7 +72,7 @@ h1 {
 	position: absolute;
 	transition: 0.5s;
 	padding: 0px 0px 0px 30px;
-	height: 1575px !important;
+	height: 1500px !important;
 	border-radius: 10px;
 	background-color: #F7F7F7;
 	box-shadow:
@@ -79,7 +85,7 @@ h1 {
 }
 #GitHub-info-div {
 	width: 370px;
-	height: 1400px !important;
+	height: 1350px !important;
 	margin: 10px auto;
 	padding: 10px 10px;
 	border-radius: 10px;
@@ -221,7 +227,7 @@ h1 {
 	border-radius: 10px;
 }
 .tab {
-	margin-left: 60px;
+	margin-left: 100px;
 	width: 1200px;
 	display: flex;
   	align-items: center;
@@ -261,7 +267,7 @@ h1 {
 }
 select {
 	display: block;
-	margin: 0 auto;
+	margin: 0 auto 0 1000px;
 	width: 180px;
 	padding: 5px 5px 5px 5px;
 	font-size: 16px;
@@ -271,7 +277,7 @@ select {
 	-moz-appearance: none;
 	appearance: none;
 	text-align: center;
-	background-color: DodgerBlue;
+	background-color: #f44336;
 	font-family: sans-serif;
 	font-size: 15px;
 	font-weight: 100;
@@ -280,6 +286,9 @@ select {
 }
 select::-ms-expand {
 	display: none; /* Remove default arrow in Internet Explorer 10 and 11 */
+}
+select:hover {
+	background-color: #555555;
 }
 .bc-close-btn {
 	margin: 0 0 0 10%;

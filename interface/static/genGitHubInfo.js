@@ -23,7 +23,7 @@ function genInfo(idList, nodesData, hyper) {
 			proData[proName]["Forks"] = csvData[proid]["Forks"];
 		}
 	}
-
+	document.getElementById("sankeyInfo").innerHTML = "Number of Projects: "+ Object.keys(proData).length + "; Number of Models: " + idList.length;
 	for (const key in proData) {
 		createNewDiv(myNode, key, keyList, proData[key], hyper, proData);	
 		
