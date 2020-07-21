@@ -102,16 +102,12 @@ var hyperparameterChart = function(hyperData, tarId='') {
 				.attr("r", d => r(d.value))
 				.style("fill", function(d) {
 					if (nowKey in returnHyper[1]) {
-
 						for (k=0; k<returnHyper[1][nowKey].length; k++) {
-
-							var target_arg_val = returnHyper[1][nowKey][k];
-							
-							if ((d.x0 <= target_arg_val) && (target_arg_val < d.x1)) {
+							var target_arg_val = returnHyper[1][nowKey][k];							
+							if (d.name == target_arg_val) {
 								flag = 1;
 								return "#8D85EE";
-							}
-				
+							}				
 						}
 						return "#BBB5F0";
 					} else {
@@ -126,7 +122,7 @@ var hyperparameterChart = function(hyperData, tarId='') {
 					var toolRect = selectG.append("rect")
 						.attr("id", "tooltipRect")
 						.attr("x", 50)
-						.attr("y", 0)
+						.attr("y", 30)
 						.attr("height", 50)
 						.attr("width", 230)
 						.attr("rx", 6)
@@ -137,7 +133,7 @@ var hyperparameterChart = function(hyperData, tarId='') {
 					var topicText = selectG.append("text")
 						.attr("class", "toolText")
 						.attr("x", 60)
-						.attr("y", 20)
+						.attr("y", 50)
 						.text(this.id+": "+d.name)
 						.attr("font-size","18px")
 						.attr("color", "#BBB5F0");
@@ -145,7 +141,7 @@ var hyperparameterChart = function(hyperData, tarId='') {
 					var valueText = selectG.append("text")
 						.attr("class", "toolText")
 						.attr("x", 60)
-						.attr("y", 40)
+						.attr("y", 70)
 						.text(d.value+" projects use this value.")
 						.attr("font-size","18px")
 						.attr("color", "#BBB5F0");
@@ -157,7 +153,7 @@ var hyperparameterChart = function(hyperData, tarId='') {
 						if (this.id in returnHyper[1]) {
 							for (k=0; k<returnHyper[1][this.id].length; k++) {
 								var target_arg_val = returnHyper[1][this.id][k];
-								if ((d.x0 <= target_arg_val) && (target_arg_val < d.x1)) {
+								if (d.name == target_arg_val) {
 									flag = 1;
 									return "#8D85EE";
 								}

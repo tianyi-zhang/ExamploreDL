@@ -12,7 +12,7 @@ td {
 	z-index: 1;
 	position: absolute;
 	transition: 0.5s;
-	height: 1500px !important;
+	height: 1550px !important;
 	border-radius: 10px;
 	margin: 186px auto 0px auto;
 	box-shadow:
@@ -22,6 +22,9 @@ td {
 	0 6px 6px rgba(0, 0, 0, 0.072),
 	0 8px 8px rgba(0, 0, 0, 0.086),
 	0 10px 10px rgba(0, 0, 0, 0.12);
+}
+#filterDiv {
+	height: 1500px !important;
 }
 h1 {
 	font-family: sans-serif;
@@ -72,7 +75,7 @@ h1 {
 	position: absolute;
 	transition: 0.5s;
 	padding: 0px 0px 0px 30px;
-	height: 1500px !important;
+	height: 1550px !important;
 	border-radius: 10px;
 	background-color: #F7F7F7;
 	box-shadow:
@@ -85,8 +88,7 @@ h1 {
 }
 #GitHub-info-div {
 	width: 370px;
-	height: 1350px !important;
-	margin: 10px auto;
+	height: 1400px !important;
 	padding: 10px 10px;
 	border-radius: 10px;
 	text-align: center; 
@@ -289,6 +291,10 @@ select::-ms-expand {
 }
 select:hover {
 	background-color: #555555;
+}
+#GitHub-select {
+	margin-left: 10px !important;
+	margin-bottom: 10px !important;
 }
 .bc-close-btn {
 	margin: 0 0 0 10%;

@@ -21,52 +21,54 @@
 </head>
 <body>
 	<div id='container' style="width: 100%; height: 100vh;">
-		<div id="filtersTableDiv" style="width: 420px; overflow-y: scroll; background-color: #F7F7F7;">
+		<div id="filtersTableDiv" style="width: 420px; background-color: #F7F7F7;">
 			<div id="sidePanelHead" class="sidepanel">
 				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 				<h1>Filter View</h1>
 			</div>
-			<table id="filterTable" style="margin: 0 auto; width: 420px; height: 100px;">
-				<tr id="datasetsTr">
-					<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
-						Datasets
-					</td>
-				</tr>
-				<tr id="tasksTr" style="border-top:#D4D4D4 solid 1px;">
-					<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
-						Tasks
-					</td>
-				</tr>
-				<tr id="modelsTr">
-					<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
-						Models
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
-						Project Stars
-						<div id="accDiv" class="sliderDiv">
-							<svg id="starsSvg"></svg>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
-						Project Forks
-						<div id="nopDiv" class="sliderDiv">
-							<svg id="forksSvg"></svg>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
-						Number of Layers in Each Projects
-						<div id="numLayers">
-							<svg id="numLayersSvg"></svg>
-						</div>
-					</td>
-				</tr>
-			</table>
+			<div id="filterDiv" style="width: 420px; overflow-y: scroll; background-color: #F7F7F7;">
+				<table id="filterTable" style="margin: 0 auto; width: 420px; height: 100px;">
+					<tr id="datasetsTr">
+						<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+							Datasets
+						</td>
+					</tr>
+					<tr id="tasksTr" style="border-top:#D4D4D4 solid 1px;">
+						<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+							Tasks
+						</td>
+					</tr>
+					<tr id="modelsTr">
+						<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+							Models
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+							Project Stars
+							<div id="accDiv" class="sliderDiv">
+								<svg id="starsSvg"></svg>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+							Project Forks
+							<div id="nopDiv" class="sliderDiv">
+								<svg id="forksSvg"></svg>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" style="font-size: 25px; padding: 15px 5px;">
+							Number of Layers in Each Projects
+							<div id="numLayers">
+								<svg id="numLayersSvg"></svg>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>			
 		</div>
 		<div id="infoDiv">
 			<div id="sidePanelHead" class="sidepanel">

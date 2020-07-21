@@ -5025,7 +5025,7 @@
         "Project_Name": "text-detection-ctpn",
         "url": "https://github.com/eragonruan/text-detection-ctpn",
         "file_name": "vgg.py",
-        "type": "VGG,",
+        "type": "CTPN",
         "hpyerparameters": {
             "learning rate": 1e-05,
             "decay rate": 0.0005

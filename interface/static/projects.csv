@@ -25,7 +25,7 @@
 23,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"Mozilla Common Voice, LibriSpeech",CTC-6,230,87
 24,NER,https://github.com/shiyybua/NER,rnn.py,ner,text,"BiRNN, CRF",891,376
 25,NoiseMaker,https://github.com/HaloOrangeWang/NoiseMaker,LstmModel.py,audio,midi,LSTM,166,51
-26,text-detection-ctpn,https://github.com/eragonruan/text-detection-ctpn,vgg.py,text_detection,"text, image",VGG,2934,1300
+26,text-detection-ctpn,https://github.com/eragonruan/text-detection-ctpn,vgg.py,text_detection,"text, image",CTPN,2934,1300
 27,CRNN_Tensorflow,https://github.com/MaybeShewill-CV/CRNN_Tensorflow,crnn_net.py,text_recognition,synth90k,CRNN,857,380
 28,Deep-Alignment-Network-A-convolutional-neural-network-for-robust-face-alignment,https://github.com/zjjMaiMai/Deep-Alignment-Network-A-convolutional-neural-network-for-robust-face-alignment,dan_model.py,object_detection,image,DAN,212,69
 29,Chinese-Text-Classification,https://github.com/fendouai/Chinese-Text-Classification,text_cnn.py,text_classification,text,CNN,280,93
