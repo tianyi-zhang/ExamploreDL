@@ -284,8 +284,8 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 				d3.selectAll("#w-handle")
 					.attr("x", X0-3)
 					.attr("y", Y0-3)
-					.attr("width", W0+6)
-					.attr("height", 6);
+					.attr("width", 6)
+					.attr("height", H0+6);
 
 				d3.selectAll("#e-handle")
 					.attr("x", W0+X0-3)
@@ -354,8 +354,8 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 				d3.selectAll("#w-handle")
 					.attr("x", X0-3)
 					.attr("y", Y0-3)
-					.attr("width", W0+6)
-					.attr("height", 6);
+					.attr("width", 6)
+					.attr("height", H0+6);
 
 				d3.selectAll("#e-handle")
 					.attr("x", W0+X0-3)
