@@ -133,6 +133,7 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 	function brushed() {
 		if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return;
 		if (!d3.event.sourceEvent) return;
+		if (!d3.event.selection) return;
 		var s = d3.event.selection;
 		var brushW = s[1][0] - s[0][0];
 		var brushH = s[1][1] - s[0][1];

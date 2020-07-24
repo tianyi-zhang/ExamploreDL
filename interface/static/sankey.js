@@ -167,9 +167,8 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 	}
 
 	var svg = d3.select('#chart_div').append("svg")
-		.attr("viewBox", `0 ${viewBoxHeight} ${wid_svg} ${height_svg}`)
-		.attr('width', wid_svg)
-		.attr('height', height_svg)
+		.attr('width', 2000)
+		.attr('height', 800)
 		.attr("id", "chart");
 
 	var find_node_name = function (num, args_li) {
@@ -284,8 +283,8 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 				d3.selectAll("#w-handle")
 					.attr("x", X0-3)
 					.attr("y", Y0-3)
-					.attr("width", 6)
-					.attr("height", H0+6);
+					.attr("width", W0+6)
+					.attr("height", 6);
 
 				d3.selectAll("#e-handle")
 					.attr("x", W0+X0-3)
@@ -354,8 +353,8 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 				d3.selectAll("#w-handle")
 					.attr("x", X0-3)
 					.attr("y", Y0-3)
-					.attr("width", 6)
-					.attr("height", H0+6);
+					.attr("width", W0+6)
+					.attr("height", 6);
 
 				d3.selectAll("#e-handle")
 					.attr("x", W0+X0-3)
