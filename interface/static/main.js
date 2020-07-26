@@ -123,7 +123,6 @@ mixData.then(function(oriData) {
 				d3.selectAll(".chart2-xaxis").remove();
 				updateFilterSVG(idList, thisClassName);
 				notNone = 0;
-				document.getElementById("sankeyInfo").innerHTML = "Number of Projects: 0; Number of Models: 0";
 			} else if (Object.keys(selectOrder).length > 1) {
 				idList = Object.values(Object.values(selectOrder)[Object.keys(selectOrder).length-2])[0];
 				notNone = 1;

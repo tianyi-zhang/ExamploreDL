@@ -335,7 +335,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 				var yRatio = 180/myHeight;
 				var X0 = xRatio*zoomed1[0],
 					Y0 = yRatio*zoomed1[1],
-					W0 = xRatio*(zoomed2[0]-zoomed1[0])*1.063,
+					W0 = xRatio*(zoomed2[0]-zoomed1[0]),
 					H0 = yRatio*(zoomed2[1]-zoomed1[1]);
 
 				var rectSelect = d3.selectAll("#thumbnailRect")

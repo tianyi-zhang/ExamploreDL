@@ -63,6 +63,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 	if (nodesType !== "None") {
 		click_2(nodesType, typeDic);
 	}
+	/*
 	var legendArr = [];
 	// {"name": "relu", "color": "rgba(255, 166, 1, 0.65)", "number": 65}
 	for (const key in typeDic) {
@@ -83,7 +84,27 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		}
 		legendArr.push(nodeLengend);
 	}	
-	
+	*/
+	var legendArr = [];
+	// {"name": "relu", "color": "rgba(255, 166, 1, 0.65)", "number": 1}
+	for (const key in typeDic) {
+		if (nodesType !== "None") {
+			if (typeDic[key] !== nodesType) {
+				continue;
+			}
+		}
+		var nodeLengend = {"name": key, "color": colorDic[key], "number": 0};
+		for (const proId in projectNodes) {
+			for (var i=0; i<projectNodes[proId].length; i++) {
+				var nodeName = projectNodes[proId][i].split("-")[0];
+				if (nodeName == key) {
+					nodeLengend["number"] += 1;
+					break;
+				}
+			}
+		}
+		legendArr.push(nodeLengend);
+	}
 	d3.selectAll("#legendSvg").remove();
 	var margin = {top: 30, right: 10, bottom: 10, left: 70},
 		width = 2500 - margin.left - margin.right,
@@ -101,8 +122,8 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		.rangeRound([0, width])
 		.padding(0.1);
 
-	var y = d3.scaleLog()
-		.base(10).domain([0.5, d3.max(legendArr, function (d) {return Number(d.number);})])
+	var y = d3.scaleLinear()
+		.domain([0, d3.max(legendArr, function (d) {return Number(d.number);})])
 		.range([height, 0]);
 
 	x.domain(legendArr.map(function (d) {return d.name;}));
@@ -143,6 +164,128 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 			.on("click", function (d, i) {
 				click_3(d.name.replace(" ", "_"), nodesData, projectNodes);
 			});
+
+	if (nodesType == "None") {
+		g.append("line")
+			.attr("class", "catLine")
+			.attr("id", "cnnLine")
+			.attr("x1", 385)  
+			.attr("y1", -30)
+			.attr("x2", 385) 
+			.attr("y2", 250)
+			.style("stroke-width", 2)
+			.style("stroke", "red")
+			.style("stroke-dasharray", ("3, 3"))
+			.style("fill", "none");
+
+		g.append("text")
+			.attr("text-anchor", "middle")
+			.attr("y", 0)
+			.attr("x", 190)
+			.text("CNN")
+				.attr("font-family", "sans-serif")
+				.attr("font-size", "14px")
+				.attr("font-weight", "100")
+				.attr("fill", "black");	
+
+		g.append("line")
+			.attr("class", "catLine")
+			.attr("id", "rnnLine")
+			.attr("x1", 937)  
+			.attr("y1", -30)
+			.attr("x2", 937) 
+			.attr("y2", 250)
+			.style("stroke-width", 2)
+			.style("stroke", "red")
+			.style("stroke-dasharray", ("3, 3"))
+			.style("fill", "none");
+
+		g.append("text")
+			.attr("text-anchor", "middle")
+			.attr("y", 0)
+			.attr("x", 677)
+			.text("RNN")
+				.attr("font-family", "sans-serif")
+				.attr("font-size", "14px")
+				.attr("font-weight", "100")
+				.attr("fill", "black");	
+
+		g.append("line")
+			.attr("class", "catLine")
+			.attr("id", "rnnLine")
+			.attr("x1", 1305)  
+			.attr("y1", -30)
+			.attr("x2", 1305) 
+			.attr("y2", 250)
+			.style("stroke-width", 2)
+			.style("stroke", "red")
+			.style("stroke-dasharray", ("3, 3"))
+			.style("fill", "none");
+
+		g.append("text")
+			.attr("text-anchor", "middle")
+			.attr("y", 0)
+			.attr("x", 1143)
+			.text("DNN")
+				.attr("font-family", "sans-serif")
+				.attr("font-size", "14px")
+				.attr("font-weight", "100")
+				.attr("fill", "black");	
+
+		g.append("line")
+			.attr("class", "catLine")
+			.attr("id", "rnnLine")
+			.attr("x1", 1582)  
+			.attr("y1", -30)
+			.attr("x2", 1582) 
+			.attr("y2", 250)
+			.style("stroke-width", 2)
+			.style("stroke", "red")
+			.style("stroke-dasharray", ("3, 3"))
+			.style("fill", "none");
+
+		g.append("text")
+			.attr("text-anchor", "middle")
+			.attr("y", 0)
+			.attr("x", 1443)
+			.text("Other Layers")
+				.attr("font-family", "sans-serif")
+				.attr("font-size", "14px")
+				.attr("font-weight", "100")
+				.attr("fill", "black");	
+
+		g.append("line")
+			.attr("class", "catLine")
+			.attr("id", "rnnLine")
+			.attr("x1", 2040)  
+			.attr("y1", -30)
+			.attr("x2", 2040) 
+			.attr("y2", 250)
+			.style("stroke-width", 2)
+			.style("stroke", "red")
+			.style("stroke-dasharray", ("3, 3"))
+			.style("fill", "none");
+
+		g.append("text")
+			.attr("text-anchor", "middle")
+			.attr("y", 0)
+			.attr("x", 1811)
+			.text("Activate Functions")
+				.attr("font-family", "sans-serif")
+				.attr("font-size", "14px")
+				.attr("font-weight", "100")
+				.attr("fill", "black");	
+
+		g.append("text")
+			.attr("text-anchor", "middle")
+			.attr("y", 0)
+			.attr("x", 2270)
+			.text("Loss Functions")
+				.attr("font-family", "sans-serif")
+				.attr("font-size", "14px")
+				.attr("font-weight", "100")
+				.attr("fill", "black");
+	}	
 
 	for (var ind=0; ind<legendArr.length; ind++) {
 		var leName = legendArr[ind]['name'];
