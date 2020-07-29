@@ -13,7 +13,7 @@
 	<script type="text/javascript" src="{{ url_for('static', filename = 'genNodes.js') }}"></script>
 	<script type="text/javascript" src="{{ url_for('static', filename = 'getCSVData.js') }}"></script>
 	<script type="text/javascript" src="{{ url_for('static', filename = 'legend.js') }}"></script>
-	<script type="text/javascript" src="{{ url_for('static', filename = 'parametersCharts.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename = 'para.js') }}"></script>
 	<script type="text/javascript" src="{{ url_for('static', filename = 'sankey.js') }}"></script>
 	<script type="text/javascript" src="{{ url_for('static', filename = 'sidePanel.js') }}"></script>
 	<script type="text/javascript" src="{{ url_for('static', filename = 'sliderHisto.js') }}"></script>
@@ -24,7 +24,7 @@
 		<div id="filtersTableDiv" style="width: 420px; background-color: #F7F7F7;">
 			<div id="sidePanelHead" class="sidepanel">
 				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-				<h1>Filter View</h1>
+				<h1>Search View</h1>
 			</div>
 			<div id="filterDiv" style="width: 420px; overflow-y: scroll; background-color: #F7F7F7;">
 				<table id="filterTable" style="margin: 0 auto; width: 420px; height: 100px;">
@@ -70,7 +70,7 @@
 				</table>
 			</div>			
 		</div>
-		<div id="infoDiv">
+		<div id="infoDiv" style="display: none;">
 			<div id="sidePanelHead" class="sidepanel">
 				<a href="javascript:void(0)" class="closebtn" onclick="closeInfo()">&times;</a>
 				<h1>Project Infomation</h1>
@@ -97,7 +97,7 @@
 						<p>
 							Visualizing DL Models at Scale
 						</p>
-						<button class="openbtn" onclick="openNav()">&#9776; Filter View</button> 
+						<button class="openbtn" onclick="openNav()">&#9776; Search View</button> 
 						<button class="openbtn2" onclick="openInfo()">&#9776; GitHub Info</button> 
 					</div>
 				</td>

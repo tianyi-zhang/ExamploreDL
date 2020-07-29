@@ -184,8 +184,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 			.attr("x", 190)
 			.text("CNN")
 				.attr("font-family", "sans-serif")
-				.attr("font-size", "14px")
-				.attr("font-weight", "100")
+				.attr("font-size", "18px")
 				.attr("fill", "black");	
 
 		g.append("line")
@@ -206,9 +205,8 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 			.attr("x", 677)
 			.text("RNN")
 				.attr("font-family", "sans-serif")
-				.attr("font-size", "14px")
-				.attr("font-weight", "100")
-				.attr("fill", "black");	
+				.attr("font-size", "18px")
+				.attr("fill", "black");		
 
 		g.append("line")
 			.attr("class", "catLine")
@@ -228,8 +226,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 			.attr("x", 1143)
 			.text("DNN")
 				.attr("font-family", "sans-serif")
-				.attr("font-size", "14px")
-				.attr("font-weight", "100")
+				.attr("font-size", "18px")
 				.attr("fill", "black");	
 
 		g.append("line")
@@ -250,9 +247,8 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 			.attr("x", 1443)
 			.text("Other Layers")
 				.attr("font-family", "sans-serif")
-				.attr("font-size", "14px")
-				.attr("font-weight", "100")
-				.attr("fill", "black");	
+				.attr("font-size", "18px")
+				.attr("fill", "black");		
 
 		g.append("line")
 			.attr("class", "catLine")
@@ -272,8 +268,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 			.attr("x", 1811)
 			.text("Activate Functions")
 				.attr("font-family", "sans-serif")
-				.attr("font-size", "14px")
-				.attr("font-weight", "100")
+				.attr("font-size", "18px")
 				.attr("fill", "black");	
 
 		g.append("text")
@@ -282,9 +277,8 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 			.attr("x", 2270)
 			.text("Loss Functions")
 				.attr("font-family", "sans-serif")
-				.attr("font-size", "14px")
-				.attr("font-weight", "100")
-				.attr("fill", "black");
+				.attr("font-size", "18px")
+				.attr("fill", "black");	
 	}	
 
 	for (var ind=0; ind<legendArr.length; ind++) {
@@ -326,7 +320,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 
 		g.append("text")
 		.attr("text-anchor", "middle")
-		.attr("y", y(leNum))
+		.attr("y", y(leNum)-15)
 		.attr("x", x(leName)+x.bandwidth()/2)
 		.text(function() {
 			if (leNum==0) {
