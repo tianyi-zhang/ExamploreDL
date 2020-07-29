@@ -4008,7 +4008,7 @@
         "Project_Name": "tensorflow-hangul-recognition",
         "url": "https://github.com/IBM/tensorflow-hangul-recognition",
         "file_name": "hangul_model.py",
-        "type": "CNN,",
+        "type": "CNN",
         "hyperparameters": {
             "batch size": 100,
             "epochs": 15,
@@ -4195,7 +4195,7 @@
             "batch size": 2,
             "epochs": 20
         },
-        "num_layers": 9,
+        "num_layers": 10,
         "layers": {
             "layer0": {
                 "type": "Dense",
@@ -4330,9 +4330,20 @@
                         "body": [],
                         "lineno": 107
                     },
-                    "activation": "sigmoid"
+                    "activation": "softmax"
                 },
                 "begin": 123
+            },
+            "layer9": {
+                "type": "CTC",
+                "func": "tf.nn.ctc_loss",
+                "args": {
+                    "labels": "",
+                    "logits": "",
+                    "label_length": "",
+                    "logit_length": ""
+                },
+                "begin": 140
             }
         }
     },
@@ -4347,7 +4358,7 @@
             "batch size": 2,
             "epochs": 20
         },
-        "num_layers": 5,
+        "num_layers": 6,
         "layers": {
             "layer0": {
                 "type": "Dense",
@@ -4450,9 +4461,20 @@
                         "body": [],
                         "lineno": 159
                     },
-                    "activation": "sigmoid"
+                    "activation": "softmax"
                 },
                 "begin": 174
+            },
+            "layer5": {
+                "type": "CTC",
+                "func": "tf.nn.ctc_loss",
+                "args": {
+                    "labels": "",
+                    "logits": "",
+                    "label_length": "",
+                    "logit_length": ""
+                },
+                "begin": 201
             }
         }
     },
@@ -4467,9 +4489,17 @@
             "batch size": 2,
             "epochs": 20
         },
-        "num_layers": 4,
+        "num_layers": 7,
         "layers": {
             "layer0": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 239
+            },
+            "layer1": {
                 "type": "Convolution",
                 "func": "tf.keras.layers.Conv1D",
                 "args": {
@@ -4482,7 +4512,7 @@
                 },
                 "begin": 216
             },
-            "layer1": {
+            "layer2": {
                 "type": "BiRNN",
                 "func": "tf.keras.layers.Bidirectional",
                 "args": {
@@ -4491,7 +4521,15 @@
                 },
                 "begin": 220
             },
-            "layer2": {
+            "layer3": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 255
+            },
+            "layer4": {
                 "type": "Dense",
                 "func": "tf.keras.layers.Dense",
                 "args": {
@@ -4500,15 +4538,26 @@
                 },
                 "begin": 226
             },
-            "layer3": {
+            "layer5": {
                 "type": "Dense",
                 "func": "tf.keras.layers.Dense",
                 "args": {
                     "inputs": 29,
                     "name": "y_pred",
-                    "activation": "sigmoid"
+                    "activation": "softmax"
                 },
                 "begin": 227
+            },
+            "layer6": {
+                "type": "CTC",
+                "func": "tf.nn.ctc_loss",
+                "args": {
+                    "labels": "",
+                    "logits": "",
+                    "label_length": "",
+                    "logit_length": ""
+                },
+                "begin": 268
             }
         }
     },
@@ -4523,9 +4572,17 @@
             "batch size": 2,
             "epochs": 20
         },
-        "num_layers": 10,
+        "num_layers": 13,
         "layers": {
             "layer0": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 302
+            },
+            "layer1": {
                 "type": "Dense",
                 "func": "tf.keras.layers.Dense",
                 "args": {
@@ -4537,7 +4594,7 @@
                 },
                 "begin": 263
             },
-            "layer1": {
+            "layer2": {
                 "type": "Dropout",
                 "func": "tf.keras.layers.Dropout",
                 "args": {
@@ -4545,7 +4602,7 @@
                 },
                 "begin": 264
             },
-            "layer2": {
+            "layer3": {
                 "type": "Dense",
                 "func": "tf.keras.layers.Dense",
                 "args": {
@@ -4557,7 +4614,7 @@
                 },
                 "begin": 265
             },
-            "layer3": {
+            "layer4": {
                 "type": "Dropout",
                 "func": "tf.keras.layers.Dropout",
                 "args": {
@@ -4565,7 +4622,7 @@
                 },
                 "begin": 266
             },
-            "layer4": {
+            "layer5": {
                 "type": "Dense",
                 "func": "tf.keras.layers.Dense",
                 "args": {
@@ -4577,7 +4634,7 @@
                 },
                 "begin": 267
             },
-            "layer5": {
+            "layer6": {
                 "type": "Dropout",
                 "func": "tf.keras.layers.Dropout",
                 "args": {
@@ -4585,7 +4642,15 @@
                 },
                 "begin": 268
             },
-            "layer6": {
+            "layer7": {
+                "type": "Normalization",
+                "func": "tf.nn.batch_normalization",
+                "args": {
+                    "x": ""
+                },
+                "begin": 312
+            },
+            "layer8": {
                 "type": "BiRNN",
                 "func": "tf.keras.layers.Bidirectional",
                 "args": {
@@ -4594,7 +4659,7 @@
                 },
                 "begin": 272
             },
-            "layer7": {
+            "layer9": {
                 "type": "Dense",
                 "func": "tf.keras.layers.Dense",
                 "args": {
@@ -4605,7 +4670,7 @@
                 },
                 "begin": 276
             },
-            "layer8": {
+            "layer10": {
                 "type": "Dropout",
                 "func": "tf.keras.layers.Dropout",
                 "args": {
@@ -4613,7 +4678,7 @@
                 },
                 "begin": 277
             },
-            "layer9": {
+            "layer11": {
                 "type": "Dense",
                 "func": "tf.keras.layers.Dense",
                 "args": {
@@ -4621,9 +4686,20 @@
                     "name": "y_pred",
                     "kernel_initializer": "init",
                     "bias_initializer": "init",
-                    "activation": "sigmoid"
+                    "activation": "softmax"
                 },
                 "begin": 278
+            },
+            "layer12": {
+                "type": "CTC",
+                "func": "tf.nn.ctc_loss",
+                "args": {
+                    "labels": "",
+                    "logits": "",
+                    "label_length": "",
+                    "logit_length": ""
+                },
+                "begin": 330
             }
         }
     },
@@ -4638,7 +4714,7 @@
             "batch size": 2,
             "epochs": 20
         },
-        "num_layers": 2,
+        "num_layers": 3,
         "layers": {
             "layer0": {
                 "type": "BiRNN",
@@ -4653,9 +4729,20 @@
                 "func": "tf.keras.layers.Dense",
                 "args": {
                     "inputs": 29,
-                    "activation": "sigmoid"
+                    "activation": "softmax"
                 },
                 "begin": 301
+            },
+            "layer2": {
+                "type": "CTC",
+                "func": "tf.nn.ctc_loss",
+                "args": {
+                    "labels": "",
+                    "logits": "",
+                    "label_length": "",
+                    "logit_length": ""
+                },
+                "begin": 368
             }
         }
     },
@@ -4670,7 +4757,7 @@
             "batch size": 2,
             "epochs": 20
         },
-        "num_layers": 3,
+        "num_layers": 4,
         "layers": {
             "layer0": {
                 "type": "Convolution",
@@ -4700,9 +4787,20 @@
                 "args": {
                     "inputs": 29,
                     "name": "y_pred",
-                    "activation": "sigmoid"
+                    "activation": "softmax"
                 },
                 "begin": 343
+            },
+            "layer3": {
+                "type": "CTC",
+                "func": "tf.nn.ctc_loss",
+                "args": {
+                    "labels": "",
+                    "logits": "",
+                    "label_length": "",
+                    "logit_length": ""
+                },
+                "begin": 330
             }
         }
     },
@@ -4717,7 +4815,7 @@
             "batch size": 2,
             "epochs": 20
         },
-        "num_layers": 4,
+        "num_layers": 5,
         "layers": {
             "layer0": {
                 "type": "Dense",
@@ -4758,9 +4856,20 @@
                 "args": {
                     "inputs": 29,
                     "name": "y_pred",
-                    "activation": "sigmoid"
+                    "activation": "softmax"
                 },
                 "begin": 376
+            },
+            "layer4": {
+                "type": "CTC",
+                "func": "tf.nn.ctc_loss",
+                "args": {
+                    "labels": "",
+                    "logits": "",
+                    "label_length": "",
+                    "logit_length": ""
+                },
+                "begin": 330
             }
         }
     },
@@ -4915,7 +5024,7 @@
         "Project_Name": "text-detection-ctpn",
         "url": "https://github.com/eragonruan/text-detection-ctpn",
         "file_name": "vgg.py",
-        "type": "VGG,",
+        "type": "CTPN",
         "hpyerparameters": {
             "learning rate": 1e-05,
             "decay rate": 0.0005
@@ -5726,7 +5835,7 @@
                 "begin": 100
             },
             "layer58": {
-                "type": "ctc",
+                "type": "CTC",
                 "func": "tf.nn.ctc_loss",
                 "args": {
                     "labels": "labels",
@@ -10060,6 +10169,1725 @@
                     "name": "prob"
                 },
                 "begin": 31
+            }
+        }
+    },
+    "41": {
+        "id": "41",
+        "Project_Name": "text_classification",
+        "url": "https://github.com/brightmart/text_classification",
+        "file_name": "p7_TextCNN_train.py",
+        "type": "CNN",
+        "hpyerparameters": {
+            "batch size": 64,
+            "learning rate": 0.0003,
+            "epochs": 10
+        },
+        "num_layers": 16,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "conv"
+                },
+                "begin": 50
+            },
+            "layer1": {
+                "type": "Normalization",
+                "func": "tf.contrib.layers.batch_norm",
+                "args": {
+                    "inputs": "",
+                    "is_training": "self.is_training_flag",
+                    "scope": "cnn_bn_"
+                },
+                "begin": 51
+            },
+            "layer2": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": "",
+                    "name": "relu"
+                },
+                "begin": 54
+            },
+            "layer3": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "pool"
+                },
+                "begin": 55
+            },
+            "layer4": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "conv"
+                },
+                "begin": 50
+            },
+            "layer5": {
+                "type": "Normalization",
+                "func": "tf.contrib.layers.batch_norm",
+                "args": {
+                    "inputs": "",
+                    "is_training": "self.is_training_flag",
+                    "scope": "cnn_bn_"
+                },
+                "begin": 51
+            },
+            "layer6": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": "",
+                    "name": "relu"
+                },
+                "begin": 54
+            },
+            "layer7": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "pool"
+                },
+                "begin": 55
+            },
+            "layer8": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "conv"
+                },
+                "begin": 50
+            },
+            "layer9": {
+                "type": "Normalization",
+                "func": "tf.contrib.layers.batch_norm",
+                "args": {
+                    "inputs": "",
+                    "is_training": "self.is_training_flag",
+                    "scope": "cnn_bn_"
+                },
+                "begin": 51
+            },
+            "layer10": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": "",
+                    "name": "relu"
+                },
+                "begin": 54
+            },
+            "layer11": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "pool"
+                },
+                "begin": 55
+            },
+            "layer12": {
+                "type": "Dropout",
+                "func": "tf.nn.dropout",
+                "args": {
+                    "x": "",
+                    "keep_prob": 0.8
+                },
+                "begin": 56
+            },
+            "layer13": {
+                "type": "Dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "inputs": "",
+                    "units": "",
+                    "activation": "tf.nn.tanh",
+                    "use_bias": true
+                },
+                "begin": 57
+            },
+            "layer14": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 22
+            },
+            "layer15": {
+                "type": "Cross Entropy",
+                "func": "tf.nn.sigmoid_cross_entropy_with_logits",
+                "args": {
+                    "labels": "self.input_y_multilabel",
+                    "logits": "self.logits"
+                },
+                "begin": 34
+            }
+        }
+    },
+    "42": {
+        "id": "42",
+        "Project_Name": "text_classification",
+        "url": "https://github.com/brightmart/text_classification",
+        "file_name": "p7_TextCNN_train.py",
+        "type": "CNN-1",
+        "hpyerparameters": {
+            "batch size": 64,
+            "learning rate": 0.0003,
+            "epochs": 10
+        },
+        "num_layers": 24,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME",
+                    "name": "conv"
+                },
+                "begin": 51
+            },
+            "layer1": {
+                "type": "Normalization",
+                "func": "tf.contrib.layers.batch_norm",
+                "args": {
+                    "inputs": "",
+                    "is_training": "self.is_training_flag",
+                    "scope": "cnn1"
+                },
+                "begin": 52
+            },
+            "layer2": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 55
+            },
+            "layer3": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME",
+                    "name": "conv2"
+                },
+                "begin": 61
+            },
+            "layer4": {
+                "type": "Normalization",
+                "func": "tf.contrib.layers.batch_norm",
+                "args": {
+                    "inputs": "",
+                    "is_training": "self.is_training_flag",
+                    "scope": "cnn2"
+                },
+                "begin": 62
+            },
+            "layer5": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 66
+            },
+            "layer6": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "pool"
+                },
+                "begin": 69
+            },
+            "layer7": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME",
+                    "name": "conv"
+                },
+                "begin": 51
+            },
+            "layer8": {
+                "type": "Normalization",
+                "func": "tf.contrib.layers.batch_norm",
+                "args": {
+                    "inputs": "",
+                    "is_training": "self.is_training_flag",
+                    "scope": "cnn1"
+                },
+                "begin": 52
+            },
+            "layer9": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 55
+            },
+            "layer10": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME",
+                    "name": "conv2"
+                },
+                "begin": 61
+            },
+            "layer11": {
+                "type": "Normalization",
+                "func": "tf.contrib.layers.batch_norm",
+                "args": {
+                    "inputs": "",
+                    "is_training": "self.is_training_flag",
+                    "scope": "cnn2"
+                },
+                "begin": 62
+            },
+            "layer12": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 66
+            },
+            "layer13": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "pool"
+                },
+                "begin": 69
+            },
+            "layer14": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME",
+                    "name": "conv"
+                },
+                "begin": 51
+            },
+            "layer15": {
+                "type": "Normalization",
+                "func": "tf.contrib.layers.batch_norm",
+                "args": {
+                    "inputs": "",
+                    "is_training": "self.is_training_flag",
+                    "scope": "cnn1"
+                },
+                "begin": 52
+            },
+            "layer16": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 55
+            },
+            "layer17": {
+                "type": "Convolution",
+                "func": "tf.nn.conv2d",
+                "args": {
+                    "inputs": "",
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "SAME",
+                    "name": "conv2"
+                },
+                "begin": 61
+            },
+            "layer18": {
+                "type": "Normalization",
+                "func": "tf.contrib.layers.batch_norm",
+                "args": {
+                    "inputs": "",
+                    "is_training": "self.is_training_flag",
+                    "scope": "cnn2"
+                },
+                "begin": 62
+            },
+            "layer19": {
+                "type": "ReLu",
+                "func": "tf.nn.relu",
+                "args": {
+                    "features": ""
+                },
+                "begin": 66
+            },
+            "layer20": {
+                "type": "Max Pooling",
+                "func": "tf.nn.max_pool",
+                "args": {
+                    "input": "",
+                    "ksize": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "strides": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "padding": "VALID",
+                    "name": "pool"
+                },
+                "begin": 69
+            },
+            "layer21": {
+                "type": "Dropout",
+                "func": "tf.nn.dropout",
+                "args": {
+                    "x": "",
+                    "keep_prob": 0.8
+                },
+                "begin": 75
+            },
+            "layer22": {
+                "type": "Sigmoid",
+                "func": "tf.nn.sigmoid",
+                "args": {
+                    "x": ""
+                },
+                "begin": 22
+            },
+            "layer23": {
+                "type": "Cross Entropy",
+                "func": "tf.nn.sigmoid_cross_entropy_with_logits",
+                "args": {
+                    "labels": "self.input_y_multilabel",
+                    "logits": "self.logits"
+                },
+                "begin": 34
+            }
+        }
+    },
+    "43": {
+        "id": "43",
+        "Project_Name": "text_classification",
+        "url": "https://github.com/brightmart/text_classification",
+        "file_name": "p8_TextRNN_model.py",
+        "type": "RNN",
+        "hpyerparameters": {
+            "batch size": 64,
+            "learning rate": 0.0003,
+            "epochs": 10
+        },
+        "num_layers": 10,
+        "layers": {
+            "layer0": {
+                "type": "Embedding",
+                "func": "tf.nn.embedding_lookup",
+                "args": {
+                    "params": "",
+                    "ids": ""
+                },
+                "begin": 49
+            },
+            "layer1": {
+                "type": "LSTM",
+                "func": "tf.contrib.rnn.BasicLSTMCell",
+                "args": {
+                    "num_units": ""
+                },
+                "begin": 52
+            },
+            "layer2": {
+                "type": "LSTM",
+                "func": "tf.contrib.rnn.BasicLSTMCell",
+                "args": {
+                    "num_units": ""
+                },
+                "begin": 53
+            },
+            "layer3": {
+                "type": "Dropout",
+                "func": "tf.contrib.rnn.DropoutWrapper",
+                "args": {
+                    "cell": "",
+                    "output_keep_prob": "self.dropout_keep_prob"
+                },
+                "begin": 54
+            },
+            "layer4": {
+                "type": "BiRNN",
+                "func": "tf.nn.bidirectional_dynamic_rnn",
+                "args": {
+                    "dtype": "tf.float32"
+                },
+                "begin": 59
+            },
+            "layer5": {
+                "type": "BiRNN",
+                "func": "tf.nn.bidirectional_dynamic_rnn",
+                "args": {
+                    "dtype": "tf.float32"
+                },
+                "begin": 59
+            },
+            "layer6": {
+                "type": "Dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "inputs": "",
+                    "units": ""
+                },
+                "begin": 67
+            },
+            "layer7": {
+                "type": "Softmax",
+                "func": "tf.nn.softmax",
+                "args": {
+                    "logits": ""
+                },
+                "begin": 68
+            },
+            "layer8": {
+                "type": "Cross Entropy",
+                "func": "tf.nn.sparse_softmax_cross_entropy_with_logits",
+                "args": {
+                    "labels": "self.input_y",
+                    "logits": "self.logits"
+                },
+                "begin": 38
+            },
+            "layer9": {
+                "type": "L2",
+                "func": "tf.nn.l2_loss",
+                "args": {
+                    "t": ""
+                },
+                "begin": 40
+            }
+        }
+    },
+    "44": {
+        "id": "44",
+        "Project_Name": "text_classification",
+        "url": "https://github.com/brightmart/text_classification",
+        "file_name": "p8_TextRNN_model.py",
+        "type": "RNN-1",
+        "hpyerparameters": {
+            "batch size": 64,
+            "learning rate": 0.0003,
+            "epochs": 10
+        },
+        "num_layers": 13,
+        "layers": {
+            "layer0": {
+                "type": "Embedding",
+                "func": "tf.nn.embedding_lookup",
+                "args": {
+                    "params": "",
+                    "ids": ""
+                },
+                "begin": 43
+            },
+            "layer1": {
+                "type": "LSTM",
+                "func": "tf.contrib.rnn.BasicLSTMCell",
+                "args": {
+                    "num_units": ""
+                },
+                "begin": 46
+            },
+            "layer2": {
+                "type": "LSTM",
+                "func": "tf.contrib.rnn.BasicLSTMCell",
+                "args": {
+                    "num_units": ""
+                },
+                "begin": 47
+            },
+            "layer3": {
+                "type": "Dropout",
+                "func": "tf.contrib.rnn.DropoutWrapper",
+                "args": {
+                    "cell": "",
+                    "output_keep_prob": "self.dropout_keep_prob"
+                },
+                "begin": 48
+            },
+            "layer4": {
+                "type": "BiRNN",
+                "func": "tf.nn.bidirectional_dynamic_rnn",
+                "args": {
+                    "dtype": "tf.float32"
+                },
+                "begin": 53
+            },
+            "layer5": {
+                "type": "BiRNN",
+                "func": "tf.nn.bidirectional_dynamic_rnn",
+                "args": {
+                    "dtype": "tf.float32"
+                },
+                "begin": 53
+            },
+            "layer6": {
+                "type": "LSTM",
+                "func": "tf.contrib.rnn.BasicLSTMCell",
+                "args": {
+                    "num_units": 57
+                },
+                "begin": 57
+            },
+            "layer7": {
+                "type": "Dropout",
+                "func": "tf.contrib.rnn.DropoutWrapper",
+                "args": {
+                    "cell": "",
+                    "output_keep_prob": "self.dropout_keep_prob"
+                },
+                "begin": 58
+            },
+            "layer8": {
+                "type": "RNN",
+                "func": "tf.nn.dynamic_rnn",
+                "args": {
+                    "cell": "",
+                    "inputs": "",
+                    "dtype": "tf.float32"
+                },
+                "begin": 59
+            },
+            "layer9": {
+                "type": "Dense",
+                "func": "tf.layers.dense",
+                "args": {
+                    "inputs": "",
+                    "units": ""
+                },
+                "begin": 63
+            },
+            "layer10": {
+                "type": "Softmax",
+                "func": "tf.nn.softmax",
+                "args": {
+                    "logits": ""
+                },
+                "begin": 64
+            },
+            "layer11": {
+                "type": "Cross Entropy",
+                "func": "tf.nn.sparse_softmax_cross_entropy_with_logits",
+                "args": {
+                    "labels": "self.input_y",
+                    "logits": "self.logits"
+                },
+                "begin": 37
+            },
+            "layer12": {
+                "type": "L2",
+                "func": "tf.nn.l2_loss",
+                "args": {
+                    "t": ""
+                },
+                "begin": 39
+            }
+        }
+    },
+    "45": {
+        "id": "45",
+        "Project_Name": "kk7nc_text_classification",
+        "url": "https://github.com/kk7nc/Text_Classification",
+        "file_name": "DNN.py",
+        "type": "DNN",
+        "hpyerparameters": {
+            "epochs": 10,
+            "batch size": 128
+        },
+        "num_layers": 12,
+        "layers": {
+            "layer0": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 512,
+                    "input_dim": "shape",
+                    "activation": "relu"
+                },
+                "begin": 18
+            },
+            "layer1": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.5
+                },
+                "begin": 19
+            },
+            "layer2": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 512,
+                    "input_dim": 512,
+                    "activation": "relu"
+                },
+                "begin": 21
+            },
+            "layer3": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.5
+                },
+                "begin": 22
+            },
+            "layer4": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 512,
+                    "input_dim": 512,
+                    "activation": "relu"
+                },
+                "begin": 21
+            },
+            "layer5": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.5
+                },
+                "begin": 22
+            },
+            "layer6": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 512,
+                    "input_dim": 512,
+                    "activation": "relu"
+                },
+                "begin": 21
+            },
+            "layer7": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.5
+                },
+                "begin": 22
+            },
+            "layer8": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 512,
+                    "input_dim": 512,
+                    "activation": "relu"
+                },
+                "begin": 21
+            },
+            "layer9": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.5
+                },
+                "begin": 22
+            },
+            "layer10": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": "",
+                    "activation": "softmax"
+                },
+                "begin": 23
+            },
+            "layer11": {
+                "type": "Cross Entropy",
+                "func": "tf.keras.losses.categorical_crossentropy",
+                "args": {},
+                "begin": 25
+            }
+        }
+    },
+    "46": {
+        "id": "46",
+        "Project_Name": "kk7nc_text_classification",
+        "url": "https://github.com/kk7nc/Text_Classification",
+        "file_name": "CNN.py",
+        "type": "CNN",
+        "hpyerparameters": {
+            "epochs": 1000,
+            "batch size": 128
+        },
+        "num_layers": 14,
+        "layers": {
+            "layer0": {
+                "type": "Embedding",
+                "func": "tf.nn.embedding_lookup",
+                "args": {
+                    "params": 22,
+                    "ids": "",
+                    "weights": [],
+                    "input_length": "MAX_SEQUENCE_LENGTH",
+                    "trainable": true
+                },
+                "begin": 22
+            },
+            "layer1": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": 128,
+                    "padding": "same",
+                    "kernel_size": "fsz",
+                    "activation": "relu"
+                },
+                "begin": 40
+            },
+            "layer2": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": 128,
+                    "padding": "same",
+                    "kernel_size": "fsz",
+                    "activation": "relu"
+                },
+                "begin": 40
+            },
+            "layer3": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": 128,
+                    "padding": "same",
+                    "kernel_size": "fsz",
+                    "activation": "relu"
+                },
+                "begin": 40
+            },
+            "layer4": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": 128,
+                    "padding": "same",
+                    "kernel_size": "fsz",
+                    "activation": "relu"
+                },
+                "begin": 40
+            },
+            "layer5": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": 128,
+                    "padding": "same",
+                    "kernel_size": "fsz",
+                    "activation": "relu"
+                },
+                "begin": 40
+            },
+            "layer6": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": 128,
+                    "padding": "same",
+                    "activation": "relu"
+                },
+                "begin": 46
+            },
+            "layer7": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": 128,
+                    "padding": "same",
+                    "activation": "relu"
+                },
+                "begin": 48
+            },
+            "layer8": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.5
+                },
+                "begin": 50
+            },
+            "layer9": {
+                "type": "Flatten",
+                "func": "tf.keras.layers.Flatten",
+                "args": {},
+                "begin": 51
+            },
+            "layer10": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 128,
+                    "activation": "relu"
+                },
+                "begin": 52
+            },
+            "layer11": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.5
+                },
+                "begin": 53
+            },
+            "layer12": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": "",
+                    "activation": "softmax"
+                },
+                "begin": 55
+            },
+            "layer13": {
+                "type": "Cross Entropy",
+                "func": "tf.keras.losses.categorical_crossentropy",
+                "args": {},
+                "begin": 58
+            }
+        }
+    },
+    "47": {
+        "id": "47",
+        "Project_Name": "kk7nc_text_classification",
+        "url": "https://github.com/kk7nc/Text_Classification",
+        "file_name": "RNN.py",
+        "type": "RNN",
+        "hpyerparameters": {
+            "epochs": 20,
+            "batch size": 128
+        },
+        "num_layers": 10,
+        "layers": {
+            "layer0": {
+                "type": "Embedding",
+                "func": "tf.nn.embedding_lookup",
+                "args": {
+                    "params": 23,
+                    "ids": "",
+                    "weights": [],
+                    "input_length": "MAX_SEQUENCE_LENGTH",
+                    "trainable": true
+                },
+                "begin": 23
+            },
+            "layer1": {
+                "type": "GRU",
+                "func": "tf.keras.layers.GRU",
+                "args": {
+                    "num_units": 256,
+                    "return_sequences": true,
+                    "recurrent_dropout": 0.2
+                },
+                "begin": 30
+            },
+            "layer2": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.5
+                },
+                "begin": 31
+            },
+            "layer3": {
+                "type": "GRU",
+                "func": "tf.keras.layers.GRU",
+                "args": {
+                    "num_units": 256,
+                    "return_sequences": true,
+                    "recurrent_dropout": 0.2
+                },
+                "begin": 30
+            },
+            "layer4": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.5
+                },
+                "begin": 31
+            },
+            "layer5": {
+                "type": "GRU",
+                "func": "tf.keras.layers.GRU",
+                "args": {
+                    "num_units": 256,
+                    "return_sequences": true,
+                    "recurrent_dropout": 0.2
+                },
+                "begin": 30
+            },
+            "layer6": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.5
+                },
+                "begin": 31
+            },
+            "layer7": {
+                "type": "GRU",
+                "func": "tf.keras.layers.GRU",
+                "args": {
+                    "num_units": 256,
+                    "recurrent_dropout": 0.2
+                },
+                "begin": 32
+            },
+            "layer8": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": "",
+                    "activation": "softmax"
+                },
+                "begin": 34
+            },
+            "layer9": {
+                "type": "Cross Entropy",
+                "func": "tf.keras.losses.categorical_crossentropy",
+                "args": {},
+                "begin": 36
+            }
+        }
+    },
+    "48": {
+        "id": "48",
+        "Project_Name": "kk7nc_text_classification",
+        "url": "https://github.com/kk7nc/Text_Classification",
+        "file_name": "RCNN.py",
+        "type": "RCNN",
+        "hpyerparameters": {
+            "epochs": 15,
+            "batch size": 128
+        },
+        "num_layers": 14,
+        "layers": {
+            "layer0": {
+                "type": "Embedding",
+                "func": "tf.nn.embedding_lookup",
+                "args": {
+                    "params": 20,
+                    "ids": "",
+                    "weights": [],
+                    "input_length": "MAX_SEQUENCE_LENGTH",
+                    "trainable": true
+                },
+                "begin": 20
+            },
+            "layer1": {
+                "type": "Dropout",
+                "func": "tf.keras.layers.Dropout",
+                "args": {
+                    "rate": 0.25
+                },
+                "begin": 25
+            },
+            "layer2": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv1D",
+                "args": {
+                    "num_outputs": 256,
+                    "kernel_size": 2,
+                    "activation": "relu"
+                },
+                "begin": 26
+            },
+            "layer3": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv1D",
+                "args": {
+                    "num_outputs": 256,
+                    "kernel_size": 2,
+                    "activation": "relu"
+                },
+                "begin": 28
+            },
+            "layer4": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv1D",
+                "args": {
+                    "num_outputs": 256,
+                    "kernel_size": 2,
+                    "activation": "relu"
+                },
+                "begin": 30
+            },
+            "layer5": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv1D",
+                "args": {
+                    "num_outputs": 256,
+                    "kernel_size": 2,
+                    "activation": "relu"
+                },
+                "begin": 32
+            },
+            "layer6": {
+                "type": "LSTM",
+                "func": "tf.keras.layers.LSTM",
+                "args": {
+                    "num_units": 256,
+                    "return_sequences": true,
+                    "recurrent_dropout": 0.2
+                },
+                "begin": 34
+            },
+            "layer7": {
+                "type": "LSTM",
+                "func": "tf.keras.layers.LSTM",
+                "args": {
+                    "num_units": 256,
+                    "return_sequences": true,
+                    "recurrent_dropout": 0.2
+                },
+                "begin": 35
+            },
+            "layer8": {
+                "type": "LSTM",
+                "func": "tf.keras.layers.LSTM",
+                "args": {
+                    "num_units": 256,
+                    "return_sequences": true,
+                    "recurrent_dropout": 0.2
+                },
+                "begin": 36
+            },
+            "layer9": {
+                "type": "LSTM",
+                "func": "tf.keras.layers.LSTM",
+                "args": {
+                    "num_units": 256,
+                    "recurrent_dropout": 0.2
+                },
+                "begin": 37
+            },
+            "layer10": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": 1024,
+                    "activation": "relu"
+                },
+                "begin": 38
+            },
+            "layer11": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": ""
+                },
+                "begin": 39
+            },
+            "layer12": {
+                "type": "Softmax",
+                "func": "tf.nn.softmax",
+                "args": {},
+                "begin": 40
+            },
+            "layer13": {
+                "type": "Cross Entropy",
+                "func": "tf.keras.losses.categorical_crossentropy",
+                "args": {},
+                "begin": 41
+            }
+        }
+    },
+    "49": {
+        "id": "49",
+        "Project_Name": "keras-applications",
+        "url": "https://github.com/keras-team/keras-applications/tree/master/keras_applications",
+        "file_name": "vgg16.py",
+        "type": "VGG-16",
+        "hpyerparameters": {},
+        "num_layers": 17,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 64,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block1_conv1"
+                },
+                "begin": 69
+            },
+            "layer1": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 64,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block1_conv2"
+                },
+                "begin": 73
+            },
+            "layer2": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 128,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block2_conv1"
+                },
+                "begin": 80
+            },
+            "layer3": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 128,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block2_conv2"
+                },
+                "begin": 84
+            },
+            "layer4": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 256,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block3_conv1"
+                },
+                "begin": 91
+            },
+            "layer5": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 256,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block3_conv2"
+                },
+                "begin": 95
+            },
+            "layer6": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 256,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block3_conv3"
+                },
+                "begin": 99
+            },
+            "layer7": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 512,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block4_conv1"
+                },
+                "begin": 106
+            },
+            "layer8": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 512,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block4_conv2"
+                },
+                "begin": 110
+            },
+            "layer9": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 512,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block4_conv3"
+                },
+                "begin": 114
+            },
+            "layer10": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 512,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block5_conv1"
+                },
+                "begin": 121
+            },
+            "layer11": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 512,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block5_conv2"
+                },
+                "begin": 125
+            },
+            "layer12": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 512,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block5_conv3"
+                },
+                "begin": 129
+            },
+            "layer13": {
+                "type": "Flatten",
+                "func": "tf.keras.layers.Flatten",
+                "args": {
+                    "inputs": "",
+                    "name": "flatten"
+                },
+                "begin": 137
+            },
+            "layer14": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": "",
+                    "units": 4096,
+                    "activation": "relu",
+                    "name": "fc1"
+                },
+                "begin": 138
+            },
+            "layer15": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": "",
+                    "units": 4096,
+                    "activation": "relu",
+                    "name": "fc2"
+                },
+                "begin": 139
+            },
+            "layer16": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": "",
+                    "units": "",
+                    "activation": "softmax",
+                    "name": "predictions"
+                },
+                "begin": 140
+            }
+        }
+    },
+    "50": {
+        "id": "50",
+        "Project_Name": "keras-applications",
+        "url": "https://github.com/keras-team/keras-applications/tree/master/keras_applications",
+        "file_name": "vgg19.py",
+        "type": "VGG-19",
+        "hpyerparameters": {},
+        "num_layers": 20,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 64,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block1_conv1"
+                },
+                "begin": 69
+            },
+            "layer1": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 64,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block1_conv2"
+                },
+                "begin": 73
+            },
+            "layer2": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 128,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block2_conv1"
+                },
+                "begin": 80
+            },
+            "layer3": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 128,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block2_conv2"
+                },
+                "begin": 84
+            },
+            "layer4": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 256,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block3_conv1"
+                },
+                "begin": 91
+            },
+            "layer5": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 256,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block3_conv2"
+                },
+                "begin": 95
+            },
+            "layer6": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 256,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block3_conv3"
+                },
+                "begin": 99
+            },
+            "layer7": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 256,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block3_conv4"
+                },
+                "begin": 103
+            },
+            "layer8": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 512,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block4_conv1"
+                },
+                "begin": 110
+            },
+            "layer9": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 512,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block4_conv2"
+                },
+                "begin": 114
+            },
+            "layer10": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 512,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block4_conv3"
+                },
+                "begin": 118
+            },
+            "layer11": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 512,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block4_conv4"
+                },
+                "begin": 122
+            },
+            "layer12": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 512,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block5_conv1"
+                },
+                "begin": 129
+            },
+            "layer13": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 512,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block5_conv2"
+                },
+                "begin": 133
+            },
+            "layer14": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 512,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block5_conv3"
+                },
+                "begin": 137
+            },
+            "layer15": {
+                "type": "Convolution",
+                "func": "tf.keras.layers.Conv2D",
+                "args": {
+                    "filters": "",
+                    "kernel_size": 512,
+                    "activation": "relu",
+                    "padding": "same",
+                    "name": "block5_conv4"
+                },
+                "begin": 141
+            },
+            "layer16": {
+                "type": "Flatten",
+                "func": "tf.keras.layers.Flatten",
+                "args": {
+                    "inputs": "",
+                    "name": "flatten"
+                },
+                "begin": 149
+            },
+            "layer17": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": "",
+                    "units": 4096,
+                    "activation": "relu",
+                    "name": "fc1"
+                },
+                "begin": 150
+            },
+            "layer18": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": "",
+                    "units": 4096,
+                    "activation": "relu",
+                    "name": "fc2"
+                },
+                "begin": 151
+            },
+            "layer19": {
+                "type": "Dense",
+                "func": "tf.keras.layers.Dense",
+                "args": {
+                    "inputs": "",
+                    "units": "",
+                    "activation": "softmax",
+                    "name": "predictions"
+                },
+                "begin": 152
             }
         }
     }

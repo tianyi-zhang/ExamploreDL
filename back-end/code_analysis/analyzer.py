@@ -125,7 +125,8 @@ class traverse_dic():
 			                         'tf.keras.optimizers.Adam': {'layer': 'Optimizer', 'args': []},
 			                         'tf.keras.optimizers.Adadelta': {'layer': 'Optimizer', 'args': []}
 			                         },
-			           "normalization": {"tf.nn.batch_normalization": {'layer': 'Normalization', 'args': ['x']}}
+			           "normalization": {"tf.nn.batch_normalization": {'layer': 'Normalization', 'args': ['x']},
+			                             "tf.contrib.layers.batch_norm": {'layer': 'Normalization', 'args': ['inputs']}}
 			           }
 		}
 		self.parameters = {'lr': 'learning rate',
