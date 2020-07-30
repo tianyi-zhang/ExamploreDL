@@ -4879,7 +4879,7 @@
         "url": "https://github.com/shiyybua/NER",
         "file_name": "rnn.py",
         "type": "BiRNN, CRF",
-        "hpyerparameters": {
+        "hyperparameters": {
             "batch size": 128,
             "dropout rate": 0.6,
             "epochs": 10000
@@ -4956,7 +4956,7 @@
         "url": "https://github.com/HaloOrangeWang/NoiseMaker",
         "file_name": "LstmModel.py",
         "type": "LSTM",
-        "hpyerparameters": {
+        "hyperparameters": {
             "learning rate": 0.01,
             "batch size": 50,
             "epochs": 3,
@@ -5025,7 +5025,7 @@
         "url": "https://github.com/eragonruan/text-detection-ctpn",
         "file_name": "vgg.py",
         "type": "CTPN",
-        "hpyerparameters": {
+        "hyperparameters": {
             "learning rate": 1e-05,
             "decay rate": 0.0005
         },
@@ -5267,7 +5267,7 @@
         "url": "https://github.com/MaybeShewill-CV/CRNN_Tensorflow",
         "file_name": "crnn_net.py",
         "type": "CRNN",
-        "hpyerparameters": {
+        "hyperparameters": {
             "learning rate": 0.01,
             "decay rate": 0.1,
             "momentum": 0.9,
@@ -5857,7 +5857,7 @@
         "url": "https://github.com/zjjMaiMai/Deep-Alignment-Network-A-convolutional-neural-network-for-robust-face-alignment",
         "file_name": "dan_model.py",
         "type": "DAN",
-        "hpyerparameters": {
+        "hyperparameters": {
             "batch size": 128
         },
         "num_layers": 53,
@@ -6413,7 +6413,7 @@
         "url": "https://github.com/fendouai/Chinese-Text-Classification",
         "file_name": "text_cnn.py",
         "type": "CNN",
-        "hpyerparameters": {
+        "hyperparameters": {
             "batch size": 64,
             "epochs": 200,
             "dropout rate": 1.0,
@@ -6602,7 +6602,7 @@
         "url": "https://github.com/flyyufelix/Direct-Future-Prediction-Keras",
         "file_name": "networks.py",
         "type": "DFP",
-        "hpyerparameters": {
+        "hyperparameters": {
             "learning rate": 1e-05,
             "batch size": 32
         },
@@ -6765,7 +6765,7 @@
         "url": "https://github.com/Kyubyong/dc_tts",
         "file_name": "networks.py",
         "type": "SSRN",
-        "hpyerparameters": {
+        "hyperparameters": {
             "learning rate": 0.001,
             "batch size": 32
         },
@@ -7682,7 +7682,7 @@
         "url": "https://github.com/DongjunLee/text-cnn-tensorflow",
         "file_name": "text_cnn.py",
         "type": "CNN",
-        "hpyerparameters": {},
+        "hyperparameters": {},
         "num_layers": 10,
         "layers": {
             "layer0": {
@@ -7783,7 +7783,7 @@
         "url": "https://github.com/brannondorsey/PassGAN",
         "file_name": "models.py",
         "type": "GAN",
-        "hpyerparameters": {
+        "hyperparameters": {
             "batch size": 64
         },
         "num_layers": 46,
@@ -8230,7 +8230,7 @@
         "url": "https://github.com/aspuru-guzik-group/chemical_vae",
         "file_name": "models.py",
         "type": "VAE, RNN",
-        "hpyerparameters": {
+        "hyperparameters": {
             "batch size": 100,
             "epochs": 1,
             "learning rate": 0.000312087049936,
@@ -8523,7 +8523,7 @@
         "url": "https://github.com/dennybritz/cnn-text-classification-tf",
         "file_name": "text_cnn.py",
         "type": "CNN",
-        "hpyerparameters": {
+        "hyperparameters": {
             "dropout rate": 0.5,
             "batch size": 64,
             "epochs": 200,
@@ -8718,7 +8718,7 @@
         "url": "https://github.com/asingh33/CNNGestureRecognizer",
         "file_name": "gestureCNN.py",
         "type": "CNN",
-        "hpyerparameters": {
+        "hyperparameters": {
             "batch size": 32,
             "epochs": 15,
             "learning rate": 0.01,
@@ -8802,7 +8802,7 @@
         "url": "https://github.com/lengstrom/fast-style-transfer",
         "file_name": "vgg.py",
         "type": "VGG",
-        "hpyerparameters": {
+        "hyperparameters": {
             "batch size": 4,
             "learning rate": 0.001,
             "epochs": 2
@@ -9313,7 +9313,7 @@
         "url": "https://github.com/nickliqian/cnn_captcha",
         "file_name": "network.py",
         "type": "CNN",
-        "hpyerparameters": {
+        "hyperparameters": {
             "batch size": 128,
             "learning rate": 0.0001,
             "epochs": 3000
@@ -9542,7 +9542,7 @@
         "url": "https://github.com/ellisdg/3DUnetCNN/blob/master/unet3d/model/unet.py#L111",
         "file_name": "unet.py",
         "type": "CNN, UNet",
-        "hpyerparameters": {
+        "hyperparameters": {
             "decay rate": 0.5,
             "epochs": 500,
             "learning rate": 1e-05
@@ -9832,7 +9832,7 @@
         "url": "https://github.com/yuxng/PoseCNN",
         "file_name": "vgg16.py",
         "type": "VGG",
-        "hpyerparameters": {},
+        "hyperparameters": {},
         "num_layers": 24,
         "layers": {
             "layer0": {
@@ -10178,7 +10178,7 @@
         "url": "https://github.com/brightmart/text_classification",
         "file_name": "p7_TextCNN_train.py",
         "type": "CNN",
-        "hpyerparameters": {
+        "hyperparameters": {
             "batch size": 64,
             "learning rate": 0.0003,
             "epochs": 10
@@ -10398,7 +10398,7 @@
         "url": "https://github.com/brightmart/text_classification",
         "file_name": "p7_TextCNN_train.py",
         "type": "CNN-1",
-        "hpyerparameters": {
+        "hyperparameters": {
             "batch size": 64,
             "learning rate": 0.0003,
             "epochs": 10
@@ -10706,7 +10706,7 @@
         "url": "https://github.com/brightmart/text_classification",
         "file_name": "p8_TextRNN_model.py",
         "type": "RNN",
-        "hpyerparameters": {
+        "hyperparameters": {
             "batch size": 64,
             "learning rate": 0.0003,
             "epochs": 10
@@ -10805,7 +10805,7 @@
         "url": "https://github.com/brightmart/text_classification",
         "file_name": "p8_TextRNN_model.py",
         "type": "RNN-1",
-        "hpyerparameters": {
+        "hyperparameters": {
             "batch size": 64,
             "learning rate": 0.0003,
             "epochs": 10
@@ -10931,7 +10931,7 @@
         "url": "https://github.com/kk7nc/Text_Classification",
         "file_name": "DNN.py",
         "type": "DNN",
-        "hpyerparameters": {
+        "hyperparameters": {
             "epochs": 10,
             "batch size": 128
         },
@@ -11050,7 +11050,7 @@
         "url": "https://github.com/kk7nc/Text_Classification",
         "file_name": "CNN.py",
         "type": "CNN",
-        "hpyerparameters": {
+        "hyperparameters": {
             "epochs": 1000,
             "batch size": 128
         },
@@ -11197,7 +11197,7 @@
         "url": "https://github.com/kk7nc/Text_Classification",
         "file_name": "RNN.py",
         "type": "RNN",
-        "hpyerparameters": {
+        "hyperparameters": {
             "epochs": 20,
             "batch size": 128
         },
@@ -11301,7 +11301,7 @@
         "url": "https://github.com/kk7nc/Text_Classification",
         "file_name": "RCNN.py",
         "type": "RCNN",
-        "hpyerparameters": {
+        "hyperparameters": {
             "epochs": 15,
             "batch size": 128
         },
@@ -11443,7 +11443,7 @@
         "url": "https://github.com/keras-team/keras-applications/tree/master/keras_applications",
         "file_name": "vgg16.py",
         "type": "VGG-16",
-        "hpyerparameters": {},
+        "hyperparameters": {},
         "num_layers": 17,
         "layers": {
             "layer0": {
@@ -11652,7 +11652,7 @@
         "url": "https://github.com/keras-team/keras-applications/tree/master/keras_applications",
         "file_name": "vgg19.py",
         "type": "VGG-19",
-        "hpyerparameters": {},
+        "hyperparameters": {},
         "num_layers": 20,
         "layers": {
             "layer0": {
@@ -11888,6 +11888,1158 @@
                     "name": "predictions"
                 },
                 "begin": 152
+            }
+        }
+    },
+    "51": {
+        "id": "51",
+        "Project_Name": "tensorflow_models",
+        "url": "https://github.com/tensorflow/models",
+        "file_name": "alexnet.py",
+        "type": "AlexNet",
+        "hyperparameters": {
+            "batch size": 5,
+            "image height": 224,
+            "image width": 224,
+            "number of classes": 1000,
+            "dropout rate": 0.5
+        },
+        "num_layers": 13,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 64,
+                    "kernel_size": "",
+                    "padding": "VALID",
+                    "scope": "conv1"
+                },
+                "begin": 45
+            },
+            "layer1": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool1"
+                },
+                "begin": 47
+            },
+            "layer2": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 192,
+                    "kernel_size": "",
+                    "scope": "conv2"
+                },
+                "begin": 48
+            },
+            "layer3": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool2"
+                },
+                "begin": 49
+            },
+            "layer4": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 384,
+                    "kernel_size": "",
+                    "scope": "conv3"
+                },
+                "begin": 50
+            },
+            "layer5": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 384,
+                    "kernel_size": "",
+                    "scope": "conv4"
+                },
+                "begin": 51
+            },
+            "layer6": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": "",
+                    "scope": "conv5"
+                },
+                "begin": 52
+            },
+            "layer7": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool5"
+                },
+                "begin": 53
+            },
+            "layer8": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 4096,
+                    "kernel_size": "",
+                    "padding": "VALID",
+                    "scope": "fc6"
+                },
+                "begin": 57
+            },
+            "layer9": {
+                "type": "Dropout",
+                "func": "tf.contrib.slim.dropout",
+                "args": {
+                    "inputs": "",
+                    "is_training": "is_training",
+                    "scope": "dropout6"
+                },
+                "begin": 59
+            },
+            "layer10": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 4096,
+                    "kernel_size": "",
+                    "scope": "fc7"
+                },
+                "begin": 61
+            },
+            "layer11": {
+                "type": "Dropout",
+                "func": "tf.contrib.slim.dropout",
+                "args": {
+                    "inputs": "",
+                    "is_training": "is_training",
+                    "scope": "dropout7"
+                },
+                "begin": 64
+            },
+            "layer12": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": "",
+                    "activation_fn": null,
+                    "normalizer_fn": null,
+                    "biases_initializer": {
+                        "func": "tf.zeros_initializer",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 66
+                    },
+                    "scope": "fc8"
+                },
+                "begin": 66
+            }
+        }
+    },
+    "52": {
+        "id": "52",
+        "Project_Name": "tensorflow_models",
+        "url": "https://github.com/tensorflow/models",
+        "file_name": "cifarnet.py",
+        "type": "CifarNet",
+        "hyperparameters": {
+            "image width": 32,
+            "image height": 32,
+            "number of classes": 10,
+            "dropout rate": 0.5
+        },
+        "num_layers": 11,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 64,
+                    "kernel_size": "",
+                    "scope": "conv1"
+                },
+                "begin": 39
+            },
+            "layer1": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool1"
+                },
+                "begin": 41
+            },
+            "layer2": {
+                "type": "Normalization",
+                "func": "tf.nn.lrn",
+                "args": {
+                    "inputs": "",
+                    "bias": 1.0,
+                    "alpha": 43,
+                    "beta": 0.75,
+                    "name": "norm1"
+                },
+                "begin": 43
+            },
+            "layer3": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 64,
+                    "kernel_size": "",
+                    "scope": "conv2"
+                },
+                "begin": 44
+            },
+            "layer4": {
+                "type": "Normalization",
+                "func": "tf.nn.lrn",
+                "args": {
+                    "inputs": "",
+                    "bias": 1.0,
+                    "alpha": 46,
+                    "beta": 0.75,
+                    "name": "norm2"
+                },
+                "begin": 46
+            },
+            "layer5": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool2"
+                },
+                "begin": 47
+            },
+            "layer6": {
+                "type": "Flatten",
+                "func": "tf.contrib.slim.flatten",
+                "args": {
+                    "inputs": ""
+                },
+                "begin": 49
+            },
+            "layer7": {
+                "type": "Dense",
+                "func": "tf.contrib.slim.fully_connected",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 384,
+                    "scope": "fc3"
+                },
+                "begin": 51
+            },
+            "layer8": {
+                "type": "Dropout",
+                "func": "tf.contrib.slim.dropout",
+                "args": {
+                    "inputs": "",
+                    "is_training": "is_training",
+                    "scope": "dropout3"
+                },
+                "begin": 53
+            },
+            "layer9": {
+                "type": "Dense",
+                "func": "tf.contrib.slim.fully_connected",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 192,
+                    "scope": "fc4"
+                },
+                "begin": 55
+            },
+            "layer10": {
+                "type": "Dense",
+                "func": "tf.contrib.slim.fully_connected",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 10,
+                    "biases_initializer": {
+                        "func": "tf.zeros_initializer",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 61
+                    },
+                    "weights_initializer": {
+                        "func": "trunc_normal",
+                        "args": {},
+                        "layer": "",
+                        "body": [],
+                        "lineno": 62
+                    },
+                    "weights_regularizer": null,
+                    "activation_fn": null,
+                    "scope": "logits"
+                },
+                "begin": 58
+            }
+        }
+    },
+    "53": {
+        "id": "53",
+        "Project_Name": "tensorflow_models",
+        "url": "https://github.com/tensorflow/models",
+        "file_name": "lenet.py",
+        "type": "LeNet",
+        "hyperparameters": {
+            "image width": 28,
+            "image height": 28,
+            "number of classes": 10,
+            "dropout rate": 0.5
+        },
+        "num_layers": 8,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 32,
+                    "kernel_size": "",
+                    "scope": "conv1"
+                },
+                "begin": 40
+            },
+            "layer1": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool1"
+                },
+                "begin": 41
+            },
+            "layer2": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 64,
+                    "kernel_size": "",
+                    "scope": "conv2"
+                },
+                "begin": 42
+            },
+            "layer3": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool2"
+                },
+                "begin": 43
+            },
+            "layer4": {
+                "type": "Flatten",
+                "func": "tf.contrib.slim.flatten",
+                "args": {
+                    "inputs": ""
+                },
+                "begin": 44
+            },
+            "layer5": {
+                "type": "Dense",
+                "func": "tf.contrib.slim.fully_connected",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 1024,
+                    "scope": "fc3"
+                },
+                "begin": 47
+            },
+            "layer6": {
+                "type": "Dropout",
+                "func": "tf.contrib.slim.dropout",
+                "args": {
+                    "inputs": "",
+                    "is_training": "is_training",
+                    "scope": "dropout3"
+                },
+                "begin": 48
+            },
+            "layer7": {
+                "type": "Dense",
+                "func": "tf.contrib.slim.fully_connected",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 10,
+                    "activation_fn": null,
+                    "scope": "fc4"
+                },
+                "begin": 49
+            }
+        }
+    },
+    "54": {
+        "id": "54",
+        "Project_Name": "tensorflow_models",
+        "url": "https://github.com/tensorflow/models",
+        "file_name": "vgg.py",
+        "type": "VGG-a",
+        "hyperparameters": {
+            "image width": 224,
+            "image height": 224,
+            "number of classes": 1000,
+            "batch size": 5,
+            "dropout rate": 0.5
+        },
+        "num_layers": 15,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 64,
+                    "kernel_size": "",
+                    "scope": "conv1"
+                },
+                "begin": 40
+            },
+            "layer1": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool1"
+                },
+                "begin": 41
+            },
+            "layer2": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "conv2"
+                },
+                "begin": 42
+            },
+            "layer3": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool2"
+                },
+                "begin": 43
+            },
+            "layer4": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": "",
+                    "scope": "conv3"
+                },
+                "begin": 44
+            },
+            "layer5": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool3"
+                },
+                "begin": 45
+            },
+            "layer6": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": "",
+                    "scope": "conv4"
+                },
+                "begin": 46
+            },
+            "layer7": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool4"
+                },
+                "begin": 47
+            },
+            "layer8": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": "",
+                    "scope": "conv5"
+                },
+                "begin": 48
+            },
+            "layer9": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool5"
+                },
+                "begin": 49
+            },
+            "layer10": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 4096,
+                    "kernel_size": "",
+                    "padding": "VALID",
+                    "scope": "fc6"
+                },
+                "begin": 52
+            },
+            "layer11": {
+                "type": "Dropout",
+                "func": "tf.contrib.slim.dropout",
+                "args": {
+                    "inputs": "",
+                    "is_training": "is_training",
+                    "scope": "dropout6"
+                },
+                "begin": 53
+            },
+            "layer12": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 4096,
+                    "kernel_size": "",
+                    "scope": "fc7"
+                },
+                "begin": 55
+            },
+            "layer13": {
+                "type": "Dropout",
+                "func": "tf.contrib.slim.dropout",
+                "args": {
+                    "inputs": "",
+                    "is_training": "is_training",
+                    "scope": "dropout7"
+                },
+                "begin": 62
+            },
+            "layer14": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": "",
+                    "kernel_size": "",
+                    "activation_fn": null,
+                    "normalizer_fn": null,
+                    "scope": "fc8"
+                },
+                "begin": 63
+            }
+        }
+    },
+    "55": {
+        "id": "55",
+        "Project_Name": "tensorflow_models",
+        "url": "https://github.com/tensorflow/models",
+        "file_name": "vgg16.py",
+        "type": "VGG-16",
+        "hyperparameters": {
+            "image width": 224,
+            "image height": 224,
+            "number of classes": 1000,
+            "batch size": 5,
+            "dropout rate": 0.5
+        },
+        "num_layers": 23,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 64,
+                    "kernel_size": "",
+                    "scope": "conv1"
+                },
+                "begin": 40
+            },
+            "layer1": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 64,
+                    "kernel_size": "",
+                    "scope": "conv1"
+                },
+                "begin": 41
+            },
+            "layer2": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool1"
+                },
+                "begin": 42
+            },
+            "layer3": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "conv2"
+                },
+                "begin": 43
+            },
+            "layer4": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "conv2"
+                },
+                "begin": 44
+            },
+            "layer5": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool2"
+                },
+                "begin": 45
+            },
+            "layer6": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": "",
+                    "scope": "conv3"
+                },
+                "begin": 46
+            },
+            "layer7": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": "",
+                    "scope": "conv3"
+                },
+                "begin": 47
+            },
+            "layer8": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": "",
+                    "scope": "conv3"
+                },
+                "begin": 48
+            },
+            "layer9": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool3"
+                },
+                "begin": 49
+            },
+            "layer10": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": "",
+                    "scope": "conv4"
+                },
+                "begin": 50
+            },
+            "layer11": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": "",
+                    "scope": "conv4"
+                },
+                "begin": 51
+            },
+            "layer12": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": "",
+                    "scope": "conv4"
+                },
+                "begin": 52
+            },
+            "layer13": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool4"
+                },
+                "begin": 53
+            },
+            "layer14": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": "",
+                    "scope": "conv5"
+                },
+                "begin": 54
+            },
+            "layer15": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": "",
+                    "scope": "conv5"
+                },
+                "begin": 55
+            },
+            "layer16": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": "",
+                    "scope": "conv5"
+                },
+                "begin": 56
+            },
+            "layer17": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool5"
+                },
+                "begin": 57
+            },
+            "layer18": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 4096,
+                    "kernel_size": "",
+                    "padding": "VALID",
+                    "scope": "fc6"
+                },
+                "begin": 60
+            },
+            "layer19": {
+                "type": "Dropout",
+                "func": "tf.contrib.slim.dropout",
+                "args": {
+                    "inputs": "",
+                    "is_training": "is_training",
+                    "scope": "dropout6"
+                },
+                "begin": 61
+            },
+            "layer20": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 4096,
+                    "kernel_size": "",
+                    "scope": "fc7"
+                },
+                "begin": 63
+            },
+            "layer21": {
+                "type": "Dropout",
+                "func": "tf.contrib.slim.dropout",
+                "args": {
+                    "inputs": "",
+                    "is_training": "is_training",
+                    "scope": "dropout7"
+                },
+                "begin": 70
+            },
+            "layer22": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 1000,
+                    "kernel_size": "",
+                    "activation_fn": null,
+                    "normalizer_fn": null,
+                    "scope": "fc8"
+                },
+                "begin": 71
+            }
+        }
+    },
+    "56": {
+        "id": "56",
+        "Project_Name": "tensorflow_models",
+        "url": "https://github.com/tensorflow/models",
+        "file_name": "vgg19.py",
+        "type": "VGG-19",
+        "hyperparameters": {
+            "image width": 224,
+            "image height": 224,
+            "number of classes": 1000,
+            "batch size": 5,
+            "dropout rate": 0.5
+        },
+        "num_layers": 26,
+        "layers": {
+            "layer0": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 64,
+                    "kernel_size": "",
+                    "scope": "conv1"
+                },
+                "begin": 40
+            },
+            "layer1": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 64,
+                    "kernel_size": "",
+                    "scope": "conv1"
+                },
+                "begin": 41
+            },
+            "layer2": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool1"
+                },
+                "begin": 42
+            },
+            "layer3": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "conv2"
+                },
+                "begin": 43
+            },
+            "layer4": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 128,
+                    "kernel_size": "",
+                    "scope": "conv2"
+                },
+                "begin": 44
+            },
+            "layer5": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool2"
+                },
+                "begin": 45
+            },
+            "layer6": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": "",
+                    "scope": "conv3"
+                },
+                "begin": 46
+            },
+            "layer7": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": "",
+                    "scope": "conv3"
+                },
+                "begin": 47
+            },
+            "layer8": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": "",
+                    "scope": "conv3"
+                },
+                "begin": 48
+            },
+            "layer9": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 256,
+                    "kernel_size": "",
+                    "scope": "conv3"
+                },
+                "begin": 49
+            },
+            "layer10": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool3"
+                },
+                "begin": 50
+            },
+            "layer11": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": "",
+                    "scope": "conv4"
+                },
+                "begin": 51
+            },
+            "layer12": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": "",
+                    "scope": "conv4"
+                },
+                "begin": 52
+            },
+            "layer13": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": "",
+                    "scope": "conv4"
+                },
+                "begin": 53
+            },
+            "layer14": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": "",
+                    "scope": "conv4"
+                },
+                "begin": 54
+            },
+            "layer15": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool4"
+                },
+                "begin": 55
+            },
+            "layer16": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": "",
+                    "scope": "conv5"
+                },
+                "begin": 56
+            },
+            "layer17": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": "",
+                    "scope": "conv5"
+                },
+                "begin": 57
+            },
+            "layer18": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": "",
+                    "scope": "conv5"
+                },
+                "begin": 58
+            },
+            "layer19": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 512,
+                    "kernel_size": "",
+                    "scope": "conv5"
+                },
+                "begin": 59
+            },
+            "layer20": {
+                "type": "Max Pooling",
+                "func": "tf.contrib.slim.max_pool2d",
+                "args": {
+                    "inputs": "",
+                    "pool_size": "",
+                    "scope": "pool5"
+                },
+                "begin": 60
+            },
+            "layer21": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 4096,
+                    "kernel_size": "",
+                    "padding": "VALID",
+                    "scope": "fc6"
+                },
+                "begin": 63
+            },
+            "layer22": {
+                "type": "Dropout",
+                "func": "tf.contrib.slim.dropout",
+                "args": {
+                    "inputs": "",
+                    "is_training": "is_training",
+                    "scope": "dropout6"
+                },
+                "begin": 64
+            },
+            "layer23": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 4096,
+                    "kernel_size": "",
+                    "scope": "fc7"
+                },
+                "begin": 66
+            },
+            "layer24": {
+                "type": "Dropout",
+                "func": "tf.contrib.slim.dropout",
+                "args": {
+                    "inputs": "",
+                    "is_training": "is_training",
+                    "scope": "dropout7"
+                },
+                "begin": 73
+            },
+            "layer25": {
+                "type": "Convolution",
+                "func": "tf.contrib.slim.conv2d",
+                "args": {
+                    "inputs": "",
+                    "num_outputs": 1000,
+                    "kernel_size": "",
+                    "activation_fn": null,
+                    "normalizer_fn": null,
+                    "scope": "fc8"
+                },
+                "begin": 74
             }
         }
     }

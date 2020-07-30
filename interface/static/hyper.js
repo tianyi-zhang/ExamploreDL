@@ -31,7 +31,6 @@ var hyperparameterChart = function(hyperData, tarId='') {
 			height = 180 - margin.top - margin.bottom;
 
 	var returnHyper = genHyperLi(tarId, hyperData);
-
 	var return_li = returnHyper[0];
 
 	var hist = function(svgThis, data) {
@@ -77,8 +76,9 @@ var hyperparameterChart = function(hyperData, tarId='') {
 
 	drawLegend("hyper", maxNum);
 	for (i=0; i<return_li.length; i++) { 
-		var nowKey = return_li[i].key;
-		var Mysvg = d3.select("#paraChart-"+(i)).append("svg")
+		var nowKey = return_li[i].key
+
+		var Mysvg = d3.select("#paraChart").append("svg")
 			.attr("id", 'paraSvg-'+i)
 			.attr("class", "paraChart")
 			.attr("width", width + margin.left + margin.right)

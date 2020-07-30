@@ -91,7 +91,8 @@ class traverse_dic():
 			                      'tf.keras.activations.relu': {'layer': 'ReLu', 'args': ['x']},
 			                      'tf.keras.layers.ReLU': {'layer': 'ReLu', 'args': []}
 			                      },
-			             'softmax': {'tf.nn.softmax': {'layer': 'Softmax', 'args': ['logits']}
+			             'softmax': {'tf.nn.softmax': {'layer': 'Softmax', 'args': ['logits']},
+			                         'tf.contrib.slim.softmax': {'layer': 'Softmax', 'args': ['logits']}
 			                         },
 			             'sigmoid': {'tf.nn.sigmoid': {'layer': 'Sigmoid', 'args': ['x']}}
 
@@ -119,14 +120,16 @@ class traverse_dic():
 			                       'tf.keras.layers.Dropout': {'layer': 'Dropout', 'args': ['rate']},
 			                       'tf.compat.v1.nn.dropout': {'layer': 'Dropout', 'args': ['x']},
 			                       'tf.contrib.layers.dropout': {'layer': 'Dropout', 'args': ['inputs']},
-			                       'tf.contrib.rnn.DropoutWrapper': {'layer': 'Dropout', 'args': ['cell']}
+			                       'tf.contrib.rnn.DropoutWrapper': {'layer': 'Dropout', 'args': ['cell']},
+			                       'tf.contrib.slim.dropout': {'layer': 'Dropout', 'args': ['inputs']}
 			                       },
 			           'optimizer': {'tf.train.AdamOptimizer': {'layer': 'Optimizer', 'args': []},
 			                         'tf.keras.optimizers.Adam': {'layer': 'Optimizer', 'args': []},
 			                         'tf.keras.optimizers.Adadelta': {'layer': 'Optimizer', 'args': []}
 			                         },
 			           "normalization": {"tf.nn.batch_normalization": {'layer': 'Normalization', 'args': ['x']},
-			                             "tf.contrib.layers.batch_norm": {'layer': 'Normalization', 'args': ['inputs']}}
+			                             "tf.contrib.layers.batch_norm": {'layer': 'Normalization', 'args': ['inputs']},
+			                             "tf.nn.lrn": {'layer': 'Normalization', 'args': ['inputs']}}
 			           }
 		}
 		self.parameters = {'lr': 'learning rate',
@@ -141,12 +144,17 @@ class traverse_dic():
 		                   'num_epochs': 'epochs',
                            'DROPOUT_RATE': 'dropout rate',
 		                   'keep_prob': 'dropout rate',
+		                   'dropout_keep_prob': 'dropout rate',
 		                   'decay_rate': 'decay rate',
 		                   'decay': 'decay rate',
 		                   'LR_DECAY_RATE': 'decay rate',
 		                   'DECAY_RATE': 'decay rate',
 		                   "momentum": 'momentum',
-		                   'MOMENTUM': 'momentum'}
+		                   'MOMENTUM': 'momentum',
+		                   'width': 'image width',
+		                   'height': "image height",
+		                   'num_classes': "number of classes"
+		}
 		self.net_li = []
 		for cat in self.net_type.keys():
 			for type in self.net_type[cat]:
@@ -340,7 +348,7 @@ class traverse_dic():
 		first_model["url"] = self.paras[2]
 		first_model["file_name"] = self.paras[3]
 		first_model["type"] = self.paras[4]
-		first_model["hpyerparameters"] = self.hyperparameters
+		first_model["hyerparameters"] = self.hyperparameters
 		first_model["num_layers"] = len(self.layers)
 		first_model['layers'] = self.layers
 

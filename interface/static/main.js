@@ -117,10 +117,9 @@ mixData.then(function(oriData) {
 				d3.selectAll(".newProjectDiv").remove();
 				d3.selectAll(".projectInfoDiv").remove();
 				d3.selectAll("#legendSvg").remove();
-				d3.selectAll("#legend").remove();
-				d3.selectAll(".chart2-text").remove();
-				d3.selectAll(".para-rect").remove();
-				d3.selectAll(".chart2-xaxis").remove();
+				d3.selectAll("#paraLegend").remove();
+				d3.selectAll(".paraChart").remove();
+				document.getElementById("sankeyInfo").innerHTML = "Number of Projects: 0; Number of Models: 0";
 				updateFilterSVG(idList, thisClassName);
 				notNone = 0;
 			} else if (Object.keys(selectOrder).length > 1) {

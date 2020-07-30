@@ -426,7 +426,7 @@ var genData = function(idList, path, viewName='oriView') {
 				var [li, model_arg_li] = generate_out_li(json_dic[i]);
 				allProNodes.push(li);
 				if (idList.includes(i)) {
-					hyper[i] = json_dic[i]['hyperparameters'];			
+					hyper[i] = json_dic[i]['hyperparameters'];
 					arg_li.push(model_arg_li);
 					net_li.push(li);
 					proNode[i] = li;

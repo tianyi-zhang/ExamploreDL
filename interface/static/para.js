@@ -27,9 +27,9 @@ function bubbleSort (arr, key, flag=">") {
 }
 
 function drawLegend(legendType, maxNum) {
-	d3.selectAll("#legend").remove();
+	d3.selectAll("#paraLegend").remove();
 	var leng = d3.select("#paraLegendDiv").append("svg")
-		.attr("id", "legend")
+		.attr("id", "paraLegend")
 		.attr("width", 300)
 		.attr("height", 120);
 
@@ -242,7 +242,7 @@ var get_data = function(d_node, selected_cat) {
 }
 
 var generateParameterChart = function(selected_cat, json_data, target_args) {
-	
+
 	d3.selectAll(".paraChart").remove();
 
 	var margin = {top: 30, right: 0, bottom: 30, left: 50},
@@ -294,7 +294,7 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 	for (i=0; i<return_li.length; i++) { 	
 
 		var nowKey = return_li[i].key;
-		var Mysvg = d3.select("#paraChart-"+(i)).append("svg")
+		var Mysvg = d3.select("#paraChart").append("svg")
 			.attr("id", 'paraSvg-'+i)
 			.attr("class", "paraChart")
 			.attr("width", width + margin.left + margin.right)
@@ -410,7 +410,7 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 				.attr("font-weight", 100)
 				.attr("fill", "#505050");
 
-		if (target_args !== "none") {
+		if (target_args !== "none" && (nowKey in target_args)) {
 			var selectText = Mysvg.append("rect")
 				.attr("class", "chart2-text")
 				.attr("y", 35)

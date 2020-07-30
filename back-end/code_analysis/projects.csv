@@ -50,3 +50,9 @@
 48,kk7nc_text_classification,https://github.com/kk7nc/Text_Classification,RCNN.py,text_classification,"text, IMDB, Reuters-21578, 20Newsgroups",RCNN,970,322
 49,keras-applications,https://github.com/keras-team/keras-applications/tree/master/keras_applications,vgg16.py,image_classification,image,VGG-16,1623,740
 50,keras-applications,https://github.com/keras-team/keras-applications/tree/master/keras_applications,vgg19.py,image_classification,image,VGG-19,1623,740
+51,tensorflow_models,https://github.com/tensorflow/models,alexnet.py,image_classification,image,AlexNet,65300,41800
+52,tensorflow_models,https://github.com/tensorflow/models,cifarnet.py,image_classification,image,CifarNet,65300,41800
+53,tensorflow_models,https://github.com/tensorflow/models,lenet.py,image_classification,image,LeNet,65300,41800
+54,tensorflow_models,https://github.com/tensorflow/models,vgg.py,image_classification,image,VGG-a,65300,41800
+55,tensorflow_models,https://github.com/tensorflow/models,vgg16.py,image_classification,image,VGG-16,65300,41800
+56,tensorflow_models,https://github.com/tensorflow/models,vgg19.py,image_classification,image,VGG-19,65300,41800

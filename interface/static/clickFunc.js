@@ -84,11 +84,9 @@ var click_4 = function() {
 		.style("border-left", "1px solid #848484")
 		.style("border-bottom", "none")
 		.style("border-collapse", "collapse");
-
-	d3.selectAll(".chart2-text").remove();
-	d3.selectAll(".chart2-rect").remove();
-	d3.selectAll(".chart2-xaxis").remove();
-	d3.selectAll(".breadcrumbDiv").remove();
+		
+	d3.selectAll(".paraChart").remove();
+	d3.select("#paraLegend").remove();
 }
 
 var click_5 = function(nodeList, layNum, proIdList) {
