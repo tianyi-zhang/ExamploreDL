@@ -23,7 +23,6 @@ var genHyperLi = function(tarId, data) {
 	return [li, tarDict];
 }
 var hyperparameterChart = function(hyperData, tarId='') {
-	
 	d3.selectAll(".paraChart").remove();
 
 	var margin = {top: 30, right: 0, bottom: 30, left: 50},

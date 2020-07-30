@@ -44,7 +44,7 @@ def _alignment():
 			'CTC': "H",
 			'MSE': "U"
 			}
-	with open("data.json", "r") as datajson:
+	with open("./static/data.json", "r") as datajson:
 		alldata = json.loads(datajson.read())
 		with open("net.txt", "w") as outfile:
 			for key in alldata:

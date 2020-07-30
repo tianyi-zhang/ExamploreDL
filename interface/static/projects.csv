@@ -56,3 +56,8 @@
 54,tensorflow_models,https://github.com/tensorflow/models,vgg.py,image_classification,image,VGG-a,65300,41800
 55,tensorflow_models,https://github.com/tensorflow/models,vgg16.py,image_classification,image,VGG-16,65300,41800
 56,tensorflow_models,https://github.com/tensorflow/models,vgg19.py,image_classification,image,VGG-19,65300,41800
+57,Keras-Multi-Label-Image-Classification,https://github.com/suraj-deshmukh/Keras-Multi-Label-Image-Classification,model.py,image_classification,image,CNN,309,116
+58,CNN-3D-images-Tensorflow,https://github.com/jibikbam/CNN-3D-images-Tensorflow/blob/master/simpleCNN_MRI.py,simpleCNN_MRI.py,image_classification,image,CNN,189,98
+59,CIFAR10-img-classification-tensorflow,https://github.com/deep-diver/CIFAR10-img-classification-tensorflow/blob/master/CIFAR10_image_classification.py,CIFAR10_image_classification.py,image_classification,"image, Cifar10",CNN,100,86
+60,deep-learning-for-image-processing,https://github.com/WZMIAOMIAO/deep-learning-for-image-processing/blob/master/tensorflow_classification/Test2_alexnet/model.py,alexnet.py,image_classification,image,AlexNet-v1,455,242
+61,deep-learning-for-image-processing,https://github.com/WZMIAOMIAO/deep-learning-for-image-processing/blob/master/tensorflow_classification/Test2_alexnet/model.py,alexnet.py,image_classification,image,AlexNet-v2,455,242

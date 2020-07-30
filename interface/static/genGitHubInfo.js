@@ -87,7 +87,8 @@ function createNewDiv(parentNode, proName, keyList, record, hyper, proData) {
 			var parent = document.getElementById('GitHub-info-div'),
 				child = parent.getElementsByClassName("newProjectDiv"),
 				childLi = Array.prototype.slice.call(child, 0),
-				safeLi = [];
+				safeLi = [],
+				countHighlight = 0;
 			for (var k=0; k<childLi.length; k++) {
 				var boxId = childLi[k].id,
 					grandChild = document.getElementById(boxId).getElementsByClassName("newModelDiv"),
@@ -98,6 +99,7 @@ function createNewDiv(parentNode, proName, keyList, record, hyper, proData) {
 						thisBox = document.getElementById(modelId);
 					if (thisBox.style.backgroundColor == "#8D85EE" || thisBox.style.backgroundColor == "rgb(141, 133, 238)") {
 						var flag = 1;
+						countHighlight += 1;
 					} else {
 						var flag = 0.35;
 					}
@@ -118,7 +120,11 @@ function createNewDiv(parentNode, proName, keyList, record, hyper, proData) {
 						}
 					}
 				}
-			}		
+			}	
+			if (countHighlight==0) {
+				d3.selectAll(".hyper-cir").style("fill", 'BBB5F0');
+				d3.selectAll(".chart2-text").remove();
+			}	
 		});
 	}	
 

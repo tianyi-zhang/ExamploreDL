@@ -31,44 +31,35 @@ class traverse_dic():
 		self.def_func_rely = {}  # {'def_1': ['def_2'], 'def_2': []}
 		self.net_type = {'type': {
 			'cnn': {'tf.nn.conv2d': {'layer': 'Convolution', 'args': ['inputs', 'filters', 'strides', 'padding']},
-			        'tf.layers.conv1d': {'layer': 'Convolution',
-			                             'args': ['inputs', 'num_outputs', 'kernel_size', 'strides',
-			                                      'padding']},
+			        'tf.layers.conv1d': {'layer': 'Convolution','args': ['inputs', 'num_outputs', 'kernel_size', 'strides','padding']},
 			        'tf.keras.layers.Conv1D': {'layer': 'Convolution', 'args': ['num_outputs', 'kernel_size']},
 			        'tf.keras.layers.Conv2D': {'layer': 'Convolution', 'args': ['filters', 'kernel_size']},
-			        'tf.layers.conv2d': {'layer': 'Convolution',
-			                             'args': ['inputs', 'num_outputs', 'kernel_size', 'strides',
-			                                      'padding']},
-			        'tf.contrib.slim.conv2d': {'layer': 'Convolution',
-			                                   'args': ['inputs', 'num_outputs', 'kernel_size']},
-			        'tf.nn.conv2d_transpose': {'layer': 'Deconvolution',
-			                                   'args': ['input', 'filters', 'output_shape', 'strides']},
+			        'tf.keras.layers.Convolution2D': {'layer': 'Convolution', 'args': ['filters', 'kernel_size']},
+			        'tf.layers.conv2d': {'layer': 'Convolution','args': ['inputs', 'num_outputs', 'kernel_size', 'strides','padding']},
+			        'tf.contrib.slim.conv2d': {'layer': 'Convolution','args': ['inputs', 'num_outputs', 'kernel_size']},
+			        'tf.nn.conv2d_transpose': {'layer': 'Deconvolution','args': ['input', 'filters', 'output_shape', 'strides']},
 			        'tf.keras.layers.Deconvolution3D': {'layer': 'Deconvolution', 'args': ['filters', 'kernel_size']},
 			        'tf.keras.layers.Conv3D': {'layer': 'Convolution', 'args': ['filters', 'kernel_size']},
+			        'tf.nn.conv3d': {'layer': 'Convolution', 'args': ['input', 'filters', 'strides', 'padding']},
 			        'tf.keras.layers.GlobalMaxPooling1D': {'layer': 'Max Pooling', 'args': []},
-			        'tf.keras.layers.MaxPool2D': {'layer': 'Max Pooling',
-			                                      'args': ['pool_size', 'strides', 'padding']},
-			        'tf.contrib.slim.max_pool2d': {'layer': 'Max Pooling',
-			                                       'args': ['inputs', 'pool_size']},
-			        'tf.layers.max_pooling2d': {'layer': 'Max Pooling',
-			                                    'args': ['inputs', 'pool_size', 'strides']},
-			        'tf.nn.max_pool': {'layer': 'Max Pooling',
-			                           'args': ['input', 'pool_size', 'strides', 'padding']},
-			        'tf.keras.layers.MaxPooling3D': {'layer': 'Max Pooling',
-			                                      'args': ['pool_size', 'strides', 'padding']},
-			        'tf.layers.average_pooling2d': {'layer': 'Average Pooling',
-			                                        'args': ['input', 'pool_size',
-			                                                 'strides']},
+			        'tf.keras.layers.MaxPool2D': {'layer': 'Max Pooling','args': ['pool_size', 'strides', 'padding']},
+			        'tf.keras.layers.MaxPooling2D': {'layer': 'Max Pooling', 'args': ['pool_size', 'strides', 'padding']},
+			        'tf.contrib.slim.max_pool2d': {'layer': 'Max Pooling','args': ['inputs', 'pool_size']},
+			        'tf.layers.max_pooling2d': {'layer': 'Max Pooling','args': ['inputs', 'pool_size', 'strides']},
+			        'tf.nn.max_pool': {'layer': 'Max Pooling','args': ['input', 'pool_size', 'strides', 'padding']},
+			        'tf.keras.layers.MaxPooling3D': {'layer': 'Max Pooling', 'args': ['pool_size', 'strides', 'padding']},
+			        'tf.nn.max_pool3d': {'layer': 'Max Pooling','args': ['input', 'ksize', 'strides', 'padding']},
+			        'tf.layers.average_pooling2d': {'layer': 'Average Pooling','args': ['input', 'pool_size','strides']},
 			        'tf.keras.layers.GlobalAveragePooling1D': {'layer': 'Max Pooling', 'args': []}
 			        },
 			'dense': {'tf.layers.dense': {'layer': 'Dense', 'args': ['inputs', 'units']},
 			          'tf.keras.layers.Dense': {'layer': 'Dense', 'args': ['inputs', 'units']},
 			          'tf.contrib.slim.fully_connected': {'layer': 'Dense', 'args': ['inputs', 'num_outputs']},
+			          'tf.contrib.layers.fully_connected': {'layer': 'Dense', 'args': ['inputs', 'num_outputs']}
 			          },
-			'flatten': {'tf.contrib.slim.flatten': {'layer': 'Flatten',
-			                                        'args': ['inputs']},
-			            'tf.keras.layers.Flatten': {'layer': 'Flatten',
-			                                        'args': ['inputs']}
+			'flatten': {'tf.contrib.slim.flatten': {'layer': 'Flatten','args': ['inputs']},
+			            'tf.keras.layers.Flatten': {'layer': 'Flatten','args': ['inputs']},
+			            'tf.contrib.layers.flatten': {'layer': 'Flatten','args': ['inputs']}
 			            },
 			'rnn': {'tf.nn.bidirectional_dynamic_rnn': {'layer': 'BiRNN', 'args': []},
 			        'tf.keras.layers.Bidirectional': {'layer': 'BiRNN', 'args': ['layer']},
@@ -102,7 +93,8 @@ class traverse_dic():
 				'tf.nn.softmax_cross_entropy_with_logits': {'layer': 'Cross Entropy', 'args': []},
 				'tf.nn.sigmoid_cross_entropy_with_logits': {'layer': 'Cross Entropy', 'args': []},
 				'tf.nn.sparse_softmax_cross_entropy_with_logits': {'layer': 'Cross Entropy', 'args': []},
-				'tf.keras.losses.categorical_crossentropy': {'layer': 'Cross Entropy', 'args': []}
+				'tf.keras.losses.categorical_crossentropy': {'layer': 'Cross Entropy', 'args': []},
+				'tf.keras.losses.CategoricalCrossentropy': {'layer': 'Cross Entropy', 'args': []}
 				},
 				'ctc': {
 					"tf.nn.ctc_loss": {'layer': 'CTC', 'args': ['labels', 'logits', 'label_length', 'logit_length']}
@@ -129,6 +121,7 @@ class traverse_dic():
 			                         },
 			           "normalization": {"tf.nn.batch_normalization": {'layer': 'Normalization', 'args': ['x']},
 			                             "tf.contrib.layers.batch_norm": {'layer': 'Normalization', 'args': ['inputs']},
+			                             'tf.layers.batch_normalization': {'layer': 'Normalization', 'args': ['inputs']},
 			                             "tf.nn.lrn": {'layer': 'Normalization', 'args': ['inputs']}}
 			           }
 		}
@@ -348,7 +341,7 @@ class traverse_dic():
 		first_model["url"] = self.paras[2]
 		first_model["file_name"] = self.paras[3]
 		first_model["type"] = self.paras[4]
-		first_model["hyerparameters"] = self.hyperparameters
+		first_model["hyperparameters"] = self.hyperparameters
 		first_model["num_layers"] = len(self.layers)
 		first_model['layers'] = self.layers
 
