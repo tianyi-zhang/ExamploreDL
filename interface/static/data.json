@@ -4189,7 +4189,7 @@
         "Project_Name": "KerasDeepSpeech",
         "url": "https://github.com/robmsmt/KerasDeepSpeech",
         "file_name": "model.py",
-        "type": "CTC",
+        "type": "CTC, RNN",
         "hyperparameters": {
             "learning rate": 0.01,
             "batch size": 2,
@@ -4352,7 +4352,7 @@
         "Project_Name": "KerasDeepSpeech",
         "url": "https://github.com/robmsmt/KerasDeepSpeech",
         "file_name": "model.py",
-        "type": "CTC,",
+        "type": "CTC, RNN",
         "hyperparameters": {
             "learning rate": 0.01,
             "batch size": 2,
@@ -4483,7 +4483,7 @@
         "Project_Name": "KerasDeepSpeech",
         "url": "https://github.com/robmsmt/KerasDeepSpeech",
         "file_name": "model.py",
-        "type": "CTC",
+        "type": "CTC, RNN",
         "hyperparameters": {
             "learning rate": 0.01,
             "batch size": 2,
@@ -4566,7 +4566,7 @@
         "Project_Name": "KerasDeepSpeech",
         "url": "https://github.com/robmsmt/KerasDeepSpeech",
         "file_name": "model.py",
-        "type": "CTC",
+        "type": "CTC, RNN",
         "hyperparameters": {
             "learning rate": 0.01,
             "batch size": 2,
@@ -4708,7 +4708,7 @@
         "Project_Name": "KerasDeepSpeech",
         "url": "https://github.com/robmsmt/KerasDeepSpeech",
         "file_name": "model.py",
-        "type": "CTC",
+        "type": "CTC, RNN",
         "hyperparameters": {
             "learning rate": 0.01,
             "batch size": 2,
@@ -4955,7 +4955,7 @@
         "Project_Name": "NoiseMaker",
         "url": "https://github.com/HaloOrangeWang/NoiseMaker",
         "file_name": "LstmModel.py",
-        "type": "LSTM",
+        "type": "LSTM, RNN",
         "hyperparameters": {
             "learning rate": 0.01,
             "batch size": 50,
@@ -8801,7 +8801,7 @@
         "Project_Name": "fast-style-transfer",
         "url": "https://github.com/lengstrom/fast-style-transfer",
         "file_name": "vgg.py",
-        "type": "VGG",
+        "type": "VGG, CNN",
         "hyperparameters": {
             "batch size": 4,
             "learning rate": 0.001,
@@ -9831,7 +9831,7 @@
         "Project_Name": "PoseCNN",
         "url": "https://github.com/yuxng/PoseCNN",
         "file_name": "vgg16.py",
-        "type": "VGG",
+        "type": "VGG, CNN",
         "hyperparameters": {},
         "num_layers": 24,
         "layers": {
@@ -11442,7 +11442,7 @@
         "Project_Name": "keras-applications",
         "url": "https://github.com/keras-team/keras-applications/tree/master/keras_applications",
         "file_name": "vgg16.py",
-        "type": "VGG-16",
+        "type": "VGG-16, CNN",
         "hyperparameters": {},
         "num_layers": 17,
         "layers": {
@@ -11651,7 +11651,7 @@
         "Project_Name": "keras-applications",
         "url": "https://github.com/keras-team/keras-applications/tree/master/keras_applications",
         "file_name": "vgg19.py",
-        "type": "VGG-19",
+        "type": "VGG-19, CNN",
         "hyperparameters": {},
         "num_layers": 20,
         "layers": {
@@ -11896,7 +11896,7 @@
         "Project_Name": "tensorflow_models",
         "url": "https://github.com/tensorflow/models",
         "file_name": "alexnet.py",
-        "type": "AlexNet",
+        "type": "AlexNet, CNN",
         "hyperparameters": {
             "batch size": 5,
             "image height": 224,
@@ -12062,7 +12062,7 @@
         "Project_Name": "tensorflow_models",
         "url": "https://github.com/tensorflow/models",
         "file_name": "cifarnet.py",
-        "type": "CifarNet",
+        "type": "CifarNet, CNN",
         "hyperparameters": {
             "image width": 32,
             "image height": 32,
@@ -12208,7 +12208,7 @@
         "Project_Name": "tensorflow_models",
         "url": "https://github.com/tensorflow/models",
         "file_name": "lenet.py",
-        "type": "LeNet",
+        "type": "LeNet, CNN",
         "hyperparameters": {
             "image width": 28,
             "image height": 28,
@@ -12305,7 +12305,7 @@
         "Project_Name": "tensorflow_models",
         "url": "https://github.com/tensorflow/models",
         "file_name": "vgg.py",
-        "type": "VGG-a",
+        "type": "VGG-a, CNN",
         "hyperparameters": {
             "image width": 224,
             "image height": 224,
@@ -12483,7 +12483,7 @@
         "Project_Name": "tensorflow_models",
         "url": "https://github.com/tensorflow/models",
         "file_name": "vgg16.py",
-        "type": "VGG-16",
+        "type": "VGG-16, CNN",
         "hyperparameters": {
             "image width": 224,
             "image height": 224,
@@ -12749,7 +12749,7 @@
         "Project_Name": "tensorflow_models",
         "url": "https://github.com/tensorflow/models",
         "file_name": "vgg19.py",
-        "type": "VGG-19",
+        "type": "VGG-19, CNN",
         "hyperparameters": {
             "image width": 224,
             "image height": 224,
@@ -13727,7 +13727,7 @@
         "Project_Name": "deep-learning-for-image-processing",
         "url": "https://github.com/WZMIAOMIAO/deep-learning-for-image-processing/blob/master/tensorflow_classification/Test2_alexnet/model.py",
         "file_name": "alexnet.py",
-        "type": "AlexNet-v1",
+        "type": "AlexNet-v1, CNN",
         "hyperparameters": {
             "image height": 224,
             "image width": 224,
@@ -13895,7 +13895,7 @@
         "Project_Name": "deep-learning-for-image-processing",
         "url": "https://github.com/WZMIAOMIAO/deep-learning-for-image-processing/blob/master/tensorflow_classification/Test2_alexnet/model.py",
         "file_name": "alexnet.py",
-        "type": "AlexNet-v2",
+        "type": "AlexNet-v2, CNN",
         "hyperparameters": {
             "image height": 224,
             "image width": 224,

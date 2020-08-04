@@ -26,13 +26,13 @@ function updateFilterSVG(idList, thisClassName) {
 				var barLength = (newData[newKey][element].length/maxLengthLi[newKey])*150;
 				newSVGDivId = newKey+"-"+element.replace("!", "");
 				newSVGDivId = newSVGDivId.split(" ").join("_");
-				changeFilterSvg(barLength, newSVGDivId, newData[newKey][element].length);
+				changeFilterSvg(barLength, newSVGDivId);
 			}
 		}		
 	}
 }
 
-function changeFilterSvg(barLength, filterDivId, num) {
+function changeFilterSvg(barLength, filterDivId) {
 	var svg_id = filterDivId + '-svg';
 
 	var svg = d3.select("#"+svg_id)

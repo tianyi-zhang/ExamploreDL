@@ -1,15 +1,15 @@
 function classifyRecords(data, tarStr, tarDict) {
 				
 	var tar = data[tarStr];
-	if (tarStr=="Models") {
-		tar = tar.split("-")[0];
-	}
 	if ((typeof tar)=='string' && tar.includes(', ')) {
 		var tarLi = tar.split(', ');
 	} else {
 		var tarLi = [tar];
 	}
 	for (var j=0; j<tarLi.length; j++) {
+		if (tarStr=="Models") {
+			tarLi[j] = tarLi[j].split("-")[0];
+		}
 		var tarName = tarLi[j].replace(/_/gi, "_");
 		if (Object.keys(tarDict).includes(tarName)) {
 			tarDict[tarName].push(data['ID']);
