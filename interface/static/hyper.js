@@ -33,19 +33,34 @@ var hyperparameterChart = function(hyperData, tarId='') {
 	var return_li = returnHyper[0];
 
 	var hist = function(svgThis, data) {
-
-		var num_sticks = 5,
-			maxX = d3.max(data['li']);
-		var x = d3.scaleLinear()
-			.domain([0, maxX ]) 
-			.range([0, width]);
-
-		svgThis.append("g")
-			.attr('class', 'chart2-xaxis')
-			.style("font-size", "14px")
-			.attr("transform", "translate(20," + (height+40) + ")")
-			.call(d3.axisBottom(x).ticks(num_sticks));
-
+		if (data['key']=='Optimizer') {
+			var x = d3.scaleBand()
+				.rangeRound([0, width])
+				.padding(0.1);
+			var domainLi = [];
+			for (var l=0; l<data['li'].length; l++) {
+				if (!domainLi.includes(data['li'][l])) {
+					domainLi.push(data['li'][l]);
+				}
+			}
+			x.domain(domainLi);
+			svgThis.append("g")
+				.attr('class', 'chart2-xaxis')
+				.style("font-size", "14px")
+				.attr("transform", "translate(20," + (height+40) + ")")
+				.call(d3.axisBottom(x));
+		} else {
+			var num_sticks = 5,
+				maxX = d3.max(data['li']);
+			var x = d3.scaleLinear()
+				.domain([0, maxX ]) 
+				.range([0, width]);
+			svgThis.append("g")
+				.attr('class', 'chart2-xaxis')
+				.style("font-size", "14px")
+				.attr("transform", "translate(20," + (height+40) + ")")
+				.call(d3.axisBottom(x).ticks(num_sticks));
+		}
 		// set the parameters for the histogram
 		var bins = [];
 		for (var i=0; i<data['li'].length; i++) {
@@ -76,7 +91,6 @@ var hyperparameterChart = function(hyperData, tarId='') {
 	drawLegend("hyper", maxNum);
 	for (i=0; i<return_li.length; i++) { 
 		var nowKey = return_li[i].key
-
 		var Mysvg = d3.select("#paraChart").append("svg")
 			.attr("id", 'paraSvg-'+i)
 			.attr("class", "paraChart")
@@ -96,7 +110,12 @@ var hyperparameterChart = function(hyperData, tarId='') {
 			.append("circle")
 				.attr("id", nowKey)
 				.attr("class", "hyper-cir")
-				.attr("cx", d => x(d.name))
+				.attr("cx", function(d) {
+					if (nowKey=='Optimizer') {
+						return (x(d.name)*2+x.bandwidth())/2;
+					}
+					return x(d.name);
+				})
 				.attr("cy", d => y(d.value))
 				.attr("r", d => r(d.value))
 				.style("fill", function(d) {

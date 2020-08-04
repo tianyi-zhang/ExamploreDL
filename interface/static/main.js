@@ -84,13 +84,10 @@ mixData.then(function(oriData) {
 			}
 			return isEmpty;
 		}
-		
 		var flag = 0;
 		for (var i=0; i<Object.keys(selectOrder).length; i++) {
 			var key = Object.keys(selectOrder)[i];
-			
 			if (thisClassName in selectOrder[key]) {
-
 				flag = 1;
 				var isEmptyResult = genContainId(i);
 				break;

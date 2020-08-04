@@ -16,15 +16,15 @@
 14,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"text, Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",CNN-3,149,32
 15,VDCNN,https://github.com/zonetrooper32/VDCNN,vdcnn.py,text_classification,"text, Yelp, Yahoo!, HD1K_Benchmark_Suite, Sogou, DBPedia, Amazon Review",CNN-4,149,32
 16,tensorflow-hangul-recognition,https://github.com/IBM/tensorflow-hangul-recognition,hangul_model.py,text_recognition,text,CNN-5,178,113
-17,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"text, Mozilla Common Voice, LibriSpeech",CTC,230,87
-18,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"text, Mozilla Common Voice, LibriSpeech",CTC-1,230,87
-19,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"text, Mozilla Common Voice, LibriSpeech",CTC-2,230,87
-20,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"text, Mozilla Common Voice, LibriSpeech",CTC-3,230,87
-21,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"text, Mozilla Common Voice, LibriSpeech",CTC-4,230,87
+17,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"text, Mozilla Common Voice, LibriSpeech","CTC, RNN",230,87
+18,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"text, Mozilla Common Voice, LibriSpeech","CTC, RNN-1",230,87
+19,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"text, Mozilla Common Voice, LibriSpeech","CTC, RNN-2",230,87
+20,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"text, Mozilla Common Voice, LibriSpeech","CTC, RNN-3",230,87
+21,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"text, Mozilla Common Voice, LibriSpeech","CTC, RNN-4",230,87
 22,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"text, Mozilla Common Voice, LibriSpeech",CTC-5,230,87
 23,KerasDeepSpeech,https://github.com/robmsmt/KerasDeepSpeech,model.py,speech_recognition,"text, Mozilla Common Voice, LibriSpeech",CTC-6,230,87
 24,NER,https://github.com/shiyybua/NER,rnn.py,ner,text,"BiRNN, CRF",891,376
-25,NoiseMaker,https://github.com/HaloOrangeWang/NoiseMaker,LstmModel.py,audio,midi,LSTM,166,51
+25,NoiseMaker,https://github.com/HaloOrangeWang/NoiseMaker,LstmModel.py,audio,midi,"LSTM, RNN",166,51
 26,text-detection-ctpn,https://github.com/eragonruan/text-detection-ctpn,vgg.py,text_detection,"text, image",CTPN,2934,1300
 27,CRNN_Tensorflow,https://github.com/MaybeShewill-CV/CRNN_Tensorflow,crnn_net.py,text_recognition,synth90k,CRNN,857,380
 28,Deep-Alignment-Network-A-convolutional-neural-network-for-robust-face-alignment,https://github.com/zjjMaiMai/Deep-Alignment-Network-A-convolutional-neural-network-for-robust-face-alignment,dan_model.py,object_detection,image,DAN,212,69
@@ -36,10 +36,10 @@
 34,chemical_vae,https://github.com/aspuru-guzik-group/chemical_vae,models.py,prediction,chem,"VAE, RNN",220,92
 35,cnn-text-classification-tf,https://github.com/dennybritz/cnn-text-classification-tf,text_cnn.py,text_classification,"MPQA, TREC",CNN,5240,2700
 36,CNNGestureRecognizer,https://github.com/asingh33/CNNGestureRecognizer,gestureCNN.py,gesture_recognition,image,CNN,720,301
-37,fast-style-transfer,https://github.com/lengstrom/fast-style-transfer,vgg.py,style_transfer,"video, image",VGG,9251,2300
+37,fast-style-transfer,https://github.com/lengstrom/fast-style-transfer,vgg.py,style_transfer,"video, image","VGG, CNN",9251,2300
 38,cnn_captcha,https://github.com/nickliqian/cnn_captcha,network.py,image_recognition,image,CNN,1586,502
 39,3DUnetCNN,https://github.com/ellisdg/3DUnetCNN/blob/master/unet3d/model/unet.py#L111,unet.py,volumetric_segmentation,BRATS,"CNN, UNet",1086,503
-40,PoseCNN,https://github.com/yuxng/PoseCNN,vgg16.py,pose_estimation,YCB-Video,VGG,491,189
+40,PoseCNN,https://github.com/yuxng/PoseCNN,vgg16.py,pose_estimation,YCB-Video,"VGG, CNN",491,189
 41,text_classification,https://github.com/brightmart/text_classification,p7_TextCNN_train.py,text_classification,text,CNN,6400,2400
 42,text_classification,https://github.com/brightmart/text_classification,p7_TextCNN_train.py,text_classification,text,CNN-1,6400,2400
 43,text_classification,https://github.com/brightmart/text_classification,p8_TextRNN_model.py ,text_classification,text,RNN,6400,2400
@@ -48,16 +48,16 @@
 46,kk7nc_text_classification,https://github.com/kk7nc/Text_Classification,CNN.py,text_classification,"text, IMDB, Reuters-21578, 20Newsgroups",CNN,970,322
 47,kk7nc_text_classification,https://github.com/kk7nc/Text_Classification,RNN.py,text_classification,"text, IMDB, Reuters-21578, 20Newsgroups",RNN,970,322
 48,kk7nc_text_classification,https://github.com/kk7nc/Text_Classification,RCNN.py,text_classification,"text, IMDB, Reuters-21578, 20Newsgroups",RCNN,970,322
-49,keras-applications,https://github.com/keras-team/keras-applications/tree/master/keras_applications,vgg16.py,image_classification,image,VGG-16,1623,740
-50,keras-applications,https://github.com/keras-team/keras-applications/tree/master/keras_applications,vgg19.py,image_classification,image,VGG-19,1623,740
-51,tensorflow_models,https://github.com/tensorflow/models,alexnet.py,image_classification,image,AlexNet,65300,41800
-52,tensorflow_models,https://github.com/tensorflow/models,cifarnet.py,image_classification,image,CifarNet,65300,41800
-53,tensorflow_models,https://github.com/tensorflow/models,lenet.py,image_classification,image,LeNet,65300,41800
-54,tensorflow_models,https://github.com/tensorflow/models,vgg.py,image_classification,image,VGG-a,65300,41800
-55,tensorflow_models,https://github.com/tensorflow/models,vgg16.py,image_classification,image,VGG-16,65300,41800
-56,tensorflow_models,https://github.com/tensorflow/models,vgg19.py,image_classification,image,VGG-19,65300,41800
+49,keras-applications,https://github.com/keras-team/keras-applications/tree/master/keras_applications,vgg16.py,image_classification,image,"VGG-16, CNN",1623,740
+50,keras-applications,https://github.com/keras-team/keras-applications/tree/master/keras_applications,vgg19.py,image_classification,image,"VGG-19, CNN",1623,740
+51,tensorflow_models,https://github.com/tensorflow/models,alexnet.py,image_classification,image,"AlexNet, CNN",65300,41800
+52,tensorflow_models,https://github.com/tensorflow/models,cifarnet.py,image_classification,image,"CifarNet, CNN",65300,41800
+53,tensorflow_models,https://github.com/tensorflow/models,lenet.py,image_classification,image,"LeNet, CNN",65300,41800
+54,tensorflow_models,https://github.com/tensorflow/models,vgg.py,image_classification,image,"VGG-a, CNN",65300,41800
+55,tensorflow_models,https://github.com/tensorflow/models,vgg16.py,image_classification,image,"VGG-16, CNN",65300,41800
+56,tensorflow_models,https://github.com/tensorflow/models,vgg19.py,image_classification,image,"VGG-19, CNN",65300,41800
 57,Keras-Multi-Label-Image-Classification,https://github.com/suraj-deshmukh/Keras-Multi-Label-Image-Classification,model.py,image_classification,image,CNN,309,116
 58,CNN-3D-images-Tensorflow,https://github.com/jibikbam/CNN-3D-images-Tensorflow/blob/master/simpleCNN_MRI.py,simpleCNN_MRI.py,image_classification,image,CNN,189,98
 59,CIFAR10-img-classification-tensorflow,https://github.com/deep-diver/CIFAR10-img-classification-tensorflow/blob/master/CIFAR10_image_classification.py,CIFAR10_image_classification.py,image_classification,"image, Cifar10",CNN,100,86
-60,deep-learning-for-image-processing,https://github.com/WZMIAOMIAO/deep-learning-for-image-processing/blob/master/tensorflow_classification/Test2_alexnet/model.py,alexnet.py,image_classification,image,AlexNet-v1,455,242
-61,deep-learning-for-image-processing,https://github.com/WZMIAOMIAO/deep-learning-for-image-processing/blob/master/tensorflow_classification/Test2_alexnet/model.py,alexnet.py,image_classification,image,AlexNet-v2,455,242
+60,deep-learning-for-image-processing,https://github.com/WZMIAOMIAO/deep-learning-for-image-processing/blob/master/tensorflow_classification/Test2_alexnet/model.py,alexnet.py,image_classification,image,"AlexNet-v1, CNN",455,242
+61,deep-learning-for-image-processing,https://github.com/WZMIAOMIAO/deep-learning-for-image-processing/blob/master/tensorflow_classification/Test2_alexnet/model.py,alexnet.py,image_classification,image,"AlexNet-v2, CNN",455,242

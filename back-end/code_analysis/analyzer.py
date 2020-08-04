@@ -68,6 +68,7 @@ class traverse_dic():
 			        },
 			'lstm': {'tf.contrib.rnn.BasicLSTMCell': {'layer': 'LSTM', 'args': ['num_units']},
 			         'tf.contrib.rnn.LSTMCell': {'layer': 'LSTM', 'args': ['num_units']},
+			         'tf.nn.rnn_cell.LSTMCell': {'layer': 'LSTM', 'args': ['num_units']},
 			         'tf.keras.layers.LSTM': {'layer': 'LSTM', 'args': ['num_units']}
 			         },
             'gru': {'tf.contrib.rnn.GRUCell': {'layer': 'GRU', 'args': ['num_units']},
@@ -85,8 +86,8 @@ class traverse_dic():
 			             'softmax': {'tf.nn.softmax': {'layer': 'Softmax', 'args': ['logits']},
 			                         'tf.contrib.slim.softmax': {'layer': 'Softmax', 'args': ['logits']}
 			                         },
-			             'sigmoid': {'tf.nn.sigmoid': {'layer': 'Sigmoid', 'args': ['x']}}
-
+			             'sigmoid': {'tf.nn.sigmoid': {'layer': 'Sigmoid', 'args': ['x']}},
+			             'argmax': {'tf.argmax': {'layer': 'Argmax', 'args': ['x']}}
 			             },
 			# activation function
 			'loss': {'cross entropy': {
@@ -96,6 +97,9 @@ class traverse_dic():
 				'tf.keras.losses.categorical_crossentropy': {'layer': 'Cross Entropy', 'args': []},
 				'tf.keras.losses.CategoricalCrossentropy': {'layer': 'Cross Entropy', 'args': []}
 				},
+				'reduce mean': {
+				'tf.reduce_mean': {'layer': 'Reduce Mean', 'args': []}
+				}
 				'ctc': {
 					"tf.nn.ctc_loss": {'layer': 'CTC', 'args': ['labels', 'logits', 'label_length', 'logit_length']}
 				},

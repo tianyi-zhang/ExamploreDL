@@ -11,18 +11,19 @@ var genData = function(idList, path, viewName='oriView') {
 			'I': "Input",
 			'D': "Dense",
 			'C': "CRF",
-			'I': "Embedding",
+			'Q': "Embedding",
 			'F': "Flatten",
 			'P': "Dropout",
 			'T': "Attention",
 			'Z': "Normalization",
-			'O': "Optimizer",					
+			'O': "Argmax",					
 			'R': "ReLu",
 			'S': "Sigmoid",
 			'X': "Softmax",
 			'K': "Linear",
 			'J': "tanh",
 			'E': "Cross Entropy",
+			'V': "Reduce Mean",
 			'W': "L2",
 			'H': "CTC",
 			'U': "MSE"
@@ -50,10 +51,10 @@ var genData = function(idList, path, viewName='oriView') {
 		},
 		"Other": {
 			'Embedding': "#ff1a1f",
-			'Normalization': "#DD0005",
-			'Optimizer': "#e60005"				
+			'Normalization': "#DD0005"			
 		},
 		"Activate": {
+			'Argmax': "#ffff80",
 			'ReLu': "#FFFF17",
 			'Sigmoid': "#FFFF6D",
 			'Softmax': "#DFE509",
@@ -62,6 +63,7 @@ var genData = function(idList, path, viewName='oriView') {
 		},
 		"Loss": {
 			'Cross Entropy': "#FC20FF",
+			'Reduce Mean': "#7e0080",
 			'CTC': "#fc1aff",
 			'L2': "#e200e6",
 			'MSE': "#b000b3"

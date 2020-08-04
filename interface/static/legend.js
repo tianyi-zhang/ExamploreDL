@@ -19,8 +19,8 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		//
 		'Embedding': "#ff1a1f",
 		'Normalization': "#DD0005",
-		'Optimizer': "#e60005",
-		//					
+		//		
+		'Argmax': "#ffff80",			
 		'ReLu': "#FFFF17",
 		'Sigmoid': "#FFFF6D",
 		'Softmax': "#DFE509",
@@ -28,6 +28,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		'tanh': "#f1f622",
 		//
 		'Cross Entropy': "#FC20FF",
+		'Reduce Mean': "#7e0080",
 		'CTC': "#fc1aff",
 		'L2': "#e200e6",
 		'MSE': "#b000b3"
@@ -49,13 +50,14 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		'Dropout': "DNN",
 		'Embedding': "Other",
 		'Normalization': "Other",
-		'Optimizer': "Other",					
+		'Argmax': "Activate",					
 		'ReLu': "Activate",
 		'Sigmoid': "Activate",
 		'Softmax': "Activate",
 		'Linear': "Activate",
 		'tanh': "Activate",
 		'Cross Entropy': "Loss",
+		'Reduce Mean': "Loss",
 		'CTC': "Loss",
 		'L2': "Loss",
 		'MSE': "Loss"
@@ -169,9 +171,9 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		g.append("line")
 			.attr("class", "catLine")
 			.attr("id", "cnnLine")
-			.attr("x1", 385)  
+			.attr("x1", 367)  
 			.attr("y1", -30)
-			.attr("x2", 385) 
+			.attr("x2", 367) 
 			.attr("y2", 250)
 			.style("stroke-width", 2)
 			.style("stroke", "red")
@@ -190,9 +192,9 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		g.append("line")
 			.attr("class", "catLine")
 			.attr("id", "rnnLine")
-			.attr("x1", 937)  
+			.attr("x1", 903)  
 			.attr("y1", -30)
-			.attr("x2", 937) 
+			.attr("x2", 903) 
 			.attr("y2", 250)
 			.style("stroke-width", 2)
 			.style("stroke", "red")
@@ -202,7 +204,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		g.append("text")
 			.attr("text-anchor", "middle")
 			.attr("y", 0)
-			.attr("x", 677)
+			.attr("x", 635)
 			.text("RNN")
 				.attr("font-family", "sans-serif")
 				.attr("font-size", "18px")
@@ -210,10 +212,10 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 
 		g.append("line")
 			.attr("class", "catLine")
-			.attr("id", "rnnLine")
-			.attr("x1", 1305)  
+			.attr("id", "dnnLine")
+			.attr("x1", 1255)  
 			.attr("y1", -30)
-			.attr("x2", 1305) 
+			.attr("x2", 1255) 
 			.attr("y2", 250)
 			.style("stroke-width", 2)
 			.style("stroke", "red")
@@ -223,7 +225,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		g.append("text")
 			.attr("text-anchor", "middle")
 			.attr("y", 0)
-			.attr("x", 1143)
+			.attr("x", 1079)
 			.text("DNN")
 				.attr("font-family", "sans-serif")
 				.attr("font-size", "18px")
@@ -231,10 +233,10 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 
 		g.append("line")
 			.attr("class", "catLine")
-			.attr("id", "rnnLine")
-			.attr("x1", 1582)  
+			.attr("id", "otherLine")
+			.attr("x1", 1437)  
 			.attr("y1", -30)
-			.attr("x2", 1582) 
+			.attr("x2", 1437) 
 			.attr("y2", 250)
 			.style("stroke-width", 2)
 			.style("stroke", "red")
@@ -244,7 +246,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		g.append("text")
 			.attr("text-anchor", "middle")
 			.attr("y", 0)
-			.attr("x", 1443)
+			.attr("x", 1346)
 			.text("Other Layers")
 				.attr("font-family", "sans-serif")
 				.attr("font-size", "18px")
@@ -252,10 +254,10 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 
 		g.append("line")
 			.attr("class", "catLine")
-			.attr("id", "rnnLine")
-			.attr("x1", 2040)  
+			.attr("id", "actLine")
+			.attr("x1", 1970)  
 			.attr("y1", -30)
-			.attr("x2", 2040) 
+			.attr("x2", 1970) 
 			.attr("y2", 250)
 			.style("stroke-width", 2)
 			.style("stroke", "red")
@@ -265,7 +267,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		g.append("text")
 			.attr("text-anchor", "middle")
 			.attr("y", 0)
-			.attr("x", 1811)
+			.attr("x", 1703)
 			.text("Activate Functions")
 				.attr("font-family", "sans-serif")
 				.attr("font-size", "18px")
@@ -274,7 +276,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		g.append("text")
 			.attr("text-anchor", "middle")
 			.attr("y", 0)
-			.attr("x", 2270)
+			.attr("x", 2235)
 			.text("Loss Functions")
 				.attr("font-family", "sans-serif")
 				.attr("font-size", "18px")
@@ -311,7 +313,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 			.attr("font-size", "14px")
 			.attr("font-weight", "100")
 			.attr("fill", function() {
-				if (leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh') {
+				if (leName=='Argmax' || leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh') {
 					return "#d2dfde"
 				} else {
 					return "#ffffff"
@@ -333,7 +335,7 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 			.attr("font-size", "16px")
 			.attr("font-weight", "100")
 			.attr("fill", function() {
-				if (leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh') {
+				if (leName=='Argmax' || leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh') {
 					return "#d2dfde"
 				} else {
 					return "#ffffff"
