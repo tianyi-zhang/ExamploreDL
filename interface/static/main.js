@@ -109,7 +109,6 @@ mixData.then(function(oriData) {
 				d3.selectAll(".brush").remove();
 				d3.selectAll(".handle--custom").remove();
 				d3.selectAll(".slider-label").remove();
-				d3.selectAll("#numLayersSvg").remove();
 				d3.selectAll("#thumbnail").remove();
 				d3.selectAll(".newProjectDiv").remove();
 				d3.selectAll(".projectInfoDiv").remove();

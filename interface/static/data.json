@@ -9044,9 +9044,10 @@
             "dropout rate": 0.5,
             "batch size": 64,
             "epochs": 200,
-            "learning rate": 0.001
+            "learning rate": 0.001,
+            "Optimizer": "Adam"
         },
-        "num_layers": 14,
+        "num_layers": 13,
         "layers": {
             "layer0": {
                 "type": "Embedding",
@@ -9220,12 +9221,6 @@
                     "labels": "self.input_y"
                 },
                 "begin": 47
-            },
-            "layer13": {
-                "type": "Optimizer",
-                "func": "tf.train.AdamOptimizer",
-                "args": {},
-                "begin": 55
             }
         }
     },
