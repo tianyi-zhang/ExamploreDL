@@ -21,19 +21,19 @@ function mainDraw(idList, nodesData, hyper) {
 
 	var resetRect = resetG.append('rect')
 		.attr('id', 'resetRect')
-		.attr('x', 50)
+		.attr('x', 0)
 		.attr('y', 5)
-		.attr('width', 100)
+		.attr('width', 200)
 		.attr('height', 30)
 		.attr('rx', 10)
 		.attr("ry", 10)
-		.attr('fill', "red");
+		.attr('fill', "#22B9FE");
 
 	var resetText = resetG.append('text')
 		.attr('text-anchor', 'middle')
 		.attr('x', 100)
-		.attr('y', 30)
-		.text("RESET")
+		.attr('y', 28)
+		.text("RESET SANKEY")
 			.style("font-size", 20)
 			.style("fill", "#ffffff");
 

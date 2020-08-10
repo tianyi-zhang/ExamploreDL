@@ -329,6 +329,7 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 						return "#BBB5F0";
 					}
 				})
+				.attr('fill-opacity', 0.7)
 				.on("mouseover", function(d) {
 					d3.selectAll("#tooltipRect").remove();
 					d3.selectAll(".toolText").remove();
