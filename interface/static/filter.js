@@ -1,4 +1,4 @@
-function updateFilterSVG(idList, thisClassName) {
+function updateFilterSVG(idList) {
 	var newData = {"datasetsTr":{}, "tasksTr":{}, "modelsTr":{}};
 	var maxLengthLi = {"datasetsTr":0, "tasksTr":0, "modelsTr":0};
 	for (const key in filterData) {
@@ -21,13 +21,11 @@ function updateFilterSVG(idList, thisClassName) {
 		maxLengthLi[key] = maxLength;
 	}
 	for (const newKey in newData) {
-		if (newKey !== thisClassName) {
-			for (const element in newData[newKey]) {
-				var barLength = (newData[newKey][element].length/maxLengthLi[newKey])*150;
-				newSVGDivId = newKey+"-"+element.replace("!", "");
-				newSVGDivId = newSVGDivId.split(" ").join("_");
-				changeFilterSvg(barLength, newSVGDivId);
-			}
+		for (const element in newData[newKey]) {
+			var barLength = (newData[newKey][element].length/maxLengthLi[newKey])*150;
+			newSVGDivId = newKey+"-"+element.replace("!", "");
+			newSVGDivId = newSVGDivId.split(" ").join("_");
+			changeFilterSvg(barLength, newSVGDivId);
 		}		
 	}
 }

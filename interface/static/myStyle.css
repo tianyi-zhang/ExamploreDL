@@ -66,6 +66,12 @@ h1 {
 	text-decoration: none;
 	color: #818181;
 }
+.paraChart {
+	margin-top: 30px;
+	border-width: 3px 0 0 0; 
+	border-style: solid; 
+	border-color: #E5E4E1;
+}
 #infoDiv {
 	margin-top: 186px;
 	margin-right: 0px !important;
@@ -129,19 +135,6 @@ h1 {
 	font-family: sans-serif; 
 	font-weight: 100;
 	color: #ffffff;
-}
-#home {
-	border: 5px solid white; 
-	border-radius: 15px; 
-	float: left; 
-	width: 100px; 
-	height: 30px; 
-	line-height: 30px; 
-	text-align:center; 
-	font-family: sans-serif; 
-	font-size: 12px;
-	font-weight: 100;
-	color: white;
 }
 .breadcrumbDiv {
 	border: 5px solid white; 

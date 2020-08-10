@@ -163,13 +163,15 @@
 									<svg id='thumbnail'></svg>
 								</div>	
 								<div class="tab">
-									<div id="home" style="background-color: red; font-size: 15px;" onclick="click_4();return false;">Reset</div>
+									<div id="home">
+										<svg id="resetSvg"></svg>
+									</div>
 									<input type="radio" id="viewbtn" name="view" value="oriView" checked>
 									<label for="huey" style="font-size: 25px;">Original View</label>
 									<input type="radio" id="viewbtn" name="view" value="aliView">
 									<label for="dewey" style="font-size: 25px;">Alignment View</label>
 								</div>			
-								<div id='chart_div'>
+								<div id='chart_div' style="overflow-x: scroll; overflow-y: scroll;">
 									<svg id='chart'></svg>
 								</div>								
 							</td>

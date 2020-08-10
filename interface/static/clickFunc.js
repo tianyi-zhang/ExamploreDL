@@ -1,23 +1,44 @@
-var click_1 = function(d, nodes, projectNodes) {
-
-	var nodeName = d.name.split("-")[0];
+var click_1 = function(d, nodes, projectNodes, flag='nodes') {
 	d3.selectAll(".bar").attr("fill", "#BBB5F0");
 	var svg = d3.select('#chart');
-
-	svg.selectAll("rect").style("opacity", 0.35);
-	svg.selectAll("rect").attr("stroke", "#ffffff");
-	svg.selectAll("path").style("opacity", 0.35);
-	svg.selectAll("#"+d.name.replace(" ", "_")).attr("stroke", "#000C3C");
-	svg.selectAll("#"+d.name.replace(" ", "_")).style("opacity", 1);
-	svg.selectAll("#path" + d.name.replace(" ", "_")).style("opacity", 1);
-	var pc = generateParameterChart(d.category, nodes, d.args);
-	var proIdList = [];
-	for (const key in projectNodes) {
-		if (projectNodes[key].includes(d.name)) {
-			proIdList.push(key);
+	if (flag == 'nodes') {
+		svg.selectAll("rect").style("opacity", 0.35);
+		svg.selectAll("rect").attr("stroke", "#ffffff");
+		svg.selectAll("path").style("opacity", 0.35);
+		svg.selectAll("#"+d.name.replace(" ", "_")).attr("stroke", "#000C3C");
+		svg.selectAll("#"+d.name.replace(" ", "_")).style("opacity", 1);
+		svg.selectAll("#path" + d.name.replace(" ", "_")).style("opacity", 1);
+		var pc = generateParameterChart(d.category, nodes, d.args);
+		var proIdList = [];
+		for (const key in projectNodes) {
+			if (projectNodes[key].includes(d.name)) {
+				proIdList.push(key);
+			}
 		}
+		genInfo(proIdList, projectNodes);
+	} else {
+		svg.selectAll("rect").style("opacity", 0.35);
+		svg.selectAll("rect").attr("stroke", "#ffffff");
+		svg.selectAll("path").style("opacity", 0.35);
+		svg.selectAll("#"+d.target.name.replace(" ", "_")).attr("stroke", "#000C3C");
+		svg.selectAll("#"+d.target.name.replace(" ", "_")).style("opacity", 1);
+		svg.selectAll("#path" + d.target.name.replace(" ", "_")).style("opacity", 1);
+
+		for (var i=0; i<nodes.length; i++) {
+			if (d.target.name == nodes[i]['name']) {
+				var pc = generateParameterChart(nodes[i]['category'], nodes, nodes[i]['args']);
+				break;
+			}
+		}
+		var proIdList = [];
+		for (const key in projectNodes) {
+			if (projectNodes[key].includes(d.target.name)) {
+				proIdList.push(key);
+			}
+		}
+		genInfo(proIdList, projectNodes);
 	}
-	genInfo(proIdList, projectNodes);
+	
 }
 
 var click_2 = function(d, typeDic) {
@@ -70,23 +91,6 @@ var click_3 = function(d, nodes, projectNodes) {
 		}		
 	}
 	genInfo(proIdList, projectNodes);
-}
-
-var click_4 = function() {
-	d3.selectAll(".bar").attr("fill", "#BBB5F0")
-	var svg = d3.select('#chart');
-	svg.selectAll("path").style("opacity", 1);
-	svg.selectAll("rect").style("opacity", 1);
-	svg.selectAll("rect").attr("stroke", "#ffffff");
-	var all_th = d3.selectAll('.svg_th_tr')
-		.style("border-top", "1px solid #848484")
-		.style("border-right", "1px solid #848484")
-		.style("border-left", "1px solid #848484")
-		.style("border-bottom", "none")
-		.style("border-collapse", "collapse");
-		
-	d3.selectAll(".paraChart").remove();
-	d3.select("#paraLegend").remove();
 }
 
 var click_5 = function(nodeList, layNum, proIdList) {

@@ -1,4 +1,4 @@
-function mainDraw(idList, nodesData) {
+function mainDraw(idList, nodesData, hyper) {
 
 	var sankeyData = nodesData[0];
 	var sankeyId = nodesData[1];
@@ -8,9 +8,66 @@ function mainDraw(idList, nodesData) {
 	} else {
 		var net_li = [];
 	}
-
+	hyperparameterChart(hyper);
 	genInfo(idList, projectNodes);
 	drawSankey(sankeyData, sankeyId, projectNodes, net_li);
+
+	var resetG = d3.select("#resetSvg")
+		.attr('width', 200)
+		.attr('height', 40)
+		.append('g')
+		.attr('id', 'resetG')
+		.attr("transform", "translate(0,0)");
+
+	var resetRect = resetG.append('rect')
+		.attr('id', 'resetRect')
+		.attr('x', 50)
+		.attr('y', 5)
+		.attr('width', 100)
+		.attr('height', 30)
+		.attr('rx', 10)
+		.attr("ry", 10)
+		.attr('fill', "red");
+
+	var resetText = resetG.append('text')
+		.attr('text-anchor', 'middle')
+		.attr('x', 100)
+		.attr('y', 25)
+		.text("RESET")
+			.style("font-size", 20)
+			.style("fill", "#ffffff");
+
+	resetRect.on('click', function() {
+		d3.selectAll(".bar").attr("fill", "#BBB5F0")
+		var svg = d3.select('#chart');
+		svg.selectAll("path").style("opacity", 1);
+		svg.selectAll("rect").style("opacity", 1);
+		svg.selectAll("rect").attr("stroke", "#ffffff");
+		var all_th = d3.selectAll('.svg_th_tr')
+			.style("border-top", "1px solid #848484")
+			.style("border-right", "1px solid #848484")
+			.style("border-left", "1px solid #848484")
+			.style("border-bottom", "none")
+			.style("border-collapse", "collapse");
+		hyperparameterChart(hyper);
+		drawSankey(sankeyData, sankeyId, projectNodes, net_li);
+	});
+
+	resetText.on('click', function() {
+		d3.selectAll(".bar").attr("fill", "#BBB5F0")
+		var svg = d3.select('#chart');
+		svg.selectAll("path").style("opacity", 1);
+		svg.selectAll("rect").style("opacity", 1);
+		svg.selectAll("rect").attr("stroke", "#ffffff");
+		var all_th = d3.selectAll('.svg_th_tr')
+			.style("border-top", "1px solid #848484")
+			.style("border-right", "1px solid #848484")
+			.style("border-left", "1px solid #848484")
+			.style("border-bottom", "none")
+			.style("border-collapse", "collapse");
+		hyperparameterChart(hyper);
+		drawSankey(sankeyData, sankeyId, projectNodes, net_li);
+	});
 }
 
 function dataClean(data) {
@@ -120,8 +177,8 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 			width = (max_length+1)*100 - margin.left - margin.right,
 			height = totalNum*50 - margin.top - margin.bottom;
 
-	var sankeyHeight = d3.max([50, idList.length*50 - 50]);
-	var sankeyWidth = d3.max([(max_length+1)*100, width-100])
+	var sankeyHeight = idList.length*50 - 50;
+	var sankeyWidth = width-100;
 	
 	var viewBoxHeight = 0;
 	data[0]['links'] = dataClean(data[0]['links']);
@@ -166,9 +223,14 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 		}
 	}
 
+	var svgWidth = d3.max([2000, sankeyWidth*5]),
+		svgHeight = d3.max([780, sankeyHeight*5]),
+		rectWidth = d3.max([2000, sankeyWidth])
+		rectHeight = d3.max([780, sankeyHeight]);
+
 	var svg = d3.select('#chart_div').append("svg")
-		.attr('width', 2000)
-		.attr('height', 800)
+		.attr('width', svgWidth)
+		.attr('height', svgHeight)
 		.attr("id", "chart");
 
 	var find_node_name = function (num, args_li) {
@@ -181,7 +243,16 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 		return name_li
 	}
 	var allG = svg.append("g")
-		.attr("id", 'allG');
+		.attr("id", 'allG')
+		.attr("transform", "translate(0,0)");
+
+	allG.append('rect')
+		.attr('x', 0)
+		.attr('y', 0)
+		.attr('width', rectWidth)
+		.attr('height', rectHeight)
+		.attr('fill', "none")
+		.attr("fill-opacity", 0.0);
 
 	allG.append("g")
 		.attr("id", "rectG")
@@ -199,7 +270,6 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 			.attr("stroke", d => d.color.replace("0.65", "0"))
 			.attr("stroke-width", 1)
 			.on("click", d => click_1(d, nodes, projectNodes))
-			
 		.append("title")
 			.text(d => `${d.name}\n${format(d.value)}`);
 	
@@ -216,7 +286,8 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 		.attr("stroke", d => d.color)
 		.attr("id", function(d) {return "path" + d.target.name.replace(" ", "_");})
 		.attr("class", function(d) {return "path" + d.target.category.replace(" ", "_");})
-		.attr("stroke-width", d => Math.max(3, d.width));
+		.attr("stroke-width", d => Math.max(3, d.width))
+		.on("click", d => click_1(d, nodes, projectNodes, 'links'));
 
 
 	link.append("title")
@@ -245,90 +316,17 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 			});
 
 	
-	var y1 = 0;
-	var y2 = 780;
-	const myHeight = nodes[0]['y1']-nodes[0]['y0'];
-	const myWidth = d3.max(nodes, function (d) { return d.x1;})-d3.min(nodes, function (d) { return d.x0;});
-	var x2 = 2000
+	
 	var zoom = d3.zoom()
-			.scaleExtent([0.05, 5])
+			.scaleExtent([0.3, 5])
 			.on('zoom', function() {
-				if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return;
 				d3.select("#allG")
-					.attr('transform', d3.event.transform.toString());
-				var t = d3.zoomTransform(this);
-				
-				var zoomed1 = t.invert([0, y1]);
-				var zoomed2 = t.invert([x2, y2]);
-				var xRatio = 2000/myWidth;
-				var yRatio = 180/myHeight;
-
-				var X0 = xRatio*zoomed1[0],
-					Y0 = yRatio*zoomed1[1],
-					W0 = xRatio*(zoomed2[0]-zoomed1[0])*1.063,
-					H0 = yRatio*(zoomed2[1]-zoomed1[1]);
-
-				var rectSelect = d3.selectAll("#thumbnailRect")
-					.attr("x", X0)
-					.attr("y", Y0)
-					.attr("width", W0)
-					.attr("height", H0);
-
-				d3.selectAll("#n-handle")
-					.attr("x", X0-3)
-					.attr("y", Y0-3)
-					.attr("width", W0+6)
-					.attr("height", 6);
-
-				d3.selectAll("#w-handle")
-					.attr("x", X0-3)
-					.attr("y", Y0-3)
-					.attr("width", W0+6)
-					.attr("height", 6);
-
-				d3.selectAll("#e-handle")
-					.attr("x", W0+X0-3)
-					.attr("y", Y0-3)
-					.attr("width", 6)
-					.attr("height", H0+6);
-
-				d3.selectAll("#s-handle")
-					.attr("x", X0-3)
-					.attr("y", H0+Y0-3)
-					.attr("width", W0+6)
-					.attr("height", 6);
-
-				d3.selectAll("#nw-handle")
-					.attr("x", X0-3)
-					.attr("y", Y0-3)
-					.attr("width", 6)
-					.attr("height", 6);
-
-				d3.selectAll("#ne-handle")
-					.attr("x", W0+X0-3)
-					.attr("y", Y0-3)
-					.attr("width", 6)
-					.attr("height", 6);
-
-				d3.selectAll("#sw-handle")
-					.attr("x", X0-3)
-					.attr("y", H0+Y0-3)
-					.attr("width", 6)
-					.attr("height", 6);
-
-				d3.selectAll("#se-handle")
-					.attr("x", W0+X0-3)
-					.attr("y", H0+Y0-3)
-					.attr("width", 6)
-					.attr("height", 6);
-
-			})
+					.attr('transform', d3.event.transform);})
 			.on("end", function() {
-				if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return;
 				d3.select("#allG")
-					.attr('transform', d3.event.transform.toString());
+					.attr('transform', d3.event.transform);
+				/*
 				var t = d3.zoomTransform(this);
-				
 				var zoomed1 = t.invert([0, y1]);
 				var zoomed2 = t.invert([x2, y2]);
 				var xRatio = 2000/myWidth;
@@ -343,57 +341,13 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 					.attr("y", Y0)
 					.attr("width", W0)
 					.attr("height", H0);
-
-				d3.selectAll("#n-handle")
-					.attr("x", X0-3)
-					.attr("y", Y0-3)
-					.attr("width", W0+6)
-					.attr("height", 6);
-
-				d3.selectAll("#w-handle")
-					.attr("x", X0-3)
-					.attr("y", Y0-3)
-					.attr("width", W0+6)
-					.attr("height", 6);
-
-				d3.selectAll("#e-handle")
-					.attr("x", W0+X0-3)
-					.attr("y", Y0-3)
-					.attr("width", 6)
-					.attr("height", H0+6);
-
-				d3.selectAll("#s-handle")
-					.attr("x", X0-3)
-					.attr("y", H0+Y0-3)
-					.attr("width", W0+6)
-					.attr("height", 6);
-
-				d3.selectAll("#nw-handle")
-					.attr("x", X0-3)
-					.attr("y", Y0-3)
-					.attr("width", 6)
-					.attr("height", 6);
-
-				d3.selectAll("#ne-handle")
-					.attr("x", W0+X0-3)
-					.attr("y", Y0-3)
-					.attr("width", 6)
-					.attr("height", 6);
-
-				d3.selectAll("#sw-handle")
-					.attr("x", X0-3)
-					.attr("y", H0+Y0-3)
-					.attr("width", 6)
-					.attr("height", 6);
-
-				d3.selectAll("#se-handle")
-					.attr("x", W0+X0-3)
-					.attr("y", H0+Y0-3)
-					.attr("width", 6)
-					.attr("height", 6);
+				*/
+				
 			});
 
-	zoom = drawThumbnail(data, idList, myWidth, myHeight, viewBoxHeight, zoom, net_li);
+	svg.call(zoom);
+
+	drawThumbnail(data, net_li);
 
 	createLegend(projectNodes, nodes);
 	

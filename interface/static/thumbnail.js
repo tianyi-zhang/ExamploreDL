@@ -1,4 +1,4 @@
-function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_li) {
+function drawThumbnail(data, net_li) {
 	d3.selectAll("#thumbnail").remove();
 
 	var margin = {top: 10, right: 10, bottom: 10, left: 10},
@@ -27,7 +27,6 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 		nodes,
 		links
 	} = sankey(data[0]);
-
 	if (net_li.length!==0) {
 		var newLinks = buildLinks(links, net_li);
 	} else {
@@ -56,6 +55,7 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 	}
 
 	thumbSvg.append("g")
+		.attr("transform", "translate(0,0)")
 		.attr("stroke", "#000")
 		.selectAll("rect")
 		.data(newNodes)
@@ -90,6 +90,16 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 			.attr("id", function(d) {return "path" + d.target.name.replace(" ", "_");})
 			.attr("class", function(d) {return "path" + d.target.category.replace(" ", "_");})
 			.attr("stroke-width", d => Math.max(3, d.width));
+
+	/*
+	thumbSvg.append('rect')
+		.attr("id", "thumbnailRect")
+		.attr('x', 0)
+		.attr('y', 0)
+		.attr('width', 2000*2000/sankeyWidth)
+		.attr('height', 180*780/sankeyHeight)
+		.style("fill", "gray")
+		.attr('fill-opacity', 0.3);
 
 	var thumbBrush = d3.brush()
 		.extent([[0, 0], [width, height]])
@@ -128,8 +138,6 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 	thumbBrushG.selectAll(".handle.handle--se")
 		.attr("id", "se-handle");
 
-	d3.select("#allG").call(zoom);
-
 	function brushed() {
 		if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return;
 		if (!d3.event.sourceEvent) return;
@@ -154,7 +162,5 @@ function drawThumbnail(data, idList, sankeyWidth, sankeyHeight, VBH, zoom, net_l
 		d3.selectAll("#allG").call(zoom.transform, transform);
 		//d3.selectAll("#linkG").call(zoom.transform, transform);
 		//d3.selectAll("#textG").call(zoom.transform, transform);
-	}
-
-	return zoom;
+	}*/
 }
