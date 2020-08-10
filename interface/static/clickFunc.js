@@ -40,7 +40,7 @@ var click_1 = function(d, nodes, projectNodes, flag='nodes') {
 	}
 	
 }
-
+/*
 var click_2 = function(d, typeDic) {
 	d3.selectAll(".bar").attr("fill", "#BBB5F0");
 	var svg = d3.select('#chart');
@@ -92,7 +92,7 @@ var click_3 = function(d, nodes, projectNodes) {
 	}
 	genInfo(proIdList, projectNodes);
 }
-
+*/
 var click_5 = function(nodeList, layNum, proIdList) {
 	d3.selectAll(".bar").attr("fill", "#BBB5F0")
 	d3.select("#layerRect"+layNum).attr("fill", "#8D85EE");

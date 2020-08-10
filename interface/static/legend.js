@@ -1,4 +1,4 @@
-function createLegend(projectNodes, nodesData, nodesType='None') {
+function createLegend(projectNodes, nodesData) {
 	var colorDic = {
 		'Convolution': "#20C6FE",
 		'Deconvolution': "#4dd2fe",
@@ -62,10 +62,10 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 		'L2': "Loss",
 		'MSE': "Loss"
 	}
+	/*
 	if (nodesType !== "None") {
 		click_2(nodesType, typeDic);
 	}
-	/*
 	var legendArr = [];
 	// {"name": "relu", "color": "rgba(255, 166, 1, 0.65)", "number": 65}
 	for (const key in typeDic) {
@@ -89,12 +89,12 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 	*/
 	var legendArr = [];
 	// {"name": "relu", "color": "rgba(255, 166, 1, 0.65)", "number": 1}
-	for (const key in typeDic) {
+	for (const key in typeDic) {/*
 		if (nodesType !== "None") {
 			if (typeDic[key] !== nodesType) {
 				continue;
 			}
-		}
+		}*/
 		var nodeLengend = {"name": key, "color": colorDic[key], "number": 0};
 		for (const proId in projectNodes) {
 			for (var i=0; i<projectNodes[proId].length; i++) {
@@ -162,126 +162,124 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 				}
 				
 			})
-			.attr("fill", d => d.color)
+			.attr("fill", d => d.color)/*
 			.on("click", function (d, i) {
 				click_3(d.name.replace(" ", "_"), nodesData, projectNodes);
-			});
+			})*/;
 
-	if (nodesType == "None") {
-		g.append("line")
-			.attr("class", "catLine")
-			.attr("id", "cnnLine")
-			.attr("x1", 367)  
-			.attr("y1", -30)
-			.attr("x2", 367) 
-			.attr("y2", 250)
-			.style("stroke-width", 2)
-			.style("stroke", "red")
-			.style("stroke-dasharray", ("3, 3"))
-			.style("fill", "none");
+	g.append("line")
+		.attr("class", "catLine")
+		.attr("id", "cnnLine")
+		.attr("x1", 367)  
+		.attr("y1", -30)
+		.attr("x2", 367) 
+		.attr("y2", 250)
+		.style("stroke-width", 2)
+		.style("stroke", "red")
+		.style("stroke-dasharray", ("3, 3"))
+		.style("fill", "none");
 
-		g.append("text")
-			.attr("text-anchor", "middle")
-			.attr("y", 0)
-			.attr("x", 190)
-			.text("CNN")
-				.attr("font-family", "sans-serif")
-				.attr("font-size", "18px")
-				.attr("fill", "black");	
+	g.append("text")
+		.attr("text-anchor", "middle")
+		.attr("y", 0)
+		.attr("x", 190)
+		.text("CNN")
+			.attr("font-family", "sans-serif")
+			.attr("font-size", "18px")
+			.attr("fill", "black");	
 
-		g.append("line")
-			.attr("class", "catLine")
-			.attr("id", "rnnLine")
-			.attr("x1", 903)  
-			.attr("y1", -30)
-			.attr("x2", 903) 
-			.attr("y2", 250)
-			.style("stroke-width", 2)
-			.style("stroke", "red")
-			.style("stroke-dasharray", ("3, 3"))
-			.style("fill", "none");
+	g.append("line")
+		.attr("class", "catLine")
+		.attr("id", "rnnLine")
+		.attr("x1", 903)  
+		.attr("y1", -30)
+		.attr("x2", 903) 
+		.attr("y2", 250)
+		.style("stroke-width", 2)
+		.style("stroke", "red")
+		.style("stroke-dasharray", ("3, 3"))
+		.style("fill", "none");
 
-		g.append("text")
-			.attr("text-anchor", "middle")
-			.attr("y", 0)
-			.attr("x", 635)
-			.text("RNN")
-				.attr("font-family", "sans-serif")
-				.attr("font-size", "18px")
-				.attr("fill", "black");		
+	g.append("text")
+		.attr("text-anchor", "middle")
+		.attr("y", 0)
+		.attr("x", 635)
+		.text("RNN")
+			.attr("font-family", "sans-serif")
+			.attr("font-size", "18px")
+			.attr("fill", "black");		
 
-		g.append("line")
-			.attr("class", "catLine")
-			.attr("id", "dnnLine")
-			.attr("x1", 1255)  
-			.attr("y1", -30)
-			.attr("x2", 1255) 
-			.attr("y2", 250)
-			.style("stroke-width", 2)
-			.style("stroke", "red")
-			.style("stroke-dasharray", ("3, 3"))
-			.style("fill", "none");
+	g.append("line")
+		.attr("class", "catLine")
+		.attr("id", "dnnLine")
+		.attr("x1", 1255)  
+		.attr("y1", -30)
+		.attr("x2", 1255) 
+		.attr("y2", 250)
+		.style("stroke-width", 2)
+		.style("stroke", "red")
+		.style("stroke-dasharray", ("3, 3"))
+		.style("fill", "none");
 
-		g.append("text")
-			.attr("text-anchor", "middle")
-			.attr("y", 0)
-			.attr("x", 1079)
-			.text("DNN")
-				.attr("font-family", "sans-serif")
-				.attr("font-size", "18px")
-				.attr("fill", "black");	
+	g.append("text")
+		.attr("text-anchor", "middle")
+		.attr("y", 0)
+		.attr("x", 1079)
+		.text("DNN")
+			.attr("font-family", "sans-serif")
+			.attr("font-size", "18px")
+			.attr("fill", "black");	
 
-		g.append("line")
-			.attr("class", "catLine")
-			.attr("id", "otherLine")
-			.attr("x1", 1437)  
-			.attr("y1", -30)
-			.attr("x2", 1437) 
-			.attr("y2", 250)
-			.style("stroke-width", 2)
-			.style("stroke", "red")
-			.style("stroke-dasharray", ("3, 3"))
-			.style("fill", "none");
+	g.append("line")
+		.attr("class", "catLine")
+		.attr("id", "otherLine")
+		.attr("x1", 1437)  
+		.attr("y1", -30)
+		.attr("x2", 1437) 
+		.attr("y2", 250)
+		.style("stroke-width", 2)
+		.style("stroke", "red")
+		.style("stroke-dasharray", ("3, 3"))
+		.style("fill", "none");
 
-		g.append("text")
-			.attr("text-anchor", "middle")
-			.attr("y", 0)
-			.attr("x", 1346)
-			.text("Other Layers")
-				.attr("font-family", "sans-serif")
-				.attr("font-size", "18px")
-				.attr("fill", "black");		
+	g.append("text")
+		.attr("text-anchor", "middle")
+		.attr("y", 0)
+		.attr("x", 1346)
+		.text("Other Layers")
+			.attr("font-family", "sans-serif")
+			.attr("font-size", "18px")
+			.attr("fill", "black");		
 
-		g.append("line")
-			.attr("class", "catLine")
-			.attr("id", "actLine")
-			.attr("x1", 1970)  
-			.attr("y1", -30)
-			.attr("x2", 1970) 
-			.attr("y2", 250)
-			.style("stroke-width", 2)
-			.style("stroke", "red")
-			.style("stroke-dasharray", ("3, 3"))
-			.style("fill", "none");
+	g.append("line")
+		.attr("class", "catLine")
+		.attr("id", "actLine")
+		.attr("x1", 1970)  
+		.attr("y1", -30)
+		.attr("x2", 1970) 
+		.attr("y2", 250)
+		.style("stroke-width", 2)
+		.style("stroke", "red")
+		.style("stroke-dasharray", ("3, 3"))
+		.style("fill", "none");
 
-		g.append("text")
-			.attr("text-anchor", "middle")
-			.attr("y", 0)
-			.attr("x", 1703)
-			.text("Activate Functions")
-				.attr("font-family", "sans-serif")
-				.attr("font-size", "18px")
-				.attr("fill", "black");	
+	g.append("text")
+		.attr("text-anchor", "middle")
+		.attr("y", 0)
+		.attr("x", 1703)
+		.text("Activate Functions")
+			.attr("font-family", "sans-serif")
+			.attr("font-size", "18px")
+			.attr("fill", "black");	
 
-		g.append("text")
-			.attr("text-anchor", "middle")
-			.attr("y", 0)
-			.attr("x", 2235)
-			.text("Loss Functions")
-				.attr("font-family", "sans-serif")
-				.attr("font-size", "18px")
-				.attr("fill", "black");	
-	}	
+	g.append("text")
+		.attr("text-anchor", "middle")
+		.attr("y", 0)
+		.attr("x", 2235)
+		.text("Loss Functions")
+			.attr("font-family", "sans-serif")
+			.attr("font-size", "18px")
+			.attr("fill", "black");	
 
 	for (var ind=0; ind<legendArr.length; ind++) {
 		var leName = legendArr[ind]['name'];
@@ -299,10 +297,10 @@ function createLegend(projectNodes, nodesData, nodesType='None') {
 			.attr("y", height-20)
 			.attr("width", x.bandwidth()+5)
 			.attr("height", 40)
-			.attr("fill", leC)
+			.attr("fill", leC)/*
 			.on("click", function() {
 				click_3(this.id.split("-")[1].replace(" ", "_"), nodesData, projectNodes);
-			});
+			})*/;
 
 		g.append("text")
 		.attr("text-anchor", "middle")

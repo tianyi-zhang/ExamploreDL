@@ -32,7 +32,7 @@ function mainDraw(idList, nodesData, hyper) {
 	var resetText = resetG.append('text')
 		.attr('text-anchor', 'middle')
 		.attr('x', 100)
-		.attr('y', 25)
+		.attr('y', 30)
 		.text("RESET")
 			.style("font-size", 20)
 			.style("fill", "#ffffff");
@@ -51,6 +51,8 @@ function mainDraw(idList, nodesData, hyper) {
 			.style("border-collapse", "collapse");
 		hyperparameterChart(hyper);
 		drawSankey(sankeyData, sankeyId, projectNodes, net_li);
+		document.getElementById("chart").scrollTop;
+		document.getElementById("chart").scrollLeft;
 	});
 
 	resetText.on('click', function() {
@@ -67,6 +69,8 @@ function mainDraw(idList, nodesData, hyper) {
 			.style("border-collapse", "collapse");
 		hyperparameterChart(hyper);
 		drawSankey(sankeyData, sankeyId, projectNodes, net_li);
+		document.getElementById("chart").scrollTop;
+		document.getElementById("chart").scrollLeft;
 	});
 }
 
@@ -174,7 +178,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 	var max_length = data[1];
 	var totalNum = data[2];
 	var margin = {top: 10, right: 10, bottom: 10, left: 10},
-			width = (max_length+1)*100 - margin.left - margin.right,
+			width = (max_length+1)*150 - margin.left - margin.right,
 			height = totalNum*50 - margin.top - margin.bottom;
 
 	var sankeyHeight = idList.length*50 - 50;
@@ -202,7 +206,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 	const f = d3.format(",.0f");
 	const format = d => `${f(d)}`;
 
-	var wid_svg = d3.max([(max_length+1)*100 + 70, 2000]);
+	var wid_svg = d3.max([(max_length+1)*150 + 70, 2000]);
 	var height_svg = d3.max([780, height]);
 
 	const {

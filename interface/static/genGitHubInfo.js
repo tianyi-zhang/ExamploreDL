@@ -44,6 +44,8 @@ function createNewDiv(parentNode, proName, keyList, record, hyper, proData) {
 	var keyText = document.createTextNode("Project_Name: ");
 	projectInfoDiv.appendChild(keyText);
 	var a = document.createElement("a");
+	a.setAttribute("target", "_blank");
+	a.setAttribute("rel", "noopener noreferrer");
 	a.setAttribute("href", record["URL"]);
 	var text = document.createTextNode(proName);
 	a.appendChild(text);
