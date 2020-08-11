@@ -324,11 +324,9 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 	var zoom = d3.zoom()
 			.scaleExtent([0.3, 5])
 			.on('zoom', function() {
-				d3.select("#allG")
-					.attr('transform', d3.event.transform);})
+				d3.select("#allG").attr('transform', d3.event.transform);})
 			.on("end", function() {
-				d3.select("#allG")
-					.attr('transform', d3.event.transform);
+				d3.select("#allG").attr('transform', d3.event.transform);
 				/*
 				var t = d3.zoomTransform(this);
 				var zoomed1 = t.invert([0, y1]);
