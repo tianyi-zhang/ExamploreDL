@@ -179,9 +179,9 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 	var totalNum = data[2];
 	var margin = {top: 10, right: 10, bottom: 10, left: 10},
 			width = (max_length+1)*150 - margin.left - margin.right,
-			height = totalNum*50 - margin.top - margin.bottom;
+			height = totalNum*100 - margin.top - margin.bottom;
 
-	var sankeyHeight = idList.length*50 - 50;
+	var sankeyHeight = idList.length*100 - 50;
 	var sankeyWidth = width-100;
 	
 	var viewBoxHeight = 0;
@@ -190,7 +190,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 	const _sankey = d3.sankey()
 		.nodeAlign(d3[`sankey${"Left"}`])
 		.nodeWidth(10)
-		.nodePadding(2)
+		.nodePadding(20)
 		.extent([
 			[1, 1],
 			[sankeyWidth, sankeyHeight]
@@ -312,8 +312,8 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 			.text(d => d.name.split("-")[0])
 			.attr("fill", function(d) {
 				var leName = d.name.split("-")[0]
-				if (leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh') {
-					return "#d2dfde"
+				if (leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh' || leName=='Softmax' || leName=='Argmax') {
+					return "#000080"
 				} else {
 					return "#ffffff"
 				}

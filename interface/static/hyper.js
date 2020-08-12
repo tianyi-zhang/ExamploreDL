@@ -182,6 +182,24 @@ var hyperparameterChart = function(hyperData, tarId='') {
 							return "#BBB5F0";
 						}
 					});
+				})
+				.on("click", function(d) {
+					d3.selectAll("#"+this.id).style("fill", "#BBB5F0");
+					d3.select(this).attr("fill", "#8D85EE");
+					var chartSvg = d3.select("#chart");
+					chartSvg.selectAll("rect").style("opacity", 0.35);
+					chartSvg.selectAll("path").style("opacity", 0.35);
+					for (const key in hyperData) {
+						if (hyperData[key][this.id]==d['name']) {
+							var divId = csvData[key]['Project_Name']+'_'+key;
+							var highlightNodes = nodesData[2][key];
+							for (var i=0; i<highlightNodes.length; i++) {
+								chartSvg.select("#path"+highlightNodes[i]).style("opacity", 1);
+								chartSvg.select("#"+highlightNodes[i]).style("opacity", 1);
+							}
+							document.getElementById(divId).style.background = '#8D85EE';
+						}
+					}
 				});
 
 		text_pos.push(inside_li); 

@@ -311,8 +311,8 @@ function createLegend(projectNodes, nodesData) {
 			.attr("font-size", "14px")
 			.attr("font-weight", "100")
 			.attr("fill", function() {
-				if (leName=='Argmax' || leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh') {
-					return "#d2dfde"
+				if (leName=='Argmax' || leName=='Softmax' || leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh') {
+					return "#000080"
 				} else {
 					return "#ffffff"
 				}
@@ -333,8 +333,8 @@ function createLegend(projectNodes, nodesData) {
 			.attr("font-size", "16px")
 			.attr("font-weight", "100")
 			.attr("fill", function() {
-				if (leName=='Argmax' || leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh') {
-					return "#d2dfde"
+				if (leName=='Argmax' || leName=='Softmax' || leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh') {
+					return "#000080"
 				} else {
 					return "#ffffff"
 				}

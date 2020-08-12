@@ -1,6 +1,6 @@
 var json_file = "./static/output.json";
 var mixData = readCSVFile('./static/projects.csv');
-var filterData, csvData;
+var filterData, csvData, nodesData;
 
 function union(setA, setB) {
     let _union = new Set(setA);
@@ -43,7 +43,7 @@ mixData.then(function(oriData) {
 	for (var ind=0; ind<csvData.length; ind++) {
 		allId.push(csvData[ind]["ID"]);
 	}
-
+	createClearButton(allId);
 	d3.selectAll("#myCheckbox").on("click",clickFilter);
 	function clickFilter() {
 		var dsElements = document.getElementsByClassName('datasetsTr'),
@@ -57,22 +57,7 @@ mixData.then(function(oriData) {
 		idList = Array.from(idSet)
 		var checkLength = idList.length;
 		if (checkLength==0) {
-			idList = allId;
-			updateFilterSVG(idList);
-			d3.selectAll("#chart").remove();
-			d3.selectAll(".slider-xaxis").remove();
-			d3.selectAll(".slider-rect").remove();
-			d3.selectAll(".slider-text").remove();
-			d3.selectAll(".brush").remove();
-			d3.selectAll(".handle--custom").remove();
-			d3.selectAll(".slider-label").remove();
-			d3.selectAll("#thumbnail").remove();
-			d3.selectAll(".newProjectDiv").remove();
-			d3.selectAll(".projectInfoDiv").remove();
-			d3.selectAll("#legendSvg").remove();
-			d3.selectAll("#paraLegend").remove();
-			d3.selectAll(".paraChart").remove();
-			document.getElementById("sankeyInfo").innerHTML = "Number of Projects: 0; Number of Models: 0";
+			idList = zeroChecked(allId);
 		} else {
 			d3.selectAll("#viewbtn").each(function(d){
 				var cb = d3.select(this);
@@ -99,3 +84,71 @@ mixData.then(function(oriData) {
 		}
 	}
 });
+
+function zeroChecked(allId) {
+	updateFilterSVG(allId);
+	d3.selectAll("#chart").remove();
+	d3.selectAll(".slider-xaxis").remove();
+	d3.selectAll(".slider-rect").remove();
+	d3.selectAll(".slider-text").remove();
+	d3.selectAll(".brush").remove();
+	d3.selectAll(".handle--custom").remove();
+	d3.selectAll(".slider-label").remove();
+	d3.selectAll("#thumbnail").remove();
+	d3.selectAll(".newProjectDiv").remove();
+	d3.selectAll(".projectInfoDiv").remove();
+	d3.selectAll("#legendSvg").remove();
+	d3.selectAll("#paraLegend").remove();
+	d3.selectAll(".paraChart").remove();
+	document.getElementById("sankeyInfo").innerHTML = "Number of Projects: 0; Number of Models: 0";
+	return allId;
+}
+
+function createClearButton(allId) {
+	function clearChecks(className) {
+		var allElements = document.getElementsByClassName(className);
+	    for(i = 0; i < allElements.length; i++){
+	        if(allElements[i].id == 'myCheckbox') {
+	        	allElements[i].checked = false;
+	        }
+	    }
+	}
+
+	var clearG = d3.select("#clearAllFacetsSvg")
+		.attr('width', 200)
+		.attr('height', 40)
+		.append('g')
+			.attr('id', 'clearG')
+			.attr("transform", "translate(0,0)");
+
+	var clearRect = clearG.append('rect')
+		.attr('id', 'resetRect')
+		.attr('x', 0)
+		.attr('y', 5)
+		.attr('width', 180)
+		.attr('height', 30)
+		.attr('rx', 10)
+		.attr("ry", 10)
+		.attr('fill', "#22B9FE")
+		.on('click', function() {
+			clearChecks("datasetsTr");
+			clearChecks("tasksTr");
+			clearChecks("modelsTr");
+			zeroChecked(allId);
+		});
+
+	var clearText = clearG.append('text')
+		.attr('text-anchor', 'middle')
+		.attr('x', 90)
+		.attr('y', 28)
+		.text("RESET FACETS")
+			.style("font-family", "sans-serif")
+			.style("font-size", 20)
+			.style("fill", "#ffffff")
+			.on('click', function() {
+				clearChecks("datasetsTr");
+			clearChecks("tasksTr");
+			clearChecks("modelsTr");
+				zeroChecked(allId);
+			});
+}

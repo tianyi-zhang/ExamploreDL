@@ -2,27 +2,27 @@ var click_1 = function(d, nodes, projectNodes, flag='nodes') {
 	d3.selectAll(".bar").attr("fill", "#BBB5F0");
 	var svg = d3.select('#chart');
 	if (flag == 'nodes') {
+		var nodeName = d['name'];
 		svg.selectAll("rect").style("opacity", 0.35);
-		svg.selectAll("rect").attr("stroke", "#ffffff");
 		svg.selectAll("path").style("opacity", 0.35);
-		svg.selectAll("#"+d.name.replace(" ", "_")).attr("stroke", "#000C3C");
-		svg.selectAll("#"+d.name.replace(" ", "_")).style("opacity", 1);
-		svg.selectAll("#path" + d.name.replace(" ", "_")).style("opacity", 1);
-		var pc = generateParameterChart(d.category, nodes, d.args);
+		svg.selectAll("#"+nodeName.replace(" ", "_")).attr("stroke", "#000C3C");
+		svg.selectAll("#"+nodeName.replace(" ", "_")).style("opacity", 1);
+		svg.selectAll("#path" + nodeName.replace(" ", "_")).style("opacity", 1);
+		var pc = generateParameterChart(d['category'], nodes, d['args']);
 		var proIdList = [];
 		for (const key in projectNodes) {
-			if (projectNodes[key].includes(d.name)) {
-				proIdList.push(key);
+			if (projectNodes[key].includes(nodeName)) {
+				var divId = csvData[key]['Project_Name']+'_'+key;
+				document.getElementById(divId).style.background = '#8D85EE';
 			}
 		}
-		genInfo(proIdList, projectNodes);
 	} else {
+		var nodeName = d['target']['name'];
 		svg.selectAll("rect").style("opacity", 0.35);
-		svg.selectAll("rect").attr("stroke", "#ffffff");
 		svg.selectAll("path").style("opacity", 0.35);
-		svg.selectAll("#"+d.target.name.replace(" ", "_")).attr("stroke", "#000C3C");
-		svg.selectAll("#"+d.target.name.replace(" ", "_")).style("opacity", 1);
-		svg.selectAll("#path" + d.target.name.replace(" ", "_")).style("opacity", 1);
+		svg.selectAll("#"+nodeName.replace(" ", "_")).attr("stroke", "#000C3C");
+		svg.selectAll("#"+nodeName.replace(" ", "_")).style("opacity", 1);
+		svg.selectAll("#path" + nodeName.replace(" ", "_")).style("opacity", 1);
 
 		for (var i=0; i<nodes.length; i++) {
 			if (d.target.name == nodes[i]['name']) {
@@ -32,13 +32,12 @@ var click_1 = function(d, nodes, projectNodes, flag='nodes') {
 		}
 		var proIdList = [];
 		for (const key in projectNodes) {
-			if (projectNodes[key].includes(d.target.name)) {
-				proIdList.push(key);
+			if (projectNodes[key].includes(nodeName)) {
+				var divId = csvData[key]['Project_Name']+'_'+key;
+				document.getElementById(divId).style.background = '#8D85EE';
 			}
 		}
-		genInfo(proIdList, projectNodes);
 	}
-	
 }
 /*
 var click_2 = function(d, typeDic) {

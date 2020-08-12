@@ -442,7 +442,7 @@ var genData = function(idList, path, viewName='oriView') {
 			if (viewName=='oriView') {	
 				var [node_dic, link_dic, node_args, new_net_li] = generate_flow_txt(net_li, arg_li, colorDic);
 				var proj = genjson(node_dic, link_dic, node_args, colorDic);
-				var nodesData = [[proj, max_length, totalNum], idList, proNode, allProNodes];
+				nodesData = [[proj, max_length, totalNum], idList, proNode, allProNodes];
 				mainDraw(idList, nodesData, hyper);
 				genInfo(idList, proNode, hyper);
 				var e = document.getElementById("GitHub-select");
@@ -502,7 +502,7 @@ var genData = function(idList, path, viewName='oriView') {
 							for (var z=0; z<new_net_li.length; z++) {
 								newProNode[idList[z]] = new_net_li[z];
 							}
-							var nodesData = [[proj, max_length, totalNum], idList, newProNode, allProNodes, new_net_li];
+							nodesData = [[proj, max_length, totalNum], idList, newProNode, allProNodes, new_net_li];
 							mainDraw(idList, nodesData, hyper);
 							genInfo(idList, newProNode, hyper);
 							var e = document.getElementById("GitHub-select");
