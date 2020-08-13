@@ -191,11 +191,11 @@ var hyperparameterChart = function(hyperData, tarId='') {
 					chartSvg.selectAll("path").style("opacity", 0.35);
 					for (const key in hyperData) {
 						if (hyperData[key][this.id]==d['name']) {
-							var divId = csvData[key]['Project_Name']+'_'+key;
+							var divId = csvData[key]['Project_Name'].replace("_", "-")+'_'+key;
 							var highlightNodes = nodesData[2][key];
 							for (var i=0; i<highlightNodes.length; i++) {
-								chartSvg.select("#path"+highlightNodes[i]).style("opacity", 1);
-								chartSvg.select("#"+highlightNodes[i]).style("opacity", 1);
+								chartSvg.select("#path"+highlightNodes[i].replace(" ", "_")).style("opacity", 1);
+								chartSvg.select("#"+highlightNodes[i].replace(" ", "_")).style("opacity", 1);
 							}
 							document.getElementById(divId).style.background = '#8D85EE';
 						}
