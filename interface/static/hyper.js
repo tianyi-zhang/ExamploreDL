@@ -91,16 +91,21 @@ var hyperparameterChart = function(hyperData, tarId='') {
 	drawLegend("hyper", maxNum);
 	for (i=0; i<return_li.length; i++) { 
 		var nowKey = return_li[i].key
-		var Mysvg = d3.select("#paraChart").append("svg")
+		var mySvg = d3.select("#paraChart").append("svg")
 			.attr("id", 'paraSvg-'+i)
 			.attr("class", "paraChart")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom);
 
-		[x, y, bins] = hist(Mysvg, return_li[i]);
+		[x, y, bins] = hist(mySvg, return_li[i]);
 
 		var inside_li = [];
-		var hyperG = Mysvg.append("g")
+
+		var tooltipG = mySvg.append("g")
+			.attr('id', 'tooltipG'+(i))
+			.attr("transform", "translate(0,40)");
+
+		var hyperG = mySvg.append("g")
 			.attr('id', 'hyperG'+(i))
 			.attr("transform", "translate(20,40)");
 
@@ -136,12 +141,14 @@ var hyperparameterChart = function(hyperData, tarId='') {
 				.on("mouseover", function(d) {
 					d3.selectAll("#tooltipRect").remove();
 					d3.selectAll(".toolText").remove();
-					d3.select(this).style("fill", "#ccc");
-					var selectG = d3.select("#"+this.parentNode.id);
+					d3.select(this).style("fill", "#8D85EE");
+					var circles = this.id,
+						thisCir = d3.select(this);
+					var selectG = d3.select("#"+(this.parentNode.id).replace("hyperG", "tooltipG"));
 					var toolRect = selectG.append("rect")
 						.attr("id", "tooltipRect")
 						.attr("x", 50)
-						.attr("y", 30)
+						.attr("y", 0)
 						.attr("height", 50)
 						.attr("width", 230)
 						.attr("rx", 6)
@@ -152,7 +159,7 @@ var hyperparameterChart = function(hyperData, tarId='') {
 					var topicText = selectG.append("text")
 						.attr("class", "toolText")
 						.attr("x", 60)
-						.attr("y", 50)
+						.attr("y", 20)
 						.text(this.id+": "+d.name)
 						.attr("font-size","18px")
 						.attr("color", "#BBB5F0");
@@ -160,7 +167,7 @@ var hyperparameterChart = function(hyperData, tarId='') {
 					var valueText = selectG.append("text")
 						.attr("class", "toolText")
 						.attr("x", 60)
-						.attr("y", 70)
+						.attr("y", 40)
 						.text(d.value+" projects use this value.")
 						.attr("font-size","18px")
 						.attr("color", "#BBB5F0");
@@ -184,7 +191,8 @@ var hyperparameterChart = function(hyperData, tarId='') {
 					});
 				})
 				.on("click", function(d) {
-					d3.selectAll("#"+this.id).style("fill", "#BBB5F0");
+					d3.selectAll(".chart2-text").remove();
+					d3.selectAll(".hyper-cir").style("fill", "#BBB5F0");
 					d3.select(this).attr("fill", "#8D85EE");
 					var chartSvg = d3.select("#chart");
 					chartSvg.selectAll("rect").style("opacity", 0.35);
@@ -206,7 +214,7 @@ var hyperparameterChart = function(hyperData, tarId='') {
 		
 		for (j=0; j<inside_li.length; j++) {
 
-			Mysvg
+			mySvg
 				.append("text")
 				.attr("class", "chart2-text")
 				.attr("text-anchor", "middle")
@@ -219,9 +227,9 @@ var hyperparameterChart = function(hyperData, tarId='') {
 				.style("fill", "#ffffff")
 		}
 
-		Mysvg
+		mySvg
 			.append("text")
-			.attr("class", "chart2-text")
+			.attr("class", "chart2-header")
 			.attr("text-anchor", "middle")
 			.attr("y", 20)
 			.attr("x", (width/2+20))
@@ -233,7 +241,7 @@ var hyperparameterChart = function(hyperData, tarId='') {
 
 		if (nowKey in returnHyper[1]) {
 
-			Mysvg
+			mySvg
 				.append("rect")
 				.attr("class", "chart2-text")
 				.attr("y", 35)
@@ -244,7 +252,7 @@ var hyperparameterChart = function(hyperData, tarId='') {
 				.attr("rx", 6)
 				.attr("ry", 6);
 
-			Mysvg
+			mySvg
 				.append("text")
 				.attr("class", "chart2-text")
 				.attr("text-anchor", "middle")

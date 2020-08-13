@@ -12,7 +12,7 @@ var click_1 = function(d, nodes, projectNodes, flag='nodes') {
 		var proIdList = [];
 		for (const key in projectNodes) {
 			if (projectNodes[key].includes(nodeName)) {
-				var divId = csvData[key]['Project_Name']+'_'+key;
+				var divId = csvData[key]['Project_Name'].replace("_", "-")+'_'+key;
 				document.getElementById(divId).style.background = '#8D85EE';
 			}
 		}
@@ -33,7 +33,7 @@ var click_1 = function(d, nodes, projectNodes, flag='nodes') {
 		var proIdList = [];
 		for (const key in projectNodes) {
 			if (projectNodes[key].includes(nodeName)) {
-				var divId = csvData[key]['Project_Name']+'_'+key;
+				var divId = csvData[key]['Project_Name'].replace("_", "-")+'_'+key;
 				document.getElementById(divId).style.background = '#8D85EE';
 			}
 		}

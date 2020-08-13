@@ -241,14 +241,14 @@ var get_data = function(d_node, selected_cat) {
 	return return_li;
 }
 
-var generateParameterChart = function(selected_cat, json_data, target_args) {
+var generateParameterChart = function(selected_cat, jsonData, target_args) {
 
 	d3.selectAll(".paraChart").remove();
 
 	var margin = {top: 30, right: 0, bottom: 30, left: 50},
 			width = 300 - margin.left - margin.right,
 			height = 180 - margin.top - margin.bottom;
-	var return_li = get_data(json_data, selected_cat);
+	var return_li = get_data(jsonData, selected_cat);
 
 	var hist = function(svgThis, data) {
 
@@ -294,17 +294,23 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 	for (i=0; i<return_li.length; i++) { 	
 
 		var nowKey = return_li[i].key;
-		var Mysvg = d3.select("#paraChart").append("svg")
+		var mySvg = d3.select("#paraChart").append("svg")
 			.attr("id", 'paraSvg-'+i)
 			.attr("class", "paraChart")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom);
 
-		[x, y, bins] = hist(Mysvg, return_li[i]);
+		[x, y, bins] = hist(mySvg, return_li[i]);
 		var inside_li = [];
-		var paraG = Mysvg.append("g")
+
+		var tooltipG = mySvg.append("g")
+			.attr('id', 'tooltipG'+(i))
+			.attr("transform", "translate(0,40)");
+
+		var paraG = mySvg.append("g")
 			.attr('id', 'paraG'+(i))
 			.attr("transform", "translate(20,40)");
+
 		paraG.selectAll(".para-cir")
 			.data(bins)
 			.enter()
@@ -333,8 +339,8 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 				.on("mouseover", function(d) {
 					d3.selectAll("#tooltipRect").remove();
 					d3.selectAll(".toolText").remove();
-					var selectG = d3.select("#"+this.parentNode.id);
-					d3.select(this).style("fill", "#ccc");
+					var selectG = d3.select("#"+(this.parentNode.id).replace("paraG", "tooltipG"));
+					d3.select(this).style("fill", "#8D85EE");
 					var toolRect = selectG.append("rect")
 						.attr("id", "tooltipRect")
 						.attr("x", 50)
@@ -380,13 +386,27 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 							return "#BBB5F0";
 						}
 					});
+				})
+				.on("click", function(d) {
+					d3.selectAll(".chart2-text").remove();
+					d3.selectAll(".para-cir").style("fill", "#BBB5F0");
+					d3.select(this).attr("fill", "#8D85EE");
+					var chartSvg = d3.select("#chart");
+					chartSvg.selectAll("rect").style("opacity", 0.35);
+					chartSvg.selectAll("path").style("opacity", 0.35);
+					for (var i=0; i<jsonData.length; i++) {
+						if (jsonData[i]['args'][this.id] == d['name']) {
+							chartSvg.select("#path"+jsonData[i]['name'].replace(" ", "_")).style("opacity", 1);
+							chartSvg.select("#"+jsonData[i]['name'].replace(" ", "_")).style("opacity", 1);
+						}	
+					}
 				});
 
 		text_pos.push(inside_li); 
 		
 		for (j=0; j<inside_li.length; j++) {
 
-			Mysvg
+			mySvg
 				.append("text")
 				.attr("class", "chart2-text")
 				.attr("text-anchor", "middle")
@@ -399,9 +419,9 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 				.style("fill", "#ffffff")
 		}
 
-		Mysvg
+		mySvg
 			.append("text")
-			.attr("class", "chart2-text")
+			.attr("class", "chart2-header")
 			.attr("text-anchor", "middle")
 			.attr("y", 20)
 			.attr("x", (width/2+20))
@@ -412,7 +432,7 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 				.attr("fill", "#505050");
 
 		if (target_args !== "none" && (nowKey in target_args)) {
-			var selectText = Mysvg.append("rect")
+			var selectText = mySvg.append("rect")
 				.attr("class", "chart2-text")
 				.attr("y", 35)
 				.attr("x", 0)
@@ -422,7 +442,7 @@ var generateParameterChart = function(selected_cat, json_data, target_args) {
 				.attr("rx", 6)
 				.attr("ry", 6);
 
-			Mysvg
+			mySvg
 				.append("text")
 				.attr("class", "chart2-text")
 				.attr("text-anchor", "middle")
