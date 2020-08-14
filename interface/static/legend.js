@@ -267,7 +267,7 @@ function createLegend(projectNodes, nodesData) {
 		.attr("text-anchor", "middle")
 		.attr("y", 0)
 		.attr("x", 1703)
-		.text("Activate Functions")
+		.text("Activation Functions")
 			.attr("font-family", "sans-serif")
 			.attr("font-size", "18px")
 			.attr("fill", "black");	
