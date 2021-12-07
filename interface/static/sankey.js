@@ -178,7 +178,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 	var max_length = data[1];
 	var totalNum = data[2];
 	var margin = {top: 10, right: 10, bottom: 10, left: 10},
-			width = (max_length+1)*150 - margin.left - margin.right,
+			width = (max_length+1)*300 - margin.left - margin.right,
 			height = totalNum*100 - margin.top - margin.bottom;
 
 	var sankeyHeight = idList.length*100 - 50;
@@ -206,7 +206,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 	const f = d3.format(",.0f");
 	const format = d => `${f(d)}`;
 
-	var wid_svg = d3.max([(max_length+1)*150 + 70, 2000]);
+	var wid_svg = d3.max([(max_length+1)*350 + 70, 2000]);
 	var height_svg = d3.max([780, height]);
 
 	const {
@@ -300,7 +300,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 	allG.append("g")
 		.attr("id", 'textG')
 		.attr("font-family", "sans-serif")
-		.attr("font-size", 15)
+		.attr("font-size", 20)
 		.attr("font-weight", "100")
 		.selectAll("text")
 		.data(newNodes)
@@ -313,7 +313,7 @@ function drawSankey(data, idList, projectNodes, net_li=[]) {
 			.attr("fill", function(d) {
 				var leName = d.name.split("-")[0]
 				if (leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh' || leName=='Softmax' || leName=='Argmax') {
-					return "#000080"
+					return "#64A893"
 				} else {
 					return "#ffffff"
 				}

@@ -452,7 +452,12 @@ var generateParameterChart = function(selected_cat, jsonData, target_args) {
 					if (target_args[nowKey].length == 0) {
 						return false;
 					} else {
-						return nowKey+" = ["+target_args[nowKey]+"]";
+						var paraVal = target_args[nowKey].sort( function( a , b){
+						    if(a > b) return 1;
+						    if(a < b) return -1;
+						    return 0;
+						});
+						return nowKey+" = ["+paraVal+"]";
 					}
 				})
 				.style("font-family", "sans-serif")

@@ -148,7 +148,7 @@ var hyperparameterChart = function(hyperData, tarId='') {
 					var toolRect = selectG.append("rect")
 						.attr("id", "tooltipRect")
 						.attr("x", 50)
-						.attr("y", 0)
+						.attr("y", 40)
 						.attr("height", 50)
 						.attr("width", 230)
 						.attr("rx", 6)
@@ -159,7 +159,7 @@ var hyperparameterChart = function(hyperData, tarId='') {
 					var topicText = selectG.append("text")
 						.attr("class", "toolText")
 						.attr("x", 60)
-						.attr("y", 20)
+						.attr("y", 60)
 						.text(this.id+": "+d.name)
 						.attr("font-size","18px")
 						.attr("color", "#BBB5F0");
@@ -167,7 +167,7 @@ var hyperparameterChart = function(hyperData, tarId='') {
 					var valueText = selectG.append("text")
 						.attr("class", "toolText")
 						.attr("x", 60)
-						.attr("y", 40)
+						.attr("y", 80)
 						.text(d.value+" projects use this value.")
 						.attr("font-size","18px")
 						.attr("color", "#BBB5F0");

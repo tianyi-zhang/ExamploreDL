@@ -1,37 +1,37 @@
 function createLegend(projectNodes, nodesData) {
 	var colorDic = {
-		'Convolution': "#20C6FE",
-		'Deconvolution': "#4dd2fe",
-		'Max Pooling': "#0F7BA3",
-		'Average Pooling': "#0b5875",
+		'Convolution': "#659DBD",
+		'Deconvolution': "#C5CBE3",
+		'Max Pooling': "#97CAEF",
+		'Average Pooling': "#90CCF4",
 		//
 		'LSTM': "#D48E9C",
 		'GRU': "#C46677",
 		'BiRNN': "#bf596c",
 		'RNN': "#B43F56",
-		'CRF': "#97293E",
-		'Attention': "#6E202F",
+		'CRF': "#C96567",
+		'Attention': "#B19F9E",
 		//
-		'Input': "#D8C28E",
-		'Dense': "#C9AB66",
-		'Flatten': "#179D3E",
-		'Dropout': "#aa883c",
+		'Input': "#EDF5E1",
+		'Dense': "#8EE4AF",
+		'Flatten': "#5CDB95",
+		'Dropout': "#379683",
 		//
-		'Embedding': "#ff1a1f",
-		'Normalization': "#DD0005",
+		'Embedding': "#E3E2DF",
+		'Normalization': "#E3AFBC",
 		//		
-		'Argmax': "#ffff80",			
-		'ReLu': "#FFFF17",
-		'Sigmoid': "#FFFF6D",
-		'Softmax': "#DFE509",
-		'Linear': "#f7fa84",
-		'tanh': "#f1f622",
+		'Argmax': "#FEF9C7",			
+		'ReLu': "#EFE2BA",
+		'Sigmoid': "#DAAD86",
+		'Softmax': "#FBEEC1",
+		'Linear': "#E4C580",
+		'tanh': "#CEBC81",
 		//
-		'Cross Entropy': "#FC20FF",
-		'Reduce Mean': "#7e0080",
-		'CTC': "#fc1aff",
-		'L2': "#e200e6",
-		'MSE': "#b000b3"
+		'Cross Entropy': "#EAE7DC",
+		'Reduce Mean': "#D8C3A5",
+		'CTC': "#DA7B93",
+		'L2': "#F0EBF4",
+		'MSE': "#F3E0DC"
 	};
 	var typeDic = {
 		'Convolution': "CNN",
@@ -133,8 +133,15 @@ function createLegend(projectNodes, nodesData) {
 	yAxisGenerator.ticks(5, ".3");
 	
 	g.append("g")
+		.attr("class","legned-y")
 		.attr("transform", "translate(0," + (-30) + ")")
 		.call(yAxisGenerator);
+
+	g.select(".legned-y")
+		.selectAll("text")
+			.style('font-style','italic')
+			.style('font-family','Arial')
+			.style('font-size','20')
 
 	let xAxisGenerator = d3.axisBottom(x);
 	g.append("g")
@@ -312,7 +319,7 @@ function createLegend(projectNodes, nodesData) {
 			.attr("font-weight", "100")
 			.attr("fill", function() {
 				if (leName=='Argmax' || leName=='Softmax' || leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh') {
-					return "#000080"
+					return "#64A893"
 				} else {
 					return "#ffffff"
 				}
@@ -334,7 +341,7 @@ function createLegend(projectNodes, nodesData) {
 			.attr("font-weight", "100")
 			.attr("fill", function() {
 				if (leName=='Argmax' || leName=='Softmax' || leName=='ReLu' || leName=='Sigmoid' || leName=='Linear' || leName=='tanh') {
-					return "#000080"
+					return "#64A893"
 				} else {
 					return "#ffffff"
 				}
