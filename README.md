@@ -7,3 +7,15 @@ A neural network analysis and visualization framework that enables programmers t
 3. Go to the `./ExamploreDL/interface/` folder using `cd ./ExamploreDL/interface/`;
 4. Enter `flask run` to run our project;
 5. Follow the information displayed on the terminal, and then open the link on the browser.
+
+
+# Running in Docker
+Install Docker locally, then run the following commands from the ExamploreDL directory to launch the docker container. 
+
+`docker build . -t examploredl`
+`docker run -p 8080:5000 examploredl`
+
+You will then be able to access the application in your browser at localhost:8080.
+
+**NOTE**: this launches the application in development mode. This is NOT recommended for production as the Flask development server is considered insecure.
+
