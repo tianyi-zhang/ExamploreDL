@@ -1,7 +1,5 @@
 FROM amd64/ubuntu:18.04
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
@@ -19,6 +17,3 @@ RUN curl -O https://mafft.cbrc.jp/alignment/software/mafft_7.490-1_amd64.deb
 RUN dpkg -i mafft_7.490-1_amd64.deb
 
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
-
-
-# ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
