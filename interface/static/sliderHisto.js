@@ -205,12 +205,13 @@ var histogramSlider = function(svgId, data, nodesData) {
 function moveProcess(sx, data, svgId, nodesData) {
 
 	var svgIdList = ['starsSvg', 'forksSvg'];
-	var idList = [];
+	var newIdList = [];
 	for (const key in data) {
 		if (sx[0] <= data[key] && data[key] <= sx[1]) {
-			idList.push(key);
+			newIdList.push(key);
 		}
 	}	
+	idList = newIdList;
 	updateFilterSVG(idList, '');	
 	var JSONpath = './static/data.json';
 	var val = document.querySelector("input[name=view]:checked").value;
